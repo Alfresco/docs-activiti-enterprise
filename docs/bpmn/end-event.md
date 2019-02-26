@@ -1,4 +1,9 @@
+---
+Title: End events
+---
+
 # End events
+
 End events indicate where process execution stops and the process completes. 
 
 End events are graphically represented by a single thick circle without an icon inside. 

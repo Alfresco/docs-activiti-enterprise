@@ -1,5 +1,12 @@
+---
+Title: Exclusive gateways
+---
+
 # Exclusive gateways
-Exclusive gateways represent a decision within a process. Once the process flow reaches an exclusive gateway, all of the outgoing sequence flow options are evaluated in the order they are defined. The first option that evaluates to true is the sequence flow that is followed. 
+
+Exclusive gateways represent a decision within a process.
+
+Once the process flow reaches an exclusive gateway, all of the outgoing sequence flow options are evaluated in the order they are defined. The first option that evaluates to true is the sequence flow that is followed. 
 
 Exclusive gateways are graphically represented by a single thin diamond shape with an X icon inside. 
 

@@ -1,5 +1,12 @@
+---
+Title: Start events
+---
+
 # Start events
-A process must always contain at least one start event as they define how a process starts. Start events are where the trigger is unspecified for starting a process. 
+
+A process must always contain at least one start event as they define how a process starts.
+
+Start events are where the trigger is unspecified for starting a process. 
 
 Start events can have a form associated with them to begin the process, though it is important to note that the process will not begin until the form has been submitted. Alternatively, processes with a start event can be started manually. 
 

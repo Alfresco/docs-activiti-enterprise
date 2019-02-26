@@ -1,5 +1,13 @@
+---
+Title: Deployment
+---
+
 # Deployment
+
+This page describes the options for deploying Alfresco Activiti Enterprise.
+
 ## Prerequisites
+
 The following table details the technologies that are required and that you should be familiar with in order to successfully deploy Alfresco Activiti Enterprise on Amazon Web Services (AWS) Amazon Elastic Container Service for Kubernetes (EKS). 
 
 **Note**: You can only install a single application with Alfresco Activiti Enterprise.
@@ -13,6 +21,7 @@ The following table details the technologies that are required and that you shou
 |EKS|https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html|
 |Kubernetes Dashboard|https://docs.aws.amazon.com/eks/latest/userguide/dashboard-tutorial.html|
 |AWS CLI|https://github.com/aws/aws-cli#installation|
+
 ## Set up your cluster
 Use an existing cluster to deploy Alfresco Activiti Enterprise into, or create a new one on AWS. If you are setting up a new cluster, the [Amazon EKS Getting Started guide](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html) takes you through the following initial steps:
 

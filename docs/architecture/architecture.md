@@ -1,3 +1,7 @@
+---
+Title: Architectural diagram
+---
+
 # Architectural diagram
 
 The following diagram describes the architecture of Alfresco Activiti Enterprise: 

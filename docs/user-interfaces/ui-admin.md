@@ -1,5 +1,12 @@
+---
+Title: Alfresco Admin Application
+---
+
 # Alfresco Admin Application
-The Alfresco Admin Application is used to manage applications that have been designed in the Alfresco Modeling Application. It gives an overview of running process instances and tasks with options to suspend, delete and edit certain variables of those currently in progress.
+
+The Alfresco Admin Application is used to manage applications that have been designed in the Alfresco Modeling Application.
+
+It gives an overview of running process instances and tasks with options to suspend, delete and edit certain variables of those currently in progress.
 
 The URL for the Admin Application will be in the format: `{my-domain}/alfresco-admin-app`
 

@@ -1,5 +1,12 @@
+---
+Title: Alfresco Modeling Application
+---
+
 # Alfresco Modeling Application
-The Alfresco Modeling Application is used to create and update applications. This includes processes and connectors. All components of an application can be designed using a Graphical User Interface (GUI) and some also contain a JSON editor as well. Users require the APS_MODELER role in order to access the Modeling Application. 
+
+The Alfresco Modeling Application is used to create and update applications, including processes and connectors.
+
+All components of an application can be designed using a Graphical User Interface (GUI) and some also contain a JSON editor as well. Users require the APS_MODELER role in order to access the Modeling Application. 
 
 The URL for the Modeling Application will be in the format: `{my-domain}/activiti-cloud-modeling`
 
