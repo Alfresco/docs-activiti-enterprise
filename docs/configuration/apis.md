@@ -1,4 +1,9 @@
+---
+Title: APIs
+---
+
 # APIs
+
 APIs are accessed differently depending on which service and which application you are querying.
 
 The application name forms part of the API URL:

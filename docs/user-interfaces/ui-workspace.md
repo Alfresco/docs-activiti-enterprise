@@ -1,5 +1,12 @@
+---
+Title: Alfresco Process Workspace
+---
+
 # Alfresco Process Workspace
-The Alfresco Process Workspace is used to view and manage tasks and processes. There are a set of preset filters applied to process and task lists that can be customized or saved into new lists. 
+
+The Alfresco Process Workspace is used to view and manage tasks and processes.
+
+There is a set of preset filters applied to process and task lists that can be customized or saved into new lists. 
 
 The URL for Process Workspace will be in the format: `{my-domain}/alfresco-process-app`
 

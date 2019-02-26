@@ -1,4 +1,9 @@
+---
+Title: Authentication
+---
+
 # Authentication
+
 You can log into the administration console for the Alfresco Identity Service by navigating to `https://activiti-keycloak/{my-domain}/auth` and using the username **admin** and password of **admin**.
 
 **Note**: it is strongly recommended that you update the password for the administration console when you first log into it. 

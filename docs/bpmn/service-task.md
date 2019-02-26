@@ -1,4 +1,9 @@
+---
+Title: Service tasks
+---
+
 # Service tasks
+
 Service tasks are used in conjunction with connectors to allow two-way communication between external systems and a process. 
 
 The implementation property value of a service task matches with a connector name and the appropriate action(s) defined in the connector can be chosen from a dropdown. The implementation value within the XML of the process definition will be the name of the relevant connector. Actions within the Modeling Application will automatically match to the corresponding process variable(s) if their names and data types match.
