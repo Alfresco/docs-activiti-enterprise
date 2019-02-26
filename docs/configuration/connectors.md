@@ -1,3 +1,7 @@
+---
+Title: Cloud Connectors
+---
+
 # Cloud Connectors
 Connectors are used to import data into your process from an external source or system, or to update an external source or system using data from your process. They can also be used to execute logic outside of a runtime bundle and pass the results back to the process.  
 
