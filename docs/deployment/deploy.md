@@ -1,3 +1,7 @@
+---
+Title: Deployment
+---
+
 # Deployment
 ## Prerequisites
 The following table details the technologies that are required and that you should be familiar with in order to successfully deploy Alfresco Activiti Enterprise on Amazon Web Services (AWS) Amazon Elastic Container Service for Kubernetes (EKS). 
