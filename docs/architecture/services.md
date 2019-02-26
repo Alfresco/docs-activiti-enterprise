@@ -1,5 +1,12 @@
+---
+Title: Services
+---
+
 # Services
-Alfresco Activiti Enterprise is comprised of the following microservices and components. An [architectural diagram](../architecture/architecture.md) is also available. 
+
+Alfresco Activiti Enterprise is comprised of the following microservices and components.
+
+An [architectural diagram](../architecture/architecture.md) is also available. 
 
 ## Audit service
 The audit service stores events routed via Spring Cloud Streams (through the Rabbit MQ binder) into its own data store, without any data manipulation. This allows for audit events at an application level to be queried (in a read-only fashion) without contacting a runtime bundle directly. 
