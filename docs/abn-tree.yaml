@@ -1,0 +1,30 @@
+- introduction: 'Introduction'
+- architecture:
+    title: 'Architecture'
+    children:
+        - technology.md: 'Technology'
+        - services.md: 'Services'
+        - architecture.md: 'Overview' 
+- user-interfaces: 
+    title: 'User interfaces'
+    children: 
+        - ui-modeling.md: 'Alfresco Modeling Application'
+        - ui-admin.md: 'Alfresco Administrator Application'
+        - ui-workspace.md: 'Alfresco Process Workspace'
+- deployment: 'Deployment'
+- configuration: 
+    title: 'Configuration'
+    children:
+        - apis.md: 'APIs'
+        - authentication.md: 'Authentication'
+        - connectors.md: 'Cloud Connectors'
+- bpmn:
+    title: 'Cloud-enabled BPMN elements'
+    children:
+        - start-event.md: 'Start events'
+        - end-event.md: 'End events'
+        - user-task.md: 'User tasks'
+        - service-task.md: 'Service tasks'
+        - exclusive-gateway.md: 'Exclusive gateways'
+        - parallel-gateway.md: 'Parallel gateways'
+        - sequence-flow.md: 'Sequence flows'
