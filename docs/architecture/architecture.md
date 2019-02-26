@@ -1,5 +1,5 @@
 ---
-Title: Architectural diagram
+Title: Architecture
 ---
 
 # Architectural diagram
