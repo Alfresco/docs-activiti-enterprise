@@ -71,6 +71,16 @@ Use AWS Route 53 to configure a Domain Name System (DNS) for your cluster. This 
 4. In the Alias Target, enter your ELB address from the output of the Nginx Ingress command ("$ELB_ADDRESS").
 5. Click Create.
 
+## HTTPS (optional)
+Use the AWS certificate manager to configure an SSL certificate for your cluster if required. 
+
+1. Set up a certificate in the Certificates section of AWS using the DNS entry configured in Route 53.
+2. Go to the Load Balancer section on AWS and edit the entry for your cluster.
+3. Amend the Instance Port for TCP 443 to be the Instance Port displayed for TCP 80.
+4. Change the TCP Load Balancer Protocol for port 443 to HTTPS.
+5. Assign the SSL Certificate to this entry. 
+6. Remove all other entries so you are left with only a HTTPS entry.
+
 ## Quay.io credentials 
 The resources for an Alfresco Activiti Enterprise deployment are stored in [Quay.io](https://quay.io/). These are password protected images and require a Kubernetes secret to be set up to access them:
 
