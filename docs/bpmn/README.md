@@ -11,6 +11,6 @@ The BPMN elements currently available in Alfresco Activiti Enterprise are:
 * [Start events](start-event.md)
 * [End events](end-event.md)
 * [Exclusive gateways](exclusive-gateway.md)
-* [Parallel gateways](oarallel-gateway.md)
+* [Parallel gateways](parallel-gateway.md)
 * [User tasks](user-task.md)
 * [Service tasks](service-task.md)
