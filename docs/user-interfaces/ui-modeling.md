@@ -20,12 +20,12 @@ BPMN elements can be created or updated using the drag-and-drop GUI. It is also 
 
 The BPMN elements currently available in Alfresco Activiti Enterprise are: 
 
-* Start events
-* End events
-* Exclusive gateways
-* Parallel sateways
-* User tasks
-* Service tasks
+* [Start events](../bpmn/start-event.md)
+* [End events](../bpmn/end-event.md)
+* [User tasks](../bpmn/user-task.md)
+* [Service tasks](../bpmn/service-task.md)
+* [Exclusive gateways](../bpmn/exclusive-gateway.md)
+* [Parallel gateways](../bpmn/parallel-gateway.md)
 
 ## Connectors
 Connectors are used to import data into your process from an external source or system, or to update an external source or system using data from your process. They are how service tasks are implemented in a process. Connectors can be created or updated through the drag-and-drop GUI or using the JSON editor. 
@@ -33,4 +33,4 @@ Connectors are used to import data into your process from an external source or 
 A connector must have a name and description followed by an unlimited number of actions that each contain input and output parameters of data type; boolean, date, integer or string.
 Connector actions are automatically assigned a UID when they have been linked to a service task in a process definition. 
 
-[Further information](LINK REQUIRED) is available regarding connector configuration.
+[Further information](../configuration/connectors.md) is available regarding Cloud Connectors.

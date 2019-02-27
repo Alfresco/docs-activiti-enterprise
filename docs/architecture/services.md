@@ -42,4 +42,4 @@ When a service task is executed as part of a process instance, the runtime bundl
 The modeling service contains the backend functionality required for the [Alfresco Modeling Application](../user-interfaces/ui-modeling.md). 
 
 ## Alfresco Identity Service
-Alfresco Activiti Enterprise uses the [Alfresco Identity Service](LINK REQUIRED) for authentication and user and role management throughout the product. Authentication can be [configured](LINK REQUIRED) to external identity provider instances such as LDAP and SAML. 
+Alfresco Activiti Enterprise uses the [Alfresco Identity Service](https://docs.alfresco.com/identity/concepts/identity-overview.html) for authentication and user and role management throughout the product. Authentication can be [configured](http://docs.alfresco.com/identity/concepts/identity-configure.html) to external identity provider instances such as LDAP and SAML. 
