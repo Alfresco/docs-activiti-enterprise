@@ -213,7 +213,7 @@ Once you have the pods up and running for the modeling service, visit the follow
 The next step is to create a custom version of a runtime bundle that will include your newly modeled process(es) and application:
 
 1. Download your XML process definitions from the Modeling Application.
-2. Clone `https://git.alfresco.com/process-services/alfresco-example-process-runtime-bundle-service.git` 
+2. Clone `https://git.alfresco.com/process-services-public/alfresco-process-application-deployment.git` 
 3. Insert your process definitions into the processes folder.
 4. Build your new Docker image and publish it to the repository of your choice.
 
