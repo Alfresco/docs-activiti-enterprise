@@ -110,7 +110,7 @@ The resources for an Alfresco Activiti Enterprise deployment are stored in [Quay
 	
 	```bash
 	# Windows
-	base63 -w 0 ~/.docker/config.json
+	base64 -w 0 ~/.docker/config.json
 	```
 
 3. Create a file called `secrets.yaml` and add the following content to it, using your base64 string from the previous step as the `.dockerconfigjson` value: 
