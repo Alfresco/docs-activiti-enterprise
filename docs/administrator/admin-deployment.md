@@ -7,7 +7,9 @@ Application releases contains a list of projects that have been modeled and rele
 
 The list of available projects is read directly from the repository that the Modeling Application writes to. 
 
-The only action that can be run against an application definition is to deploy it which uses Kubernetes APIs. An admin user or group must be selected before you can deploy and an optional user-level set of individuals or group(a) of users. Once an application has had the deploy action used against it, the status of the deployment can be monitored in the *Application instances* section.  
+The only action that can be run against an application definition is to deploy it. Deploying an application uses the deployment service to deploy the application and required services and user interfaces into its own namespace. There is a 1:1 relationship between applications and namespaces.
+
+An admin user or group must be selected before you can deploy and an optional user-level set of individuals or group(a) of users. Once an application has had the deploy action used against it, the status of the deployment can be monitored in the *Application instances* section.  
 
 ## Deploying a project
 1. Find the project in the list of *Application Definitions*  in the Administrator Application and select to **Deploy** it. 

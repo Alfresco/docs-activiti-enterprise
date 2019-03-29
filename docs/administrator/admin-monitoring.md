@@ -1,5 +1,5 @@
 ---
-Title: Administrator monitoring
+Title: Application monitoring
 ---
 
 # Process instances
@@ -9,12 +9,12 @@ Filtering the default display allows you to select to view process instances fro
 
 As soon as a process has been started, it can be monitored in process instances. The possible statuses of each instance are as follows:
 
-|Status|Description|
-|------|-----------|
-|RUNNING|Process instance is currently running.|
-|COMPLETED|Process instance is complete.|
-|SUSPENDED|Process instance is currently suspended and cannot continue until it is reactivated.|
-|CANCELLED|Process instance has been cancelled and cannot be completed.|
+| Status | Description |
+| ------ | ----------- |
+| RUNNING | Process instance is currently running |
+| COMPLETED | Process instance is complete |
+| SUSPENDED | Process instance is currently suspended and cannot continue until it is reactivated |
+| CANCELLED | Process instance has been cancelled and cannot be completed |
 
 Selecting a specific process instance opens up an information panel which displays basic properties about the instance. 
 
@@ -31,13 +31,13 @@ Using the filter option allows you to select to view tasks from a specific appli
 
 The possible statuses for tasks are:
 	
-|Status|Description|
-|------|-----------|
-|CREATED|Task has not yet been assigned.|
-|ASSIGNED|Task is assigned but has not been completed.|
-|SUSPENDED|Task has been suspended and needs to be reactivated to continue.|
-|CANCELLED|Task has been cancelled and cannot be completed.|
-|COMPLETED|Task has been completed.|
+| Status | Description |
+| ------ | ----------- |
+| CREATED | Task has not yet been assigned |
+| ASSIGNED | Task is assigned but has not been completed |
+| SUSPENDED | Task has been suspended and needs to be reactivated to continue |
+| CANCELLED | Task has been cancelled and cannot be completed |
+| COMPLETED | Task has been completed |
 
 Selecting a specific task opens up an information panel which displays basic properties about a task. The Due Date, Assignee, Priority and Description of a task can be updated using this panel. 
 

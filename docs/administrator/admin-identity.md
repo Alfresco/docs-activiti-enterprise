@@ -30,3 +30,18 @@ The following following roles are available with a default installation:
 | APS_USER | Provides access to fill in forms and initiate processes. Will not have access to any admin APIs. | 
 
 
+
+
+
+
+
+## Identity Service
+
+
+You can log into the administration console for the Alfresco Identity Service by navigating to `https://activiti-keycloak/{my-domain}/auth` and using the username **admin** and password of **admin**.
+
+**Note**: it is strongly recommended that you update the password for the administration console when you first log into it. 
+
+A default realm of **alfresco** is already setup with the installation of Alfresco Activiti Enterprise. 
+
+

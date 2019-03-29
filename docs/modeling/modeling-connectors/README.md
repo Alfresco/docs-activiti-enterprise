@@ -3,9 +3,9 @@ Title: Connectors
 ---
 
 # Connectors 
-Connectors are used to import data into your process from an external source or system, or to update an external source or system using data from your process. They are also used to execute logic outside of a runtime bundle and pass the result(s) back to the process. Connectors can be created or updated through the GUI or using the inbuilt JSON editor.
+Connectors are used to import data into your process from an external source or system, or to update an external source or system using data from your process. They are also used to execute logic outside of a runtime bundle and pass the result(s) back to the process. 
 
-A connector must have a name and description followed by an unlimited number of actions that each contain input and output parameters of data type; boolean, date, integer or string.
+Connectors can be created or updated through the GUI or using the inbuilt JSON editor. A connector must have a name and description followed by an unlimited number of actions that each contain input and output parameters of data type; boolean, date, integer or string.
 
 Once a connector has been created, they are attached using the `implementation` value of a service task within a process. The connector input(s) and output(s) are mapped from an action on the service task to process variables defined within the process. This allows the response or variables to be re-used further on in a process.  
 
