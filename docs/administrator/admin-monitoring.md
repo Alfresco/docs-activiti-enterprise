@@ -1,17 +1,9 @@
 ---
-Title: Alfresco Admin Application
+Title: Administrator monitoring
 ---
 
-# Alfresco Admin Application
-
-The Alfresco Admin Application is used to manage applications that have been designed in the Alfresco Modeling Application.
-
-It gives an overview of running process instances and tasks with options to suspend, delete and edit certain variables of those currently in progress.
-
-The URL for the Admin Application will be in the format: `{my-domain}/alfresco-admin-app`
-
-## Process instances
-Process instances allows you to monitor all active and suspended processes that are running on an application-by-application and process definition basis. Users require the APS_ADMIN role in order to view process instances.
+# Process instances
+Process instances allows you to monitor all active and suspended processes that are running on an application-by-application and process definition basis. Users require the APS_ADMIN role to view process instances.
 
 Filtering the default display allows you to select to view process instances from a specific application model, and to further filter by the process definitions within that application. 
 
@@ -32,8 +24,8 @@ The option to **Suspend** or view the **Diagram** for process instances is only 
 
 Ticking the checkbox at top of the panel allows you to select multiple process instances and perform a bulk action against them; **Delete**, **Suspend**, or **Activate**. 
 
-## Tasks
-Tasks allow you to monitor tasks of every status on an application-by-application basis and search for tasks by name or specific status. Users require the APS_ADMIN role in order to view tasks. 
+# Tasks
+Tasks allow you to monitor tasks of every status on an application-by-application basis and search for tasks by name or specific status. Users require the APS_ADMIN role to view tasks. 
 
 Using the filter option allows you to select to view tasks from a specific application, name and status.
 

@@ -20,4 +20,4 @@ Additionally, the following roles are created on installation:
 |APS_MODELER|Provides access to the Modeling Application.|
 |APS_USER|Provides access to fill in forms and initiate processes. Will not have access to any admin APIs.| 
 
-There are several users provided with the deployment that have various roles attached to them. You can use these for testing purposes by updating their passwords using the Identity Service admin account or create your own. 
+There are several users provided with the deployment that have various roles attached to them. You can use these for testing purposes by updating their passwords using the Administrator Application or create your own. 
