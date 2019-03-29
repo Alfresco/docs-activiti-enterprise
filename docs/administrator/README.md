@@ -3,14 +3,17 @@ Title: Alfresco Administrator Application
 ---
 
 # Alfresco Administrator Application
+The Alfresco Administrator Application is used to [deploy projects](administrator/admin-deploy.md) that have been designed in the Alfresco Modeling Application. 
 
-The Alfresco Administrator Application is used to deploy and manage applications that have been designed in the Alfresco Modeling Application.
+**Note**: It is important to note that once a project has been deployed it is referred to as an application. 
 
-There are three main sections to the Administrator Application that are controlled by different user roles. They are: 
+Once the Administrator Application has deployed a project it can be used to monitor various aspects of the subsequent application:
 
-* The [DevOps section](../administrator/admin-deployment.md) controls the deployment and monitoring of applications.
-* [Application instances](../administrator/admin-monitoring.md) is where running processes and tasks can be monitored.
-* [Identity management](../administrator/admin-identity/README.md) is where users can be created and have their permissions updated.
+* The status of the application deployment can be monitored in the [application releases](administrator/admin-applications.md) section.
+* Process instances can be viewed and managed in the [process instances](administrator/admin-processes.md) section.
+* Tasks can be monitored in the [tasks](administrator/admin-tasks.md) section. 
+
+The Administrator Application can also be used to [upgrade to a new version of an application](administrator/admin-upgrade.md). 
 
 The URL for the Administrator Application will be in the format: `{my-domain}/alfresco-admin-app`
 
