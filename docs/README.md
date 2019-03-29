@@ -9,7 +9,7 @@ Below is an index of the current documentation for Activiti Enterprise:
 
 * [Introduction](introduction/README.md)
 	* [Technology](introduction/technology.md)
-* [Architecture] (architecture/README.md)
+* [Architecture](architecture/README.md)
     * [Services](architecture/services.md)
     * [User interfaces](architecture/user-interfaces.md) 
 * [Modeling Application](modeling/README.md)
