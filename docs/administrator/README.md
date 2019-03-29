@@ -10,7 +10,7 @@ There are three main sections to the Administrator Application that are controll
 
 * The [DevOps section](../administrator/admin-deployment.md) controls the deployment and monitoring of applications.
 * [Application instances](../administrator/admin-monitoring.md) is where running processes and tasks can be monitored.
-* [Identity management](../administrator/admin-identity.md) is where users can be created and have their permissions updated.
+* [Identity management](../administrator/admin-identity/README.md) is where users can be created and have their permissions updated.
 
 The URL for the Administrator Application will be in the format: `{my-domain}/alfresco-admin-app`
 
