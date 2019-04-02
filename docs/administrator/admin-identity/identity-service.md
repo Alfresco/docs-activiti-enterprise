@@ -3,7 +3,7 @@ Title: Identity Service
 ---
 
 # Identity Service
-The [Identity Service](https://docs.alfresco.com/identity/concepts/identity-overview.html) is used by Activiti Enterprise for authorization and to manage user and role management. Whilst the Administrator Application
+The [Identity Service](https://docs.alfresco.com/identity/concepts/identity-overview.html) is used by Activiti Enterprise for authorization and to manage user and role management.
 
 You can log into the administration console for the Alfresco Identity Service by navigating to `https://{my-domain}/auth` and using the username **admin** and password of **admin**.
 
