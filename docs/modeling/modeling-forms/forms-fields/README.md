@@ -40,7 +40,7 @@ The form field types available to use in Activiti Enterprise are the following:
 | Number | Number fields are for entering `integer` data |
 | Outcome | Outcomes can be added as options at the bottom of a form that a form filler needs to click on to complete the form |
 | Radio buttons | Radio button fields allow the form designer to define a set of options a form filler must choose from a set of radio buttons |
-| [Text](../fields-text.md) | Text fields are for entering `string` data in a single line |
+| [Text](../forms-fields/fields-text.md) | Text fields are for entering `string` data in a single line |
 
 
 
