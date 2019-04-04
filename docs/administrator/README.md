@@ -15,7 +15,7 @@ Once the Administrator Application has deployed a project it can be used to moni
 
 The Administrator Application can also be used to [upgrade to a new version of an application](administrator/admin-upgrade.md). 
 
-The Administrator Application is deployed in the default namespace so there will only be a single instance of it running. The URL to access it will be in the format: `{my-domain}/alfresco-admin-app`. 
+The Administrator Application is deployed into the default namespace so there will only be a single instance of it running. The URL to access it will be in the format: `{my-domain}/alfresco-admin-app`. 
 
 ## About
 The about page can be accessed via the UI or at the URL: `{my-domain}/alfresco-admin-app/about` and shows the packages and package versions used in the application. 

@@ -4,13 +4,12 @@ Title: Alfresco Process Workspace
 
 # Alfresco Process Workspace
 
-The Alfresco Process Workspace is used to view and manage tasks and processes.
+The Alfresco Process Workspace is used to view and manage [tasks](../workspace/workspace-tasks.md) and [process instances](../workspace/workspace-processes.md).
 
 There is a set of preset filters applied to process and task lists that can be customized or saved into new lists. 
 
-The URL for Process Workspace will be in the format: `{my-domain}/alfresco-process-app`
+The Process Workspace is deployed into the namespace of each application so there will only be a single instance of it running. The URL to access it will be in the format: `{my-domain}/{application-name}/alfresco-process-app`. 
 
-Once you have first signed into the Process Workspace, the list of applications available for you to monitor is presented. After selecting an application to work within, you are able to Create a new process or task for it. 
 
 ## About
 The about page can be accessed via the UI or at the URL: `{my-domain}/alfresco-process-app/about` and shows the packages and package versions used in the application. 
