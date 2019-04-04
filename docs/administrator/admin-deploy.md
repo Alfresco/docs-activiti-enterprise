@@ -9,7 +9,7 @@ The **application releases** section of the Administrator Application contains a
 
 Projects will only appear in the **application releases** section if they have been [released](modeling/modeling-projects.md#releasing) in the modeling application. The only action that can be run against a project is to deploy it. This action uses the deployment service to deploy the project and its required services and user interfaces into a new namespace. There is a 1:1 relationship between applications and namespaces.
 
-An admin user or group must be selected during the deployment process and an optional user-level set of individuals or group(s) of users. Once an application has had the deploy action used against it, the [status of the deployment can be monitored](administrator/admin-applications).
+An admin user or group must be selected during the deployment process and an optional user-level set of individuals or group(s) of users. Once an application has had the deploy action used against it, the [status of the deployment can be monitored](/admin-applications.md).
 
 ## Deployment steps
 1. Find the project in the list of potential releases in the Administrator Application and select to **Deploy** it. 
