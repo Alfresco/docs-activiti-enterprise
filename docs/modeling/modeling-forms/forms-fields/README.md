@@ -27,44 +27,21 @@ The form field types available to use in Activiti Enterprise are the following:
 
 | Form field | Description | 
 | ---------- | ----------- | 
-| Amount | Amount fields are for entering a value depicting currency |
-| Attach file | Attach file fields are used so that form fillers can upload files with their submission |
-| Checkbox | Checkbox fields are `boolean` values |
-| Date | Date fields are for `date` type data |
-| Display text | Display text fields allow the form designer to display a line of fixed text to the form filler |
-| Display value | Display value fields allow the form designer to display a value previously entered in the form |
-| Dropdown | Dropdown fields allow the form designer to define a set of options a form filler must choose from a a dropdown menu|
-| Header | Header fields are subtitle fields that can be used as section containers |
-| Hyperlink | Hyperlink fields allow the form designer to expose a link that form fillers can click on |
-| Multiline text | Multiline text fields are for entering `string` data across multiple lines |
-| Number | Number fields are for entering `integer` data |
-| Outcome | Outcomes can be added as options at the bottom of a form that a form filler needs to click on to complete the form |
-| Radio buttons | Radio button fields allow the form designer to define a set of options a form filler must choose from a set of radio buttons |
+| [Amount](../forms-fields/fields-amount.md) | Amount fields are for entering a value depicting currency |
+| [Attach file](../forms-fields/fields-attach.md) | Attach file fields are used so that form fillers can upload files with their submission |
+| [Checkbox](../forms-fields/fields-checkbox.md) | Checkbox fields are `boolean` values |
+| [Date](../forms-fields/fields-date.md) | Date fields are for `date` type data |
+| [Display text](../forms-fields/fields-displaytext.md) | Display text fields allow the form designer to display a line of fixed text to the form filler |
+| [Display value](../forms-fields/fields-displayvalue.md) | Display value fields allow the form designer to display a value previously entered in the form |
+| [Dropdown](../forms-fields/fields-dropdown.md) | Dropdown fields allow the form designer to define a set of options a form filler must choose from a a dropdown menu|
+| [Header](../forms-fields/fields-header.md) | Header fields are subtitle fields that can be used as section containers |
+| [Hyperlink](../forms-fields/fields-hyperlink.md) | Hyperlink fields allow the form designer to expose a link that form fillers can click on |
+| [Multiline text](../forms-fields/fields-multiline.md) | Multiline text fields are for entering `string` data across multiple lines |
+| [Number](../forms-fields/fields-number.md) | Number fields are for entering `integer` data |
+| [Outcome](../forms-fields/fields-outcome.md) | Outcomes can be added as options at the bottom of a form that a form filler needs to click on to complete the form |
+| [Radio buttons](../forms-fields/fields-radio.md) | Radio button fields allow the form designer to define a set of options a form filler must choose from a set of radio buttons |
 | [Text](../forms-fields/fields-text.md) | Text fields are for entering `string` data in a single line |
 
-
-
-
-
-
-
-
-
-
-
-
-## Text
-Text fields are for entering `string` data in a single line. 
-
-The advanced properties for a text field are the following: 
-
-| Property | Description |
-| -------- | ----------- |
-| `Min length` | Sets the minimum character count for text that can be entered into the field including whitespace |
-| `Max length` | Sets the maximum character count for text that can be entered into the field including whitespace|
-| `Regex pattern` | A regular expression can be entered that will validate the text entered into the field. For example, a regular expression that matches four letters followed by four digits would be: `/^[A-Za-z]{4}\d{4}$/` |
-| `Reversed` | |
-| `Input mask placeholder` | |
 
 ## Multiline text
 Multiline text fields are for entering `string` data across multiple lines.

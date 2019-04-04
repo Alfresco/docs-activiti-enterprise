@@ -6,7 +6,7 @@ Title: Forms
 Forms are used to capture data into specially designed field types such as text, date, file uploads and multiple choice radio buttons. They are where human intervention is required within a process and this intervention is handled by filling in a form that is displayed in a user’s task list within the [Alfresco Process Workspace](../workspace/workspace-tasks). 
 
 ## Using forms
-Forms can be assigned to [user tasks]() or [start events](). The only difference to how a form functions between the two elements is that it is not possible to save a form assigned to a start event. 
+Forms can be assigned to [user tasks](../bpmn/user-tasks.md) or [start events](../bpmn/start-events.md) as part of a process. The only difference to how a form functions between the two elements is that it is not possible to save a form assigned to a start event. 
 
 ## Designing forms
 Forms are created in a similar fashion to processes, by using a drag-and-drop GUI. There is also a JSON editor for forms that updates as new elements are added and removed from the form. 
