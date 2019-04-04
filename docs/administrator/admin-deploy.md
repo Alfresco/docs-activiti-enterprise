@@ -7,9 +7,9 @@ The **application releases** section of the Administrator Application contains a
 
 **Note**: It is important to note that once a project has been deployed it is referred to as an application. 
 
-Projects will only appear in the **application releases** section if they have been [released](modeling/modeling-projects.md#releasing) in the modeling application. The only action that can be run against a project is to deploy it. This action uses the deployment service to deploy the project and its required services and user interfaces into a new namespace. There is a 1:1 relationship between applications and namespaces.
+Projects will only appear in the **application releases** section if they have been [released](../../modeling/modeling-projects.md#releasing) in the modeling application. The only action that can be run against a project is to deploy it. This action uses the deployment service to deploy the project and its required services and user interfaces into a new namespace. There is a 1:1 relationship between applications and namespaces.
 
-An admin user or group must be selected during the deployment process and an optional user-level set of individuals or group(s) of users. Once an application has had the deploy action used against it, the [status of the deployment can be monitored](/admin-applications.md).
+An admin user or group must be selected during the deployment process and an optional user-level set of individuals or group(s) of users. Once an application has had the deploy action used against it, the [status of the deployment can be monitored](../administrator/admin-applications.md).
 
 ## Deployment steps
 1. Find the project in the list of potential releases in the Administrator Application and select to **Deploy** it. 
@@ -26,6 +26,6 @@ An admin user or group must be selected during the deployment process and an opt
 	5. Set the connector variables in JSON format.
 3. **Deploy** the application. 
 
-**Note**: Applications can also be [upgraded](administrator/admin-upgrade.md) if changes or updates are needed in the original project.
+**Note**: Applications can also be [upgraded](../administrator/admin-upgrade.md) if changes or updates are needed in the original project.
 
 

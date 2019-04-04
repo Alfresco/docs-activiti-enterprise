@@ -5,7 +5,7 @@ Title: Identity management
 # Identity management
 The Administrator Application is used to create and manage users and their assigned groups and roles. Users require the *APS_IDENTITY* role to view the identity management section. 
 
-The identity management section of the Administrator Application allows users with access to it to undertake common user maintenance tasks without having to access the [Identity Service](../administrator/admin-identity/identity-service.md) directly.
+The identity management section of the Administrator Application allows users with access to it to undertake common user maintenance tasks without having to access the [Identity Service](../admin-identity/identity-service.md) directly.
 
 ## Users
 The users section displays the current list of users in the system. New users can be added in this section. 
