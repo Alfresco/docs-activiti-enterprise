@@ -35,4 +35,4 @@ To use your connector within a project, sign into the Alfresco Modeling Applicat
 3. Complete and save your process. 
 
 ## Deploying a project and connector
-Once your project has been released, [use the Alfresco Administrator Application to deploy it](../../administrator/admin-deployment.md).
+Once your project has been released, [use the Alfresco Administrator Application to deploy it](../../administrator/admin-deploy.md).

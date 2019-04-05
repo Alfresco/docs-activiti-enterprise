@@ -23,4 +23,4 @@ The process engine in a runtime bundle will emit an `IntegrationRequestEvent` wh
 The destination that the request is sent to is defined by the `implementation` property of a service task. The request and response to the external system is handled completely separate to the runtime bundle, increasing the resilience of the process engine itself.
 
 ## Using connectors
-A set of [OOTB (out of the box) connectors](connectors-ootb.md) have been provided, or you can [create your own connectors](connectors-create.md).
+A set of [OOTB (out of the box) connectors](../modeling-connectors/connectors-ootb/README.md) have been provided, or you can [create your own connectors](../modeling-connectors/connectors-create.md).
