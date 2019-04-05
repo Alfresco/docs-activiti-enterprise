@@ -20,7 +20,7 @@ The general properties that are shared between all types of form fields are the 
 **Note**: Any exceptions to the following general properties are stated in the section specific to that field type. For example, the header field type does not have the `Required?` property.
 
 ## Visibility conditions
-Visibility conditions allow for form fields to be hidden or displayed depending upon the values of other fields or variables within that form.
+Visibility conditions allow for form fields to be hidden or displayed depending upon the values of other fields or variables within that form. The visibility conditions button is displayed on the general properties tab of every field. 
 
 | Step | Description | Options | 
 | ---- | ----------- | ------- |
@@ -72,7 +72,7 @@ The advanced properties for an attach file field are the following:
 | -------- | ----------- |
 | `Allow multiple files to be attached` | Checking this box will allow for more than one file to be uploaded | 
 | `Just link to files, do not copy files to Alfresco Activiti Enterprise` | Checking this box means that the form submission only contains the path to the upload(s) rather than uploading the actual file(s) | 
-| `File source` | Sets the location for where files can be uploaded from. `All file sources` has no restrictions on the source location, whilst `Local file` |
+| `File source` | Sets the location for where files can be uploaded from. `Alfresco Content` is from an ACS instance, whilst `Local file` is local to the form filler. |
 
 ### Checkbox fields
 Checkbox fields are `boolean` values. They are either checked or unchecked. 
