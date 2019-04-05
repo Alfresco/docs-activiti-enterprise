@@ -92,7 +92,18 @@ Display value fields allow the form designer to display a value previously enter
 Display value fields not have the `Placeholder` and `Required?` fields, nor do they have an advanced properties tab. 
 
 ### Dropdown fields
-Dropdown fields allow the form designer to define a set of options a form filler must choose from a list. This list can be a manually entered set of options or can read from a REST service. 
+Dropdown fields allow the form designer to define a set of options a form filler must choose from a list. This list can be a manually entered set of options or it can read from a REST service. 
+
+The advanced properties for a manual dropdown field allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio next to an option will set it as the *empty value*. An *empty value* is taken to mean the field is empty if this option is selected when the form is filled in. 
+
+The advanced properties for a REST dropdown field are the following: 
+
+| Property | Description |
+| -------- | ----------- |
+| `REST URL` | |
+| `Path to array in JSON response` | |
+| `ID property` | |
+| `Label property` | |
 
 ### Headers
 Header fields are subtitle fields that can be used as section containers on a tab. They cannot be filled in by a form filler as they only display a subtitle. 
@@ -136,7 +147,18 @@ Number fields do not have an advanced properties tab.
 Outcomes can be added as options at the bottom of a form that a form filler needs to click on to complete the form, such as *Agree* or *Disagree*. 
 
 ### Radio buttons
-Radio button fields allow the form designer to define a set of options a form filler must choose from. This list can be a manually entered set of options or can read from a REST service.
+Radio button fields allow the form designer to define a set of options a form filler must choose from. This list can be a manually entered set of options or it can read from a REST service.
+
+The advanced properties for a manual radio button field are allow for a set of options to be entered with a `name` and `id` for each option set. Selecting the radio next to an option will set it as the default value.
+
+The advanced properties for a REST radio button field are the following: 
+
+| Property | Description |
+| -------- | ----------- |
+| `REST URL` | |
+| `Path to array in JSON response` | |
+| `ID property` | |
+| `Label property` | |
 
 ### Text fields
 Text fields are for entering `string` data in a single line. 
