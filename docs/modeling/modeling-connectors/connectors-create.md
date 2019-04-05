@@ -34,5 +34,5 @@ To use your connector within a project, sign into the Alfresco Modeling Applicat
 
 3. Complete and save your process. 
 
-## Deploying a project and connector
-Once your project has been released, [use the Alfresco Administrator Application to deploy it](../../administrator/admin-deploy.md).
+## Deploying a connector
+A connector needs to be deployed with its associated project. If you are using the [Alfresco Administrator Application to deploy](../../administrator/admin-deploy.md) then your connector will need to be in an accessible repository such as Docker Hub so that it can be defined during the deployment steps. 

@@ -20,7 +20,16 @@ The general properties that are shared between all types of form fields are the 
 **Note**: Any exceptions to the following general properties are stated in the section specific to that field type. For example, the header field type does not have the `Required?` property.
 
 ## Visibility conditions
-Visibility conditions allow for form fields to be hidden or shown depending upon the values of other fields or variables within that form.
+Visibility conditions allow for form fields to be hidden or displayed depending upon the values of other fields or variables within that form.
+
+| Step | Description | Options | 
+| ---- | ----------- | ------- |
+| Depends on | The field or variable that will be evaluated | A field or variable within the form |
+| If it's | The comparison operator between *Depends on* and *Value* | `equal to`, `not equal to`|
+| Value | The value, field or variable that the *Depends on* step is evaluating against | A field or variable within the form or a value |
+| Next condition operator | The operator for evaluating against further conditions | `and`, `and not`, `or`, `or not`|
+
+**Note**: Conditions are evaluated in the order they are defined in.
 
 ## Form field types
 The form field types available to use in Activiti Enterprise are the following: 
