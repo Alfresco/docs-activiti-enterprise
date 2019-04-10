@@ -3,11 +3,18 @@ Title: Processes
 ---
 
 # Processes
-Processes is the area where you create your business processes using BPMN elements. Components such as forms, connectors and decision tables that you design elsewhere in the Modeling Application are linked to their relevant process definitions here. 
+Processes are the components that are built to represent a business processes. A process definition is the XML that can be thought of as a template for a process. A process instance is a specific running instance of a deployed process definition. 
 
-BPMN elements can be created or updated using the drag-and-drop GUI or by using the inbuilt XML editor. It is also possible to upload an existing process definition using the upload function.  
+Each process definition represents a business process and is built using BPMN elements. These BPMN elements incorporate the other components that you can create in the Modeling Application  such as [forms](../modeling/modeling-forms/README.md), [connectors](../modeling/modeling-connectors/README.md) and [decision tables](). 
 
-Processes are primarly composed of BPMN elements. Descriptions of each [available element](../modeling-processes/processes-bpmn/README.md) are available.
+## Using processes
+Once a project has been deployed, process instances can be started in several ways such as calling a start form from Process Workspace, manually starting a process instance or through an API.  
 
-## Process variables
+## Designing processes
+Processes are designed using a drag-and-drop UI or using the in-built XML editor. It is also possible to upload an existing process definition using the upload function.
+
+### BPMN elements
+Processes are built using a combination of BPMN elements. Each process must contain a start event and an end event as well as conforming to certain rules particular to each element. As long as [each BPMN element](../modeling-processes/processes-bpmn/README.md) is used correctly there are numerous ways a business process can be modeled.
+
+### Process variables
 

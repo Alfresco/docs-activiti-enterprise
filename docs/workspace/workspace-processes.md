@@ -17,3 +17,7 @@ The possible statuses of a process instance are as follows:
 | SUSPENDED | The process instance is currently suspended and cannot continue until it is reactivated |
 | COMPLETED | The process instance is complete |
 | CANCELLED | The process instance has been cancelled and cannot be completed |
+
+
+
+There is a set of preset filters applied to process and task lists that can be customized or saved into new lists. 

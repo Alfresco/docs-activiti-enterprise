@@ -17,7 +17,8 @@ Start events are graphically represented by a single thin circle without an icon
 The XML representation of start events is a start event declaration without a sub-element declaring a specific type: 
 
 ```xml
-<bpmn2:startEvent id="StartProcess_1">
+<bpmn2:startEvent id="StartProcess_1" name="FormStart_4" activiti:formKey="form-4ccd023b-d607-4cab-8623-da4c87dd9611">
 	<bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
 </bpmn2:startEvent>
 ```
+**Note**: The `activiti:formKey` is the `id` of the form used to start the process. This can be seen in the JSON of the form definition. 

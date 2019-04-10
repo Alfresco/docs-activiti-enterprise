@@ -12,13 +12,15 @@ Each of these steps can be broken down into smaller tasks.
 
 ## Create a connector
 
+* image
+* definition
 
 ## Configure a connector within a project
 To use your connector within a project, sign into the Alfresco Modeling Application with a user that has permission to create projects. The user will require the APS_MODELER role. 
 
 **In the connector section of the Modeling Application**: 
 
-1. Name your connector and add a description.
+1. Name your connector definition and add a description.
 2. Name your actions and add the appropriate input(s) and output(s).
 3. Save the connector.
 

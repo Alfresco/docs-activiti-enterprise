@@ -12,56 +12,40 @@ The `implementation` value of the email connector in a service task would be sim
 ```
 
 ## Input parameters
-The following are the parameters that can be passed to the email connector as input parameters using the `SEND` function. 
+The following are the parameters that can be passed to the email connector as input parameters using the `SEND` action:
 
-| Parameter | Description | Type |
-| --------  | ----------- | ---- |
-| to | An email address or list of addresses | `String` |
-| from  | An email address | `String` |
-| cc | An email address or list of email addresses | `String`| 
-| bcc | An email address or array of addresses | `String` |
-| subject | A plain text subject | `String` | 
-| text | A plain text email body | `String` |
-| html | An HTML email body | `String` |
-| charset | Define the *charset* of the email. | `String` | 
-
+| Parameter | Description | Type | Required? |
+| --------  | ----------- | ---- | --------- |
+| `to` | An email address or list of addresses | `String` | Yes |
+| `from`  | An email address | `String` | Yes |
+| `cc` | An email address or list of email addresses | `String`| No |
+| `bcc` | An email address or array of addresses | `String` | No |
+| `subject` | A plain text subject | `String` | No |
+| `text` | A plain text email body | `String` | No |
+| `html` | An HTML email body | `String` | No |
+| `charset` | Define the *charset* of the email | `String` | No | 
 
 ## Output parameters
-The following is the parameter that is returned to the process by the email connector as an output parameter using the `SEND` function.
+The following is the parameter that is returned to the process by the email connector as an output parameter using the `SEND` action:
 
 **Note**: The execution of the email connector is always successful. Any errors will be returned in the `email.error` parameter. The parameter will be null if there were no errors.
 
 | Parameter | Description | Type |
 | --------  | ----------- | ---- |
-| email.error | A list of errors if any are caught by the connector | `String` |
+| `email.error` | A list of errors if any are caught by the connector | `String` |
 
+## Connector variables
+Environment variables that are specific to a connector need to be specified during deployment. They are entered as connector variables and used as environment variables for the connector when it is deployed. 
 
+For the email connector the connector variables are the details for the SMTP host. The email connector uses the `org.springframework.mail` package for managing communication to the email server. This allows `spring.mail.properties*` to be set to configure the desired email server. 
 
+The following are the properties that need to be set for a secure (TLS) connection:
 
-
-## Configuration / Environment variables? 
-
-For the email connector to function certain properties must be defined in the `application.properties` file of the Spring Boot application. By default, these properties are set to environment variables.
-
-The connector requires an SMTP server to be configured, the connector uses the org.springframework.mail package to manage communication to a mail server. As such `spring.mail.properties.*` can be used to configure the desired email server.
-
-The following are a set of properties that would be defined for a Secure (TLS) connection:
-
-```
-spring.mail.host=${EMAIL_HOST}
-spring.mail.port=${EMAIL_PORT}
-spring.mail.username=${EMAIL_USERNAME}
-spring.mail.password=${EMAIL_PASSWORD}
-spring.mail.properties.mail.smtp.auth=${EMAIL_SMTP_AUTH:true}
-spring.mail.properties.mail.smtp.starttls.enable=${EMAIL_SMTP_STARTTLS:true}
-```
-
-As the connector uses a stream mechanism to send/receive information between APS and the connector, the following property is used to identify the connector:
-
-```
-spring.cloud.stream.bindings.emailConnectorConsumer.destination=emailConnector.SEND
-```
-
-The name of the channel requires to match the implementation value defined in the Service Task as part of the BPMN definition.
-
-
+| Variable | Description |
+| -------- | ----------- |
+| `EMAIL_HOST` | The host address of the SMTP server |
+| `EMAIL_PORT` | The port the SMTP server is running on |
+| `EMAIL_USERNAME` | The username the connector will use to contact the SMTP server |
+| `EMAIL_PASSWORD` | The password of the user the connector will use to contact the SMTP server |
+| `EMAIL_SMTP_AUTH` | This is a `boolean` value that sets whether the connection to the SMTP server requires authentication |
+| `EMAIL_SMTP_STARTTLS` | This is a `boolean` value that sets whether the connection uses TLS |

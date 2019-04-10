@@ -12,7 +12,6 @@ The general properties that are shared between all types of form fields are the 
 | -------- | ----------- |
 | `Label` | The name of the field that will appear on the rendered form | 
 | `ID` | The unique ID of the field | 
-| `Override ID` | Checking this box will allow the default ID to become editable | 
 | `Required?` | Checking this box makes a field mandatory |
 | `Colspan` | The number of columns a field spans | 
 | `Placeholder` | The default value of the field |
@@ -109,8 +108,8 @@ The advanced properties for a REST dropdown field are the following:
 
 | Property | Description |
 | -------- | ----------- |
-| `REST URL` | |
-| `Path to array in JSON response` | |
+| `REST URL` | The URL of the REST service |
+| `Path to array in JSON response` | The path to the JSON response. Enter `.` to use the full path |
 | `ID property` | |
 | `Label property` | |
 
@@ -164,8 +163,8 @@ The advanced properties for a REST radio button field are the following:
 
 | Property | Description |
 | -------- | ----------- |
-| `REST URL` | |
-| `Path to array in JSON response` | |
+| `REST URL` | The URL of the REST service |
+| `Path to array in JSON response` | The path to the JSON response. Enter `.` to use the full path |
 | `ID property` | |
 | `Label property` | |
 
@@ -179,5 +178,3 @@ The advanced properties for a text field are the following:
 | `Min length` | Sets the minimum character count for text that can be entered into the field including whitespace |
 | `Max length` | Sets the maximum character count for text that can be entered into the field including whitespace|
 | `Regex pattern` | A regular expression can be entered that will validate the text entered into the field. For example, a regular expression that matches four letters followed by four digits would be: `/^[A-Za-z]{4}\d{4}$/` |
-| `Reversed` | |
-| `Input mask placeholder` | |

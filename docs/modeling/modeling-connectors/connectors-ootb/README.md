@@ -18,7 +18,7 @@ OOTB connectors can be selected directly from the palette rather than by selecti
 
 **In the process section of the Modeling Application**:
 
-
+* instances 
 
 Details of the input and output parameters for each OOTB connector are described in their respective documentation. 
 

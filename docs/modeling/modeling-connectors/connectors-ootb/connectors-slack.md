@@ -3,12 +3,14 @@ Title: Slack connector
 ---
 
 # Slack connector
-The Slack connector is used to integrate with the Slack web API and REST time messaging API. The following operations can be executed using the Slack connector: 
+The Slack connector is used to integrate with the Slack web API and REST time messaging API. The Slack connector is graphically represented by the Slack logo under the OOTB Connectors menu whilst modeling a process. 
 
-* Send a message to a specific user or channel (public or private)
-* Create a new channel (public or private) 
+The following actions can be executed using the Slack connector: 
+
+* [Send a message](#send-message) to a specific user or channel (public or private)
+* [Create a new channel](#create-channel) (public or private) 
     
-## Configuration
+## Slack configuration
 The Slack connector requires a Slack application and a Slack bot in order to function. The application and bot need to be configured correctly. 
 
 1. Use the [Slack website](https://api.slack.com/apps) to create an application. 
@@ -43,45 +45,88 @@ The Slack connector requires a Slack application and a Slack bot in order to fun
 
 	`https://api.slack.com/apps/<app_id>/oauth`
 	
-	The tokens will need to be set when deploying the Slack connector:
-	
-	```
-	slack.connector.bot.user.token=${SLACK_XOXB:xoxb-}
-	slack.connector.admin.user.token=${SLACK_XOXP:xoxp-}
-	```
+	The tokens will need to be set as [connector variables](#connector-variables) when deploying the Slack 	connector.
 
-## Send a message
+## Connector variables
+Environment variables that are specific to a connector need to be specified during deployment. They are entered as connector variables and used as environment variables for the connector when it is deployed. 
 
-There are different targets when sending a message to Slack. The following table describes the necessary parameters for each use case:
+The following are the properties that need to be set for the Slack connector: 
 
-| Inbound Variable | Mandatory | Type | Description |
-|---|---|---| --- |
-| text  | YES | String | This variable is common to every request to the slack connector to set the text content when sending a message. | Using environment variable _SLACK_CONNECTOR_TEXT_KEY_, the value used as key can be configured. The default value is: _text_ |
-| userId | NO* | String | This variable is used to set the target user in a direct message to slack using the user identifier. |
-| userEmail | NO* | String | This variable is used to set the target user in a direct message to slack using the email user. |
-| channelId | NO* | String | This variable is used to set the target channel when senting a message to slack using the channel identifier. |
-| channelName | NO* | String | This variable is used to set the target channel when senting a message to slack using the channel name. |
-| requestResponse | NO | Enum (no, any, thread) | Indicates whether the connector should return a response to APS immediately after sending the message (value "no"), wait until the user sends a reply in the same channel (value "any") or wait until the user sends a reply in a thread (value "thread") | 
+| Variable | Description |
+| -------- | ----------- |
+| `SLACK_XOXB` | The Slack bot user token obtained from [configuring](#slack-configuration) Slack beginning *xoxb-* |
+| `SLACK_XOXP` | The Slack bot admin user token obtained from [configuring](#slack-configuration) Slack beginning *xoxp-* |
 
-*At least one out of channelId, userId, userEmail or channelName is required by the connector to identify which channel is the message being sent to.
+## Send message
+The `SEND_MESSAGE` action is used to send messages to either a channel or user. 
 
-> Channel identifiers can be extracted from Slack application getting last string in the link (e.g. https://development-urs7320.slack.com/messages/GFZFJ0UNQ, the channel ID is **GFZFJ0UNQ**) or using [slack rest api](https://api.slack.com/methods).
+The `implementation` value of the send message action in a service task would be similar to the following:
 
-### Required configuration
-As part of a BPMN definition, any Service Task responsible for sending a message to Slack needs to set **slackConnector.SEND_MESSAGE** as the value for its implementation attribute.
+```xml
+<bpmn2:serviceTask id="ServiceTask_3xcd7zp" implementation="slackConnector.SEND_MESSAGE" />
+```
+
+### Input parameters
+The following are the parameters that can be passed to the Slack connector as input parameters using the `SEND_MESSAGE` action:
+
+| Parameter | Description | Type | Required? |
+| --------  | ----------- | ---- | --------- |
+| `text` | The content of the message | `String` | Yes |
+| `userId` | The user ID of the message recipient | `String` | * One of these fields is required |
+| `userEmail` | The email address of the message recipient | `String` | * One of these fields is required |
+| `channelId` | The channel ID to send the message to | `String` | * One of these fields is required |
+| `channelName` | The name of the channel to send the message to | `String` | * One of these fields is required |
+| `requestResponse` | <ul><li> Set to `no` a response will be sent back to the process immediately after a message is sent </li> <li> Set to `any` a response will be sent back to the process only after a reply is received in the same channel </li> <li> Set to `thread` a response will be sent back to the process only after a reply is received in a thread </li></ul> | `String` | No |
+
+### Output parameters
+The following are the parameters that are returned to the process by the Slack connector as output parameters using the `SEND_MESSAGE` action:
+
+| Parameter | Description | Type |
+| --------  | ----------- | ---- |
+| `message` | If the input parameter `requestResponse` was set to `any` or `thread` then the content of the reply will be sent in this parameter | `String` |
+| `slackError` | If an error was encountered it will be described in this parameter | `String` | 
+
+## Create channel
+The `CREATE_CHANNEL` action is used to create a new Slack channel. 
+
+The `implementation` value of the create channel action in a service task would be similar to the following:
+
+```xml
+<bpmn2:serviceTask id="ServiceTask_7lhj7xq" implementation="slackConnector.CREATE_CHANNEL" />
+```
+
+### Input parameters
+The following are the parameters that can be passed to the Slack connector as input parameters using the `CREATE_CHANNEL` action:
+
+| Parameter | Description | Type | Required? |
+| --------  | ----------- | ---- | --------- |
+| `channelName` | The name of the channel to be created | `String` | Yes |
+| `channelType` | Set whether the channel is `public` or `private` | `String` | Yes |
+| `members` | A list of members that will be invited to join the new channel in the format: `["USER1","USER2","USER3"]` | `String` | Yes |
+
+### Output parameters
+The following are the parameters that are returned to the process by the Slack connector as output parameters using the `CREATE_CHANNEL` action:
+
+| Parameter | Description | Type |
+| --------  | ----------- | ---- |
+| `slackResult` ||
+| `slackError` ||
 
 
-### Examples
-
-#### Business Process Model
-This is the [business process model](slack-business-process.bpmn20.xml) defined to test the different use cases when sending a message.
-
-![Business Process Model to test Slack connector](slack_business_process.png)
 
 
-Using this business process and using [postman collection](https://github.com/Activiti/activiti-cloud-examples/blob/develop/Activiti%20v7%20REST%20API.postman_collection.json) operations, the different cases can be tested.
 
-> Prerequisites: It is necessary to have a valid keycloack token. This token can be retrieved using operation getKeyCloakToken into postman collection.
+
+
+
+
+
+
+
+
+
+
+
 
 #### Send direct message
 

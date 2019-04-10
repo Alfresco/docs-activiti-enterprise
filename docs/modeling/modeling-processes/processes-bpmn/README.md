@@ -1,8 +1,8 @@
 ---
-Title: Cloud-enabled BPMN elements
+Title: BPMN elements
 ---
 
-# Cloud-enabled BPMN elements
+# BPMN elements
 
 All BPMN elements have a name and documentation property. The documentation property is a free text description of the element within your process. 
 
