@@ -149,7 +149,12 @@ The advanced properties for a multiline text field are the following:
 ### Number fields
 Number fields are for entering `integer` data. 
 
-Number fields do not have an advanced properties tab.
+The advanced properties for a number field are the following:
+
+| Property | Description |
+| -------- | ----------- |
+| `Min value` | Sets the minimum `integer` value that can be entered into the field | 
+| `Max value` | Sets the maximum `integer` value that can be entered into the field | 
 
 ### Outcomes
 Outcomes can be added as options at the bottom of a form that a form filler needs to click on to complete the form, such as *Agree* or *Disagree*. 

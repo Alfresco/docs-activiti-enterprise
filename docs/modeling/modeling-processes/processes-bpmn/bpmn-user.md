@@ -3,10 +3,9 @@ Title: User tasks
 ---
 
 # User tasks
-
 User tasks represent a stage in the process where a human action is required.
 
-Human action is handled by a task being assigned to specific users or groups. The task that is assigned is modeled using a form. Once the form is completed from a task list, the process flow continues on the next element. 
+Human action is handled by a task being assigned to specific users or groups. The task that is assigned is usually modeled using a form. Once the form is completed, the process flow continues on to the next element. 
 
 The possible assignments for a user task are:
 

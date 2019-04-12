@@ -11,7 +11,7 @@ Projects group multiple process definitions into a logical project. For example,
 
 
 ## Releasing
-A project cannot be deployed using the Administrator Application until it has been released using the Modeling Application. 
+A project cannot be deployed using the Administrator Application until it has been released in the Modeling Application. 
 
 ## Versioning
 

@@ -3,12 +3,7 @@ Title: Connectors
 ---
 
 # Connectors 
-Connectors are used to import data into your process from an external source or system, or to update an external source or system using data from your process. They are also used to execute logic outside of a runtime bundle and pass the result(s) back to the process. Connectors are attached to [service tasks]() within a process definition.
-
-Connectors conceptually contain two parts:
-
-* An [image](#connector-images) of the connector that is deployed alongside a project. This image needs to contain the logic that the connector executes outside of the runtime bundle. 
-* A [connector definition](#connector-definitions) that describes the actions a connector can make and the parameters that need to be passed to the connector image. The connector definition is used to attach a connector action to a service task within a process definition. 
+Connectors are used to execute logic outside of processes. Values are sent from a process to a connector to be used as part of the logic and the results sent back to the process afterwards.
 
 Examples of what connectors can be used to action in a process include:
 
@@ -16,12 +11,18 @@ Examples of what connectors can be used to action in a process include:
 * interacting with an installation of Slack to post messages
 * triggering a custom REST API and passing the response back to the process 
 
+Connectors conceptually contain two parts:
+
+* An [image](#connector-images) of the connector that is deployed alongside a project. This image needs to contain the logic that the connector executes outside of the runtime bundle. 
+
+* A [connector definition](#connector-definitions) that describes the actions a connector can make and the parameters that need to be passed to the connector image. The connector definition is used to attach a connector action to a service task within a process definition. 
+
 Connector components can also be [extended further](https://www.alfresco.com/abn/adf/docs/process-services-cloud/) using the Application Development Framework. 
 
 ## Connector images
-To execute logic outside of a runtime bundle, a connector is deployed as a separate image. The communication between the runtime bundle and connector is accomplished via specifically named channels with messages managed by a message broker (Rabbit MQ by default). 
+To execute logic outside of a runtime bundle (i.e. a process), a connector is deployed as a separate image. The communication between the runtime bundle and connector is accomplished via specially named channels with messages managed by a message broker (Rabbit MQ by default). 
 
-The environment variables that are specific to the connector can be set as connector variables during deployment.
+The environment variables that are specific to the connector can be set as connector variables during the deployment of a project.
 
 ## Connector definitions
 Connector definitions can be created or updated through the GUI or using the inbuilt JSON editor. A connector must have a name and description followed by an unlimited number of actions that each contain input and output parameters of data type; boolean, date, integer or string.
