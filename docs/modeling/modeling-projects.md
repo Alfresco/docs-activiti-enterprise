@@ -20,12 +20,12 @@ Use the following steps to release a project:
 After a project has been released the **Version** column will increment by one for that project.
 
 ## Storage
-A mandatory instance of [Alfresco Content Services Community (ACS)]() is deployed during the installation of Activiti Enterprise. This is used by the [modeling service]() to store and maintain project versions and by the [deployment service]() to deploy projects.
+A mandatory instance of [Alfresco Community Edition](https://docs.alfresco.com/community/concepts/welcome-infocenter_community.html) is deployed during the installation of Activiti Enterprise. This is used by the [modeling service]() to store and maintain project versions and by the [deployment service]() to deploy projects.
 
 At the top level of the folder structure there is a folder for the Modeling Application that stores project definitions and a folder that manages the versions of projects after they have been [released](). The [Administrator Application]() uses the second folder to deploy specific versions of a project.
 
 ### Folder structure
-A folder is created for each project in the Modeling Application that contains a set structure for each element type. When you download a project, the extracted zip file will be in the same structure as the project is stored in ACS.  
+A folder is created for each project in the Modeling Application that contains a set structure for each element type. When you download a project, the extracted zip file will be in the same structure as the project is stored in Alfresco Community Edition.  
 
 The following is an example of an exploded zip file of a project called *holiday* that contains a connector, a decision table, a form and two process definitions:
 

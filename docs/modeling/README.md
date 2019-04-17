@@ -12,7 +12,7 @@ The Alfresco Modeling Application is used to create and update the components th
 
 * [Forms](../modeling/modeling-forms/README.md) are used to collect data from end-users and are attached to a start event or user task within a process.
 
-* [Connectors](../modeling/modeling-connectors/README.md) are used to execute logic outside of processes. Values are sent from a process to a connector to be used as part of the logic and the results sent back to the process afterwards.
+* [Connectors](../modeling/modeling-connectors/README.md) are used to execute logic outside of processes. Values are sent from a process to a connector to be used as part of the logic and the results sent back to the process instance afterwards.
 
 * [Decision tables]() are used to make business decisions as part of a process. 
 

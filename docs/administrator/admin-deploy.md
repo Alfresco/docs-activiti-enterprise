@@ -23,7 +23,12 @@ An admin user or group must be selected during the deployment process and an opt
 		* If you created the connector yourself, this will be the URL of the image you 		published.
 		* If this is an OOTB connector then choose the correct connector(s) from the list. 
 
-	5. Set the connector variables in JSON format.
+	5. Set the connector variables in JSON format. For example, if using the [email connector](../modeling/modeling-connectors/connectors-ootb/connectors-email.md) you can set the variables `EMAIL_HOST` and `EMAIL_PORT` with the following: 
+
+	```json
+	{"EMAIL_HOST" : "https://mysmtp.com"}, {"EMAIL_PORT" : 8050}
+	```
+	 
 3. **Deploy** the application. 
 
 **Note**: Applications can also be [upgraded](../administrator/admin-upgrade.md) if changes or updates are needed in the original project.

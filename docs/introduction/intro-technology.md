@@ -3,7 +3,6 @@ Title: Technology
 ---
 
 # Technology
-
 Whilst a brief overview of cloud native applications and short introduction to the technologies and concepts used in and with Alfresco Activiti Enterprise is provided, it is recommended that you have at least a basic understanding of the following before getting started:  
 
 * Microservice architectures

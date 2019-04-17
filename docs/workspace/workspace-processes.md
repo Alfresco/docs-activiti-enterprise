@@ -22,16 +22,24 @@ Use the following steps to start a new process instance:
 3. Click **Start** to start the process instance. 
 
 ## Filtering process instances
+It is possible to update the three default views for process instances by changing the filters, or create a new custom view by clicking the **Customize your filter** section on any view. 
 
+The options for customizing a filter are as follows: 
 
+| Option | Description | 
+| ------ | ----------- |
+| Status | The status of process instance to display in the filter |
+| Sort by | The column to sort by: `Id`, `Name`, `Status` or `StartDate` | 
+| Order by | Whether the ordering is ascending or descending |
+| Last modified from | The date the process instance was last modified from | 
+| Last modified to | The date the process instance was last modified to |
 
+Once you have customized your filter, there are two options: 
 
+* **Save filter**: Selecting this will save the filter over the current view.
+* **Save filter as**: Selecting this will give you the option to provide a name for a new view for your filter and add it under the **Processes** section. 
 
-There is a set of preset filters applied to process and task lists that can be customized or saved into new lists. 
-
-Each view has a customizable filter associated with it, that can be used to change the process status on display and change the sort field and order. Editing a filter gives the option to save it in the current view or as a new view. 
-
-Selecting a specific process instance opens up an information panel which displays basic properties about the process instance. 
+You can use the **Delete filter** option at any time to remove a view. 
 
 
 
