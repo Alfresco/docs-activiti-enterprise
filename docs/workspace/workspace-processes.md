@@ -3,7 +3,7 @@ Title: Workspace process instances
 ---
 
 # Workspace process instances
-The processes section displays information about all process instances in an application. The default views are for currently running process instances under **Running Processes** and all completed process instances under **Completed Processes**. There is a further view that shows  process instances of all status types called **All Processes**. 
+The processes section displays information about all process instances in an application. The default views are for currently running process instances under **Running Processes** and all completed process instances under **Completed Processes**. There is a further view that shows  process instances of all status types called **All Processes**. If you select a process instance it will display the [tasks](../workspace/workspace-tasks.md) associated to it. 
 
 The possible statuses of a process instance are as follows:
 
