@@ -3,14 +3,21 @@ Title: BPMN elements
 ---
 
 # BPMN elements
+All BPMN elements have a `name` and `documentation` property. The documentation property is a free text description of the element within your process. 
 
-All BPMN elements have a name and documentation property. The documentation property is a free text description of the element within your process. 
-
-The BPMN elements currently available in Alfresco Activiti Enterprise are: 
+The BPMN elements available in Alfresco Activiti Enterprise are: 
 
 * [Start events](../processes-bpmn/bpmn-start.md)
-* [End events](../processes-bpmn/bpmn-end.md)
-* [Exclusive gateways](../processes-bpmn/bpmn-exclusive.md)
-* [Parallel gateways](../processes-bpmn/bpmn-parallel.md)
+	* [Start events](../processes-bpmn/bpmn-start.md#start-events)
+	* [Start signal events](../processes-bpmn/bpmn-start.md#start-signal-events) 
+* [Signal events](../processes-bpmn/bpmn-signal.md)
+	* [Signal intermediate throw events](../processes-bpmn/bpmn-signal.md#intermediate-throw-events)
+	* [Signal intermediate catch events](../processes-bpmn/bpmn-signal.md#intermediate-catch-events)
 * [User tasks](../processes-bpmn/bpmn-user.md)
 * [Service tasks](../processes-bpmn/bpmn-service.md)
+* [Call activities](../processes-bpmn/bpmn-call.md)
+* [Gateways](../processes-bpmn/bpmn-gateways.md)
+	* [Exclusive gateways](../processes-bpmn/bpmn-gateways.md#exclusive-gateways)
+	* [Parallel gateways](../processes-bpmn/bpmn-gateways.md#parallel-gateways)
+* [End events](../processes-bpmn/bpmn-end.md)
+* [Sequence flows](../process-bpmn/bpmn-sequence.md)
