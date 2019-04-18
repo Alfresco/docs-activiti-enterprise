@@ -9,29 +9,29 @@ Examples of what connectors can be used to action in a process include:
 
 * automating emails using values from a process to populate the fields 
 * interacting with an installation of Slack to post messages
-* triggering a custom REST API and passing the response back to the process 
+* calling a custom REST API and passing the response back to the process 
 
 Connectors conceptually contain two parts:
 
-* An [image](#connector-images) of the connector that is deployed alongside a project. This image needs to contain the logic that the connector executes outside of the runtime bundle. 
+* An [image](#connector-images) of the connector that is deployed alongside an application. This image needs to contain the logic that the connector executes outside of the runtime bundle. 
 
 * A [connector definition](#connector-definitions) that describes the actions a connector can make and the parameters that need to be passed to the connector image. The connector definition is used to attach a connector action to a service task within a process definition. 
 
 Connector components can also be [extended further](https://www.alfresco.com/abn/adf/docs/process-services-cloud/) using the Application Development Framework. 
 
 ## Connector images
-To execute logic outside of a runtime bundle (i.e. a process), a connector is deployed as a separate image. The communication between the runtime bundle and connector is accomplished via specially named channels with messages managed by a message broker (Rabbit MQ by default). 
+To execute logic outside of the runtime bundle (i.e. a process), a connector is deployed as a separate image. The communication between the runtime bundle and connector is accomplished via specially named channels with messages managed by a message broker (Rabbit MQ by default). 
 
-The environment variables that are specific to the connector can be set as connector variables during the deployment of a project.
+The environment variables that are specific to the connector can be set as connector variables during the deployment of a released project.
 
 ## Connector definitions
-Connector definitions can be created or updated through the GUI or using the inbuilt JSON editor. A connector must have a name and description followed by an unlimited number of actions that each contain input and output parameters of data type; boolean, date, integer or string.
+Connector definitions can be created or updated through the GUI or using the inbuilt JSON editor. A connector must have a name and description followed by an unlimited number of actions that each contain input and output parameters of data type; boolean, date, integer or string. Input parameters are sent to the connector service, whilst output parameters are sent from the connector service back to the runtime bundle. 
 
 A single connector can have multiple actions, for example creating a Slack channel and sending a message to a Slack channel are different actions but they can be handled by the same connector.
 
-Within each action of a connector definition input and output parameters need to be defined. Input parameters are those that are sent from the process to the connector and output parameters are those that are sent back. Input and output parameters need to be paired to [process variables]() within a process definition to pass values for each parameter back and forth and optionally reuse those values later on in a process.
+Within each action of a connector definition input and output parameters need to be defined. Input parameters are those that are sent from the process to the connector and output parameters are those that are sent back. Input and output parameters need to be paired to [process variables](../../modeling/modeling-processes/README.md#process-variables) within a process definition to pass values for each parameter back and forth and optionally reuse those values later on in a process.
 
-Once a connector definition has been created, they are attached using the `implementation` value of a [service task]() within a process definition using the format `<connector-name>.<action-name>`. The following is an example of the XML for a service task of a Slack connector executing the send message action: 
+Once a connector definition has been created, they are attached using the `implementation` value of a [service task](../../modeling/modeling-processes/processes-bpmn/bpmn-service.md) within a process definition using the format `<connector-name>.<action-name>`. The following is an example of the XML for a service task of a Slack connector executing the send message action: 
 
 ```xml
 <bpmn2:serviceTask id="ServiceTask_3xcd7zp" implementation="slackConnector.SEND_MESSAGE" />

@@ -33,8 +33,8 @@ Use the following steps to start a new task:
  	| Description | A description of the task | No |
  	| Priority | The relative priority of the task as an `integer` | No |
  	| Due Date | The date the task needs to be completed by | No |
- 	| User | The user the task will be assigned to | Yes |
- 	| Candidate Group | | |
+ 	| User | The user the task will be assigned to | Yes, if *Candidate Group* is blank |
+ 	| Candidate Group | The group of users the task will provisionally be assigned to. The task must then be [claimed](#claiming-a-task) by a single user | Yes, if *User* is blank |
 
 3. Click **Start** to start the task. 
 
@@ -47,7 +47,8 @@ Use the following steps to attach a form to a standalone task:
 2. Select the **Attach Form** option.
 3. Choose the form to attach from the dropdown list and then click **Attach Form**.
 
-## Assigning a task
+## Claiming a task
+
 
 ## Task details
 Selecting a specific task opens up an information panel which displays basic properties about the task. 
@@ -62,7 +63,7 @@ Selecting a specific task opens up an information panel which displays basic pro
 | Created | The date the task was first created on | No |
 | Parent name | | No |
 | Parent task id | | No |
-| End date | | No |
+| End date | The date the task was completed| No |
 | Id | The task ID | No |
 | Description | The description of the task | No |
 

@@ -14,7 +14,7 @@ The Alfresco Modeling Application is used to create and update the components th
 
 * [Connectors](../modeling/modeling-connectors/README.md) are used to execute logic outside of processes. Values are sent from a process to a connector to be used as part of the logic and the results sent back to the process instance afterwards.
 
-* [Decision tables]() are used to make business decisions as part of a process. 
+* [Decision tables](../modeling/modeling-decisions.md) are used to make business decisions as part of a process. 
 
 ## Modeling
 All components of an application can be designed using a Graphical User Interface (GUI) or an XML or JSON editor. Users require the *APS_MODELER* role in order to create projects within the Modeling Application. 
