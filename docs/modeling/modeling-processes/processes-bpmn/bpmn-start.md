@@ -35,7 +35,7 @@ The XML representation of a start event with a form defined is:
 **Note**: The `activiti:formKey` is the `id` of the form used to start the process. This can be seen in the JSON of the form definition. 
 
 ## Start signal events
-Start signal events begin a process instance using a caught, named signal. See [signal events](../process-bpmn/bpmn-signal.md) for more information regarding signals and how they can be thrown. 
+Start signal events begin a process instance using a caught, named signal. See [signal events](../processes-bpmn/bpmn-signal.md) for more information regarding signals and how they can be thrown. 
 
 When used in the Modeling Application, a previously used `Signal` can be selected from the dropdown in its properties, or a new one created using the `+` symbol. Signals can be restricted to the process instance they are thrown in, or be global in scope. The scope of a global signal is restricted to the application they are used in. 
 

@@ -49,6 +49,7 @@ The following are the parameters that are returned to the process by the Twilio 
 | `twilioResult` | The response(s) from the connector  | `String` |
 | `twilioError` | A list of errors if any are caught by the connector | `String` |
 
+## Starting a process instance using Twilio
 
 
 

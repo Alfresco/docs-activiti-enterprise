@@ -5,6 +5,8 @@ Title: Signal events
 # Signal events
 Signal events can be either catching or throwing. A throwing signal event will emit a signal when it is reached in a process instance that will be picked up by any catching signal event with a matching signal name.  
 
+The `id` of a signal will match against the `signalRef` of a catching or throwing event. 
+
 Signal events are graphically represented by a triangle icon inside different shapes that differentiate between the event types. A solid triangle represents a throwing event, whilst a hollow triangle represents a catching event.
 
 The following are signal events:
@@ -12,6 +14,7 @@ The following are signal events:
 * [Signal intermediate throw events](#signal-intermediate-throw-events)
 * [Signal intermediate catch events](#signal-intermediate-catch-events)
 * Also see [start signal events](../processes-bpmn/bpmn-start.md#start-signal-events)
+* Also see [boundary signal events](../process-bpmn/bpmn-boundary.md#boundary-signal-events)
 
 ## Signal intermediate throw events
 Signal intermediate throwing events are events that emit a signal when they are reached in the process flow. The signal that is emitted is then caught by any catching signal events with a name matching the signal that was thrown. 
