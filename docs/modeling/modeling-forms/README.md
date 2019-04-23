@@ -20,5 +20,14 @@ All form fields display a field editor when they are created in the GUI. Each ha
 
 The [general properties](../modeling-forms/forms-fields.md) that are shared amongst all form fields are described with any exceptions noted in the description of individual field types.
 
-### Form variables
+### Form values
+Form values are the values that a user enters into a form when they are filling it in.
 
+Form values can receive a default value from a [process variable](../modeling-processes/README.md#process-variables). To pass this default value to a form field, set the process variable `name` as the form field `id`. 
+
+When a form that is part of a [user task](../modeling-processes/processes-bpmn/bpmn-user.md) is submitted, all of the values that have been entered into the form fields are created as [process variables](../modeling-processes/README.md#process-variables) within the parent process. These process variables are created using the name of the form fields. If a process variable already exists with the name of a form field then the value will be overwritten. 
+
+### Form variables
+Form variables are used to display the value of a variable using a [display value](../modeling-forms/forms-fields.md#display-value) field.
+
+A form definition without any fields selected will display an **Edit Form Variables** button in the properties panel. Form variables can be configured using the inbuilt GUI or the JSON editor provided with it.

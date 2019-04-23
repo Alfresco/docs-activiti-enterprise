@@ -95,7 +95,7 @@ Display text fields allow the form designer to display a line of fixed text to t
 Display text fields not have the `Placeholder` and `Required?` fields, nor do they have an advanced properties tab.
 
 ### Display value fields
-Display value fields allow the form designer to display a value previously entered in the form. The `label` property is used to enter the value to display.
+Display value fields allow the form designer to display a value previously entered in the form. The `variables` property is used to select a [form variable](../modeling-forms/README.md#form-variables) to display.
 
 Display value fields not have the `Placeholder` and `Required?` fields, nor do they have an advanced properties tab. 
 

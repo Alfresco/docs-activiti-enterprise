@@ -8,7 +8,6 @@ Whilst a brief overview of cloud native applications and short introduction to t
 * Microservice architectures
 * Containerization; Docker, Helm and Kubernetes
 * Spring Boot and Spring Cloud technologies
-* Continuous Integration and Continuous Delivery (CI/CD) 
 
 ## Overview
 Cloud native applications differ from traditional monolithic applications as they split out the architecture of an application into a number of smaller functions or processes referred to as microservices. These microservices can be considered self-contained, with communication only possible via APIs (Application Programming Interfaces). The advantage to microservices is that they can be developed, upgraded or replaced independently of one another. 
@@ -47,9 +46,4 @@ Importantly, Helm offers a way of managing versions of templates for application
 
 These templates, or Helm Charts are stored in repositories that can be public or private so they can be reused. They can also be configured to allow variables to be set by users that are specific to their own needs.
 
-Further information is available in the [Helm documentation](https://docs.helm.sh/). 
-
-## Continuous Integration and Continuous Delivery CI/CD 
-Continuous integration and continuous delivery (CI/CD) are the practice of trying to reduce the time taken for developmental changes to reach a production environment. Changes should ideally have the same tests run against them as before they were made and their deployment should be automated. 
-
-An example of a CI/CD tool is [Jenkins X](https://jenkins-x.io/). It is aimed specifically at Kubernetes environments.
+Further information is available in the [Helm documentation](https://docs.helm.sh/).

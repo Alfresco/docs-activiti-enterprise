@@ -54,7 +54,7 @@ File definitions are created and stored for each element of a project:
 * `<process-name>.bpmn20.xml` is the format that process definitions are stored in.
 * `<connector-name>.json` is the format that connector definitions are stored in. 
 * `<form-name>.json` is the format that form definitions are stored in. 
-* `<decision-table-name>.xml` 
-* `<decision-table-name>.json` 
+* `<decision-table-name>.xml` is the format that decision table definitions are stored in.
+* `<decision-table-name>.json` is the format that decision table UIDs are stored in. 
 * `<process-name>-extensions.json` is the format that stores the links between process elements. For example it maps the `implementation` value of service tasks with the relevant connector actions and equivalent process variables. 
-* `<appname>.json` is the format that stores the version number of a project.
+* `<appname>.json` is the format that stores the name and version number of a project.

@@ -5,7 +5,7 @@ Title: Service tasks
 # Service tasks
 Service tasks are used in conjunction with connectors to allow two-way communication between external systems and a process. 
 
-The `implementation` property value of a service task matches with a connector name and the appropriate action defined in the connector definition and can be chosen from a dropdown. The `implementation` value within the XML of the process definition will be in the format `<connector-name>.<action-name>`. The input and output parameters of the connector action will automatically match to corresponding process variables if their names and data types match.
+The `implementation` property value of a service task matches with a connector name and the appropriate action defined in the connector definition and can be chosen from a dropdown. The `implementation` value within the XML of the process definition will be in the format `<connector-name>.<action-name>`. The input and output parameters of the connector action will automatically match to corresponding process variables if their names and data types match. Alternatively, parameters can be entered as values directly into the service task. 
 
 Service tasks are graphically represented by a single, thin rounded rectangle with a cog icon inside. 
 
