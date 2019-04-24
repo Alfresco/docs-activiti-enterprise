@@ -25,5 +25,5 @@ Process variables are used for the following reasons:
 
 * To store [form values](../modeling-forms/README.md#form-values). When a form is submitted, all form values are created as process variables using the name of the form fields. If a process variable already exists with the same name, the value will be overwritten. 
 * To pass values to forms by setting the `name` value of a process variable to match the `id` value of a form field.
-* To pass values to [connectors](../modeling-connectors/README.md) and receive values back from a connector. 
+* To pass input parameters to [connectors](../modeling-connectors/README.md) and receive output parameters back from a connector. 
 

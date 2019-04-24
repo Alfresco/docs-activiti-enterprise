@@ -12,6 +12,10 @@ Projects will only appear in the **Application releases** section if they have b
 An admin user or group must be selected during the deployment process and an optional user-level set of individuals or group(s) of users. Once an application has had the deploy action used against it, the [status of the deployment can be monitored](../administrator/admin-applications.md).
 
 ## Deployment steps
+To deploy a released project, sign into the Administrator Application with a user that has permission to deploy. 
+
+**Important**: A project can only be deployed if it has been [released](../../modeling/modeling-projects.md#releasing).
+
 1. Find the released project in the list of potential releases in the Administrator Application and select to **Deploy** it. 
 2. The Administrator Application will then step through the deployment options:
 
@@ -34,5 +38,3 @@ An admin user or group must be selected during the deployment process and an opt
 4. [Monitor the deployment](../administrator/admin-applications.md) process in **Application instances**.
 
 **Note**: Applications can also be [upgraded](../administrator/admin-upgrade.md) if changes or updates are needed in the original project.
-
-
