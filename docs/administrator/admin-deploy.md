@@ -36,5 +36,6 @@ To deploy a released project, sign into the Administrator Application with a use
 	 
 3. **Deploy** the application. 
 4. [Monitor the deployment](../administrator/admin-applications.md) process in **Application instances**.
+5. Once the deployment has completed the [APIs](../apis/README.md) can be accessed.
 
 **Note**: Applications can also be [upgraded](../administrator/admin-upgrade.md) if changes or updates are needed in the original project.

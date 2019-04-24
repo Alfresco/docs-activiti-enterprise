@@ -12,7 +12,7 @@ The REST APIs that the modeling service exposes deal with projects, models and r
 
 The following is a high level diagram of the modeling service:
 
-![Architectural Diagram](../images/arch-modeling.png)
+![Modeling service diagram](../images/arch-modeling.png)
 
 ## Alfresco Community Edition 
 An instance of [Alfresco Community Edition](https://docs.alfresco.com/community/concepts/welcome-infocenter_community.html) is deployed as part of Activiti Enterprise to store the project and model definitions created in the [Alfresco Modeling Application](../modeling/README.md) and used by the [Alfresco Administrator Application](../administrator/README.md) to deploy them.
@@ -26,7 +26,7 @@ By default, the data for the deployment service is stored in a Postgres database
 
 The following is a high level diagram of the modeling service:
 
-![Architectural Diagram](../images/arch-deploy.png)
+![Deployment service diagram](../images/arch-deploy.png)
 
 The REST APIs that the deployment service exposes deal with applications.
 

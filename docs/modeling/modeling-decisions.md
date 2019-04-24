@@ -23,11 +23,13 @@ The following is an example of the XML for a decision table within a process def
 ### General
 
 ### Inputs
-Inputs 
+Decision tables have at least one input. Inputs are the values that will evaluated against rules. 
 
 ### Outputs
+Decision tables have at least one output. Outputs are the value(s) of the results a decision table can come to after inputs are evaluated against rules. 
 
 ### Rules
+
 
 ### Hit policies 
 Hit policies define how many rules can be matched in a decision table and which of the results are included in the output. 

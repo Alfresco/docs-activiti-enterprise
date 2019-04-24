@@ -9,6 +9,8 @@ The `implementation` property value of a service task matches with a connector n
 
 Service tasks are graphically represented by a single, thin rounded rectangle with a cog icon inside. 
 
+![Service task symbol](../../../images/service-task.svg =100x50)
+
 The XML representation of a service task is: 
 
 ```xml

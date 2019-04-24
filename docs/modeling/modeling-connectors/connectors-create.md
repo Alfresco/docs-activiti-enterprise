@@ -42,4 +42,4 @@ To use your connector within a process, sign into the Alfresco Modeling Applicat
 3. Complete and save your process. 
 
 ## Deploying a connector
-A connector needs to be deployed with its associated released project using the [Alfresco Administrator Application to deploy](../../administrator/admin-deploy.md). The location of the connector image and any connector variables are set during this deployment.
+A connector needs to be deployed with its associated released project using the [Alfresco Administrator Application to deploy](../../administrator/admin-deploy.md). The location of the connector image and any connector variables are set during deployment.

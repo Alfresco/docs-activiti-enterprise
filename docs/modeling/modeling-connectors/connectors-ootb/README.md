@@ -21,7 +21,7 @@ OOTB connectors can be selected directly from the palette rather than by selecti
 1. Select your OOTB connector from the connector palette. 
 2. Choose whether to create a new instance of the connector or use an existing one.
  
-	**Note**: Multiple actions linked to different [service tasks](../../modeling-processes/processes-bpmn/bpmn-service.md) can use the same instance of a connector image. Different instances of 	a connector are only required if you need to use different [connector variables](../../modeling-connectors/README.md/#connector-images) for each.
+	**Note**: Multiple actions linked to different [service tasks](../../modeling-processes/processes-bpmn/bpmn-service.md) can use the same instance of a connector image. Different instances of 	a connector are only required if you need to use different [connector variables](../modeling-connectors/README.md/#connector-variables) for each.
 
 3. Choose the `Action` your connector will use for that service task. 
 

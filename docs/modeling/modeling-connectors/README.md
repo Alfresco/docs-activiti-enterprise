@@ -45,9 +45,9 @@ Once a connector definition has been created, they are attached using the `imple
 <bpmn2:serviceTask id="ServiceTask_3xcd7zp" implementation="slackConnector.SEND_MESSAGE" />
 ```
 
-**Important**: Each service task that a connector is attached to can only execute a single action. However, the same connector can be used multiple times within the same, or different process definition to execute the same action or different actions, as long as they are attached to different service tasks. 
+**Important**: Each service task that a connector is attached to can only execute a single action. However, the same connector can be used multiple times within the same, or different process definitions to execute the same action or different actions, as long as they are attached to different service tasks. 
 
 If different [connector variables](#connector-variables) are required then multiple connector definitions will need to be defined that will use different instances of a connector image.
 
 ## Creating connectors
-A set of [OOTB (out of the box) connectors](../modeling-connectors/connectors-ootb/README.md) have been provided, or you can [create your own connectors](../modeling-connectors/connectors-create.md).
+A set of [OOTB (out of the box) connectors](../modeling-connectors/connectors-ootb/README.md) have been provided, or you can [create your own connector](../modeling-connectors/connectors-create.md).

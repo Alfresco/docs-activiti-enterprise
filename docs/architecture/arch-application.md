@@ -34,7 +34,7 @@ The REST APIs that the form service exposes deal with forms and are specific to 
 
 The following is a high level diagram of the form service:
 
-![Architectural Diagram](../images/arch-form.png)
+![Form service diagram](../images/arch-form.png)
 
 ## Process storage service
 The process storage service stores process instances and tasks as nodes within an [Alfresco Content Services (ACS)](http://docs.alfresco.com/6.1/concepts/welcome.html) repository. 
@@ -45,7 +45,7 @@ The REST APIs that the process storage service exposes deal with folders and fil
 
 The following is a high level diagram of the process storage service:
 
-![Architectural Diagram](../images/arch-storage.png)
+![Process storage service diagram](../images/arch-storage.png)
 
 ## DMN service
 The DMN service contains the backend functionality required for [decision tables](../modeling/modeling-decisions.md) to function within an application. 
