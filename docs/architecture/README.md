@@ -10,7 +10,7 @@ The following diagram describes the architecture of Alfresco Activiti Enterprise
 
 
 ## Services
-Alfresco Activiti Enterprises is comprised of microservices and components. These services can be considered platform level services or application level services. 
+Alfresco Activiti Enterprise is comprised of microservices and components. These services can be considered platform level services or application level services. 
 
 * [Platform services](../architecture/arch-platform.md) are those used across the whole platform to manage applications and support user interfaces.
 

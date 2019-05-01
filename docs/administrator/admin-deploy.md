@@ -23,10 +23,10 @@ To deploy a released project, sign into the Administrator Application with a use
 	2. Select which version of the released project to deploy.
 	2. Select the users and/or groups that will have administrator access to the application.
 	3. Select the users and/or groups that will have access to the application. 
-	4. Select the name of the connector and the location of the image to be used:
+	4. Configure the details for any connectors defined in the process definitions:
 
-		* If you created the connector yourself, this will be the URL of the image you 		published.
-		* If this is an OOTB connector then choose the correct connector(s) from the list. 
+		* If you created the connector yourself, this will be the name of the connector and the URL of the image you published..
+		* If this is an OOTB connector then the name and image are configured automatically. 
 
 	5. Set the connector variables in JSON format. For example, if using the [email connector](../modeling/modeling-connectors/connectors-ootb/connectors-email.md) you can set the variables `EMAIL_HOST` and `EMAIL_PORT` with the following: 
 
@@ -37,5 +37,3 @@ To deploy a released project, sign into the Administrator Application with a use
 3. **Deploy** the application. 
 4. [Monitor the deployment](../administrator/admin-applications.md) process in **Application instances**.
 5. Once the deployment has completed the [APIs](../apis/README.md) can be accessed.
-
-**Note**: Applications can also be [upgraded](../administrator/admin-upgrade.md) if changes or updates are needed in the original project.

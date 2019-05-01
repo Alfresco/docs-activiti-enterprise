@@ -35,20 +35,33 @@ Use the following steps to start a new task:
  	| Due Date | The date the task needs to be completed by | No |
  	| User | The user the task will be assigned to | Yes, if *Candidate Group* is blank |
  	| Candidate Group | The group of users the task will provisionally be assigned to. The task must then be [claimed](#claiming-a-task) by a single user | Yes, if *User* is blank |
+ 	| Form | A dropdown list of all forms available in the application | No | 
 
 3. Click **Start** to start the task. 
 
-### Attaching a form to a standalone task
-To attach a form to a standalone task, the task must first have been created. The form to attach must also have been defined in the same application that the instance of Process Workspace is running in.
-
-Use the following steps to attach a form to a standalone task:
-
-1. Find the task you want to attach a form to in the **My Tasks** list and click it.
-2. Select the **Attach Form** option.
-3. Choose the form to attach from the dropdown list and then click **Attach Form**.
-
 ## Claiming a task
+A task can be claimed if it has no user assigned. Tasks with no candidate group assigned are available to be claimed by any user, whilst those with a candidate group assigned can only be claimed by a member of that group. Completed and cancelled tasks cannot be claimed. 
 
+Use the following steps to claim a task: 
+
+1. Search for tasks with a **Status** of **CREATED**. 
+
+	**Note**: Make sure the **Assignee** column is blank when filtering **CREATED** tasks.
+
+2. Click on the task to claim to view its properties.
+3. Click the **Claim** button. The task **Status** will update to **ASSIGNED**.  
+
+## Unclaiming a task
+A task can be unclaimed if the user it is assigned to decides to no longer work on it. Completed and cancelled tasks cannot be unclaimed.  
+
+Use the following steps to unclaim a task:
+
+1. Search for tasks with a **Status** of **ASSIGNED**.
+
+	**Note**: This is the default filter for **My Tasks** 
+
+2. Click on the task to unclaim to view its properties.
+3. Click the **Unclaim** button. The task **Status** will update to **CREATED**. 
 
 ## Task details
 Selecting a specific task opens up an information panel which displays basic properties about the task. 
