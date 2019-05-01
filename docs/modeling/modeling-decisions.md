@@ -5,7 +5,7 @@ Title: Decision tables
 # Decision tables
 Decision tables are used to manage business decisions within process workflows. They adhere to the Decision Model and Notation (DMN) standard. 
 
-Decision tables take at least one input and have at least one output. The inputs are evaluated against a set of rules defined by the modeler and then output the relevant output(s) that match those rules to the process. 
+Decision tables take at least one input and have at least one output. The inputs are evaluated against a set of rules defined by the modeler and then produce the relevant output(s) that match those rules to the process. 
 
 ## Using decision tables
 Decision tables can be selected from the palette when designing a process. Once they have been dragged into the process definition, a dropdown list of decision tables available to the current project is displayed. 
@@ -21,7 +21,6 @@ The following is an example of the XML for a decision table within a process def
 The following is an example of the extensions JSON of a process containing a decision table:
 
 ```json
-{
 "mappings": {
    "ServiceTask_0v4ptl3": {
       "inputs": {
@@ -32,10 +31,9 @@ The following is an example of the extensions JSON of a process containing a dec
        }
     }
 }
-}
 ```
 
-## Decision table basics
+## Designing decision tables
 The following is a decision table that selects the best flavor of ice cream to eat based on which day of the week it is and what the temperature is. This example will be used to assist in explaining the different elements that make up a decision table.
 
 ![Example decision table](../images/modeling-decision.png)
@@ -107,7 +105,7 @@ Each row in a decision table is known as a rule. A rule evaluates which outputs 
 * On a Wednesday when the temperature is 25°c or above, you should eat vanilla ice cream.
 * On a Friday you should eat triple chocolate ice cream, irrespective of temperature. 
 * On Saturdays or Sundays when the temperature is 25°c or above, you should mint chocolate ice cream.
-* When the temperature is above 30°c you should eat lemon sorbet, irrespective of the day. 
+* When the temperature is above 35°c you should eat lemon sorbet, irrespective of the day. 
 
 **Note**: If there are multiple inputs in a single rule, decision tables use an *AND* operator between the inputs.
 
@@ -140,7 +138,7 @@ Hit policies are defined at the top level of a decision table XML:
 <decisionTable id="DecisionTable_Ice_cream" hitPolicy="FIRST">
 ```
 
-Other [hit policies](#hit-policies) can be used.  
+Other [hit policies](#hit-policy-types) can be used.  
 
 ### Annotations
 On the far right of a decision table is a column for annotations. This is just a place to store notes and is only visible to the modeler. 
@@ -156,7 +154,7 @@ Annotations are contained in a `description` property of a rule in the XML:
 </rule>
 ```
 
-## Hit policies 
+## Hit policy types 
 Hit policies define how many rules can be matched in a decision table and which of the results are included in the output. 
 
 The default hit policy is `UNIQUE`. 
