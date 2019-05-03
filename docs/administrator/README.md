@@ -7,19 +7,21 @@ The Alfresco Administrator Application is used to [deploy projects](../administr
 
 **Note**: It is important to note that once a project has been deployed it is referred to as an application. 
 
-Once the Administrator Application has deployed a project it can be used to monitor various aspects of the subsequent application:
+The Administrator Application has three distinct functions that are controlled by separate permissions. They are as follows:
 
-* The status of the application deployment can be monitored in the [application releases](../administrator/admin-applications.md) section.
-* Process instances can be viewed and managed in the [process instances](../administrator/admin-processes.md) section.
-* Tasks can be monitored in the [tasks](../administrator/admin-tasks.md) section. 
+![Administrator section view](../images/admin-elements.png)
 
-The Administrator Application can also be used to [upgrade to a new version of an application](../administrator/admin-upgrade.md). 
+* A **Devops** section for [deploying released projects](../administrator/admin-deploy.md) and [monitoring applications](../administrator/admin-deploy.md#monitoring-applications).
 
-The Administrator Application is deployed into the default namespace so there will only be a single instance of it running. The URL to access it will be in the format: `{my-domain}/alfresco-admin-app`. 
+* A **Process Admin** section for [monitoring tasks](../administrator/admin-monitoring.md#monitoring-tasks), [monitoring processes](../administrator/admin-monitoring.md#monitoring-processes) and [audit functions](../administrator/admin-monitoring.md#audit).
+
+* An **Identity** section for [managing users, groups and roles](../administrator/admin-identity/README.md). 
+
+The URL of the Administrator Application will be in the format: `{my-domain}/admin`. 
 
 ## About
-The about page can be accessed via the UI or at the URL: `{my-domain}/alfresco-admin-app/about` and shows the packages and package versions used in the application. 
+The about page can be accessed via the UI or at the URL: `{my-domain}/admin/about` and shows the packages and package versions used in the application. 
 
 ## Settings
-You can view the application configuration of the Administrator Application by visiting the URL:`{my-domain}/alfresco-admin-app/app.config.json`. 
+You can view the application configuration of the Administrator Application by visiting the URL:`{my-domain}/admin/app.config.json`. 
 

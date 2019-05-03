@@ -3,7 +3,7 @@ Title: Application services
 ---
 
 # Application services
-Application services are those that are deployed into a Kubernetes namespace as part of an application. There is a 1:1 relationship between namespace and application. Each application that is deployed will contain application level services specific to only that application. 
+Application services are those that are deployed into a Kubernetes namespace as part of an application. There is a 1:1 relationship between Kubernetes namespaces and applications. Each application that is deployed will contain application level services specific to only that application in its own Kubernetes namespace. 
 
 The application name therefore forms part of the REST API endpoints. 
 

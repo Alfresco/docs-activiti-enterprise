@@ -3,7 +3,7 @@ Title: Platform services
 ---
 
 # Platform services
-Platform services are those that are deployed into a default namespace within Kubernetes and are used by Activiti Enterprise to manage applications and services across the entire deployment, irrespective of how many individual applications are deployed.
+Platform services are those that are deployed into a single Kubernetes namespace and are used by Activiti Enterprise to manage applications and services across the entire deployment, irrespective of how many individual applications are deployed.
 
 ## Modeling service
 The modeling service contains the backend functionality required for the [Alfresco Modeling Application](../modeling/README.md) to run. It requires an instance of [Alfresco Community Edition](#alfresco-community-edition) deployed with it for storing project and model definitions that the [deployment service](#deployment-service) uses to deploy projects. 
@@ -29,6 +29,9 @@ The following is a high level diagram of the modeling service:
 ![Deployment service diagram](../images/arch-deploy.png)
 
 The REST APIs that the deployment service exposes deal with applications.
+
+## Alfresco Content Services
+An instance of [Alfresco Content Services (ACS)](https://docs.alfresco.com/6.1/references/whats-new.html) is deployed as part of Alfresco Activiti Enterprise to store information about in progress tasks and processes in a content repository. ACS is not required to use Activiti Enterprise and the data for tasks and processes is still stored in databases.
 
 ## Alfresco Identity Service
 Alfresco Activiti Enterprise uses the [Alfresco Identity Service](https://docs.alfresco.com/identity/concepts/identity-overview.html) for authentication and user and role management throughout the product. Authentication can be [configured](http://docs.alfresco.com/identity/concepts/identity-configure.html) to external identity provider instances such as LDAP and SAML. 

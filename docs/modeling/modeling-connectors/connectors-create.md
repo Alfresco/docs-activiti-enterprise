@@ -15,7 +15,7 @@ There are four broad steps involved with creating your own connector:
 ## Creating a connector definition 
 A connector definition is required to link your connector to a [service task](../modeling-processes/processes-bpmn/bpmn-service.md) task within a process. To create a connector definition, sign into the Alfresco Modeling Application with a user that has permission to create projects. The user will require the *APS_MODELER* role.
 
-**In the connectors section of the Modeling Application**: 
+**In the Connectors section of the Modeling Application**: 
 
 1. Create a new connector definition and give it a name and optional description.
 2. Create a new action and give it a name and optional description. 
@@ -29,7 +29,7 @@ A connector definition is required to link your connector to a [service task](..
 ## Configuring a connector within a process
 To use your connector within a process, sign into the Alfresco Modeling Application with a user that has permission to create projects. The user will require the *APS_MODELER* role. 
 
-**In the process section of the Modeling Application**:
+**In the Processes section of the Modeling Application**:
 
 1. Create a service task and use the `implementation` value dropdown to select your connector definition followed by the action that the service task will use.
 

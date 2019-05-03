@@ -1,3 +1,0 @@
----
-Title: Upgrading an application
----

@@ -6,13 +6,13 @@ Title: REST APIs
 The REST APIs for Activiti Enterprise are accessed differently depending on whether a service is application or platform specific. If a service is application specific then the *application name* will form part of the endpoint. 
 
 ## Platform endpoints
-The swagger definitions for platform endpoints are as follows:
+The OpenAPI specifications for platform endpoints are as follows:
 
 * Modeling service: `{protocol}://{domain}/alfresco-modeling-service/swagger-ui.html`
 * Deployment service: `{protocol}://{domain}/alfresco-deployment-service/swagger-ui.html`
 
 ## Application endpoints
-The swagger definitions for application endpoints require the `{application-name}` element in the URL as demonstrated in the following:
+The OpenAPI specifications for application endpoints require the `{application-name}` element in the URL as demonstrated in the following:
 
 * Runtime bundle: `{protocol}://{domain}/{application-name}/rb/swagger-ui.html`
 * Form service: `{protocol}://{domain}/{application-name}/form/swagger-ui.html`

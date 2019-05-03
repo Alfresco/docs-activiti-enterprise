@@ -25,7 +25,7 @@ The following are the properties that need to be set for the Slack connector:
 
 | Variable | Description |
 | -------- | ----------- |
-| `TWILIO_ACCOUNT` | Your account obtained from Twilio |
+| `TWILIO_ACCOUNT` | Your account name obtained from Twilio |
 | `TWILIO_TOKEN` | A token for your account obtained from Twilio |
 
 ## Input parameters
@@ -46,7 +46,7 @@ The following are the parameters that are returned to the process by the Twilio 
 
 | Parameter | Description | Type |
 | --------  | ----------- | ---- |
-| `twilioResult` | The response(s) from the connector  | `String` |
+| `twilioResult` | The response(s) from the connector containing the ID of the sent message | `String` |
 | `twilioError` | A list of errors if any are caught by the connector | `String` |
 
 

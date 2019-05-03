@@ -24,11 +24,11 @@ The following following roles are available with a default installation:
 
 | Role | Description |
 | ---- | ----------- |
-| *APS_PROCESS_ADMIN* |Provides administrator access to all functions including access to admin APIs but can also act as a user of the applications and have tasks assigned to it, whereas APS_ADMIN cannot. | 
-| *APS_DEVOPS* | Provides access to the DevOps functions in the Administrator Application (application definitions and application instances). |
-| *APS_ADMIN* | Provides administrator access to all functions including access to admin APIs. |
-| *APS_MODELER* | Provides access to the Modeling Application. |
-| *APS_USER* | Provides access to fill in forms and initiate processes. Will not have access to any admin APIs. | 
+| *APS_PROCESS_ADMIN* |Provides administrator access to all functions including access to admin APIs but can also act as a user of the applications and have tasks assigned to it, whereas APS_ADMIN cannot | 
+| *APS_DEVOPS* | Provides access to the DevOps functions in the Administrator Application (application definitions and application instances) |
+| *APS_ADMIN* | Provides administrator access to all functions including access to admin APIs |
+| *APS_MODELER* | Provides access to the Modeling Application |
+| *APS_USER* | Provides access to fill in forms and initiate processes. Will not have access to any admin APIs | 
 
 ## Identity Service
 Whilst the majority of user management can be handled within the Administrator Application, it may be necessary to access the [Identity Service](administrator/admin-identity/identity-service.md) administration console directly for some tasks. 

@@ -6,7 +6,9 @@ Title: Alfresco Modeling Application
 
 The Alfresco Modeling Application is used to create and update the components that make up an Alfresco Activiti Enterprise project. These include: 
 
-* [Projects](../modeling/modeling-projects.md) are the top level component of a business application.
+* [Projects](../modeling/modeling-projects.md) are the top level component of a business application. The other components all sit within a project definition:
+
+![Modeling project view](../images/modeling-elements.png)
 
 * [Processes](../modeling/modeling-processes/README.md) use BPMN elements to model a business process. They incorporate the other components created in the Modeling Application.
 
@@ -16,15 +18,17 @@ The Alfresco Modeling Application is used to create and update the components th
 
 * [Decision tables](../modeling/modeling-decisions.md) are used to make business decisions as part of a process. 
 
+* [User interfaces](../modeling/modeling-interfaces.md) are for associating user interfaces with an applications. 
+
 ## Modeling
 All components of an application can be designed using a Graphical User Interface (GUI) or an XML or JSON editor. Users require the *APS_MODELER* role in order to create projects within the Modeling Application. 
 
 The [files that comprise an application](../modeling/modeling-files.md) are stored in an instance of Alfresco Content Services (ACS). Process instances and tasks that are running can also be stored in a separate repository as nodes, including any content uploaded to them.
 
-The Modeling Application is deployed into the default namespace so there will only be a single instance of it running. The URL will be in the format: `{my-domain}/alfresco-modeling-app`.
+The URL of the Modeling Application will be in the format: `{my-domain}/modeling`.
 
 ## About
-The about page can be accessed via the UI or at the URL: `{my-domain}/alfresco-modeling-app/about` and shows the packages and package versions used in the application. 
+The about page can be accessed via the UI or at the URL: `{my-domain}/modeling/about` and shows the packages and package versions used in the application. 
 
 ## Settings
-You can view the application configuration of the Modeling Application by visiting the URL:`{my-domain}/alfresco-modeling-app/app.config.json`.
+You can view the application configuration of the Modeling Application by visiting the URL:`{my-domain}/modeling/app.config.json`.

@@ -17,8 +17,6 @@ Connectors conceptually contain two parts:
 
 * A [connector definition](#connector-definitions) that describes the actions a connector can make and the parameters that need to be passed to the connector image. The connector definition is used to attach a connector action to a service task within a process definition. 
 
-Connector components can also be [extended further](https://www.alfresco.com/abn/adf/docs/process-services-cloud/) using the Application Development Framework. 
-
 ## Connector images
 To execute logic outside of the runtime bundle (i.e. a process), a connector is deployed as a separate image but as part of the same deployment. The communication between the runtime bundle and connector is accomplished via specially named channels with messages managed by a message broker (Rabbit MQ by default). 
 
@@ -37,7 +35,7 @@ Within each action of a connector definition input and output parameters need to
 *  Input parameters are those that are sent from the process to the connector
 *  Output parameters are those that are sent from the connector to the process 
 
-Input and output parameters are paired to [process variables](../../modeling/modeling-processes/README.md#process-variables) within a process definition to pass values for each parameter back and forth and optionally reuse those values later on in a process. Alternatively, the parameters can be entered as values directly into a service task. 
+Input and output parameters are paired to [process variables](../../modeling/modeling-processes/README.md#process-variables) within a process definition to pass values for each parameter back and forth and optionally reuse those values later on in a process. Alternatively, the input parameters can be entered as values directly into a service task. 
 
 Once a connector definition has been created, they are attached using the `implementation` value of a [service task](../../modeling/modeling-processes/processes-bpmn/bpmn-service.md) within a process definition using the format `<connector-name>.<action-name>`. Each service task can only execute a single connector action. The following is an example of the XML for a service task of a Slack connector executing the send message action: 
 

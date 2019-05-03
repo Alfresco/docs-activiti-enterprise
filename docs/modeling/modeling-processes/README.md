@@ -13,6 +13,10 @@ Once a project has been deployed, process instances can be started in several wa
 ## Designing processes
 Processes are designed using a drag-and-drop UI or using the in-built XML editor. It is also possible to upload an existing process definition using the upload function.
 
+The processes area of the Modeling Application also has a **Process extensions** section in addition to the drag-and-drop UI and XML editor. This section displays the additional mappings outside of a process definition XML file for specific BPMN elements. Examples include process variables and the input and output parameter mapping for service tasks containing a connectors and decision tables. 
+
+**Note**: The process extensions are exported in addition to a process definition XML. They are in the format: `<process-name>-extensions.json`.
+
 ### BPMN elements
 Processes are built using a combination of BPMN elements. Each process must contain a start event and an end event as well as conforming to certain rules particular to each element. As long as [each BPMN element](../modeling-processes/processes-bpmn/README.md) is used correctly there are numerous ways a business process can be modeled.
 

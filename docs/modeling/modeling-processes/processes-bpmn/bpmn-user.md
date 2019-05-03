@@ -9,9 +9,9 @@ Human action is handled by a task being assigned to specific users or groups. Th
 
 The possible assignments for a user task are:
 
-- Assignee: a specific user is defined.
-- Candidate user: a list of users that may claim the task. 
-- Candidate group: a group(s) of users that can claim the task. 
+* Assignee: a specific user is defined.
+* Candidate user: a list of users that may claim the task. 
+* Candidate group: a group(s) of users that can claim the task. 
 
 User tasks are graphically represented by a single thin, rounded rectangle with a user icon inside. 
 

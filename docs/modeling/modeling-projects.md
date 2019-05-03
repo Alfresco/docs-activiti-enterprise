@@ -38,6 +38,8 @@ The following is an example of an exploded zip file of a project called *holiday
 		auto-approve.xml
 	/forms/
 		approval-form.json
+	/ui/
+		process.json
 	/processes/
 		approve-extensions.json
 		approve.bpmn.xml
@@ -54,6 +56,7 @@ File definitions are created and stored for each element of a project:
 * `<process-name>.bpmn20.xml` is the format that process definitions are stored in.
 * `<connector-name>.json` is the format that connector definitions are stored in. 
 * `<form-name>.json` is the format that form definitions are stored in. 
+* `<ui-name>.json` is the format that UI definitions are stored in for content or process. 
 * `<decision-table-name>.xml` is the format that decision table definitions are stored in.
 * `<decision-table-name>.json` is the format that decision table UIDs are stored in. 
 * `<process-name>-extensions.json` is the format that stores the links between process elements. For example it maps the `implementation` value of service tasks with the relevant connector actions and equivalent process variables. 

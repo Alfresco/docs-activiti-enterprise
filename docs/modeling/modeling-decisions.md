@@ -75,6 +75,8 @@ The following is the XML for the input entry of row 1:
 </inputEntry>
 ```
 
+Input entries use the [FEEL (Friendly Enough Expression Language)](#feel) language.
+
 ### Outputs
 Outputs are the result(s) that a decision table comes to after evaluating the inputs. Output columns have a `name` and a `label`. The `name` is used to pass the output value(s) from a decision table to a process. In the ice cream decision table the output `name` is `flavor` and it is of data type `string`. 
 
@@ -154,6 +156,8 @@ Annotations are contained in a `description` property of a rule in the XML:
 </rule>
 ```
 
+## FEEL
+
 ## Hit policy types 
 Hit policies define how many rules can be matched in a decision table and which of the results are included in the output. 
 
@@ -168,5 +172,3 @@ The default hit policy is `UNIQUE`.
 | `C`: `COLLECT` | Multiple rules can be satisfied and multiple outputs will be generated with no ordering |
 | `P` : `PRIORITY` | <ul><li> Multiple rules can be matched </ul></li> <ul><li> Only the output with the highest priority will be used </ul></li> <ul><li> Priority is calculated based on the order rules are specified in descending order </ul></li> | 
 | `O` : `OUTPUT ORDER` | <ul><li> Multiple rules can be matched </ul></li> <ul><li> All outputs are returned in the order that output values are defined in the decision table
-
-## FEEL
