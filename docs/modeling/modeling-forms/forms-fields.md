@@ -65,6 +65,8 @@ The advanced properties for an amount field are the following:
 ### Attach file fields
 Attach file fields are used so that form fillers can upload files with their submission.
 
+**Note**: Attaching files to a form requires an [Alfresco Content Services](../../architecture/arch-platform.md#alfresco-content-services) license so that the [uploads can be stored](../../administrator/admin-monitoring/monitoring-storage.md).
+
 The advanced properties for an attach file field are the following:
 
 | Property | Description |

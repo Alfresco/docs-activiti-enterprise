@@ -34,8 +34,9 @@ Environment variables that are specific to a connector need to be specified duri
 
 The following are the properties that need to be set for the Lambda connector: 
 
-| Variable | Description |
-| -------- | ----------- |
-| `AWS_LAMBDA_AWS_ACCESS_KEY` | The access key to be used to authenticate against AWS |
-| `AWS_LAMBDA_AWS_SECRET_KEY` | The secret key to be used to authenticate against AWS |
-| `AWS_LAMBDA_AWS_REGION` | The region of AWS to invoke the Lambda functions in |
+| Variable | Description | Required? |
+| -------- | ----------- | --------- |
+| `AWS_LAMBDA_AWS_ACCESS_KEY` | The access key to be used to authenticate against AWS | Yes |
+| `AWS_LAMBDA_AWS_SECRET_KEY` | The secret key to be used to authenticate against AWS | Yes |
+| `AWS_LAMBDA_AWS_REGION` | The region of AWS to invoke the Lambda functions in | Yes | 
+| `AWS_LAMBDA_LOG` | The level of logging for the action, for example `DEBUG`, `TRACE`, `ALL`. The default value is `INFO` | No |

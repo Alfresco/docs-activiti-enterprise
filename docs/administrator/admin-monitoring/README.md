@@ -11,6 +11,8 @@ The functions available in the **Process Admin** section of the Administrator Ap
 
 To access these functions users require the *APS_ADMIN* role. 
 
+**Note**: In progress tasks and processes can be [stored as nodes in Alfresco Content Services](../admin-monitoring/monitoring-storage.md).
+
 ## Monitoring processes
 The **Process Instances** section is for monitoring all active, completed and suspended processes that are running on an application-by-application and process definition basis.
 

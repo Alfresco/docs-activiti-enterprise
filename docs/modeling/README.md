@@ -25,10 +25,10 @@ All components of an application can be designed using a Graphical User Interfac
 
 The [files that comprise an application](../modeling/modeling-files.md) are stored in an instance of Alfresco Content Services (ACS). Process instances and tasks that are running can also be stored in a separate repository as nodes, including any content uploaded to them.
 
-The URL of the Modeling Application will be in the format: `{my-domain}/modeling`.
+The URL of the Modeling Application will be in the format: `gateway.{domain-name}/modeling`.
 
 ## About
-The about page can be accessed via the UI or at the URL: `{my-domain}/modeling/about` and shows the packages and package versions used in the application. 
+The about page can be accessed via the UI or at the URL: `gateway.{domain-name}/modeling/about` and shows the packages and package versions used in the application. 
 
 ## Settings
-You can view the application configuration of the Modeling Application by visiting the URL:`{my-domain}/modeling/app.config.json`.
+You can view the application configuration of the Modeling Application by visiting the URL: `gateway.{domain-name}/modeling/app.config.json`.

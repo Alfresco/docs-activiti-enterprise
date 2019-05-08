@@ -2,8 +2,6 @@
 Title: Service tasks
 ---
 
-<img align="right" width="100" height="100" src="../../../images/bpmn-service.svg">
-
 # Service tasks 
 Service tasks are used in conjunction with connectors to allow two-way communication between external systems and a process. 
 

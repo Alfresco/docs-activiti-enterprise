@@ -72,10 +72,10 @@ Selecting a specific task opens up an information panel which displays basic pro
 | Status | The current status of the task | No | 
 | Priority | The relative priority of the task as an `integer` | Yes | 
 | Due date | The date the task needs to be completed by | Yes |
-| Category | | No |
+| Category | The categories assigned to a task | No |
 | Created | The date the task was first created on | No |
-| Parent name | | No |
-| Parent task id | | No |
+| Parent name | The name of the parent task if the selected task is a subtask | No |
+| Parent task id | The task ID of the parent task if the selected task is a subtask | No |
 | End date | The date the task was completed| No |
 | Id | The task ID | No |
 | Description | The description of the task | No |

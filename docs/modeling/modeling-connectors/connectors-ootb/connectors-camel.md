@@ -24,3 +24,5 @@ The following are the parameters that are returned to the process by the Camel c
 | --------  | ----------- | ---- |
 | `camelResult` | The response from the connector | `JSON object` | 
 | `camelError` | A list of errors if any are caught by the connector | `String` | 
+
+## Connector variables 
