@@ -18,7 +18,8 @@ The following are prerequisites for deploying Activiti Enterprise:
 * Installed the Terraform plugin for Rancher: 
 	* [Download the correct version](https://github.com/rancher/terraform-provider-rancher2/releases/tag/v0.2.0-rc5) of the Terraform plugin for Rancher 2 for your operating system. 
 		* Unzip and move the downloaded files to: `$HOME/.terraform.d/plugins/terraform-provider-rancher2_v0.2.0-rc5`.
-		* Use `chmod +x` to make the file exectuable. 
+		* For iOS and Linux:
+			* Use `chmod +x` to make the file exectuable. 
 	* In Terminal or a command prompt run `terraform init` to verify the installation. 
 
 ## Deployment
@@ -31,13 +32,7 @@ Use the following set of instructions to deploy Activiti Enterprise into an AWS 
 	terraform init
 	```
 	
-3. Create a copy of the file `terraform_template.tfvars` and name it `terraform.tfvars` using the following command: 
-
-	```bash
-	cp terraform_template.tfvars terraform.tfvars
-	```
-	
-	This retains the original template and allows you to work on your own copy of it. 
+3. Create a copy of the file `terraform_template.tfvars` and name it `terraform.tfvars`. This retains the original template and allows you to work on your own copy of it. 
 	
 4. Edit the `terraform.tfvars` file and replace the template variables with those relevant to your deployment: 
 
