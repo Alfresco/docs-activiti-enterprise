@@ -11,6 +11,7 @@ There are four broad steps involved with creating your own connector:
 4. Deploy a released project and connector image.
 
 ## Creating a connector image
+More information and resources will be available shortly on how to create a connector image.
 
 ## Creating a connector definition 
 A connector definition is required to link your connector to a [service task](../modeling-processes/processes-bpmn/bpmn-service.md) task within a process. To create a connector definition, sign into the Alfresco Modeling Application with a user that has permission to create projects. The user will require the *APS_MODELER* role.

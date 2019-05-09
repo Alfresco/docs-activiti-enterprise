@@ -112,8 +112,8 @@ The advanced properties for a REST dropdown field are the following:
 | -------- | ----------- |
 | `REST URL` | The URL of the REST service |
 | `Path to array in JSON response` | The path to the JSON response. Enter `.` to use the full path |
-| `ID property` | |
-| `Label property` | |
+| `ID property` | The ID of the REST service |
+| `Label property` | The name of the REST service |
 
 ### Headers
 Header fields are subtitle fields that can be used as section containers on a tab. They cannot be filled in by a form filler as they only display a subtitle. 
@@ -172,8 +172,8 @@ The advanced properties for a REST radio button field are the following:
 | -------- | ----------- |
 | `REST URL` | The URL of the REST service |
 | `Path to array in JSON response` | The path to the JSON response. Enter `.` to use the full path |
-| `ID property` | |
-| `Label property` | |
+| `ID property` | The ID of the REST service |
+| `Label property` | The name of the REST service |
 
 ### Text fields
 Text fields are for entering `string` data in a single line. 
@@ -185,3 +185,6 @@ The advanced properties for a text field are the following:
 | `Min length` | Sets the minimum character count for text that can be entered into the field including whitespace |
 | `Max length` | Sets the maximum character count for text that can be entered into the field including whitespace|
 | `Regex pattern` | A regular expression can be entered that will validate the text entered into the field. For example, a regular expression that matches four letters followed by four digits would be: `/^[A-Za-z]{4}\d{4}$/` |
+| `Input mask` | Set the format for how data may be entered into the field. For example `(00) 0000-0000` for a mandatory 8-digit phone number and 2-digit area code will not allow for letters to be entered at all |
+| `Reversed` | This reverses the entry for an `Input mask` and reads the text from right to left instead | 
+| `Input mask placeholder` | The placeholder to demonstrate the format of an `Input mask`. For example `(__) ____-____` in the phone number example  | 

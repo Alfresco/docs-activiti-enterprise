@@ -18,7 +18,6 @@ The OpenAPI specifications for application endpoints require the `{application-n
 * Form service: `gateway.{domain-name}/{application-name}/form/swagger-ui.html`
 * Query service: `gateway.{domain-name}/{application-name}/query/swagger-ui.html`
 * Audit service: `gateway.{domain-name}/{application-name}/audit/swagger-ui.html`
-* Process storage service: `gateway.{domain-name}/{application-name}/process-storage/swagger-ui.html`
 
 ### Notification service
 The notification services uses [GraphQL](https://graphql.org/learn/) to expand on querying. It reads from the same data store as the query service and can be accessed at the following URL: 

@@ -33,6 +33,8 @@ The following is an example of the extensions JSON of a process containing a dec
 }
 ```
 
+All the [process variables](../modeling/modeling-processes/README.md#process-variables) of a process are passed to a decision table and those that match the names of input variables in a decision table are evaluated. All output names are created as process variables and passed back to the process once a decision table has been executed. 
+
 ## Designing decision tables
 The following is a decision table that selects the best flavor of ice cream to eat based on which day of the week it is and what the temperature is. This example will be used to assist in explaining the different elements that make up a decision table.
 
@@ -48,7 +50,7 @@ The following is the XML for the general properties of the ice cream decision ta
 ```
 
 ### Inputs
-Input variables are the fields that pass values from a process into a decision table to be evaluated. In the ice cream decision table the input variables are `dayOfWeek` and `temperature` of data types `string` and `integer` respectively. Inputs also contain a label which are `Day of the week` and `Temperature (Celsius)` in the example.
+Input variables are the fields that pass values from a process into a decision table to be evaluated. In the ice cream decision table the input variables are `dayOfWeek` and `temperature` of data types `string` and `integer` respectively. These need to match the names of [process variables](../modeling/modeling-processes/README.md#process-variables) defined in a process that are then passed into the decision table as values. Inputs also contain a label which are `Day of the week` and `Temperature (Celsius)` in the example.
 
 The following is the XML for input variable `dayOfWeek`:
 
@@ -78,7 +80,7 @@ The following is the XML for the input entry of row 1:
 Input entries use the [FEEL (Friendly Enough Expression Language)](#feel) language.
 
 ### Outputs
-Outputs are the result(s) that a decision table comes to after evaluating the inputs. Output columns have a `name` and a `label`. The `name` is used to pass the output value(s) from a decision table to a process. In the ice cream decision table the output `name` is `flavor` and it is of data type `string`. 
+Outputs are the result(s) that a decision table comes to after evaluating the inputs. Output columns have a `name` and a `label`. The `name` is used to pass the output value(s) from a decision table to a process. Process variables are created in the process with the same `name` as the output(s) from the decision table once it has been executed. In the ice cream decision table the output `name` is `flavor` and it is of data type `string`. 
 
 The following is the XML for the output from the ice cream decision table
 
@@ -156,8 +158,6 @@ Annotations are contained in a `description` property of a rule in the XML:
 </rule>
 ```
 
-## FEEL
-
 ## Hit policy types 
 Hit policies define how many rules can be matched in a decision table and which of the results are included in the output. 
 
@@ -165,10 +165,10 @@ The default hit policy is `UNIQUE`.
 
 | Hit policy | Description |
 | ---------- | ----------- |
-| `U`: `UNIQUE` | <ul><li> Only a single rule can be matched </li></ul> <ul><li> If more than one rule is matched the hit policy is violated </ul></li> |
-| `A`: `ANY` | <ul><li> Multiple rules can be matched </ul></li> <ul><li> All matching rules must have identical entries for their output </ul></li> <ul><li> If matching rules have different output entries the hit policy is violated </ul></li> | 
-| `F`: `FIRST` | <ul><li> Multiple rules can be matched </ul></li> <ul><li> Only the output of the first rule that is matched will be used </ul></li> <ul><li> Rules are evaluated in the order they are defined in the decision table </ul></li> | 
-| `R`: `RULE ORDER` | <ul><li> Multiple rules can be matched </ul></li> <ul><li> All outputs are returned in the order that rules are defined in the decision table </ul></li> | 
-| `C`: `COLLECT` | Multiple rules can be satisfied and multiple outputs will be generated with no ordering |
-| `P` : `PRIORITY` | <ul><li> Multiple rules can be matched </ul></li> <ul><li> Only the output with the highest priority will be used </ul></li> <ul><li> Priority is calculated based on the order rules are specified in descending order </ul></li> | 
-| `O` : `OUTPUT ORDER` | <ul><li> Multiple rules can be matched </ul></li> <ul><li> All outputs are returned in the order that output values are defined in the decision table
+| `U`: `UNIQUE` | <ul><li> Only a single rule can be matched </li> <li> If more than one rule is matched the hit policy is violated </ul></li> |
+| `A`: `ANY` | <ul><li> Multiple rules can be matched </li> <li> All matching rules must have identical entries for their output </li> <li> If matching rules have different output entries the hit policy is violated </ul></li> | 
+| `F`: `FIRST` | <ul><li> Multiple rules can be matched </li> <li> Only the output of the first rule that is matched will be used </li> <li> Rules are evaluated in the order they are defined in the decision table </ul></li> | 
+| `R`: `RULE ORDER` | <ul><li> Multiple rules can be matched </li> <li> All outputs are returned in the order that rules are defined in the decision table </ul></li> | 
+| `C`: `COLLECT` | <ul><li> Multiple rules can be satisfied and multiple outputs will be generated with no ordering. </li> <li> Aggregators can be used to group the results which will generate only a single output: <ul><li> `C +`: `SUM` The sum of the output values is used </li> <li> `C <`: `MIN`: The lowest value output is used </li> <li> `C >`: `MAX`: The highest value output is used  </li> <li> `C #`: `COUNT`: The total number of outputs is used </li></ul> </li></ul> |
+| `P` : `PRIORITY` | <ul><li> Multiple rules can be matched </li> <li> Only the output with the highest priority will be used </li> <li> Priority is calculated based on the order rules are specified in descending order </ul></li> | 
+| `O` : `OUTPUT ORDER` | <ul><li> Multiple rules can be matched </li> <li> All outputs are returned in the order that output values are defined in the decision table </li></ul>
