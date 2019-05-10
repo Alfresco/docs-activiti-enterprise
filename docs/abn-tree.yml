@@ -1,30 +1,68 @@
-- introduction: 'Introduction'
+- introduction:
+    title: 'Introduction'
+    children:
+        - technology.md: 'Technology'
 - architecture:
     title: 'Architecture'
     children:
-        - technology.md: 'Technology'
-        - services.md: 'Services'
-        - architecture.md: 'Overview' 
-- user-interfaces: 
-    title: 'User interfaces'
-    children: 
-        - ui-modeling.md: 'Alfresco Modeling Application'
-        - ui-admin.md: 'Alfresco Administrator Application'
-        - ui-workspace.md: 'Alfresco Process Workspace'
+        - arch-platform.md: 'Platform services'
+        - arch-application.md: 'Application services'
+        - arch-ui.md: 'User interfaces' 
 - deployment: 'Deployment'
-- configuration: 
-    title: 'Configuration'
+- modeling: 
+    title: 'Alfresco Modeling Application'
+    children: 
+        - modeling-projects.md: 'Projects'
+        - modeling-processes:
+            title: 'Processes'
+            children:
+                - processes-bpmn:
+                    title: 'BPMN elements'
+                    children: 
+                        - bpmn-start.md: 'Start events'
+                        - bpmn-end.md: 'End events'
+                        - bpmn-user.md: 'User tasks'
+                        - bpmn-service.md: 'Service tasks'
+                        - bpmn-gateways.md: 'Gateways'
+                        - bpmn-boundary.md: 'Boundary events'
+                        - bpmn-signal.md: 'Signal events'
+                        - bpmn-sequence.md: 'Sequence flows'
+                        - bpmn-call.md: 'Call activity'
+        - modeling-forms:
+            title: 'Forms'
+            children: 
+                - forms-fields.md: 'Form fields'
+        - modeling-connectors:
+            title: 'Connectors'
+            children:
+                - connectors-create.md: 'Creating a connector'
+                - connectors-ootb:
+                    title: 'Out of the box connectors'
+                    children:
+                        - connectors-email.md: 'Email connector'
+                        - connectors-slack.md: 'Slack connector'
+                        - connectors-twilio.md: 'Twilio connector'
+                        - connectors-rest.md: 'REST connector'
+                        - connectors-camel.md: 'Camel connector'
+                        - connectors-salesforce.md: 'Salesforce connector'
+                        - connectors-lambda.md: 'Lambda connector'
+        - modeling-decisions.md: 'Decision tables'
+        - modeling-ui.md: 'User interfaces'
+- administrator:
+    title: 'Alfresco Administrator Application'
     children:
-        - apis.md: 'APIs'
-        - authentication.md: 'Authentication'
-        - connectors.md: 'Cloud Connectors'
-- bpmn:
-    title: 'Cloud-enabled BPMN elements'
+        - admin-deploy.md: 'Deploying projects and monitoring applications'
+        - admin-monitoring:
+            title: 'Monitoring tasks and processes'
+            children:
+                - monitoring-storage.md: 'Application storage'
+        - admin-identity:
+            title: 'Identity management'
+            children:
+                - identity-service.md: 'Identity Service'
+- workspace:
+    title: 'Alfresco Process Workspace'
     children:
-        - start-event.md: 'Start events'
-        - end-event.md: 'End events'
-        - user-task.md: 'User tasks'
-        - service-task.md: 'Service tasks'
-        - exclusive-gateway.md: 'Exclusive gateways'
-        - parallel-gateway.md: 'Parallel gateways'
-        - sequence-flow.md: 'Sequence flows'
+        - workspace-processes.md: 'Processes'
+        - workspace-tasks.md: 'Tasks'
+- apis: 'APIs'
