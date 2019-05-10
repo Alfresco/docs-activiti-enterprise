@@ -13,8 +13,8 @@ The following are the parameters that can be passed to the Camel connector as in
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `camelPayload` | The payload | `JSON object` | Yes |
-| `camelRouteId` | | `String`| Yes | 
+| `camelPayload` | The payload to be sent to Camel  | `JSON object` | Yes |
+| `camelRouteId` | The Camel route to use | `String`| Yes | 
 
 
 ## Output parameters
@@ -24,5 +24,3 @@ The following are the parameters that are returned to the process by the Camel c
 | --------  | ----------- | ---- |
 | `camelResult` | The response from the connector | `JSON object` | 
 | `camelError` | A list of errors if any are caught by the connector | `String` | 
-
-## Connector variables 
