@@ -8,19 +8,19 @@ The deployment for Alfresco Activiti Enterprise on Amazon Web Services (AWS) use
 ## Prerequisites
 The following are prerequisites for deploying Activiti Enterprise: 
 
-* [Quay.io](https://quay.io) credentials to access Activiti Enterprise images. 
-* [AWS credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) for authenticating against AWS during deployment.
-* Installed [Docker](https://docs.docker.com/get-started/).
-* Installed [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-* Installed [Helm](https://helm.sh/docs/using_helm/#installing-helm).
-* Installed [Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html).
-* Deployed a [high availability installation of Rancher 2](https://rancher.com/docs/rancher/v2.x/en/installation/ha/). 
-* Installed the Terraform plugin for Rancher: 
-	* [Download the correct version](https://github.com/rancher/terraform-provider-rancher2/releases/tag/v0.2.0-rc5) of the Terraform plugin for Rancher 2 for your operating system. 
-		* Unzip and move the downloaded files to: `$HOME/.terraform.d/plugins/terraform-provider-rancher2_v0.2.0-rc5`.
-		* For iOS and Linux:
-			* Use `chmod +x` to make the file exectuable. 
-	* In Terminal or a command prompt run `terraform init` to verify the installation. 
+- [Quay.io](https://quay.io) credentials to access Activiti Enterprise images. 
+- [AWS credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) for authenticating against AWS during deployment.
+- Installed [Docker](https://docs.docker.com/get-started/).
+- Installed [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+- Installed [Helm](https://helm.sh/docs/using_helm/#installing-helm).
+- Installed [Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html).
+- Deployed a [high availability installation of Rancher 2](https://rancher.com/docs/rancher/v2.x/en/installation/ha/). 
+- Installed the Terraform plugin for Rancher: 
+	- [Download the correct version](https://github.com/rancher/terraform-provider-rancher2/releases/tag/v0.2.0-rc5) of the Terraform plugin for Rancher 2 for your operating system. 
+		- Unzip and move the downloaded files to: `$HOME/.terraform.d/plugins/terraform-provider-rancher2_v0.2.0-rc5`.
+		- For iOS and Linux:
+			- Use `chmod +x` to make the file exectuable. 
+	- In Terminal or a command prompt run `terraform init` to verify the installation. 
 
 ## Deployment
 Use the following set of instructions to deploy Activiti Enterprise into an AWS EKS cluster using Rancher and Terraform: 
@@ -91,10 +91,10 @@ Use the following set of instructions to deploy Activiti Enterprise into an AWS 
 ## Post-deployment
 Once you have deployed Activiti Enterprise, the following user interfaces and APIs are available:
 
-* The [Alfresco Modeling Application](../modeling/README.md) to design project and process definitions, including forms, decision tables and connectors.
+- The [Alfresco Modeling Application](../modeling/README.md) to design project and process definitions, including forms, decision tables and connectors.
  
-* The [Alfresco Administrator Application](../administrator/README.md) to deploy projects once they have been designed and released in the Modeling Application.
+- The [Alfresco Administrator Application](../administrator/README.md) to deploy projects once they have been designed and released in the Modeling Application.
 
-* The [Alfresco Process Workspace](../workspace/README.md) for end-users to claim and complete process instances and tasks that require human input. 
+- The [Alfresco Process Workspace](../workspace/README.md) for end-users to claim and complete process instances and tasks that require human input. 
 
-* APIs at a [platform](../apis/README.md#platform-endpoints) and [application](../apis/README.md#application-endpoints) level. 
+- APIs at a [platform](../apis/README.md#platform-endpoints) and [application](../apis/README.md#application-endpoints) level. 
