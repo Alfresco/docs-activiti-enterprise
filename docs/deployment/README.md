@@ -72,6 +72,7 @@ Use the following set of instructions to deploy Activiti Enterprise into an AWS 
  	echo "$(terraform output kube_config)" > $KUBECONFIG
  	kubectl cluster-info
  	```
+  
 7. Use the following command to populate the variables `kubernetes_api_server` and `kubernetes_token` in the `terraform.tfvars` file now that your cluster is running:
 
 	```bash
