@@ -93,25 +93,43 @@ Use the AWS certificate manager to configure an SSL certificate for your cluster
 ## Quay.io credentials 
 The resources for an Alfresco Activiti Enterprise deployment are stored in [Quay.io](https://quay.io/). These are password protected images and require a Kubernetes secret to be set up to access them:
 
-1. Sign into quay.io and navigate to Settings
-2. Generate Encrypted Password and download the Kubernetes secret results 
-3. Edit the secret you just downloaded locally and replace the name value in the file with *quay-registry-secret* similar to the following example:
+**Note**: Quay.io credentials can be obtained by logging a ticket with [Alfresco support](https://support.alfresco.com).
 
-```
-apiVersion: v1
-kind: Secret
-metadata:
- name: quay-registry-secret
-type: kubernetes.io/dockerconfigjson
-data:
- .dockerconfigjson: <my-encrypted-secret>
-```
+1. Sign into Quay.io with your credentials using the following command: 
+	
+	```bash
+	docker login quay.io
+	```
 
-For the namespace you are deploying to, upload your .yaml secret through the Kubernetes Dashboard or using the following command: 
+2. Generate a base64 value for your dockercfg using one of the following commands:
 
-```bash
-kubectl create -f <file-location>/quay-registry-secret.yaml --namespace=$DESIREDNAMESPACE
-```
+	```bash
+	# Linux
+	cat ~/.docker/config.json | base64
+	```
+	
+	```bash
+	# Windows
+	base64 -w 0 ~/.docker/config.json
+	```
+
+3. Create a file called `secrets.yaml` and add the following content to it, using your base64 string from the previous step as the `.dockerconfigjson` value: 
+
+	```yaml
+	apiVersion: v1
+	kind: Secret
+	metadata:
+  	 name: quay-registry-secret
+	type: kubernetes.io/dockerconfigjson
+	data:
+ 	 .dockerconfigjson: <your-base64-string>
+	```
+
+4. Upload your `secrets.yaml` file to the namespace you are deploying into using the following command: 
+
+	```bash
+	kubectl create -f <file-location>/secrets.yaml --namespace=$DESIREDNAMESPACE
+	```
 
 ## Apply a license to the cluster
 A license file needs to be applied to use Alfresco Activiti Enterprise. It is created as a secret in Kubernetes and then referenced by the individual services. 
