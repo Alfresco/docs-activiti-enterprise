@@ -15,14 +15,14 @@ The **Application releases** section of the Administrator Application contains a
 
 **Note**: It is important to note that once a released project has been deployed it is referred to as an application. 
 
-Projects will only appear in the **Application releases** section if they have been [released](../../modeling/modeling-projects.md#releasing) in the modeling application. The only action that can be run against a released project is to deploy it. This action uses the deployment service to deploy the released project and its required services and user interfaces into a new namespace. There is a 1:1 relationship between applications and namespaces.
+Projects will only appear in the **Application releases** section if they have been [released](../modeling/modeling-projects.md#releasing) in the modeling application. The only action that can be run against a released project is to deploy it. This action uses the deployment service to deploy the released project and its required services and user interfaces into a new namespace. There is a 1:1 relationship between applications and namespaces.
 
 An admin user or group must be selected during the deployment process and an optional user-level set of individuals or group(s) of users. Once an application has had the deploy action used against it, the [status of the deployment can be monitored](#monitoring-applications).
 
 ### Deployment steps
 To deploy a released project, sign into the Administrator Application with a user that has permission to deploy. 
 
-**Important**: A project can only be deployed if it has been [released](../../modeling/modeling-projects.md#releasing).
+**Important**: A project can only be deployed if it has been [released](../modeling/modeling-projects.md#releasing).
 
 1. Find the released project in the list of potential releases in the Administrator Application and select to **Deploy** it. 
 2. The Administrator Application will then step through the deployment options:

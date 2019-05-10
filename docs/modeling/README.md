@@ -23,7 +23,7 @@ The Alfresco Modeling Application is used to create and update the components th
 ## Modeling
 All components of an application can be designed using a Graphical User Interface (GUI) or an XML or JSON editor. Users require the *APS_MODELER* role in order to create projects within the Modeling Application. 
 
-The [files that comprise an application](../modeling/modeling-files.md) are stored in an instance of Alfresco Content Services (ACS). Process instances and tasks that are running can also be stored in a separate repository as nodes, including any content uploaded to them.
+The [files that comprise an application](../modeling/modeling-projects.md#files) are stored in an instance of Alfresco Content Services (ACS). Process instances and tasks that are running can also be stored in a separate repository as nodes, including any content uploaded to them.
 
 The URL of the Modeling Application will be in the format: `gateway.{domain-name}/modeling`.
 

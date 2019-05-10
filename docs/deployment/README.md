@@ -92,7 +92,7 @@ Once you have deployed Activiti Enterprise, the following user interfaces and AP
 
 * The [Alfresco Modeling Application](../modeling/README.md) to design project and process definitions, including forms, decision tables and connectors.
  
-* The [Alfresco Admin Application](../administrator/README.md) to deploy projects once they have been designed and released in the Modeling Application.
+* The [Alfresco Administrator Application](../administrator/README.md) to deploy projects once they have been designed and released in the Modeling Application.
 
 * The [Alfresco Process Workspace](../workspace/README.md) for end-users to claim and complete process instances and tasks that require human input. 
 

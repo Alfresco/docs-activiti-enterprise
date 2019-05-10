@@ -20,7 +20,7 @@ An instance of [Alfresco Community Edition](https://docs.alfresco.com/community/
 ## Deployment service
 The deployment service uses the Docker API to build an image for the runtime bundle. It also creates images for the form service and DMN service depending on whether there are any forms or decision tables present in the released project. The deployment service then uses the Kubernetes API to deploy all the images that make up a released project. 
 
-This service uses the project and model definitions created using the [Alfresco Modeling Application](../modeling/README.md) and stored in an instance of [Alfresco Community Edition](#alfresco-community-edition) to deploy the [application level services](#application-level-services) into their own namespaces. The [Alfresco Administrator Application](../administrator/README.md) calls the deployment service when managing projects and applications.
+This service uses the project and model definitions created using the [Alfresco Modeling Application](../modeling/README.md) and stored in an instance of [Alfresco Community Edition](#alfresco-community-edition) to deploy the [application level services](../architecture/arch-application.md) into their own namespaces. The [Alfresco Administrator Application](../administrator/README.md) calls the deployment service when managing projects and applications.
 
 By default, the data for the deployment service is stored in a Postgres database called **alfresco-deployment**.
 

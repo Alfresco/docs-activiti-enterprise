@@ -33,4 +33,4 @@ The following is an example of a site that describes how tasks and processes are
 **Note**: The `form-{task-id}.json` file contains the values entered into a form when it was submitted. 
 
 ## Permissions
-The permissions for task folders are assigned when a user [claims a task](../workspace/workspace-tasks.md#claiming-a-task). 
+The permissions for task folders are assigned when a user [claims a task](../../workspace/workspace-tasks.md#claiming-a-task). 

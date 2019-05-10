@@ -14,7 +14,7 @@ The following are signal events:
 * [Signal intermediate throw events](#signal-intermediate-throw-events)
 * [Signal intermediate catch events](#signal-intermediate-catch-events)
 * Also see [start signal events](../processes-bpmn/bpmn-start.md#start-signal-events)
-* Also see [boundary signal events](../process-bpmn/bpmn-boundary.md#boundary-signal-events)
+* Also see [boundary signal events](../processes-bpmn/bpmn-boundary.md#boundary-signal-events)
 
 ## Signal intermediate throw events
 Signal intermediate throwing events are events that emit a signal when they are reached in the process flow. The signal that is emitted is then caught by any catching signal events with a name matching the signal that was thrown. 

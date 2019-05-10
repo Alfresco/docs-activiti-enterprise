@@ -10,7 +10,7 @@ Decision tables take at least one input and have at least one output. The inputs
 ## Using decision tables
 Decision tables can be selected from the palette when designing a process. Once they have been dragged into the process definition, a dropdown list of decision tables available to the current project is displayed. 
 
-Decision tables are handled as [service tasks](../modeling-connectors/README.md) by Activiti Enterprise and will always have the `implementation` value of `dmn-connector.EXECTUTE_TABLE`. The `name` of the decision table that is associated to the service task is stored in the [`<process-name>-extensions.json` file](../modeling-projects.md#files) as the `value` under the input `_activiti_dmn_table_`.
+Decision tables are handled as [service tasks](../modeling/modeling-processes/processes-bpmn/bpmn-service.md) by Activiti Enterprise and will always have the `implementation` value of `dmn-connector.EXECTUTE_TABLE`. The `name` of the decision table that is associated to the service task is stored in the [`<process-name>-extensions.json` file](../modeling/modeling-projects.md#files) as the `value` under the input `_activiti_dmn_table_`.
 
 The following is an example of the XML for a decision table within a process definition:
 
@@ -77,7 +77,7 @@ The following is the XML for the input entry of row 1:
 </inputEntry>
 ```
 
-Input entries use the [FEEL (Friendly Enough Expression Language)](#feel) language.
+Input entries use the FEEL (Friendly Enough Expression Language) language.
 
 ### Outputs
 Outputs are the result(s) that a decision table comes to after evaluating the inputs. Output columns have a `name` and a `label`. The `name` is used to pass the output value(s) from a decision table to a process. Process variables are created in the process with the same `name` as the output(s) from the decision table once it has been executed. In the ice cream decision table the output `name` is `flavor` and it is of data type `string`. 
