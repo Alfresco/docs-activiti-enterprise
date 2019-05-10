@@ -46,8 +46,8 @@
                         - connectors-camel.md: 'Camel connector'
                         - connectors-salesforce.md: 'Salesforce connector'
                         - connectors-lambda.md: 'Lambda connector'
-        - modeling-decisions.md: 'Decision tables'
         - modeling-ui.md: 'User interfaces'
+        - modeling-decisions.md: 'Decision tables'
 - administrator:
     title: 'Alfresco Administrator Application'
     children:
