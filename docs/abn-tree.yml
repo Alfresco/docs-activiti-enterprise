@@ -1,7 +1,7 @@
 - introduction:
     title: 'Introduction'
     children:
-        - technology.md 'Technology'
+        - technology.md: 'Technology'
 - architecture:
     title: 'Architecture'
     children:

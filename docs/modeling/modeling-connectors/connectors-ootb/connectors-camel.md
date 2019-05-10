@@ -3,7 +3,7 @@ Title: Camel connector
 ---
 
 # Camel connector
-The camel connector is used to integrate with [Apache Camel]() for routing options as part of a process. The Camel connector is graphically represented by the picture of a camel under the OOTB connectors menu whilst modeling a process. 
+The camel connector is used to integrate with [Apache Camel](http://camel.apache.org/) for routing options as part of a process. The Camel connector is graphically represented by the picture of a camel under the OOTB connectors menu whilst modeling a process. 
 
 
 
