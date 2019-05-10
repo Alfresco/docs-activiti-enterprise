@@ -39,8 +39,8 @@ Use the following set of instructions to deploy Activiti Enterprise into an AWS 
 	| Variable | Description |
 	| -------- | ----------- |
 	| `rancher2_url` | The URL of your Rancher server |
-	| `rancher2_access_key`  | The access key of a user that can create clusters in Rancher. This can be created using the **API & Keys** section in Rancher |
-	| `rancher2_secret_key`  | The secret key of a user that can create clusters in Rancher. This can be created using the **API & Keys** section in Rancher | 
+	| `rancher2_access_key`  | The access key of a user that can create clusters in Rancher. This can be created using the [**API & Keys** section](https://rancher.com/docs/rancher/v2.x/en/user-settings/api-keys/#creating-an-api-key) in Rancher |
+	| `rancher2_secret_key`  | The secret key of a user that can create clusters in Rancher. This can be created using the [**API & Keys** section](https://rancher.com/docs/rancher/v2.x/en/user-settings/api-keys/#creating-an-api-key) in Rancher | 
 	| `aws_region` | The AWS region to deploy to | 
 	| `aws_access_key_id` | The AWS access key ID for the AWS account to deploy with |
 	| `aws_secret_access_key` | The AWS access key for the AWS account to deploy with |
