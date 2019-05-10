@@ -163,3 +163,16 @@ Hit policies define how many rules can be matched in a decision table and which 
 
 The default hit policy is `UNIQUE`. 
 
+| Hit policy | Description |
+| ---------- | ----------- |
+| `U`: `UNIQUE` | Only a single rule can be matched. If more than one rule is matched the hit policy is violated |
+| `A`: `ANY` | Multiple rules can be matched. All matching rules must have identical entries for their output and if matching rules have different output entries the hit policy is violated | 
+| `F`: `FIRST` |  Multiple rules can be matched. Only the output of the first rule that is matched will be used, with rules being evaluated in the order they are defined in the decision table | 
+| `R`: `RULE ORDER` |  Multiple rules can be matched. All outputs are returned in the order that rules are defined in the decision table | 
+| `O` : `OUTPUT ORDER` | Multiple rules can be matched. All outputs are returned in the order that output values are defined in the decision table |
+| `P` : `PRIORITY` | Multiple rules can be matched. Only the output with the highest priority will be used, with priority being calculated based on the order rules are specified in descending order | 
+| `C`: `COLLECT` | Multiple rules can be satisfied and multiple outputs will be generated with no ordering. Aggregators can be used to group the results which will generate only a single output. See the following rows for collect aggregators. |
+| `C +`: ` COLLECT SUM` | The sum of the output values is used to generate a single output | 
+|`C <`: `COLLECT MIN` | The lowest value output is used to generate a single output |
+| `C >`: `COLLECT MAX`| The highest value output is used to generate a single output |
+| `C #`: `COLLECT COUNT`| The total number of outputs is used to generate a single output |
