@@ -7,7 +7,7 @@ Github only: true
 The follwing is an index of the current documentation for Activiti Enterprise:
 
 * [Introduction](introduction/README.md)
-	* [Technology](introduction/technology.md)
+	* [Technology](introduction/intro-technology.md)
 * [Architecture](architecture/README.md)
     * [Platform services](architecture/arch-platform.md)
     * [Application services](architecture/arch-application.md)
