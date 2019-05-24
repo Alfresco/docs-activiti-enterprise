@@ -15,12 +15,6 @@ The following are prerequisites for deploying Activiti Enterprise:
 -   Installed [Helm](https://helm.sh/docs/using_helm/#installing-helm).
 -   Installed [Terraform](https://learn.hashicorp.com/terraform/getting-started/install.html).
 -   Deployed a [high availability installation of Rancher 2](https://rancher.com/docs/rancher/v2.x/en/installation/ha/). 
--   Installed the Terraform plugin for Rancher: 
-	-   [Download the correct version](https://github.com/rancher/terraform-provider-rancher2/releases/tag/v0.2.0-rc5) of the Terraform plugin for Rancher 2 for your operating system. 
-		-   Unzip and move the downloaded files to: `$HOME/.terraform.d/plugins/terraform-provider-rancher2_v0.2.0-rc5`.
-		-   For iOS and Linux:
-			-   Use `chmod +x` to make the file exectuable. 
-	-   In Terminal or a command prompt run `terraform init` to verify the installation. 
 
 ## Deployment
 Use the following set of instructions to deploy Activiti Enterprise into an AWS EKS cluster using Rancher and Terraform: 
