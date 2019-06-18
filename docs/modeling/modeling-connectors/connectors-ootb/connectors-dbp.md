@@ -3,7 +3,7 @@ Title: DBP connector
 ---
 
 # DBP connector
-The Digital Business Platform (DBP) Connector links an instance of Alfresco Activiti Enterprise and [Alfresco Content Services (ACS)](http://docs.alfresco.com/6.1/concepts/welcome.html). This enables process instances in Activiti Enterprise to create, update and delete content in ACS. 
+The Digital Business Platform (DBP) Connector links an instance of Alfresco Activiti Enterprise and [Alfresco Content Services (ACS)](http://docs.alfresco.com/6.1/concepts/welcome.html). This enables process instances in Activiti Enterprise to create, update and delete content in ACS. The DBP connector is graphically represented by the Alfresco logo under the OOTB connectors menu whilst modeling a process. 
 
 **Important**: The DBP connector requires a licensed version of Alfresco Content Services (ACS) deployed to interact with.
 
