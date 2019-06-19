@@ -8,7 +8,7 @@ A project is the top level component of your business process that you are model
 ## Versioning and releasing
 Projects are version controlled through a release function. The version will not be incremented until it has been [released](#releasing-a-project). A new project will begin at version 0 and increments by one every time it is released. 
 
-**Note**: A project cannot be [deployed](../administrator/admin-deploy.md) until it has been released to at least version 1. 
+**Note**: A project cannot be [deployed](../administrator/admin-deploy/README.md) until it has been released to at least version 1. 
 
 ### Releasing a project
 Use the following steps to release a project: 
@@ -20,14 +20,14 @@ Use the following steps to release a project:
 After a project has been released the **Version** column will increment by one for that project.
 
 ## Storage
-A mandatory instance of [Alfresco Community Edition](https://docs.alfresco.com/community/concepts/welcome-infocenter_community.html) is deployed during the installation of Activiti Enterprise. This is used by the [modeling service](../architecture/arch-platform.md#modeling-service) to store project and model definitions and maintain versions for released projects. 
-
-Two different sites are used to store projects in Alfresco Community Edition and they require different permissions to access them. The `ApsModeling` site stores projects in their unreleased state and these are displayed in the Modeling Application. The `ApsRelease` site stores released projects and uses Alfresco Community Edition to manage the versioning. Released projects are the only projects that can be deployed and the only ones that will be visible in the [Administrator Application](../administrator/README.md).
+The [modeling service](../architecture/arch-platform.md#modeling-service) uses an instance of PostgreSQL to store project and model definitions and maintain versions for released projects.
+ 
+Released projects are the only projects that can be deployed and the only ones that will be visible in the [Administrator Application](../administrator/README.md).
 
 ### Folder structure
-A folder is created for each project in the Modeling Application that contains a set structure for each element type. When you download a project, the extracted zip file will be in the same structure as the project is stored in Alfresco Community Edition.  
+A folder is created for each project in the Modeling Application that contains a set structure for each element type. When you download a project, the extracted zip file will be in the same structure for every project.  
 
-The following is an example of an exploded zip file of a project called *holiday* that contains a connector, a decision table, a form and two process definitions:
+The following is an example of an exploded zip file of a project called *holiday* that contains a connector, a decision table, a UI, a form and two process definitions:
 
 ```
 /holiday/
@@ -47,8 +47,6 @@ The following is an example of an exploded zip file of a project called *holiday
 		request.bpmn20.xml
 	holiday.json
 ```
-
-**Note**: The folder and file structure is identical between the sites `ApsModeling` and `ApsRelease`. 
 
 ### Files
 File definitions are created and stored for each element of a project:

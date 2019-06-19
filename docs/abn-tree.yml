@@ -27,6 +27,7 @@
                         - bpmn-boundary.md: 'Boundary events'
                         - bpmn-signal.md: 'Signal events'
                         - bpmn-sequence.md: 'Sequence flows'
+                        - bpmn-sub.md: 'Sub-processes'
                         - bpmn-call.md: 'Call activity'
         - modeling-forms:
             title: 'Forms'
@@ -51,7 +52,10 @@
 - administrator:
     title: 'Alfresco Administrator Application'
     children:
-        - admin-deploy.md: 'Deploying projects and monitoring applications'
+        - admin-deploy:
+            title: 'Deploying projects and monitoring applications'
+            children:
+                - deploy-images.md: 'Deploying with custom images'
         - admin-monitoring:
             title: 'Monitoring tasks and processes'
             children:

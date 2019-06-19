@@ -3,7 +3,7 @@ Title: Alfresco Administrator Application
 ---
 
 # Alfresco Administrator Application
-The Alfresco Administrator Application is used to [deploy projects](../administrator/admin-deploy.md) that have been designed in the Alfresco Modeling Application and [manage users and permissions](../administrator/admin-identity/README.md) for Activiti Enterprise. 
+The Alfresco Administrator Application is used to [deploy projects](../administrator/admin-deploy/README.md) that have been designed in the Alfresco Modeling Application and [manage users and permissions](../administrator/admin-identity/README.md) for Activiti Enterprise. 
 
 **Note**: It is important to note that once a project has been deployed it is referred to as an application. 
 
@@ -11,7 +11,7 @@ The Administrator Application has three distinct functions that are controlled b
 
 ![Administrator section view](../images/admin-elements.png)
 
-* A **Devops** section for [deploying released projects](../administrator/admin-deploy.md) and [monitoring applications](../administrator/admin-deploy.md#monitoring-applications).
+* A **Devops** section for [deploying released projects](../administrator/admin-deploy/README.md) and [monitoring applications](../administrator/admin-deploy.md#monitoring-applications). It is also possible to [define custom images](../administrator/admin-deploy/deploy-images.md) when deploying an application for a number of services.
 
 * A **Process Admin** section for [monitoring tasks](../administrator/admin-monitoring/README.md#monitoring-tasks), [monitoring processes](../administrator/admin-monitoring/README.md#monitoring-processes) and [audit functions](../administrator/admin-monitoring/README.md#audit).
 

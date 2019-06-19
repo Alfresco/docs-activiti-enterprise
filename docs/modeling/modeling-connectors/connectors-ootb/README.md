@@ -33,4 +33,4 @@ OOTB connectors can be selected directly from the palette rather than by selecti
 6. Save the process definition. 
 
 ## Deploying OOTB connectors
-The location of the images for OOTB connectors are predefined within the Administrator Application. When [deploying an application](../../../administrator/admin-deploy.md) select the relevant connector(s) from the dropdown menu and set the connector variables as appropriate for your deployment. Details of the connector variables are described for each OOTB connector in their respective pages.
+The location of the images for OOTB connectors are predefined within the Administrator Application. When [deploying an application](../../../administrator/admin-deploy/README.md) select the relevant connector(s) from the dropdown menu and set the connector variables as appropriate for your deployment. Details of the connector variables are described for each OOTB connector in their respective pages.
