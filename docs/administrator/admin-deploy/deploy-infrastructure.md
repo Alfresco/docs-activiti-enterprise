@@ -3,7 +3,7 @@ Title: Customizing application infrastructure
 ---
 
 # Customizing application infrastructure
-
+Certain aspects of the infrastructure can be configured on an application by application basis. The infrastructure can be customized using the deployment service API or through the Administrator Application UI when deploying an application. The following are the areas that can be customized: 
 
 * [Configuring external Postgres instances](#configuring-external-postgres-instances)
 * [Deploying an application with custom images](#deploying-an-application-with-custom-images)

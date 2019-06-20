@@ -20,6 +20,7 @@ The following are prerequisites for deploying Activiti Enterprise:
 Use the following set of instructions to deploy Activiti Enterprise into an AWS EKS cluster using Rancher and Terraform: 
 
 1. Clone [this repository](https://git.alfresco.com/process-services-public/alfresco-process-terraform) and make it your working directory.  
+
 2. Initialize Terraform using the following command if you have not already done so whilst verifying the Terraform plugin: 
 
 	```bash
