@@ -27,7 +27,8 @@ To deploy a released project, sign into the Administrator Application with a use
 1. Find the released project in the list of potential releases in the Administrator Application and select to **Deploy** it. 
 2. The Administrator Application will then step through the deployment options:
 
-	1. Choose a name for the application. The latest version of the released project will be deployed.
+	1. Choose a name for the application. 
+	2. Select which version of the released project to deploy.
 	2. Select the users and/or groups that will have administrator access to the application.
 	3. Select the users and/or groups that will have access to the application. 
 	4. Configure the details for any connectors defined in the process definitions:
@@ -40,7 +41,8 @@ To deploy a released project, sign into the Administrator Application with a use
 		```json
 		{"EMAIL_HOST":"https://mysmtp.com","EMAIL_PORT":"8050"}
 		```
-	6. (Optional) Configure any [custom images](../administrator/admin-deploy/deploy-images.md) for services and set the variables for each. 
+	6. (Optional) Configure any [custom images](../administrator/admin-deploy/deploy-images.md)  to deploy as part of the application.
+	7. (Optional) Set custom variables for any of the regular or custom images.
 	 
 3. **Deploy** the application. 
 4. [Monitor the deployment](#monitoring-applications) process in **Application instances**.

@@ -67,5 +67,8 @@ By default, the data is stored in a Postgres database that is shared within an a
 
 The REST APIs that the audit service exposes deal with audit events and are specific to each application. 
 
+## Preference service
+The preference service is a key value store that retains user-based preferences. 
+
 ## Connectors
 Connectors are used to execute logic outside of processes and the [runtime bundle](#runtime-bundle). Connectors are attached to a [service task](../modeling/modeling-processes/processes-bpmn/bpmn-service.md) within a process definition. When the process flow reaches the service task, the values are sent from the process instance to a connector using Spring Cloud Streams via [Rabbit MQ](#rabbit-mq) to be used as part of the logic. The results are sent back to the process instance after the connector has finished and the process flow continues.
