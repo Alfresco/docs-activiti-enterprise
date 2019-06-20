@@ -55,7 +55,7 @@
         - admin-deploy:
             title: 'Deploying projects and monitoring applications'
             children:
-                - deploy-images.md: 'Deploying with custom images'
+                - deploy-infrastructure.md: 'Customizing application infrastructure'
         - admin-monitoring:
             title: 'Monitoring tasks and processes'
             children:

@@ -41,8 +41,9 @@ To deploy a released project, sign into the Administrator Application with a use
 		```json
 		{"EMAIL_HOST":"https://mysmtp.com","EMAIL_PORT":"8050"}
 		```
-	6. (Optional) Configure any [custom images](../administrator/admin-deploy/deploy-images.md)  to deploy as part of the application.
-	7. (Optional) Set custom variables for any of the regular or custom images.
+	6. (Optional) [Customize any application infrastructure](../administrator/admin-deploy/deploy-infrastructure.md) on the **Infrastructure** tab before deploying.
+
+		**Note**: This includes using custom Docker images and setting custom variables to set external PostgreSQL locations. 
 	 
 3. **Deploy** the application. 
 4. [Monitor the deployment](#monitoring-applications) process in **Application instances**.

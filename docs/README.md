@@ -43,7 +43,7 @@ The follwing is an index of the current documentation for Activiti Enterprise:
 	* [User interfaces](modeling/modeling-interfaces.md)
 * [Administrator Application](administrator/README.md)
 	* [Deploying projects and monitoring applications](administrator/admin-deploy/README.md)
-		* [Deploying with custom images](administrator/admin-deploy/deploy-images.md) 
+		* [Customizing application infrastructure](administrator/admin-deploy/deploy-infrastructure.md) 
 	* [Monitoring tasks and processes](administrator/admin-monitoring/README.md)
 		* [Application storage](administrator/admin-monitoring/monitoring-storage.md)
 	* [Identity management](administrator/admin-identity/README.md)
