@@ -3,7 +3,7 @@ Title: Platform services
 ---
 
 # Platform services
-Platform services are those that are deployed into a single Kubernetes namespace and are used by Activiti Enterprise to manage applications and services across the entire deployment, irrespective of how many individual applications are deployed.
+Platform services are those Services that are deployed into a single Kubernetes namespace and are used by Activiti Enterprise to manage applications and services across the entire deployment, irrespective of how many individual applications are deployed.
 
 ## Modeling service
 The modeling service contains the backend functionality required for the [Alfresco Modeling Application](../modeling/README.md) to run. It requires an instance of [Alfresco Community Edition](#alfresco-community-edition) deployed with it for storing project and model definitions that the [deployment service](#deployment-service) uses to deploy projects. 
