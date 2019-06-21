@@ -17,4 +17,4 @@ The XML representation of a call activity is:
 	<bpmn2:outgoing>SequenceFlow_9</bpmn2:outgoing>
 </bpmn2:callActivity>
 ```
-**Note**: Call activities can only be used to start a process instance of a process definition that exists in the same application as the process that is calling them.
+**Note**: Call activities can only be used to start a process instance of a process definition that exists in the same application as the process that is calling it.

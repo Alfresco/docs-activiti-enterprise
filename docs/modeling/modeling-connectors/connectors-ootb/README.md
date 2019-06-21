@@ -12,6 +12,7 @@ Out of the box (OOTB) connectors are a set of pre-defined connectors that have b
 * A [Salesforce connector](../connectors-ootb/connectors-salesforce.md) to undertake specific functions within an instance of Salesforce from a process.
 * A [Slack connector](../connectors-ootb/connectors-slack.md) to create channels and send messages to an instance of Slack from a process.
 * A [Twilio connector](../connectors-ootb/connectors-twilio.md) to use Twilio to send SMS messages as part of a process.
+* A [DBP connector](../connectors-ootb/connectors-dbp.md) to create, update and delete content in an instance of Alfresco Content Services (ACS) as part of a process.
 
 ## Configuring an OOTB connector within a project
 OOTB connectors can be selected directly from the palette rather than by selecting a standard service task, though the input and output parameters need to be configured to process variables as with a standard service task.
@@ -32,4 +33,4 @@ OOTB connectors can be selected directly from the palette rather than by selecti
 6. Save the process definition. 
 
 ## Deploying OOTB connectors
-The location of the images for OOTB connectors are predefined within the Administrator Application. When [deploying an application](../../../administrator/admin-deploy.md) select the relevant connector(s) from the dropdown menu and set the connector variables as appropriate for your deployment. Details of the connector variables are described for each OOTB connector in their respective pages.
+The location of the images for OOTB connectors are predefined within the Administrator Application. When [deploying an application](../../../administrator/admin-deploy/README.md) select the relevant connector(s) from the dropdown menu and set the connector variables as appropriate for your deployment. Details of the connector variables are described for each OOTB connector in their respective pages.

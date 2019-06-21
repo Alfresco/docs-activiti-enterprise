@@ -27,7 +27,7 @@ To deploy a released project, sign into the Administrator Application with a use
 1. Find the released project in the list of potential releases in the Administrator Application and select to **Deploy** it. 
 2. The Administrator Application will then step through the deployment options:
 
-	1. Choose a name for the application.
+	1. Choose a name for the application. 
 	2. Select which version of the released project to deploy.
 	2. Select the users and/or groups that will have administrator access to the application.
 	3. Select the users and/or groups that will have access to the application. 
@@ -38,9 +38,12 @@ To deploy a released project, sign into the Administrator Application with a use
 
 	5. Set the connector variables in JSON format. For example, if using the [email connector](../modeling/modeling-connectors/connectors-ootb/connectors-email.md) you can set the variables `EMAIL_HOST` and `EMAIL_PORT` with the following: 
 
-	```json
-	{"EMAIL_HOST":"https://mysmtp.com","EMAIL_PORT":"8050"}
-	```
+		```json
+		{"EMAIL_HOST":"https://mysmtp.com","EMAIL_PORT":"8050"}
+		```
+	6. (Optional) [Customize any application infrastructure](../administrator/admin-deploy/deploy-infrastructure.md) on the **Infrastructure** tab before deploying.
+
+		**Note**: This includes using custom Docker images and setting custom variables to set external PostgreSQL locations. 
 	 
 3. **Deploy** the application. 
 4. [Monitor the deployment](#monitoring-applications) process in **Application instances**.
@@ -67,5 +70,7 @@ As soon as an application has been deployed, it can be monitored in application 
 Applications that have been successfully deployed can be removed using the **Undeploy** action. 
 
 Applications in the process of being deployed or that have errored during deployment can be removed using the **Force Undeploy** action. 
+
+Links are provided for the gateway of each application as well as the URL of its [Process Workspace](../workspace/README.md) and Content Application if the [UIs](../modeling/modeling-interfaces.md) were configured in the application. 
 
 An application that has been successfully deployed will use the application name for [API queries](../apis/README.md). 
