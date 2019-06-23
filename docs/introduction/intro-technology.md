@@ -20,7 +20,7 @@ Alfresco Activiti Enterprise was built using [Spring](https://spring.io/) techno
 [Spring Boot](https://spring.io/projects/spring-boot) is considered a Java framework and is used to help generate microservice projects and applications. [Spring Cloud](https://spring.io/projects/spring-cloud) provides tools for developers that are building distributed applications that attempt to simplify aspects of the build process. 
 
 ## Containers (Docker) 
-[Docker](https://www.docker.com/) is an open source software that deals with containers. Containers can be thought of as a way of packaging software applications. All of the code, dependencies and libraries of an application are put into a container as an immutable artifact. The most important concept of containers is that they are predictable because of this immutability - they will always behave in the same manner regardless of where you run them.  
+[Docker](https://www.docker.com/) is open source software that deals with containers. Containers can be thought of as a way of packaging software applications. All of the code, dependencies and libraries of an application are put into a container as an immutable artifact. The most important concept of containers is that they are predictable because of this immutability - they will always behave in the same manner regardless of where you run them.  
 
 A conceptual comparison can be drawn between containers and virtual machines. The key difference is that containers don’t include an operating system which drastically decreases their start up time. This is an important distinction and advantage when using containers in a microservice architecture.
 
