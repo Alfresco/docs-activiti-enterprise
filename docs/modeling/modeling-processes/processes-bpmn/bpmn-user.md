@@ -7,6 +7,8 @@ User tasks represent a stage in the process where a human action is required.
 
 Human action is handled by a task being assigned to specific users or groups. The task that is assigned is usually modeled using a form. Once the form is completed, the process flow continues on to the next element. 
 
+[Process variables](../README.md#process-variables) need to be mapped from the originating process to [form variables](../../modeling-forms/README.md#form-variables) in a user task as inputs. Similarly, mapping is required to transfer form variable values from the completed user task back to process variables in the process as outputs. The mapping between process variables and form variables is stored in the `<process-name>-extensions.json` file for the process definition under the `mappings` section. 
+
 The possible assignments for a user task are:
 
 * Assignee: a specific user is defined.

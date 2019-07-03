@@ -21,13 +21,65 @@ The processes area of the Modeling Application also has a **Process extensions**
 Processes are built using a combination of BPMN elements. Each process must contain a start event and an end event as well as conforming to certain rules particular to each element. As long as [each BPMN element](../modeling-processes/processes-bpmn/README.md) is used correctly there are numerous ways a business process can be modeled.
 
 ### Process variables
-Process variables are used to store values for use throughout a process. Default values can be set in a process definition and this value can be used or updated throughout the flow of a process instance. 
+Process variables are used to store values for use throughout a process. Default values can be set in a process definition and this value can be used or updated throughout the flow of a process instance.  
 
 A process definition without any BPMN element selected will display an **Edit Process Variables** button in the properties panel. Process variables can be configured using the inbuilt GUI or the JSON editor provided with it.
 
-Process variables are used for the following reasons: 
+Process variables are stored in the `properties` of the `<process-name>-extensions.json` file with unique IDs and can also be viewed through the UI in the **Extensions Editor**: 
 
-* To store [form values](../modeling-forms/README.md#form-values). When a form is submitted, all form values are created as process variables using the name of the form fields. If a process variable already exists with the same name, the value will be overwritten. 
-* To pass values to forms by setting the `name` value of a process variable to match the `id` value of a form field.
-* To pass input parameters to [connectors](../modeling-connectors/README.md) and receive output parameters back from a connector. 
+```json
+{
+    "id": "process-5d0ecfa7-d262-4480-a00b-74734c857f4d",
+    "properties": {
+        "17aa41f7-9a0c-49c0-805b-045243f8a7e5": {
+            "id": "17aa41f7-9a0c-49c0-805b-045243f8a7e5",
+            "name": "firstName",
+            "type": "string",
+            "required": false,
+        },
+        "2147a4c2-aaf7-44df-a886-d85a7f186445": {
+            "id": "2147a4c2-aaf7-44df-a886-d85a7f186445",
+            "name": "age",
+            "type": "integer",
+            "required": true,
+            "value": 25
+        },
+        "887fc645-66ec-4561-8490-e7cc3c8bf0ae": {
+            "id": "887fc645-66ec-4561-8490-e7cc3c8bf0ae",
+            "name": "accepted",
+            "type": "boolean",
+            "required": false
+        }
+    },
+}
+```
+
+Process variables can also be passed between certain BPMN elements as inputs and outputs: 
+
+* In [user tasks](../modeling-processes/processes-bpmn/bpmn-user.md) to pass values between process variables and [form variables](../modeling-forms/README.md#form-variables).
+* As part of [call activities](../modeling-processes/process-bpmn/bpmn-call.md) to pass values between the originating and called process.
+* To pass input parameters to [connectors](../modeling-connectors/README.md) and receive an output back to the process. 
+
+To pass process variable between elements requires the `inputs` and `outputs` sections of `mappings` to be defined in the `<process-name>-extensions.json`: 
+
+```json
+{
+    "mappings": {
+        "ServiceTask_1xsj0ao": {
+            "inputs": {
+                "nodeId": {
+                    "type": "variable",
+                    "value": "string1"
+                }
+            },
+            "outputs": {
+                "num1": {
+                    "type": "variable",
+                    "value": "alfrescoRequestResponseCode"
+                }
+            }
+        }
+    }
+}
+```
 
