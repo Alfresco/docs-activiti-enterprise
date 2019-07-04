@@ -19,6 +19,7 @@ The BPMN elements available in Alfresco Activiti Enterprise are:
 -   [Sub-processes](../processes-bpmn/bpmn-sub.md)
 -   [Gateways](../processes-bpmn/bpmn-gateways.md)
 	-   [Exclusive gateways](../processes-bpmn/bpmn-gateways.md#exclusive-gateways)
+	-   [Inclusive gateways](../processes-bpmn/bpmn-gateways.md#inclusive-gateways)
 	-   [Parallel gateways](../processes-bpmn/bpmn-gateways.md#parallel-gateways)
 -   [Boundary events](../processes-bpmn/bpmn-boundary.md)
 	-   [Boundary signal events](../processes-bpmn/bpmn-boundary.md#boundary-signal-events)
