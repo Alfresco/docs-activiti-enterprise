@@ -31,3 +31,6 @@ When a form that is part of a [user task](../modeling-processes/processes-bpmn/b
 Form variables are used to display the value of a variable using a [display value](../modeling-forms/forms-fields.md#display-value-fields) field.
 
 A form definition without any fields selected will display an **Edit Form Variables** button in the properties panel. Form variables can be configured using the inbuilt GUI or the JSON editor provided with it.
+
+### Forms in standalone tasks
+Forms can be attached to standalone tasks that are not associated with a process. When designing a form in the UI there is a checkbox called **Visible in standalone task** for deciding whether a form can be used as part of a standalone task. This sets the property `standAlone` to `true` in the form definition if it can be used in a standalone task. 

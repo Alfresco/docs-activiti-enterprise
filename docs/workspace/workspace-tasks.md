@@ -35,7 +35,9 @@ Use the following steps to start a new task:
  	| Due Date | The date the task needs to be completed by | No |
  	| User | The user the task will be assigned to | Yes, if *Candidate Group* is blank |
  	| Candidate Group | The group of users the task will provisionally be assigned to. The task must then be [claimed](#claiming-a-task) by a single user | Yes, if *User* is blank |
- 	| Form | A dropdown list of all forms available in the application | No | 
+ 	| Form | A dropdown list of all forms available to link to a standalone task | No | 
+
+	**Note**: Only [forms that have been set to attach to standalone tasks](../modeling/modeling-forms/README.md#forms-in-standalone-tasks) will be visible. 
 
 3. Click **Start** to start the task. 
 
