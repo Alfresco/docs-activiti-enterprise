@@ -47,6 +47,7 @@
                         - connectors-camel.md: 'Camel connector'
                         - connectors-salesforce.md: 'Salesforce connector'
                         - connectors-lambda.md: 'Lambda connector'
+                        - connectors-dbp.md: 'DBP connector'
         - modeling-decisions.md: 'Decision tables'
         - modeling-ui.md: 'User interfaces'
 - administrator:
