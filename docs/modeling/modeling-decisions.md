@@ -176,3 +176,5 @@ The default hit policy is `UNIQUE`.
 |`C <`: `COLLECT MIN` | The lowest value output is used to generate a single output |
 | `C >`: `COLLECT MAX`| The highest value output is used to generate a single output |
 | `C #`: `COLLECT COUNT`| The total number of outputs is used to generate a single output |
+
+## Simulation 

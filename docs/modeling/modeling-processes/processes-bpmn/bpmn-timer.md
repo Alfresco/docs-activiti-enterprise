@@ -26,7 +26,7 @@ The following is an example of the `timerEventDefinition` using a `timeDate`:
 
 ```xml
 <bpmn2:timerEventDefinition> 
-  <bpmn2:timeDate>2017-05-17T12:42:23Z</bpmn2:timeDate>
+  <bpmn2:timeDate xsi:type="bpmn2:tFormalExpression">2017-05-17T12:42:23Z</bpmn2:timeDate>
 </bpmn2:timerEventDefinition>
 ```
 
@@ -51,7 +51,7 @@ The following is an example of the `timerEventDefinition` using a `timeDuration`
 
 ```xml
 <bpmn2:timerEventDefinition>
-  <bpmn2:timeDuration>P5D</bpmn2:timeDuration>
+  <bpmn2:timeDuration xsi:type="bpmn2:tFormalExpression">P5D</bpmn2:timeDuration>
 </bpmn2:timerEventDefinition>
 ```
 
@@ -73,7 +73,7 @@ The following is an example of the `timerEventDefinition` using time interval sy
 
 ``` xml
 <bpmn2:timerEventDefinition>
-  <bpmn2:timeCycle>R3/PT30M</bpmn2:timeCycle>
+  <bpmn2:timeCycle xsi:type="bpmn2:tFormalExpression">R3/PT30M</bpmn2:timeCycle>
 </bpmn2:timerEventDefinition> 
 ```
 
@@ -95,7 +95,7 @@ The following is an example of the process variable `{$duration}` being used:
 
 ```xml
 <bpmn2:timerEventDefinition>
-	<bpmn2:timeDuration>${duration}</bpmn2:timeDuration>
+	<bpmn2:timeDuration xsi:type="bpmn2:tFormalExpression">${duration}</bpmn2:timeDuration>
 </bpmn2:timerEventDefinition>
 ```
 
@@ -111,7 +111,7 @@ The XML representation of timer intermediate catching events is:
 	<bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
 	<bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
 	<bpmn2:timerEventDefinition>
-  		<bpmn2:timeDuration>P5D</bpmn2:timeDuration>
+  		<bpmn2:timeDuration xsi:type="bpmn2:tFormalExpression">P5D</bpmn2:timeDuration>
 	</bpmn2:timerEventDefinition>
 </bpmn2:intermediateCatchEvent>
 ```

@@ -74,7 +74,7 @@ The XML representation of a timer start event is:
 <bpmn2:startEvent id="StartEvent3">
  	<bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
 	<timerEventDefinition>
-		<timeCycle>R10/2020-12-10T13:00/PT12H</timeCycle>
+		<timeCycle xsi:type="bpmn2:tFormalExpression">R10/2020-12-10T13:00/PT12H</timeCycle>
 	</timerEventDefinition>
 </bpmn2:startEvent>
 ```
