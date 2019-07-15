@@ -113,6 +113,8 @@ Each row in a decision table is known as a rule. A rule evaluates which outputs 
 
 **Note**: If there are multiple inputs in a single rule, decision tables use an *AND* operator between the inputs.
 
+[Simulation](#simulating-decision-tables) allows you to see which rules are satisfied by testing input values. 
+
 The XML for a rule is the combination of the input and output entries with a unique rule `id`. The following is an example for rule or row 12:
 
 ```xml
@@ -177,4 +179,46 @@ The default hit policy is `UNIQUE`.
 | `C >`: `COLLECT MAX`| The highest value output is used to generate a single output |
 | `C #`: `COLLECT COUNT`| The total number of outputs is used to generate a single output |
 
-## Simulation 
+## Simulating decision tables
+Once you have designed a decision table, you can test which rules are satisfied by entering test input values.
+
+In the UI click the **Simulate** button after entering the input values to simulate. The results will be populated in the outputs and the rules that were met will be highlighted in the decision table. 
+
+The payload of the API accepts an XML file of the decision table definition, the table name and the test input values as `JSON` and returns the output values as `JSON`: 
+
+```json
+{
+"name" : "Ice_cream",
+"inputs" : { "dayOfWeek" : "Tuesday", "temperature" : 37 },
+"xml": "<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:activiti="http://activiti.org/schema/1.0/dmn" id="decision-360aa1af-b233-4a05-82c4-215bade69087" name="Ice_cream" namespace="http://activiti.org/schema/1.0/dmn" exporter="dmn-js (https://demo.bpmn.io/dmn)" exporterVersion="6.2.1">
+<decision id="Decision_Ice_cream" name="Ice_cream">
+<decisionTable id="DecisionTable_Ice_cream" hitPolicy="FIRST">
+<input id="InputClause_Ice_cream" label="Day of the week" activiti:inputVariable="dayOfWeek">
+<inputExpression id="LiteralExpression_Ice_cream" typeRef="string" />
+</input>
+<input id="InputClause_0mw41g9" label="Temperature (Celsius)" activiti:inputVariable="temperature">
+<inputExpression id="LiteralExpression_08loxfu" typeRef="integer">
+<text></text>
+</inputExpression>
+</input>
+<output id="OutputClause_Ice_cream" label="Flavor" name="ice cream" typeRef="string" />
+<rule id="DecisionRule_04wc98o">
+<description>Hot, hot, hot!</description>
+<inputEntry id="UnaryTests_0pwpzaz">
+<text></text>
+</inputEntry>
+
+...
+
+<outputEntry id="LiteralExpression_1i6ddhb">
+<text>"Mint chocolate"</text>
+</outputEntry>
+</rule>
+</decisionTable>
+</decision>
+</definitions>"
+}
+```
+
+**Note**: The XML used is the contents of the [`<decision-table-name>.xml`](../modeling/modeling-projects.md#files) file.

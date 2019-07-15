@@ -23,6 +23,7 @@
                         - bpmn-end.md: 'End events'
                         - bpmn-user.md: 'User tasks'
                         - bpmn-service.md: 'Service tasks'
+                        - bpmn-timer.md: 'Timer events'
                         - bpmn-gateways.md: 'Gateways'
                         - bpmn-boundary.md: 'Boundary events'
                         - bpmn-signal.md: 'Signal events'
@@ -47,6 +48,7 @@
                         - connectors-camel.md: 'Camel connector'
                         - connectors-salesforce.md: 'Salesforce connector'
                         - connectors-lambda.md: 'Lambda connector'
+                        - connectors-dbp.md: 'DBP connector'
         - modeling-decisions.md: 'Decision tables'
         - modeling-ui.md: 'User interfaces'
 - administrator:
