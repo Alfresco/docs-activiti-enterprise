@@ -4,7 +4,7 @@ Github only: true
 ---
 
 # Docs index
-The follwing is an index of the current documentation for Activiti Enterprise:
+The following is an index of the current documentation for Activiti Enterprise:
 
 * [Introduction](introduction/README.md)
 	* [Technology](introduction/intro-technology.md)
@@ -20,6 +20,7 @@ The follwing is an index of the current documentation for Activiti Enterprise:
 			* [End events](modeling/modeling-processes/processes-bpmn/bpmn-end.md)
 			* [User tasks](modeling/modeling-processes/processes-bpmn/bpmn-user.md)
 			* [Service tasks](modeling/modeling-processes/processes-bpmn/bpmn-service.md)
+			* [Timer events](modeling/modeling-processes/processes-bpmn/bpmn-timer.md)
 			* [Gateways](modeling/modeling-processes/processes-bpmn/bpmn-gateways.md)
 			* [Boundary events](modeling/modeling-processes/processes-bpmn/bpmn-boundary.md)
 			* [Signal events](modeling/modeling-processes/processes-bpmn/bpmn-signal.md)
@@ -39,6 +40,7 @@ The follwing is an index of the current documentation for Activiti Enterprise:
 			* [Camel connector](modeling/modeling-connectors/connectors-ootb/connectors-camel.md)
 			* [Salesforce connector](modeling/modeling-connectors/connectors-ootb/connectors-salesforce.md)
 			* [Lambda connector](modeling/modeling-connectors/connectors-ootb/connectors-lambda.md)
+			* [DBP connector](modeling/modeling-connectors/connectors-ootb/connectors-dbp.md)
 	* [Decision tables](modeling/modeling-decisions.md)
 	* [User interfaces](modeling/modeling-interfaces.md)
 * [Administrator Application](administrator/README.md)

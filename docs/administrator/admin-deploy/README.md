@@ -5,17 +5,17 @@ Title: Deploying projects and monitoring applications
 # Deploying projects and monitoring applications
 The functions available in the **Devops** section of the Administrator Application are to: 
 
-* [Deploy released projects](#deploying-a-released-project) in the **Application releases** section.
-* [Monitor applications](#monitoring-applications) once they have been deployed in the **Application instances** section. 
+* [Deploy released projects](#deploying-a-released-project) in the **Application Releases** section.
+* [Monitor applications](#monitoring-applications) once they have been deployed in the **Application Instances** section. 
 
 To access these functions users require the *APS_DEVOPS* role. 
 
 ## Deploying a released project 
-The **Application releases** section of the Administrator Application contains a list of released projects that are available to be deployed. This list of available released projects is read from the [released projects](../modeling/modeling-projects.md#storage) directory. 
+The **Application Releases** section of the Administrator Application contains a list of released projects that are available to be deployed.
 
 **Note**: It is important to note that once a released project has been deployed it is referred to as an application. 
 
-Projects will only appear in the **Application releases** section if they have been [released](../modeling/modeling-projects.md#releasing) in the modeling application. The only action that can be run against a released project is to deploy it. This action uses the deployment service to deploy the released project and its required services and user interfaces into a new namespace. There is a 1:1 relationship between applications and namespaces.
+Projects will only appear in the **Application Releases** section if they have been [released](../modeling/modeling-projects.md#releasing). The only action that can be run against a released project is to deploy it. This action uses the deployment service to deploy the released project and its required services and user interfaces into a new namespace. There is a 1:1 relationship between applications and namespaces.
 
 An admin user or group must be selected during the deployment process and an optional user-level set of individuals or group(s) of users. Once an application has had the deploy action used against it, the [status of the deployment can be monitored](#monitoring-applications).
 
@@ -46,11 +46,11 @@ To deploy a released project, sign into the Administrator Application with a use
 		**Note**: This includes using custom Docker images and setting custom variables to set external PostgreSQL locations. 
 	 
 3. **Deploy** the application. 
-4. [Monitor the deployment](#monitoring-applications) process in **Application instances**.
+4. [Monitor the deployment](#monitoring-applications) process in **Application Instances**.
 5. Once the deployment has completed the [APIs](../apis/README.md) can be accessed.
 
 ## Monitoring applications
-The **Application instances** section is for monitoring the status of deployed applications. 
+The **Application Instances** section is for monitoring the status of deployed applications. 
 
 As soon as an application has been deployed, it can be monitored in application instances. The possible statuses are mirrored visually and are as follows:
 

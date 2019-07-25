@@ -29,4 +29,3 @@ The BPMN elements available in Alfresco Activiti Enterprise are:
 	-   [Timer boundary events](../processes-bpmn/bpmn-boundary.md#timer-boundary-events)
 -   [End events](../processes-bpmn/bpmn-end.md)
 -   [Sequence flows](../processes-bpmn/bpmn-sequence.md)
-

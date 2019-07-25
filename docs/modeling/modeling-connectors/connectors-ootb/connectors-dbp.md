@@ -11,7 +11,6 @@ The following actions can be executed using the DBP connector:
 
 * [Update the properties of a node in ACS](#update-node-properties)
 * [Retrieve the properties of a node from ACS](#retrieve-node-properties)
-* [Add aspects to a node](#add-aspect)
 * [Move a node to a different location within ACS](#move-a-node)
 * [Delete a node from ACS](#delete-a-node)
 * [Create a folder in ACS](#create-a-folder)
@@ -95,24 +94,6 @@ The following is an example of `alfrescoRetrievedMetadataResponse`:
                                                 permissions: null
                                             }"
 ```
-
-## Add aspect
-The `addAspect` action is used to attach aspects to a node. 
-
-### Input parameters
-The following are the parameters that can be passed to the DBP connector as input parameters using the `addAspect` action: 
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-| `nodeId` | The ID of the node to attach aspects to | `String` | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
-| `aspectNames` | The list of aspects to attach to the node | `List` | `["cm:taggable", "cm:summarizable"]`
-
-### Output parameters
-The following is the parameter that is returned to the process by the DBP connector as an output parameter using the `addAspect` action:
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | `Integer` | `200` |
 
 ## Move a node
 The `moveNode` action is used to move a node to a different location in ACS.

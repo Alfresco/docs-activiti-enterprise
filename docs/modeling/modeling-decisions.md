@@ -190,7 +190,8 @@ The payload of the API accepts an XML file of the decision table definition, the
 {
 "name" : "Ice_cream",
 "inputs" : { "dayOfWeek" : "Tuesday", "temperature" : 37 },
-"xml": "<?xml version="1.0" encoding="UTF-8"?>
+"xml": 
+"<?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:activiti="http://activiti.org/schema/1.0/dmn" id="decision-360aa1af-b233-4a05-82c4-215bade69087" name="Ice_cream" namespace="http://activiti.org/schema/1.0/dmn" exporter="dmn-js (https://demo.bpmn.io/dmn)" exporterVersion="6.2.1">
 <decision id="Decision_Ice_cream" name="Ice_cream">
 <decisionTable id="DecisionTable_Ice_cream" hitPolicy="FIRST">
