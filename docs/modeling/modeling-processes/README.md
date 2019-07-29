@@ -127,3 +127,7 @@ The following is an example of where process variable inputs and outputs have be
     }
 }
 ```
+
+It is also possible to map only the input or output for a BPMN element. The unmapped property will not pass any variables. 
+
+The following is an example of where process variable inputs are being mapped to `UserTask_3`, but no outputs are being sent 
