@@ -10,7 +10,7 @@ Deploying a project uses the [deployment service](../../architecture/arch-platfo
 **Note**: Project deployment options in the UI or by REST API calls require the *APS_DEVOPS* role. 
 
 ## Deployment descriptors
-A deployment descriptor is an application in Helm format. The [deployment service](../../architecture/arch-platform.md#deployment-service) creates the image definitions for an application but does not deploy it. This allows for the application to be downloaded and deployed manually via Helm.
+A deployment descriptor can be exported in Helm format so that an application can be deployed. The [deployment service](../../architecture/arch-platform.md#deployment-service) creates the image definitions for an application but does not deploy it. This allows for the application to be downloaded and deployed manually via Helm.
 
 Exporting the deployment descriptor for an application will download a zip file that contains 
 a `requirements.yaml` and a `values.yaml`. The `requirements.yaml` contains all the chart dependencies needed for the application deployment, including any custom images. The `values.yaml` contains the chart default overrides that are specific to each application. 

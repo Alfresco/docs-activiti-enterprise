@@ -23,7 +23,7 @@ Processes are built using a combination of BPMN elements. Each process must cont
 ### Process variables
 Process variables are used to store values and pass them between its BPMN elements. Default values can be set for each process variable in a process definition and this value can be used or updated throughout the flow of a process instance.  
 
-A process definition without any BPMN element selected will display an **Edit Process Variables** button in the properties panel. Process variables can be configured using the inbuilt GUI or the JSON editor provided with it.
+A process definition without any BPMN element selected will display an **Edit Process Variables** button in the properties panel. Process variables can be configured using the inbuilt GUI or the JSON editor provided with it. The **required** status for a process variable indicates that the process variable needs a value when a process instance is started.
 
 Process variables are stored in the `properties` of the `<process-name>-extensions.json` file with unique IDs and can also be viewed through the UI in the **Extensions Editor**: 
 
@@ -127,7 +127,3 @@ The following is an example of where process variable inputs and outputs have be
     }
 }
 ```
-
-It is also possible to map only the input or output for a BPMN element. The unmapped property will not pass any variables. 
-
-The following is an example of where process variable inputs are being mapped to `UserTask_3`, but no outputs are being sent 

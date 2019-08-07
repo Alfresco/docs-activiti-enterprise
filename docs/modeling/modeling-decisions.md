@@ -33,7 +33,7 @@ The following is an example of the extensions JSON of a process containing a dec
 }
 ```
 
-All the [process variables](../modeling/modeling-processes/README.md#process-variables) of a process are passed to a decision table and those that match the names of input variables in a decision table are evaluated. All output names are created as process variables and passed back to the process once a decision table has been executed. 
+[Process variable](../modeling/modeling-processes/README.md#process-variables) are used to pass values into inputs and receive the value for outputs from a decision table. The mapping between process variables and inputs and outputs can be set explicitly, otherwise the matching will be attempted based on identical names. If an output from a decision table does not match an existing process variable then a new one will be created using the output `name`. 
 
 ## Designing decision tables
 The following is a decision table that selects the best flavor of ice cream to eat based on which day of the week it is and what the temperature is. This example will be used to assist in explaining the different elements that make up a decision table.
@@ -50,7 +50,7 @@ The following is the XML for the general properties of the ice cream decision ta
 ```
 
 ### Inputs
-Input variables are the fields that pass values from a process into a decision table to be evaluated. In the ice cream decision table the input variables are `dayOfWeek` and `temperature` of data types `string` and `integer` respectively. These need to match the names of [process variables](../modeling/modeling-processes/README.md#process-variables) defined in a process that are then passed into the decision table as values. Inputs also contain a label which are `Day of the week` and `Temperature (Celsius)` in the example.
+Inputs are the fields a decision table evaluates against. In the ice cream decision table the inputs are `dayOfWeek` and `temperature` of data types `string` and `integer` respectively. [Process variables](../modeling/modeling-processes/README.md#process-variables) are used to pass the value of an input into the decision table to be evaluated. Inputs also contain a label which are `Day of the week` and `Temperature (Celsius)` in the example.
 
 The following is the XML for input variable `dayOfWeek`:
 
@@ -80,7 +80,7 @@ The following is the XML for the input entry of row 1:
 Input entries use the FEEL (Friendly Enough Expression Language) language.
 
 ### Outputs
-Outputs are the result(s) that a decision table comes to after evaluating the inputs. Output columns have a `name` and a `label`. The `name` is used to pass the output value(s) from a decision table to a process. Process variables are created in the process with the same `name` as the output(s) from the decision table once it has been executed. In the ice cream decision table the output `name` is `flavor` and it is of data type `string`. 
+Outputs are the result(s) that a decision table comes to after evaluating the inputs. Output columns have a `name` and a `label`. Output values can be passed back to the process using [Process variables](../modeling/modeling-processes/README.md#process-variables). In the ice cream decision table the output `name` is `flavor` and it is of data type `string`. 
 
 The following is the XML for the output from the ice cream decision table
 
