@@ -33,7 +33,7 @@ The following is an example of the extensions JSON of a process containing a dec
 }
 ```
 
-[Process variable](../modeling/modeling-processes/README.md#process-variables) are used to pass values into inputs and receive the value for outputs from a decision table. The mapping between process variables and inputs and outputs can be set explicitly, otherwise the matching will be attempted based on identical names. If an output from a decision table does not match an existing process variable then a new one will be created using the output `name`. 
+[Process variables](../modeling/modeling-processes/README.md#process-variables) are used to pass values into inputs and receive the value for outputs from a decision table. The mapping between process variables and inputs and outputs can be set explicitly, otherwise the matching will be attempted based on identical names. If an output from a decision table does not match an existing process variable then a new one will be created using the output `name`. 
 
 ## Designing decision tables
 The following is a decision table that selects the best flavor of ice cream to eat based on which day of the week it is and what the temperature is. This example will be used to assist in explaining the different elements that make up a decision table.
