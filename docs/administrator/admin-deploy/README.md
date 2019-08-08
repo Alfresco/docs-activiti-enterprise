@@ -3,17 +3,23 @@ Title: Project deployment
 --- 
 
 # Project deployment
-Deploying a project uses the [deployment service](../../architecture/arch-platform.md#deployment-service) to create the images for a project. These images and resources are known as a deployment descriptor. A released project can be deployed using the deployment service, or just have a deployment descriptor created for it. A deployment descriptor is created for every project, regardless of whether it was also deployed by the deployment service or not. 
+Project deployment uses the [deployment service](../../architecture/arch-platform.md#deployment-service). There are two options for deploying a released project:
+
+* [Create a deployment descriptor](#deployment-descriptors) for a released project that can be download as a Helm chart and then subsequently deployed via Helm.
+
+* [Deploy a released project](#deploying-a-released-project) into the Activiti Enterprise cluster into its own namespace.
+
+**Note**: Deploying a released project still creates a deployment descriptor for it and it is also possible to still deploy a deployment descriptor using the deployment service.
 
 **Important**: A project is only available to create a descriptor for, or to deploy, once it has been [released](../../modeling/modeling-projects.md#releasing).
 
-**Note**: Project deployment options in the UI or by REST API calls require the *APS_DEVOPS* role. 
+Project deployment options in the UI or by REST API call require the *APS_DEVOPS* role. 
 
 ## Deployment descriptors
-A deployment descriptor can be exported in Helm format so that an application can be deployed. The [deployment service](../../architecture/arch-platform.md#deployment-service) creates the image definitions for an application but does not deploy it. This allows for the application to be downloaded and deployed manually via Helm.
+Creating a deployment descriptor uses the API to create a descriptor for a released project that can be download as a Helm chart and then subsequently deployed via Helm. It is possible to:
 
-Exporting the deployment descriptor for an application will download a zip file that contains 
-a `requirements.yaml` and a `values.yaml`. The `requirements.yaml` contains all the chart dependencies needed for the application deployment, including any custom images. The `values.yaml` contains the chart default overrides that are specific to each application. 
+* [Create a deployment descriptor](#creating-a-deployment-descriptor)
+* [Export a deployment descriptor](#exporting-a-deployment-descriptor)
 
 ### Creating a deployment descriptor
 To create a deployment descriptor in the UI:
@@ -44,7 +50,7 @@ To create a deployment descriptor in the UI:
 
 Once a deployment descriptor has been created it is available in the **Deployment Descriptors** section. A deployment descriptor can then be:
 
-* Exported as a zip file using the **Export** option.
+* Exported using the **Download as Helm** option.
 * Deployed by the deployment service using the **Deploy** option. 
 * Deleted using the **Delete** option.
 
@@ -52,7 +58,37 @@ Once a deployment descriptor has been created it is available in the **Deploymen
 
 **Note**: A deployment descriptor can only be used to deploy a single application. To deploy multiple instances of the same released project different names must be chosen when creating a descriptor or deploying it. 
 
-## Deploying a project
+### Exporting a deployment descriptor
+Exporting a deployment descriptor will download a `helm.zip` file that contains the following:
+
+```
+/helm/
+	/alfresco-process-application/
+		Chart.yaml
+		requirements.yaml
+		/templates/
+			_helpers.tpl
+			NOTES.txt
+		values.yaml
+```
+
+The `Chart.yaml` contains the location of the parent [Helm chart used](https://git.alfresco.com/process-services-public/alfresco-process-application-deployment).
+
+The contents of `requirements.yaml` is dynamically updated with the necessary chart dependencies depending on the contents of the project. For example, if the Process Workspace is not defined as a user interface in the project, then the following will not appear in the file: 
+
+```yaml
+- name: alfresco-adf-app
+  repository: https://kubernetes-charts.alfresco.com/incubator
+  version: 2.1.3
+  condition: alfresco-process-workspace-app.enabled
+  alias: alfresco-process-workspace-app
+``` 
+
+The contents of `values.yaml` is also dynamically updated depending on the contents of the project and the configurations made during the deployment descriptor creation such as the  settings for external PostgreSQL instances. 
+
+**Important**: Before deploying the Helm chart, a [client needs to be created](https://www.keycloak.org/docs/6.0/server_admin/#oidc-clients) in the Identity Service for the application using the same name as the deployment descriptor. The client level roles required are *APS_USER* and *APS_ADMIN* with the relevant users or groups assigned to each. 
+
+## Deploying a released project
 A project can deployed directly from a released project or from a [deployment descriptor](#deployment-descriptors). Using the deployment service to deploy a released project creates its services and user interfaces into a new namespace. There is a 1:1 relationship between applications and namespaces.
 
 An admin user or group must be selected during the deployment process and an optional user-level set of individuals or group(s) of users. The permissions for an application can be updated once it has been deployed by selecting the **Manage Permissions** option against an application in the **Application Instances** section. 

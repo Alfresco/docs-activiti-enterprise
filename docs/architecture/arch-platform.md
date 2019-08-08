@@ -15,9 +15,13 @@ The following is a high level diagram of the modeling service:
 ![Modeling service diagram](../images/arch-modeling.png)
 
 ## Deployment service
-The deployment service is used to create deployment descriptors and deploy projects. A deployment descriptor can be used to download an application in Helm format and subsequently be deployed manually. Using the deployment service to deploy an application still creates the descriptor but also deploys the application into the Activiti Enterprise cluster in its own namespace. 
+The deployment service is used to create deployment descriptors and to deploy released projects. 
 
-The following diagram shows the steps that the deployment service takes to create a deployment descriptor and deploy an application:
+* Using the deployment service to create a deployment descriptor uses the API to create a descriptor for a released project that can be download as a Helm chart and then subsequently deployed via Helm. A deployment descriptor can also still be deployed into the Activiti Enterprise cluster. 
+
+* Using the deployment service to deploy a released project creates a deployment descriptor but also deploys the application into the Activiti Enterprise cluster in its own namespace. 
+
+The following diagram shows the steps that the deployment service takes to create a deployment descriptor and deploy a released project:
 
 ![Deployment service diagram](../images/arch-deployment-service.png)
 
@@ -25,14 +29,14 @@ Once a payload has been submitted to the deployment service through the API or u
 
 * The first thing is validation to ensure the payload contains no errors and that there are no conflicts with any other application names already deployed into the cluster. 
 * Once validation has passed a series of data enrichment is applied to the payload specifying default values. 
-* After data enrichment is complete the payload is saved to the deployment service database as a descriptor. By default this is a PostgreSQL database instance called **alfresco-deployment**.
-* An image is then built using the Docker Java client and Docker daemon for the runtime bundle and the form service and DMN service (if those features were present in the project). The images for the [other services in an application](../architecture/arch-application.md) are pre-built and everything is pushed to the internal Docker registry. 
+* After data enrichment is complete the payload is saved to the deployment service database as a descriptor. By default this is a PostgreSQL database instance called **aps2-postgresql-ads**.
+* An image is then built using the Docker Java client for the runtime bundle and the form service and DMN service (if those features were present in the project) and they are pushed to the internal Docker registry. The images for the [other services in an application](../architecture/arch-application.md) are re-used for every deployment so already exist in the registry.
 
 	**Note**: At this point a deployment descriptor can be downloaded.
 
 * The final stage to deploy uses the Kubernetes API to deploy the images into their own namespace.
 
-	**Note**: If you only created a deployment descriptor, it is still possible to deploy it using the deployment service as well as download it and deploy it manually. 
+	**Note**: It is still possible to deploy a deployment descriptor using the deployment service as well as download it and deploy it manually via Helm. 
 
 ## Alfresco Content Services
 An instance of [Alfresco Content Services (ACS)](https://docs.alfresco.com/6.1/references/whats-new.html) is deployed as part of Alfresco Activiti Enterprise to store information about in progress tasks and processes in a content repository. ACS is not required to use Activiti Enterprise and the data for tasks and processes is still stored in databases.
