@@ -5,11 +5,11 @@ Title: Project deployment
 # Project deployment
 Project deployment uses the [deployment service](../../architecture/arch-platform.md#deployment-service). There are two options for deploying a released project:
 
-* [Create a deployment descriptor](#deployment-descriptors) for a released project that can be download as a Helm chart and then subsequently deployed via Helm.
+* Create a [deployment descriptor](#deployment-descriptors) for a released project that can be download as a Helm chart and then subsequently deployed via Helm.
 
 * [Deploy a released project](#deploying-a-released-project) into the Activiti Enterprise cluster into its own namespace.
 
-**Note**: Deploying a released project still creates a deployment descriptor for it and it is also possible to still deploy a deployment descriptor using the deployment service.
+**Note**: Deploying a released project still creates a deployment descriptor for the project and it is also possible to deploy a deployment descriptor into the Activiti Enterprise cluster using the deployment service.
 
 **Important**: A project is only available to create a descriptor for, or to deploy, once it has been [released](../../modeling/modeling-projects.md#releasing).
 
@@ -130,6 +130,8 @@ As soon as an application has been deployed, it can be monitored in application 
 | Status | Description | 
 | ------ | ----------- | 
 | CreateApp | The call to create an application was received and an entry was made in the database |
+| CreateDescriptor | The descriptor is being created |
+| DescriptorCreated | The descriptor has been created |
 | ImageBuild | The process of building the images has started | 
 | ImageBuildFailed | An error occurred whilst the images were being built |
 | ImagePush | The process to push the images has started |
