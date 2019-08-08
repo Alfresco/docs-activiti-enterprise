@@ -63,8 +63,6 @@ The BPMN elements that pass process variables between them and a process are:
 * For [decision tables](../modelding-decisions.md) to pass the input value(s) in and store the output(s) in the process.
 * To pass input parameters to [connectors](../modeling-connectors/README.md) and receive an output back to the process. 
 
-**Note**: Variables for connectors must always be mapped.
-
 There are three options for how to map process variables: 
 
 * [Pass all process variables without any mapping](#pass-all-process-variables).
