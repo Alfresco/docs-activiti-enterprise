@@ -63,12 +63,11 @@ The generic Kubernetes cluster deployment assumes that you have the following al
 5. Use the following command to populate the variables `kubernetes_api_server` and `kubernetes_token` in the `terraform.tfvars` file :
 
 	```bash
-NAMESPACE=kube-system
- SERVICEACCOUNT=alfresco-deployment-service
- kubectl create serviceaccount -n kube-system ${SERVICEACCOUNT}
- kubectl create clusterrolebinding ${SERVICEACCOUNT}-admin-binding --clusterrole cluster-admin --serviceaccount=${NAMESPACE}:${SERVICEACCOUNT}
- echo "kubernetes_token = \"$(kubectl -n ${NAMESPACE} get secret $(kubectl -n ${NAMESPACE} get serviceaccount ${SERVICEACCOUNT} -o jsonpath='{.secrets[0].name}') -o jsonpath='{.data.token}' | base64 --decode)\"" >> terraform.tfvars
-
+	NAMESPACE=kube-system
+ 	SERVICEACCOUNT=alfresco-deployment-service
+ 	kubectl create serviceaccount -n kube-system ${SERVICEACCOUNT}
+ 	kubectl create clusterrolebinding ${SERVICEACCOUNT}-admin-binding --clusterrole cluster-admin --serviceaccount=${NAMESPACE}:${SERVICEACCOUNT}
+ 	echo "kubernetes_token = \"$(kubectl -n ${NAMESPACE} get secret $(kubectl -n ${NAMESPACE} get serviceaccount ${SERVICEACCOUNT} -o jsonpath='{.secrets[0].name}') -o jsonpath='{.data.token}' | base64 --decode)\"" >> terraform.tfvars
 	```
 
 8. Use the following command to complete the deployment:
