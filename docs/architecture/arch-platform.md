@@ -15,32 +15,24 @@ The following is a high level diagram of the modeling service:
 ![Modeling service diagram](../images/arch-modeling.png)
 
 ## Deployment service
-The deployment service is used to deploy projects. 
+The deployment service is used to create deployment descriptors and deploy projects. A deployment descriptor can be used to download an application in Helm format and subsequently be deployed manually. Using the deployment service to deploy an application still creates the descriptor but also deploys the application into the Activiti Enterprise cluster in its own namespace. 
 
-A set of validation rules are applied to the project and against other deployed applications to avoid duplication within the cluster. 
-
-Once validation is passed, a series of data enrichment is applied to the payload to specify default values. 
-
-The payload is saved as a deployment descriptor in the deployment service database. By default this is its own PostgreSQL database instance called **alfresco-deployment**.
-
-Images are built Docker java client that talks to the docker daemon to build images. We only build RB, form and DMN and the others are used from on top of the Alfresco base image. Built images are then pushed to the Docker registry. 
-
-The deployment service then uses the Kubernetes API to deploy all the images that make up a released project.
-
-
-
-
-The deployment service uses the Docker API to build an image for the runtime bundle. It also creates images for the form service and DMN service depending on whether there are any forms or decision tables present in the released project. 
-
-This service uses the project and model definitions created using the [Alfresco Modeling Application](../modeling/README.md) and stored in an instance of Postgres to deploy the [application level services](../architecture/arch-application.md) into their own namespaces. The [Alfresco Administrator Application](../administrator/README.md) calls the deployment service when managing projects and applications.
-
-
-
-The following is a high level diagram of the deployment service:
+The following diagram shows the steps that the deployment service takes to create a deployment descriptor and deploy an application:
 
 ![Deployment service diagram](../images/arch-deployment-service.png)
 
-The REST APIs that the deployment service exposes deal with applications.
+Once a payload has been submitted to the deployment service through the API or using the Administrator Application a sequence of events happen:
+
+* The first thing is validation to ensure the payload contains no errors and that there are no conflicts with any other application names already deployed into the cluster. 
+* Once validation has passed a series of data enrichment is applied to the payload specifying default values. 
+* After data enrichment is complete the payload is saved to the deployment service database as a descriptor. By default this is a PostgreSQL database instance called **alfresco-deployment**.
+* An image is then built using the Docker Java client and Docker daemon for the runtime bundle and the form service and DMN service (if those features were present in the project). The images for the [other services in an application](../architecture/arch-application.md) are pre-built and everything is pushed to the internal Docker registry. 
+
+	**Note**: At this point a deployment descriptor can be downloaded.
+
+* The final stage to deploy uses the Kubernetes API to deploy the images into their own namespace.
+
+	**Note**: If you only created a deployment descriptor, it is still possible to deploy it using the deployment service as well as download it and deploy it manually. 
 
 ## Alfresco Content Services
 An instance of [Alfresco Content Services (ACS)](https://docs.alfresco.com/6.1/references/whats-new.html) is deployed as part of Alfresco Activiti Enterprise to store information about in progress tasks and processes in a content repository. ACS is not required to use Activiti Enterprise and the data for tasks and processes is still stored in databases.
