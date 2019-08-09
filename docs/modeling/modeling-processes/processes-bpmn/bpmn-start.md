@@ -8,7 +8,8 @@ A process must always contain at least one start event as they define how a proc
 The following are start events:
 
 * [Start events](#start-events)
-* [Start signal events](#start-signal-events)
+* [Signal start events](#signal-start-events)
+* [Timer start events](#timer-start-events)
 
 ## Start events
 Start events are where the trigger is unspecified for starting a process. 
@@ -34,20 +35,20 @@ The XML representation of a start event with a form defined is:
 
 **Note**: The `activiti:formKey` is the `id` of the form used to start the process. This can be seen in the JSON of the form definition. 
 
-## Start signal events
-Start signal events begin a process instance using a caught, named signal. See [signal events](../processes-bpmn/bpmn-signal.md) for more information regarding signals and how they can be thrown. 
+## Signal start events
+Signal start events begin a process instance using a caught, named signal. See [signal events](../processes-bpmn/bpmn-signal.md) for more information regarding signals and how they can be thrown. 
 
 When used in the Modeling Application, a previously used `Signal` can be selected from the dropdown in its properties, or a new one created using the `+` symbol. Signals can be restricted to the process instance they are thrown in, or be global in scope. The scope of a global signal is restricted to the application they are used in. 
 
-Start signal events are graphically represented by a single thin circle with a hollow triangle icon inside. 
+Signal start events are graphically represented by a single thin circle with a hollow triangle icon inside. 
 
-The XML representation of a start signal event is:
+The XML representation of a signal start event is:
 
 ```xml
- <bpmn2:startEvent id="StartEvent1">
- 	<bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+<bpmn2:startEvent id="StartEvent1">
+	<bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
  	<bpmn2:signalEventDefinition signalRef="Signal_0hnsd2r" />
- </bpmn2:startEvent>
+</bpmn2:startEvent>
 ```
 
 The XML representation of a signal with a global scope is:
@@ -61,3 +62,21 @@ The XML representation of a signal with a process instance scope is:
 ```xml
 <bpmn2:signal id="Signal_0hnsd2r" name="Signal_0hnsd2r" activiti:scope="processInstance" />
 ```
+
+## Timer start events
+Timer start events begin a process at a specific time once, or repeatedly at intervals. See [timer events](../processes-bpmn/bpmn-timer.md) for more information regarding timers and the different ways to set them. 
+
+Timer start events are graphically represented by a single thin circle with a clock icon inside. 
+
+The XML representation of a timer start event is: 
+
+```xml
+<bpmn2:startEvent id="StartEvent3">
+ 	<bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+	<timerEventDefinition>
+		<timeCycle xsi:type="bpmn2:tFormalExpression">R10/2020-12-10T13:00/PT12H</timeCycle>
+	</timerEventDefinition>
+</bpmn2:startEvent>
+```
+
+**Note**: This will start the process 10 times, at 12 hour intervals starting on the 10th December 2020. 

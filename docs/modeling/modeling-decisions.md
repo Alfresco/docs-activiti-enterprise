@@ -33,7 +33,7 @@ The following is an example of the extensions JSON of a process containing a dec
 }
 ```
 
-All the [process variables](../modeling/modeling-processes/README.md#process-variables) of a process are passed to a decision table and those that match the names of input variables in a decision table are evaluated. All output names are created as process variables and passed back to the process once a decision table has been executed. 
+[Process variables](../modeling/modeling-processes/README.md#process-variables) are used to pass values into inputs and receive the value for outputs from a decision table. The mapping between process variables and inputs and outputs can be set explicitly, otherwise the matching will be attempted based on identical names. If an output from a decision table does not match an existing process variable then a new one will be created using the output `name`. 
 
 ## Designing decision tables
 The following is a decision table that selects the best flavor of ice cream to eat based on which day of the week it is and what the temperature is. This example will be used to assist in explaining the different elements that make up a decision table.
@@ -50,7 +50,7 @@ The following is the XML for the general properties of the ice cream decision ta
 ```
 
 ### Inputs
-Input variables are the fields that pass values from a process into a decision table to be evaluated. In the ice cream decision table the input variables are `dayOfWeek` and `temperature` of data types `string` and `integer` respectively. These need to match the names of [process variables](../modeling/modeling-processes/README.md#process-variables) defined in a process that are then passed into the decision table as values. Inputs also contain a label which are `Day of the week` and `Temperature (Celsius)` in the example.
+Inputs are the fields a decision table evaluates against. In the ice cream decision table the inputs are `dayOfWeek` and `temperature` of data types `string` and `integer` respectively. [Process variables](../modeling/modeling-processes/README.md#process-variables) are used to pass the value of an input into the decision table to be evaluated. Inputs also contain a label which are `Day of the week` and `Temperature (Celsius)` in the example.
 
 The following is the XML for input variable `dayOfWeek`:
 
@@ -80,7 +80,7 @@ The following is the XML for the input entry of row 1:
 Input entries use the FEEL (Friendly Enough Expression Language) language.
 
 ### Outputs
-Outputs are the result(s) that a decision table comes to after evaluating the inputs. Output columns have a `name` and a `label`. The `name` is used to pass the output value(s) from a decision table to a process. Process variables are created in the process with the same `name` as the output(s) from the decision table once it has been executed. In the ice cream decision table the output `name` is `flavor` and it is of data type `string`. 
+Outputs are the result(s) that a decision table comes to after evaluating the inputs. Output columns have a `name` and a `label`. Output values can be passed back to the process using [Process variables](../modeling/modeling-processes/README.md#process-variables). In the ice cream decision table the output `name` is `flavor` and it is of data type `string`. 
 
 The following is the XML for the output from the ice cream decision table
 
@@ -112,6 +112,8 @@ Each row in a decision table is known as a rule. A rule evaluates which outputs 
 * When the temperature is above 35°c you should eat lemon sorbet, irrespective of the day. 
 
 **Note**: If there are multiple inputs in a single rule, decision tables use an *AND* operator between the inputs.
+
+[Simulation](#simulating-decision-tables) allows you to see which rules are satisfied by testing input values. 
 
 The XML for a rule is the combination of the input and output entries with a unique rule `id`. The following is an example for rule or row 12:
 
@@ -176,3 +178,48 @@ The default hit policy is `UNIQUE`.
 |`C <`: `COLLECT MIN` | The lowest value output is used to generate a single output |
 | `C >`: `COLLECT MAX`| The highest value output is used to generate a single output |
 | `C #`: `COLLECT COUNT`| The total number of outputs is used to generate a single output |
+
+## Simulating decision tables
+Once you have designed a decision table, you can test which rules are satisfied by entering test input values.
+
+In the UI click the **Simulate** button after entering the input values to simulate. The results will be populated in the outputs and the rules that were met will be highlighted in the decision table. 
+
+The payload of the API accepts an XML file of the decision table definition, the table name and the test input values as `JSON` and returns the output values as `JSON`: 
+
+```json
+{
+"name" : "Ice_cream",
+"inputs" : { "dayOfWeek" : "Tuesday", "temperature" : 37 },
+"xml": 
+"<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:activiti="http://activiti.org/schema/1.0/dmn" id="decision-360aa1af-b233-4a05-82c4-215bade69087" name="Ice_cream" namespace="http://activiti.org/schema/1.0/dmn" exporter="dmn-js (https://demo.bpmn.io/dmn)" exporterVersion="6.2.1">
+<decision id="Decision_Ice_cream" name="Ice_cream">
+<decisionTable id="DecisionTable_Ice_cream" hitPolicy="FIRST">
+<input id="InputClause_Ice_cream" label="Day of the week" activiti:inputVariable="dayOfWeek">
+<inputExpression id="LiteralExpression_Ice_cream" typeRef="string" />
+</input>
+<input id="InputClause_0mw41g9" label="Temperature (Celsius)" activiti:inputVariable="temperature">
+<inputExpression id="LiteralExpression_08loxfu" typeRef="integer">
+<text></text>
+</inputExpression>
+</input>
+<output id="OutputClause_Ice_cream" label="Flavor" name="ice cream" typeRef="string" />
+<rule id="DecisionRule_04wc98o">
+<description>Hot, hot, hot!</description>
+<inputEntry id="UnaryTests_0pwpzaz">
+<text></text>
+</inputEntry>
+
+...
+
+<outputEntry id="LiteralExpression_1i6ddhb">
+<text>"Mint chocolate"</text>
+</outputEntry>
+</rule>
+</decisionTable>
+</decision>
+</definitions>"
+}
+```
+
+**Note**: The XML used is the contents of the [`<decision-table-name>.xml`](../modeling/modeling-projects.md#files) file.
