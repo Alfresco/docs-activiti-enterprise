@@ -182,7 +182,7 @@ The default hit policy is `UNIQUE`.
 ## Simulating decision tables
 Once you have designed a decision table, you can test which rules are satisfied by entering test input values.
 
-In the UI click the **Simulate** button after entering the input values to simulate. The results will be populated in the outputs and the rules that were met will be highlighted in the decision table. 
+In the UI click the **Simulate** button after entering the input values to simulate. The results will be populated in the outputs section. 
 
 The payload of the API accepts an XML file of the decision table definition, the table name and the test input values as `JSON` and returns the output values as `JSON`: 
 
