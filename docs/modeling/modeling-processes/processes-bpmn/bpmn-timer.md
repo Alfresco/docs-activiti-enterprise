@@ -9,9 +9,9 @@ Timer events are graphically represented by a clock icon inside different shapes
 
 The following are timer events: 
 
+* [Timer start events](../processes-bpmn/bpmn-start.md#timer-start-events)
+* [Timer boundary events](../processes-bpmn/bpmn-boundary.md#timer-boundary-events)
 * [Timer intermediate catch events](#timer-intermediate-catch-events)
-* Also see [timer start events](../processes-bpmn/bpmn-start.md#timer-start-events)
-* Also see [timer boundary events](../processes-bpmn/bpmn-boundary.md#timer-boundary-events)
 
 All timer events require either a [`timeDate`](#timedate), [`timeDuration`](#timeduration) or [`timeCycle`](#timecycle) property included within the `timerEventDefinition` to define the timer trigger behaviour.
 
