@@ -29,7 +29,7 @@ Docker uses a file called a dockerfile that defines the commands used in the pro
 Further information is available in the [Docker documentation](https://docs.docker.com/). 
 
 ## Container Orchestration (Kubernetes) 
-[Kubernetes](https://kubernetes.io/) is an open source system used to automate aspects of deployment, scaling and management in containerized applications. Kubernetes reduces the amount of manual intervention required for maintaining applications through this automation. 
+[Kubernetes](https://kubernetes.io/) is an open source system used to automate aspects of deployment, scaling and management of containerized applications. Kubernetes reduces the amount of manual intervention required for maintaining applications through this automation. 
 
 For scaling, Kubernetes automatically increases or reduces the number of containers based on the demand on services. It also manages the distribution of load across the containers it starts up and restarts failed pods (a pod is a group of one or more containers). 
 
