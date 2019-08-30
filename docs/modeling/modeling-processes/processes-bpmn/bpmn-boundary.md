@@ -17,11 +17,18 @@ Boundary events use the `attachedToRef` property to indicate the `id` of the ele
 
 The following are boundary events:
 
+* [Error boundary events](#error-boundary-events)
+* [Message boundary events](#message-boundary-events)
 * [Signal boundary events](#signal-boundary-events)
 * [Timer boundary events](#timer-boundary-events)
 
+## Error boundary events
+
+## Message boundary events
+See [message events](../processes-bpmn/bpmn-message.md)
+
 ## Signal boundary events
-Signal boundary events are always interrupting. They can be considered catching events as they always wait to receive a named signal from a throwing event. 
+Signal boundary events can be considered catching events as they always wait to receive a named signal from a throwing event. 
 
 When used in the Modeling Application, a previously used `Signal` can be selected from the dropdown in its properties, or a new one created using the `+` symbol. Signals can be restricted to the process instance they are thrown in, or be global in scope. The scope of a global signal is restricted to the application they are used in. 
 

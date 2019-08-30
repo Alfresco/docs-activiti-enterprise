@@ -8,6 +8,7 @@ A process must always contain at least one start event as they define how a proc
 The following are start events:
 
 * [Start events](#start-events)
+* [Message start events](#message-start-events)
 * [Signal start events](#signal-start-events)
 * [Timer start events](#timer-start-events)
 
@@ -34,6 +35,12 @@ The XML representation of a start event with a form defined is:
 ```
 
 **Note**: The `activiti:formKey` is the `id` of the form used to start the process. This can be seen in the JSON of the form definition. 
+
+## Message start events
+Message start events 
+
+See [message events](../processes-bpmn/bpmn-message.md)
+
 
 ## Signal start events
 Signal start events begin a process instance using a caught, named signal. See [signal events](../processes-bpmn/bpmn-signal.md) for more information regarding signals and how they can be thrown. 
