@@ -8,7 +8,7 @@ Application Services are those that are deployed into a Kubernetes namespace as 
 The application name therefore forms part of the REST API endpoints. 
 
 ## Runtime Bundle
-A Runtime Bundle represents a stateless instance of the process engine that executes an immutable set of process definitions. It is important to note that you cannot deploy new process definitions to an existing Runtime Bundle, nor can you update a process definition within it. Instead, you create a new version of your Runtime Bundle that contains the updates. 
+A runtime bundle represents a stateless instance of the process engine that executes an immutable set of process definitions. It is important to note that you cannot deploy new process definitions to an existing runtime bundle, nor can you update a process definition within it. Instead, you create a new version of your runtime bundle that contains the updates. 
 
 Runtime Bundles expose a synchronous REST API and an asynchronous message-based API. Each Runtime Bundle contains a single application and each application is deployed to its own Namespace. 
 

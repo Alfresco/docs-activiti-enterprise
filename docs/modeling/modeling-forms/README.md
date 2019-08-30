@@ -28,7 +28,9 @@ Form values can receive a default value from a [process variable](../modeling-pr
 The default behaviour when a form that is part of a [user task](../modeling-processes/processes-bpmn/bpmn-user.md) is submitted, is to create all of the values that have been entered into the form fields as process variables within the parent process. This behaviour is defined by [the type of mapping defined in the process](../modeling-processes/README.md#process-variables). If all fields are passed without defining any mapping then process variables are created using the `id` of the form fields. If a process variable already exists with the same `name` as the form field `id` then the value of the original process variable will be overwritten. 
 
 ### Form variables
-Form variables can be used to influence [visibility conditions](../modeling-forms/forms-fields.md#visibility-conditions) of form fields. Form variables can also be displayed to form fillers by using a [display value](../modeling-forms/forms-fields.md#display-value-fields) field.
+Form variables can be used to influence [visibility conditions](../modeling-forms/forms-fields.md#visibility-conditions) of form fields. Form variables can also be displayed to form fillers by using a [display value](../modeling-forms/forms-fields.md#display-value-fields) field. 
+
+Form variables can be updated with a default value from a [process variable](../modeling-processes/README.md#process-variables) by mapping between them in the process definition. 
 
 A form definition without any fields selected will display an **Edit Form Variables** button in the properties panel. Form variables can be configured using the inbuilt GUI or the JSON editor provided with it.
 
