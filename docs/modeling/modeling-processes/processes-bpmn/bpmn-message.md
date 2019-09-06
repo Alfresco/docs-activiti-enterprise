@@ -4,6 +4,9 @@ Title: Message events
 
 # Message events
 
+Messages have a name and contain a payload. Message events can catch and throw messages 
+
+Each property in the message payload can be mapped to an individual [process variable](../../modeling-processes/README.md#process-variables)
 
 
 The following are message events:
@@ -17,7 +20,7 @@ The following are message events:
 ## Message intermediate throw events
 Message intermediate throwing events are 
 
-Message intermediate throwing events are graphically represented by two thin concentric circles with a filled envelope icon inside.
+Message intermediate throwing events are graphically represented by two thin concentric circles with a solid envelope icon inside.
 
 The XML representation of message intermediate throwing events is:
 

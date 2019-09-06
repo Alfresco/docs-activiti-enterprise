@@ -23,9 +23,16 @@ The following are boundary events:
 * [Timer boundary events](#timer-boundary-events)
 
 ## Error boundary events
+See [error events](../processes-bpmn/bpmn-error.md)
+
+Error boundary events are graphically represented by two thin concentric circles, or two thin dashed concentric circles, with a hollow lightning bolt icon inside attached to the border of another BPMN element. 
 
 ## Message boundary events
 See [message events](../processes-bpmn/bpmn-message.md)
+
+
+Message boundary events are graphically represented by two thin concentric circles, or two thin dashed concentric circles, with a hollow envelope icon inside attached to the border of another BPMN element. 
+
 
 ## Signal boundary events
 Signal boundary events can be considered catching events as they always wait to receive a named signal from a throwing event. 

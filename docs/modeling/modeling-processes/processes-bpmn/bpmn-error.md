@@ -3,7 +3,7 @@ Title: Error events
 ---
 
 # Error events
-
+Error events are used to model business exceptions in a process rather than technical exceptions. 
 
 The following are error events: 
 
