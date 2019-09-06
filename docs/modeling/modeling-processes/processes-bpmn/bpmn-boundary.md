@@ -21,7 +21,7 @@ The following are boundary events:
 * [Timer boundary events](#timer-boundary-events)
 
 ## Signal boundary events
-Signal boundary events are always interrupting. They can be considered catching events as they always wait to receive a named signal from a throwing event. 
+Signal boundary events can be considered catching events as they always wait to receive a named signal from a throwing event. 
 
 When used in the Modeling Application, a previously used `Signal` can be selected from the dropdown in its properties, or a new one created using the `+` symbol. Signals can be restricted to the process instance they are thrown in, or be global in scope. The scope of a global signal is restricted to the application they are used in. 
 
