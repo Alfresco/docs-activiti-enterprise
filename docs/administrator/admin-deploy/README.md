@@ -15,6 +15,17 @@ Project deployment uses the [deployment service](../../architecture/arch-platfor
 
 Project deployment options in the UI or by REST API call require the *APS_DEVOPS* role. 
 
+## Naming  
+Application and deployment descriptor names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. 
+
+The following are examples of valid application and deployment descriptor names: 
+
+```
+hr-application-1
+application3
+application-alpha-omega
+```
+
 ## Deployment descriptors
 Creating a deployment descriptor uses the API to create a descriptor for a released project that can be download as a Helm chart and then subsequently deployed via Helm. It is possible to:
 

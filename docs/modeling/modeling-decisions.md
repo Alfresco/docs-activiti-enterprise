@@ -7,6 +7,17 @@ Decision tables are used to manage business decisions within process workflows. 
 
 Decision tables take at least one input and have at least one output. The inputs are evaluated against a set of rules defined by the modeler and then produce the relevant output(s) that match those rules to the process. 
 
+## Naming  
+Decision table names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. 
+
+The following are examples of valid decision table names: 
+
+```
+ice-cream-decision-table
+dt4
+decision-table-omega
+```
+
 ## Using decision tables
 Decision tables can be selected from the palette when designing a process. Once they have been dragged into the process definition, a dropdown list of decision tables available to the current project is displayed. 
 

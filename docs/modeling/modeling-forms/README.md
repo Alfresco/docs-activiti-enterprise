@@ -5,8 +5,19 @@ Title: Forms
 # Forms
 Forms are used to capture data into specially designed field types such as text, date, file uploads and multiple choice radio buttons. They are where human intervention is required within a process and this intervention is handled by filling in a form that is displayed in a user’s task list within the [Alfresco Process Workspace](../../workspace/workspace-tasks.md). 
 
+## Naming  
+Form names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. 
+
+The following are examples of valid form names: 
+
+```
+gamma-form
+hr-form-request
+one-hundred-and-thirty-one
+```
+
 ## Using forms
-Forms can be assigned to [user tasks](../modeling-processes/processes-bpmn/bpmn-user.md) or [start events](../modeling-processes/processes-bpmn/bpmn-start.md) as part of a process. The only difference to how a form functions between the two elements is that it is not possible to save a form assigned to a start event. 
+Forms can be assigned to [user tasks](../modeling-processes/processes-bpmn/bpmn-user.md) or [start events](../modeling-processes/processes-bpmn/bpmn-start.md) as part of a process. The only difference to how a form functions between the two elements is that it is not possible to save a form assigned to a start event.
 
 ## Designing forms
 Forms are created in a similar fashion to processes, by using a drag-and-drop GUI. There is also a JSON editor for forms that updates as new elements are added and removed from the form. 
@@ -36,3 +47,5 @@ A form definition without any fields selected will display an **Edit Form Variab
 
 ### Forms in standalone tasks
 Forms can be attached to standalone tasks that are not associated with a process. When designing a form in the UI there is a checkbox called **Visible in standalone task** for deciding whether a form can be used as part of a standalone task. This sets the property `standAlone` to `true` in the form definition if it can be used in a standalone task. The default value is `true` and this will be used if the property is not set in the form definition.  
+
+ 

@@ -5,7 +5,16 @@ Title: Projects
 # Projects
 A project is the top level component of your business process that you are modeling. They group multiple process definitions, forms and connectors into a logical project that represents this business process. A project needs to be released for version control and once a project has been released it can then be deployed. After a released project has been deployed (i.e. at runtime), it is referred to as an application. 
 
-Project names can be a maximum of 26 lowercase, alphanumeric characters. They can contain hyphens as long as 
+## Naming  
+Project names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. 
+
+The following are examples of valid project names: 
+
+```
+project-a
+project4
+two-hundred-and-twenty-one
+```
 
 ## Versioning and releasing
 Projects are version controlled through a release function. The version will not be incremented until it has been [released](#releasing-a-project). A new project will begin at version 0 and increments by one every time it is released. 

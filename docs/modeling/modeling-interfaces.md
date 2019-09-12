@@ -8,6 +8,17 @@ The user interfaces (UI) section of the Modeling Application allows for user int
 * [Alfresco Process Workspace](../workspace/README.md) to start and action processes and tasks. 
 * [Alfresco Content Application](https://github.com/Alfresco/alfresco-content-app) to view content associated to processes and tasks. 
 
+## Naming  
+UI names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. 
+
+The following are examples of valid UI names: 
+
+```
+process-ui-1
+content
+process-ui-alpha
+```
+
 ## Using user interfaces
 Use the following steps to create a user interface definition: 
 
