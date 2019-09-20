@@ -71,20 +71,20 @@ The following are the parameters that can be passed to the Slack connector as in
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `text` | The content of the message | `String` | Yes |
-| `userId` | The user ID of the message recipient | `String` | * One of these fields is required |
-| `userEmail` | The email address of the message recipient | `String` | * One of these fields is required |
-| `channelId` | The channel ID to send the message to | `String` | * One of these fields is required |
-| `channelName` | The name of the channel to send the message to | `String` | * One of these fields is required |
-| `requestResponse` | <ul><li> Set to `no` a response will be sent back to the process immediately after a message is sent </li> <li> Set to `any` a response will be sent back to the process only after a reply is received in the same channel </li> <li> Set to `thread` a response will be sent back to the process only after a reply is received in a thread </li></ul> | `String` | No |
+| `text` | The content of the message | String | Yes |
+| `userId` | The user ID of the message recipient | String | * One of these fields is required |
+| `userEmail` | The email address of the message recipient | String | * One of these fields is required |
+| `channelId` | The channel ID to send the message to | String | * One of these fields is required |
+| `channelName` | The name of the channel to send the message to | String | * One of these fields is required |
+| `requestResponse` | <ul><li> Set to `no` a response will be sent back to the process immediately after a message is sent </li> <li> Set to `any` a response will be sent back to the process only after a reply is received in the same channel </li> <li> Set to `thread` a response will be sent back to the process only after a reply is received in a thread </li></ul> | String | No |
 
 ### Output parameters
 The following are the parameters that are returned to the process by the Slack connector as output parameters using the `SEND_MESSAGE` action:
 
 | Parameter | Description | Type |
 | --------  | ----------- | ---- |
-| `message` | If the input parameter `requestResponse` was set to `any` or `thread` then the content of the reply will be sent in this parameter | `String` |
-| `slackError` | If an error was encountered it will be described in this parameter | `String` | 
+| `message` | If the input parameter `requestResponse` was set to `any` or `thread` then the content of the reply will be sent in this parameter | String |
+| `slackError` | If an error was encountered it will be described in this parameter | String | 
 
 ## Create channel
 The `CREATE_CHANNEL` action is used to create a new Slack channel. 
@@ -100,17 +100,17 @@ The following are the parameters that can be passed to the Slack connector as in
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `channelName` | The name of the channel to be created | `String` | Yes |
-| `channelType` | Set whether the channel is `public` or `private` | `String` | Yes |
-| `members` | A list of members that will be invited to join the new channel in the format: `["USER1","USER2","USER3"]` | `String` | Yes |
+| `channelName` | The name of the channel to be created | String | Yes |
+| `channelType` | Set whether the channel is `public` or `private` | String | Yes |
+| `members` | A list of members that will be invited to join the new channel in the format: `["USER1","USER2","USER3"]` | String | Yes |
 
 ### Output parameters
 The following are the parameters that are returned to the process by the Slack connector as output parameters using the `CREATE_CHANNEL` action:
 
 | Parameter | Description | Type |
 | --------  | ----------- | ---- |
-| `slackResult` | If the channel is created successfully this will output the details of the channel | `JSON object` |
-| `slackError` | If an error was encountered it will be described in this parameter. If the error was during channel creation, the process will stop. If the error was during the member invites then the process will continue. | `String` |
+| `slackResult` | If the channel is created successfully this will output the details of the channel | JSON object |
+| `slackError` | If an error was encountered it will be described in this parameter. If the error was during channel creation, the process will stop. If the error was during the member invites then the process will continue | String |
 
 An example of a successful `slackResult` is the following:
 

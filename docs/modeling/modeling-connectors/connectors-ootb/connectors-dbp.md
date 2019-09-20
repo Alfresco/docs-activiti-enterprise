@@ -30,33 +30,33 @@ The following are the parameters that can be passed to the DBP connector as inpu
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `nodeId` |  The ID of the node to update | `String` | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
-| `properties` | The values of the properties to update | `JSON object` | `{"cm:title" : "New titled document"}` |
+| `nodeId` |  The ID of the node to update | String | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
+| `properties` | The values of the properties to update | JSON object | `{"cm:title" : "New titled document"}` |
 
-### Output parameters
+### Output parameter
 The following is the parameter that is returned to the process by the DBP connector as an output parameter using the `updateMetadataTask` action: 
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | `Integer` | `200` |
+| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | Integer | `200` |
 
 ## Retrieve node properties
 The `retrieveMetadataTask` action is used to retrieve the metadata of a node in ACS. Metadata includes properties such as title, lock status and node type. 
 
-### Input parameters
+### Input parameter
 The following are is the parameter that can be passed to the DBP connector as an input parameter using the `retrieveMetadataTask` action: 
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `nodeId` | The ID of the node to retrieve properties from | `String` | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
+| `nodeId` | The ID of the node to retrieve properties from | String | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
 
 ### Output parameters
 The following are the parameters that are returned to the process by the DBP connector as output parameters using the `retrieveMetadataTask` action: 
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | `Integer` | `200` |
-| `alfrescoRetrievedMetadataResponse` | The properties returned by the request | `JSON object` | *See the following for an example* |
+| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | Integer | `200` |
+| `alfrescoRetrievedMetadataResponse` | The properties returned by the request | JSON object | *See the following for an example* |
 
 The following is an example of `alfrescoRetrievedMetadataResponse`:
 
@@ -103,34 +103,34 @@ The following are the parameters that can be passed to the DBP connector as inpu
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `nodeId` | The ID of the node to move | `String` | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
-| `targetParentId` | The ID of the new parent node | `String` | `d606c499-0c8a-4ae9-b297-de50e2eed350` |
+| `nodeId` | The ID of the node to move | String | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
+| `targetParentId` | The ID of the new parent node | String | `d606c499-0c8a-4ae9-b297-de50e2eed350` |
 
-### Output parameters
+### Output parameter
 The following is the parameter that is returned to the process by the DBP connector as an output parameter using the `moveNode` action:
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | `Integer` | `200` |
+| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | Integer | `200` |
 
 ## Delete a node
 The `deleteNode` action is used to delete a node from ACS. The node type must be `cm:content`.
 
 **Note**: The node is moved to the trashcan.
 
-### Input parameters
+### Input parameter
 The following is the parameter that can be passed to the DBP connector as an input parameter using the `deleteNode` action:
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `nodeId` | The ID of the node to delete | `String` | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
+| `nodeId` | The ID of the node to delete | String | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
 
-### Output parameters
+### Output parameter
 The following is the parameter that is returned to the process by the DBP connector as an output parameter using the `deleteNode` action:
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | `Integer` | `200` |
+| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | Integer | `200` |
 
 ## Create a folder
 The `createFolder` action is used to create a folder in ACS.
@@ -140,18 +140,18 @@ The following are the parameters that can be passed to the DBP connector as inpu
 
 | Parameter | Description | Type | Notes | Example |
 | --------- | ----------- | ---- | ----- | ------- |
-| `folderName` |  The name of the folder to be created | `String` | | `myNewFolder` |
-| `parentId` |  The node ID of the parent folder | `String` | Can be specified as a node ID (including already known aliases such as **-my-**) or a site ID (which must contain a document library that will become the parent of the new folder). | `d606c499-0c8a-4ae9-b297-de50e2eed350` |
-| `relativePath` |  The path of the new folder relative to its parent | `String` | Parameter is optional. If it is not specified then the new folder will be created as a direct child of the parent folder. | `/newStructure/levelOne/levelTwo` |
+| `folderName` |  The name of the folder to be created | String | | `myNewFolder` |
+| `parentId` |  The node ID of the parent folder | String | Can be specified as a node ID (including already known aliases such as **-my-**) or a site ID (which must contain a document library that will become the parent of the new folder) | `d606c499-0c8a-4ae9-b297-de50e2eed350` |
+| `relativePath` |  The path of the new folder relative to its parent | String | Parameter is optional. If it is not specified then the new folder will be created as a direct child of the parent folder | `/newStructure/levelOne/levelTwo` |
 
 ### Output parameters
 The following are the parameters that are returned to the process by the DBP connector as output parameters using the `createFolder` action: 
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | `Integer` | `200` |
-| `alfrescoCreatedNodeId` | The node ID of the newly created folder | `String` | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
-| `alfrescoCreatedNodeResponse` | The properties of the newly created folder | `JSON object` | *See the following for an example* |
+| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | Integer | `200` |
+| `alfrescoCreatedNodeId` | The node ID of the newly created folder | String | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
+| `alfrescoCreatedNodeResponse` | The properties of the newly created folder | JSON object | *See the following for an example* |
 
 The following is an example of `alfrescoCreatedNodeResponse`:
 
@@ -192,19 +192,19 @@ The `deleteFolder` action is used to delete a folder in ACS. The node type must 
 
 **Note**: The node will be moved to the trashcan.
 
-### Input parameters
+### Input parameter
 The following is the parameter that can be passed to the DBP connector as an input parameter using the `deleteFolder` action:
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `nodeId` | The ID of the node to delete | `String` | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
+| `nodeId` | The ID of the node to delete | String | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
 
-### Output parameters
+### Output parameter
 The following is the parameter that is returned to the process by the DBP connector as an output parameter using the `deleteFolder` action:
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | `Integer` | `200` |
+| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | Integer | `200` |
 
 ## Connector variables
 Environment variables that are specific to a connector need to be specified during deployment. They are entered as connector variables and used as environment variables for the connector when it is deployed. 

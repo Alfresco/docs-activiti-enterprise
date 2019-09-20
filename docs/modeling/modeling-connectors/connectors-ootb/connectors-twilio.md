@@ -33,9 +33,9 @@ The following are the parameters that can be passed to the Twilio connector as i
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `smsFrom` | The phone number the SMS will be sent from | `String` | Yes |
-| `smsTo` | The list of numbers the SMS will be sent to | `String` | Yes |
-| `smsBody` | The SMS message to be sent | `String` | Yes |
+| `smsFrom` | The phone number the SMS will be sent from | String | Yes |
+| `smsTo` | The list of numbers the SMS will be sent to | String | Yes |
+| `smsBody` | The SMS message to be sent | String | Yes |
 
 **Note**: Freemarker templates are supported in `smsBody`. 
 
@@ -46,8 +46,8 @@ The following are the parameters that are returned to the process by the Twilio 
 
 | Parameter | Description | Type |
 | --------  | ----------- | ---- |
-| `twilioResult` | The response(s) from the connector containing the ID of the sent message | `String` |
-| `twilioError` | A list of errors if any are caught by the connector | `String` |
+| `twilioResult` | The response(s) from the connector containing the ID of the sent message | String |
+| `twilioError` | A list of errors if any are caught by the connector | String |
 
 
 

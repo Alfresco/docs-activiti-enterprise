@@ -41,7 +41,7 @@ The XML representation of a start event with a form defined is:
 
 
 ## Message start events
-Message start events being a process instance when a named message is received. See [message events](../processes-bpmn/bpmn-message.md) for more information regarding messages and how they can be generated. 
+Message start events begin a process instance when a named message is received. See [message events](../processes-bpmn/bpmn-message.md) for more information regarding messages and how they can be generated. 
 
 Message start events are graphically represented by a single thin circle with a hollow envelope icon inside.
 
