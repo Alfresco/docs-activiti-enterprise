@@ -23,16 +23,59 @@ The following are boundary events:
 * [Timer boundary events](#timer-boundary-events)
 
 ## Error boundary events
-See [error events](../processes-bpmn/bpmn-error.md)
+Error boundary events catch error events on the boundary of another element. Error boundary events are always interrupting, so as soon as an error is caught all process execution within the element they are attached to ceases. 
 
-Error boundary events are graphically represented by two thin concentric circles, or two thin dashed concentric circles, with a hollow lightning bolt icon inside attached to the border of another BPMN element. 
+When used in the Modeling Application, a previously created `Error` can be selected from the dropdown in its properties, or a new one created using the `+` symbol. 
+
+See [error events](../processes-bpmn/bpmn-error.md) for more information regarding error events and how they can be thrown.
+
+Error boundary events are graphically represented by two thin concentric circles with a hollow lightning bolt icon inside attached to the border of another BPMN element. 
+
+The XML representation of an error boundary event is: 
+
+```xml
+<bpmn2:boundaryEvent id="BoundaryEvent2" attachedToRef="ServiceTask1">
+	<bpmn2:errorEventDefinition errorRef="Error_0vbkbeb" />
+</bpmn2:boundaryEvent>
+```
+
+The XML representation of an error is:
+
+```xml
+<bpmn2:error id="Error_0vbkbeb" name="payment-failed-error" errorCode="404" />
+```
 
 ## Message boundary events
-See [message events](../processes-bpmn/bpmn-message.md)
+Message boundary events are attached to the boundary of another element. When a named message is received by the message boundary event, the process flow will be interrupted or a concurrent flow will be created depending on whether the event is interrupting or non-interrupting.
 
+When used in the Modeling Application, a previously created `Message` can be selected from the dropdown in its properties, or a new one created using the `+` symbol.
+
+See [message events](../processes-bpmn/bpmn-message.md) for more information about messages and how they can be generated.
 
 Message boundary events are graphically represented by two thin concentric circles, or two thin dashed concentric circles, with a hollow envelope icon inside attached to the border of another BPMN element. 
 
+The XML representation of an interrupting message boundary event is:
+
+```xml
+<bpmn2:boundaryEvent id="BoundaryEvent1" attachedToRef="UserTask2">
+	<bpmn2:outgoing>SequenceFlow5</bpmn2:outgoing>
+	<bpmn2:messageEventDefinition messageRef="Message_15xakkk" />
+</bpmn2:boundaryEvent>
+```
+The XML representation of a non-interrupting message boundary event is: 
+
+```xml
+<bpmn2:boundaryEvent id="BoundaryEvent3" cancelActivity="false" attachedToRef="SubProcess2">
+	<bpmn2:outgoing>SequenceFlow8</bpmn2:outgoing>
+	<bpmn2:messageEventDefinition messageRef="Message_02satcd" />
+</bpmn2:boundaryEvent>
+```
+
+The XML representation of a message is: 
+
+```xml
+<bpmn2:message id="Message_02satcd" name="Message_02satcd" />
+```
 
 ## Signal boundary events
 Signal boundary events can be considered catching events as they always wait to receive a named signal from a throwing event. 

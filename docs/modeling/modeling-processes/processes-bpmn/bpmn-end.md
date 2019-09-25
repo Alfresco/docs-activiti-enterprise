@@ -26,7 +26,11 @@ The XML representation of end events is an end event declaration without a sub-e
 ```
 
 ## Error end events
-Error end events throw an error when the process flow reaches them. See [error events](../processes-bpmn/bpmn-error.md) for more information regarding errors and how they can be thrown. 
+Error end events throw an error when the process flow reaches them. 
+
+When used in the Modeling Application, a previously created `Error` can be selected from the dropdown in its properties, or a new one created using the `+` symbol. 
+
+See [error events](../processes-bpmn/bpmn-error.md) for more information regarding errors and how they can be thrown. 
 
 Error end events are graphically represented by a single thick circle with a solid lightning bolt icon inside. 
 
@@ -35,22 +39,14 @@ The XML representation of an error end events is:
 ```xml
 <bpmn2:endEvent id="EndEvent_1">
 	<bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
-	<bpmn2:errorEventDefinition errorRef="" />
+	<bpmn2:errorEventDefinition errorRef="Error_3vbkafg" />
 </bpmn2:endEvent>
 ```
 
-## Message end events
-Message end events complete the process flow and send a message event. See [message events](../processes-bpmn/bpmn-message.md) for more information about messages and how they can be generated.
-
-Message end events are graphically represented by a single thick circle with a solid envelope icon inside. 
-
-The XML representation of a message end event is: 
+The XML representation of an error is:
 
 ```xml
-<bpmn2:endEvent id="EndEvent_1">
-	<bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
-	<bpmn2:messageEventDefinition id="" name="" />
-</bpmn2:endEvent>
+<bpmn2:error id="Error_3vbkafg" name="payment-failed-error" errorCode="404" />
 ```
 
 ## Terminate end events

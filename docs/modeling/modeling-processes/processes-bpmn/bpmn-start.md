@@ -38,10 +38,34 @@ The XML representation of a start event with a form defined is:
 **Note**: The `activiti:formKey` is the `id` of the form used to start the process. This can be seen in the JSON of the form definition. 
 
 ## Error start events
+Error start events can only be used in [event sub-processes](../processes-bpmn/bpmn-sub.md#event-sub-processes). They begin an event sub-processes when a named error is received. 
 
+When used in the Modeling Application, a previously created `Error` can be selected from the dropdown in its properties, or a new one created using the `+` symbol. 
+
+See [error events](../processes-bpmn/bpmn-error.md) for more information regarding error events and how they can be thrown. 
+
+Error start events are graphically represented by a single thin circle with a hollow lightning bolt icon inside. 
+
+The XML representation of an error start event is: 
+
+```xml
+<bpmn2:startEvent id="StartEvent3">
+	<bpmn2:errorEventDefinition errorRef="Error_0vbkbeb" />
+</bpmn2:startEvent>
+```
+
+The XML representation of an error is:
+
+```xml
+<bpmn2:error id="Error_0vbkbeb" name="payment-failed-error" errorCode="404" />
+```
 
 ## Message start events
-Message start events begin a process instance when a named message is received. See [message events](../processes-bpmn/bpmn-message.md) for more information regarding messages and how they can be generated. 
+Message start events begin a process instance when a named message is received. 
+
+When used in the Modeling Application, a previously created `Message` can be selected from the dropdown in its properties, or a new one created using the `+` symbol.
+
+See [message events](../processes-bpmn/bpmn-message.md) for more information regarding messages and how they can be generated. 
 
 Message start events are graphically represented by a single thin circle with a hollow envelope icon inside.
 
@@ -50,8 +74,14 @@ The XML representation of a message start event is:
 ```xml
 <bpmn2:startEvent id="StartEvent2">
 	<bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
- 	<bpmn2:messageEventDefinition id="" name="" />
+	<bpmn2:messageEventDefinition messageRef="Message_15xakkk" />
 </bpmn2:startEvent>
+```
+
+The XML representation of a message is: 
+
+```xml
+<bpmn2:message id="Message_15xakkk" name="Message_15xakkk" />
 ```
 
 ## Signal start events

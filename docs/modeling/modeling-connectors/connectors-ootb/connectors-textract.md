@@ -21,12 +21,14 @@ The following are the parameters that can be passed to the Textract connector as
 
 | Parameter | Description | Type | Required? |
 | --------- | ----------- | ---- | --------- | 
-| `nodes` | 
-| `confidenceLevel`
-| `maxLabels` | The maximum number of labels returned by the service. The default value is `10` | Integer | No |
-| `source` | 
-| `mediaType` | The media type to be analyzed. The default is `image/jpeg` | String | No |
+| `nodeId` | The node ID of the image to use from Alfresco Content Services | String | `*` |
+| `nodes` | The node array describing the image to use from Alfresco Content Services | Array | `*` |
+| `file` | A JSON object describing the image | JSON Object | `*` |
 | `outputFormat` | Sets the output format to `JSON` or `txt`. The default is `JSON` | String | No |
+| `confidenceLevel` | The minimum confidence level to use for a label. The default is 0.75 | Float | No |
+| `timeout` | The timeout period for calling the Textract service in milliseconds | Integer | No | 
+
+`*` One of these parameters is required. If more than one is used, the order of preference is `nodeId`, `nodes` and then `file`. 
 
 ## Output parameters
 The following are the parameters that are returned to the process by the Textract connector as output parameters using the `GENERATE` action:

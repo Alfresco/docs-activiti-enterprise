@@ -23,20 +23,24 @@ The following are the parameters that can be passed to the Rekognition connector
 
 | Parameter | Description | Type | Required? |
 | --------- | ----------- | ---- | --------- | 
-| `nodes` | 
-| `confidenceLevel` | 
-| `maxLabels` | The maximum number of labels returned by the service. The default value is `10` | Integer | No |
-| `timeout` | 
+| `nodeId` | The node ID of the image to use from Alfresco Content Services | String | `*` |
+| `nodes` | The node array describing the image to use from Alfresco Content Services | Array | `*` |
+| `file` | A JSON object describing the image | JSON Object | `*` |
+| `maxLabels` | The maximum number of labels returned by the service. The default value is 10 | Integer | No |
+| `confidenceLevel` | The minimum confidence level to use for a label. The default is 0.75 | Float | No |
+| `timeout` | The timeout period for calling the Rekognition service in milliseconds | Integer | No | 
+
+`*` One of these parameters is required. If more than one is used, the order of preference is `nodeId`, `nodes` and then `file`. 
 
 ## Output parameters
 The following are the parameters that are returned to the process by the Rekognition connector as output parameters using the `LABEL` action:
 
 | Parameter | Description | Type |
 | --------  | ----------- | ---- |
-| `awsResult` | The result of the image analysis | Object |
-| `aisResponse` |
-| `labels` |
-| `analysis.error` |
+| `awsResult` | The result of the image analysis from the the Rekognition service | Object |
+| `aisResponse` | The result of the image analysis | Object |
+| `labels` | A list of the labels identified by the Rekognition service | List |
+| `analysis.error` | A description of any errors returned by the Rekognition service | String |
 
 ## Connector variables
 Environment variables that are specific to a connector need to be specified during deployment. They are entered as connector variables and used as environment variables for the connector when it is deployed. 
