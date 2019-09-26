@@ -17,20 +17,20 @@ An application requires a Kubernetes namespace that contains a Quay secret to pu
 2. Install a Quay secret into the Docker registry of the namespace: 
 
 	```
-kubectl create secret \
-docker-registry quay-registry-secret \
-	--docker-server=quay.io \
-	--docker-username="${DOCKER_REGISTRY_USER}" \
-	--docker-password="${DOCKER_REGISTRY_PASSWORD}" \
-	--docker-email="${DOCKER_REGISTRY_EMAIL}"
+	kubectl create secret \
+	docker-registry quay-registry-secret \
+		--docker-server=quay.io \
+		--docker-username="${DOCKER_REGISTRY_USER}" \
+		--docker-password="${DOCKER_REGISTRY_PASSWORD}" \
+		--docker-email="${DOCKER_REGISTRY_EMAIL}"
 	```
  
 3. Install a valid license secret into the Kubernetes namespace:
 
-   ```
-kubectl create secret \
-	generic licenseaps --from-file activiti.lic
-   ```
+	```
+	kubectl create secret \
+		generic licenseaps --from-file activiti.lic
+	```
 
 ## (Optional) Create custom images 
 Several services can be replaced with custom Docker images. Example projects are provided for the runtime bundle, form service and DMN service so that definition XML and JSON files can be placed in the images:
@@ -44,7 +44,7 @@ Several services can be replaced with custom Docker images. Example projects are
 1. Clone the example runtime bundle repository:
 
 	```
-git clone https://git.alfresco.com/process-services-public/alfresco-example-process-runtime-bundle-service.git
+	git clone https://git.alfresco.com/process-services-public/alfresco-example-process-runtime-bundle-service.git
 	```
 
 2. Clear out the example files in the `/processes/` folder and insert the XML process definitions and JSON process extension files for the new application in their place. 
@@ -56,7 +56,7 @@ git clone https://git.alfresco.com/process-services-public/alfresco-example-proc
 5. Create and push the runtime bundle image using the following command: 
 
 	```bash
-export DOCKER_IMAGE_TAG=<branch>./build.sh./push.sh
+	export DOCKER_IMAGE_TAG=<branch>	./build.sh	./push.sh
 	```
 
 ## Set Helm chart values
@@ -65,7 +65,7 @@ The Helm chart values require updating to point to the correct custom images and
 1. Clone the Helm chart: 
 
 	```bash
-git clone https://git.alfresco.com/process-services-public/alfresco-process-application-deployment/
+	git clone https://git.alfresco.com/process-services-public/alfresco-process-application-deployment/
 	```
 	
 2. Update the `values.yaml` file in `/helm/alfresco-process-application/` replacing the values with those relevant to the application deployment: 
@@ -134,7 +134,7 @@ A client for the Identity Service needs to be created as the application is depl
 3. Run the following command to create the Identity Service image replacing the `KEYCLOAK_AUTHSERVERURL` with that of the Identity Service URL of the Activiti Enterprise deployment:  
 
 	```docker
-docker run -it --rm \  --env KEYCLOAK_AUTHSERVERURL=https://identity.***/auth \  --env ACT_KEYCLOAK_CLIENT_APP=admin-cli \  --env ACT_KEYCLOAK_CLIENT_USER=client \  --env ACT_KEYCLOAK_CLIENT_PASSWORD=client \  --volume "$PWD":/tmp/app \  quay.io/alfresco/alfresco-deployment-cli:master /tmp/app/application.json
+	docker run -it --rm \ 	--env KEYCLOAK_AUTHSERVERURL=https://identity.***/auth \  	--env ACT_KEYCLOAK_CLIENT_APP=admin-cli \  	--env ACT_KEYCLOAK_CLIENT_USER=client \  	--env ACT_KEYCLOAK_CLIENT_PASSWORD=client \  	--volume "$PWD":/tmp/app \  	quay.io/alfresco/alfresco-deployment-cli:master /tmp/app/application.json
 	```
 
 ## Deploy using Helm
