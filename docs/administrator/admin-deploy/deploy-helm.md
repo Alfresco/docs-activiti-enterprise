@@ -16,21 +16,21 @@ An application requires a Kubernetes namespace that contains a Quay secret to pu
 
 2. Install a Quay secret into the Docker registry of the namespace: 
 
-	```
+   ```
   kubectl create secret \
   docker-registry quay-registry-secret \
     --docker-server=quay.io \
     --docker-username="${DOCKER_REGISTRY_USER}" \
     --docker-password="${DOCKER_REGISTRY_PASSWORD}" \
     --docker-email="${DOCKER_REGISTRY_EMAIL}"
-	```
+   ```
 
 3. Install a valid license secret into the Kubernetes namespace:
 
-	```
+   ```
 kubectl create secret \
   generic licenseaps --from-file activiti.lic
-	```
+   ```
 
 ## (Optional) Create custom images 
 Several services can be replaced with custom Docker images. Example projects are provided for the runtime bundle, form service and DMN service so that definition XML and JSON files can be placed in the images:
