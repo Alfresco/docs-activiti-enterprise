@@ -123,8 +123,8 @@ A client for the Identity Service needs to be created as the application is depl
         "insert_admin"
       ]
     }
-  ]
-}
+  	]
+	}
 	```
 
 2. Update the `application.json` with the names of the users or groups that will have regular access and administrator to the application. 
