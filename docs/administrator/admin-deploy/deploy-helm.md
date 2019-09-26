@@ -131,7 +131,7 @@ A client for the Identity Service needs to be created as the application is depl
 
 3. Update the `application.json` with a relevant name for the client. This name will need to match the name of the Helm chart when it is deployed. 
 
-3. Run the following command to create the Identity Service image replacing the `KEYCLOAK_AUTHSERVERURL` with that of the Identity Service URL of the Activiti Enterprise deployment:  
+4. Run the following command to create the Identity Service image replacing the `KEYCLOAK_AUTHSERVERURL` with that of the Identity Service URL of the Activiti Enterprise deployment:  
 
 	```docker
 	docker run -it --rm \ 	--env KEYCLOAK_AUTHSERVERURL=https://identity.***/auth \  	--env ACT_KEYCLOAK_CLIENT_APP=admin-cli \  	--env ACT_KEYCLOAK_CLIENT_USER=client \  	--env ACT_KEYCLOAK_CLIENT_PASSWORD=client \  	--volume "$PWD":/tmp/app \  	quay.io/alfresco/alfresco-deployment-cli:master /tmp/app/application.json
