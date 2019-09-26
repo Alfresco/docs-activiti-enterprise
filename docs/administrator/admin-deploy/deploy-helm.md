@@ -16,15 +16,15 @@ An application requires a Kubernetes namespace that contains a Quay secret to pu
 
 2. Install a Quay secret into the Docker registry of the namespace: 
 
-   ```
+	```
   kubectl create secret \
   docker-registry quay-registry-secret \
     --docker-server=quay.io \
     --docker-username="${DOCKER_REGISTRY_USER}" \
     --docker-password="${DOCKER_REGISTRY_PASSWORD}" \
     --docker-email="${DOCKER_REGISTRY_EMAIL}"
-   ```
-
+	```
+ 
 3. Install a valid license secret into the Kubernetes namespace:
 
    ```
