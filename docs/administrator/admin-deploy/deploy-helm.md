@@ -74,21 +74,21 @@ The Helm chart values require updating to point to the correct custom images and
 
 	2. If using any custom images then replace the location of each with those pushed to the Docker. The following is an example of where to update the runtime bundle location: 
 
-	```yaml
-    runtime-bundle:
-  enabled: true
-  ...
-  image:
-    repository: activiti/example-runtime-bundle
-    tag: "master"
-  ...
-	```
+		```yaml
+    	runtime-bundle:
+  			enabled: true
+  		...
+  		image:
+    		repository: activiti/example-runtime-bundle
+    		tag: "master"
+  		...
+		```
 	
 	3. Add the location of the XML and JSON files that were set when the custom images were created. The following is an example for the runtime bundle: 
 
-	```yaml
-	-  extraEnv: |    - name: SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX      value: "file:/process-definitions/"
-	```
+		```yaml
+		-  extraEnv: |    		- name: SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX      		  value: "file:/process-definitions/"
+		```
 
 	**Note** The environment variables are different for each service:
 	
