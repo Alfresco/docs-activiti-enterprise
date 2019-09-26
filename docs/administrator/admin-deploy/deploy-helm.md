@@ -7,7 +7,7 @@ To deploy an application using Helm rather than the deployment service [use this
 
 ## Prerequisites
 
-* Activiti Enterprise is deployed in Kubernetes.
+* The Activiti Enterprise infrastructure is deployed in Kubernetes.
 
 ## Create a namespace
 An application requires a Kubernetes namespace that contains a Quay secret to pull images from Quay.io and a valid Activiti Enterprise license.
@@ -33,7 +33,7 @@ An application requires a Kubernetes namespace that contains a Quay secret to pu
 	```
 
 ## (Optional) Create custom images 
-Several services can be replaced with custom Docker images. Example projects are provided for the runtime bundle, form service and DMN service so that definition XML and JSON files can be placed in the images:
+The services that utilize definition files can be replaced with custom Docker images. Example projects are provided for the runtime bundle, form service and DMN service so that definition XML and JSON files can be placed in the images:
 
 * [Runtime bundle](https://git.alfresco.com/process-services-public/alfresco-example-process-runtime-bundle-service/)
 * [Form service](https://git.alfresco.com/process-services-public/alfresco-example-forms-service)
