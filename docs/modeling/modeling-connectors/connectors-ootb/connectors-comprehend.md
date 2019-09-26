@@ -20,6 +20,13 @@ The following are the Amazon Comprehend APIs that are called using the connector
 * [Start Entities Detection Job API](https://docs.aws.amazon.com/comprehend/latest/dg/API_StartEntitiesDetectionJob.html)
 * [Describe Entities Detection Job API](https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeEntitiesDetectionJob.html)
 
+
+
+
+
+
+
+
 The Comprehend connector requires an AWS account to access Amazon features. It also requires an [Identity and Access Management (IAM)](https://aws.amazon.com/iam/) user to have the `textract:DetectDocumentText` and `textract:AnalyzeDocument` permissions. 
 
 ## Input parameters
