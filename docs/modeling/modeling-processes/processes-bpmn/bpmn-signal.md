@@ -9,6 +9,12 @@ The `id` of a signal will match against the `signalRef` of a catching or throwin
 
 Signal events are graphically represented by a triangle icon inside different shapes that differentiate between the event types. A solid triangle represents a throwing event, whilst a hollow triangle represents a catching event.
 
+The XML representation of a signal is the following:
+
+```xml
+<bpmn2:signal id="Signal_10meg5t" name="notification" />
+```
+
 The following are signal events:
 
 * [Signal intermediate throw events](#signal-intermediate-throw-events)

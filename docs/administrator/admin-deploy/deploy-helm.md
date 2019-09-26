@@ -2,7 +2,7 @@
 Title: Helm deployment
 ---
 
-# Helm deployment
+# Deploying with Helm
 To deploy an application using Helm rather than the deployment service [use this Helm chart](https://git.alfresco.com/process-services-public/alfresco-process-application-deployment/).  
 
 ## Prerequisites
@@ -33,7 +33,7 @@ An application requires a Kubernetes namespace that contains a Quay secret to pu
 	```
 
 ## (Optional) Create custom images 
-The services that utilize definition files can be replaced with custom Docker images. Example projects are provided for the runtime bundle, form service and DMN service so that definition XML and JSON files can be placed in the images:
+The application services that utilize definition files can be replaced with custom Docker images. Example projects are provided for the runtime bundle, form service and DMN service so that definition XML and JSON files can be placed in the images:
 
 * [Runtime bundle](https://git.alfresco.com/process-services-public/alfresco-example-process-runtime-bundle-service/)
 * [Form service](https://git.alfresco.com/process-services-public/alfresco-example-forms-service)
@@ -72,7 +72,7 @@ The Helm chart values require updating to point to the correct custom images and
 
 	1. Update the gateway and identity hosts and the domain name of the Kubernetes cluster.
 
-	2. If using any custom images then replace the location of each with those pushed to the Docker. The following is an example of where to update the runtime bundle location: 
+	2. If using any custom images then replace the location of each service with those pushed to the Docker registry. The following is an example of where to update the runtime bundle location: 
 
 		```yaml
     	runtime-bundle:

@@ -32,7 +32,9 @@ The XML representation of a sub-process is:
 ```
 
 ## Event sub-processes
-Event sub-processes are triggered by an event and require a start and end event. As they are triggered by events an event sub-process can't be started by a standard start event. Instead start events such as [error start events](../processes-bpmn/bpmn-start.md#error-start-events) or [message start events](../processes-bpmn/bpmn-start.md#message-start-events) are used.  
+Event sub-processes are triggered by an event and require a start and end event. As they are triggered by events an event sub-process can't be started by a standard start event. Instead start events such as [error start events](../processes-bpmn/bpmn-start.md#error-start-events) or [message start events](../processes-bpmn/bpmn-start.md#message-start-events) are used. 
+
+Start events attached to event sub-processes can also be set as interrupting or non-interrupting by using the `activiti:isInterrupting` property. See [boundary events](../processes-bpmn/bpmn-boundary.md) for details on interrupting and non-interrupting behaviour. 
 
 Event sub-processes are not connected to the main process flow as they can only be triggered by an event. The XML for an event sub-process contains the `triggeredByEvent` property set to `true`.  
 

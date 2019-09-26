@@ -5,8 +5,15 @@ Title: Message events
 # Message events
 Messages have a name and contain a payload. 
 
-Each property in the message payload can be mapped to an individual [process variable](../../modeling-processes/README.md#process-variables)
+To create a new message in the Modeling Application, the `+` symbol is used against a message event. A `name` can be defined and an auto-generated `id` is created.
 
+Message events are graphically represented by an envelope icon inside different shapes that differentiate between the event types. A solid envelope represents a throwing event, whilst a hollow envelope represents a catching event.
+
+The XML representation of a message is the following:
+
+```xml
+<bpmn2:message id="Message_0k9hibo" name="payment-message" />
+```
 
 The following are message events:
 

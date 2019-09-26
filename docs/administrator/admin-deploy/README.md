@@ -3,7 +3,9 @@ Title: Project deployment
 --- 
 
 # Project deployment
-Project deployment uses the [deployment service](../../architecture/arch-platform.md#deployment-service). There are two options for deploying a released project:
+Project deployment can use the [deployment service](../../architecture/arch-platform.md#deployment-service) or a Helm Chart. There are three options for deploying a released project:
+
+* [Deploy exclusively using Helm](../admin-deploy/deploy-helm.md).
 
 * Create a [deployment descriptor](#deployment-descriptors) for a released project that can be download as a Helm chart and then subsequently deployed via Helm.
 
