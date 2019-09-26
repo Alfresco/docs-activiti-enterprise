@@ -87,7 +87,7 @@ The Helm chart values require updating to point to the correct custom images and
 	3. Add the location of the XML and JSON files that were set when the custom images were created. The following is an example for the runtime bundle: 
 
 		```yaml
-		-  extraEnv: |    		- name: SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX      	value: "file:/process-definitions/"
+		-  extraEnv: |    		- name: SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX      	      value: "file:/process-definitions/"
 		```
 
 	**Note** The environment variables are different for each service:
@@ -105,8 +105,8 @@ A client for the Identity Service needs to be created as the application is depl
 
 	```json
 	{
-  "name": "app_client_name",
-  "security": [
+    "name": "app_client_name",
+    "security": [
     {
       "role": "APS_USER",
       "groups": [
