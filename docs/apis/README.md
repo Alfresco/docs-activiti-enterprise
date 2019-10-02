@@ -21,4 +21,6 @@ The OpenAPI specifications for application endpoints require the `{application-n
 
 ### Notification service
 The notification services uses [GraphQL](https://graphql.org/learn/) to expand on querying. It reads from the same data store as the query service and can be accessed at the following URL: 
+
 `gateway.{domain-name}/{application-name}/notifications/graphiql`. 
+
