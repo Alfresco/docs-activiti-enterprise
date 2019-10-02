@@ -7,8 +7,19 @@ Processes are the components that are built to represent a business processes. A
 
 Each process definition represents a business process and is built using BPMN elements. These BPMN elements incorporate the other components that you can create in the Modeling Application  such as [forms](../modeling-forms/README.md), [connectors](../modeling-connectors/README.md) and [decision tables](../modeling-decisions.md). 
 
+## Naming  
+Process names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. 
+
+The following are examples of valid process names: 
+
+```
+process-beta
+project10
+one-hundred-and-thirty-two
+```
+
 ## Using processes
-Once a project has been deployed, process instances can be started in several ways such as calling a start form from Process Workspace, manually starting a process instance or through an API.  
+Once a project has been deployed, process instances can be started in several ways such as calling a start form from Process Workspace, manually starting a process instance or through an API. 
 
 ## Designing processes
 Processes are designed using a drag-and-drop UI or using the in-built XML editor. It is also possible to upload an existing process definition using the upload function.
@@ -58,7 +69,7 @@ Process variables can be passed between certain BPMN elements as `inputs` and `o
 
 The BPMN elements that pass process variables between them and a process are:
 
-* In [user tasks](../modeling-processes/processes-bpmn/bpmn-user.md) to pass values between process variables and [form fields](../modeling-forms/forms-fields.md).
+* In [user tasks](../modeling-processes/processes-bpmn/bpmn-user.md) to pass values between process variables and [form fields](../modeling-forms/forms-fields.md) or [form variables](../modeling-forms/README.md#form-variables).
 * As part of [call activities](../modeling-processes/process-bpmn/bpmn-call.md) to pass process variables between the originating and called process.
 * For [decision tables](../modelding-decisions.md) to pass the input value(s) in and store the output(s) in the process.
 * To pass input parameters to [connectors](../modeling-connectors/README.md) and receive an output back to the process. 
@@ -125,3 +136,4 @@ The following is an example of where process variable inputs and outputs have be
     }
 }
 ```
+

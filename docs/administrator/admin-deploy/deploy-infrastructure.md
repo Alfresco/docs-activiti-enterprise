@@ -85,26 +85,43 @@ In the Administrator Application, this would look similar to the following:
 ![Example external Postgres deployment variables for the query service](../../images/deploy-postgres-query.png)
 
 ## Deploying an application with custom images
-It is possible to replace the Activiti Enterprise images for certain services with custom images based on the [Activiti 7 starters](http://www.activiti.org/). The services that can be replaced are the following:
+The application services that utilize definition files can be replaced with custom Docker images. Example projects are provided for the runtime bundle, form service and DMN service so that definition XML and JSON files can be placed in the images:
 
-* [Audit service](https://github.com/Activiti/activiti-cloud-audit-service)
-* [Query service](https://github.com/Activiti/activiti-cloud-query-service)
-* [Runtime Bundle](https://github.com/Activiti/activiti-cloud-runtime-bundle-service)
+* [Runtime bundle](https://git.alfresco.com/process-services-public/alfresco-example-process-runtime-bundle-service/)
+* [Form service](https://git.alfresco.com/process-services-public/alfresco-example-forms-service)
+* [DMN service](https://git.alfresco.com/process-services-public/alfresco-example-dmn-service)
 
-### Deployment steps
-Custom images need to be pushed to the Kubernetes registry before deploying an application that uses them:
+**Note**: The layout of each project is almost identical. The runtime bundle project will be used as an example.
 
+1. Clone the example runtime bundle repository:
+
+	```
+	git clone https://git.alfresco.com/process-services-public/alfresco-example-process-runtime-bundle-service.git
+	```
+
+2. Clear out the example files in the `/processes/` folder and insert the XML process definitions and JSON process extension files for the new application in their place. 
+
+3. Edit the `Dockerfile` and set the location of where the XML and JSON files will be located in the created image. The default is `maven/processes`.
+
+4. Update the value of `{DOCKER_REGISTRY}` in the `env.sh` file to point to the Docker registry of the Kubernetes namespace. 
+
+5. Create and push the runtime bundle image using the following command: 
+
+	```bash
+	export DOCKER_IMAGE_TAG=<branch>	./build.sh	./push.sh
+	```
+
+**Important** When deploying an application that contains a custom image, environment variables need to be set that specify where the XML and JSON definitions are located in the Docker image. If [deploying a descriptor via Helm](../admin-deploy/README.md#deploying-a-deployment-descriptor-via-helm) they can be set in the `extraEnv` section for the relevant image in the `values.yaml` file. If [deploying using the deployment service](#deployment-steps) then the variables need to be set as key value pairs for the corresponding images. The following is a table of the environment variables for each service:
+
+| Service | Environment variable | 
+| ------- | -------------------- |
+| Runtime bundle |  `SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX` |
+| Form service | `FORMCONFIGURATION_DIRECTORYPATH` | 
+| DMN service | `ACTIVITI_CLOUD_DMN_DMNFILES` |
+
+The following is an example of setting the runtime bundle path in the `extraEnv` section of a Helm chart:
+
+```yaml
+-  extraEnv: |	- name: SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX
+	- value: "file:/process-definitions/"
 ```
-docker push registry.$DNSNAME/<custom-docker-image-name>:master
-```
-
-Once a custom image is in the Kubernetes registry of your deployment, the location can be set for the service it is replacing and any custom variables configured during [application deployment](../admin-deploy/README.md#deployment-steps).
-
-The following is an example of the payload for setting a custom image for the query service during deployment: 
-
-```json
-"infrastructure"."query-service"."image"="registry.aae.alfresco.com/alfresco/custom-query-service:latest"
-```
-
-### Other services
-Other services such as the DMN, Form, Preference and Process Storage services can have their images replaced with custom ones. These services do not have Activiti 7 starters available to them and will need to be created manually. 

@@ -5,14 +5,15 @@ Title: OOTB connectors
 # OOTB connectors
 Out of the box (OOTB) connectors are a set of pre-defined connectors that have been developed and are available to insert into service tasks within the Modeling Application. The available connectors are: 
 
-* An [email connector](../connectors-ootb/connectors-email.md) to automatically send emails as part of a process.
-* A [REST connector](../connectors-ootb/connectors-rest.md) to connect a process to an external REST service.
-* A [Lambda connector](../connectors-ootb/connectors-lambda.md) to invoke AWS Lambda functions from a process.
 * A [Camel connector](../connectors-ootb/connectors-camel.md) to invoke Camel routes from a process.
+* A [DBP connector](../connectors-ootb/connectors-dbp.md) to create, update and delete content in an instance of Alfresco Content Services (ACS) as part of a process.
+* An [email connector](../connectors-ootb/connectors-email.md) to automatically send emails as part of a process.
+* A [Lambda connector](../connectors-ootb/connectors-lambda.md) to invoke AWS Lambda functions from a process.
+* A [REST connector](../connectors-ootb/connectors-rest.md) to connect a process to an external REST service.
 * A [Salesforce connector](../connectors-ootb/connectors-salesforce.md) to undertake specific functions within an instance of Salesforce from a process.
 * A [Slack connector](../connectors-ootb/connectors-slack.md) to create channels and send messages to an instance of Slack from a process.
 * A [Twilio connector](../connectors-ootb/connectors-twilio.md) to use Twilio to send SMS messages as part of a process.
-* A [DBP connector](../connectors-ootb/connectors-dbp.md) to create, update and delete content in an instance of Alfresco Content Services (ACS) as part of a process.
+
 
 ## Configuring an OOTB connector within a project
 OOTB connectors can be selected directly from the palette rather than by selecting a standard service task, though the input and output parameters need to be configured to process variables as with a standard service task.

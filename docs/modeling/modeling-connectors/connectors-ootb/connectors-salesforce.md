@@ -37,9 +37,9 @@ The following are the output parameters that all actions in the Salesforce conne
 
 | Parameter | Description | Type |
 | --------  | ----------- | ---- |
-| `salesforceResult` | The result from the REST or SOAP call from Salesforce | `String` |
-| `salesforceStatus` | The HTTP status code of the response | `Integer` | 
-| `salesforceError` | A list of errors if any are caught by the connector | `String` |
+| `salesforceResult` | The result from the REST or SOAP call from Salesforce | String |
+| `salesforceStatus` | The HTTP status code of the response | Integer | 
+| `salesforceError` | A list of errors if any are caught by the connector | String |
 
 **Note**: The execution of the Salesforce connector is always successful. Any errors will be returned in the `salesforceError` parameter. The parameter will be null if there were no errors.
 
@@ -56,8 +56,8 @@ The following are the parameters that can be passed to the Salesforce connector 
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `SObjectName` | The name of a valid Salesforce object to operate on, for example *Account* | `String` | Yes |
-| `salesforcePayload`| The payload to send to Salesforce as a JSON map. See [Salesforce API documentation](https://developer.salesforce.com/docs/api-explorer/sobject/Account) for valid fields | `JSON object` | Yes |
+| `SObjectName` | The name of a valid Salesforce object to operate on, for example *Account* | String | Yes |
+| `salesforcePayload`| The payload to send to Salesforce as a JSON map. See [Salesforce API documentation](https://developer.salesforce.com/docs/api-explorer/sobject/Account) for valid fields | JSON object | Yes |
 
 ## Get an object instance
 The `GET` action is used to retrieve an existing object instance from Salesforce.
@@ -72,8 +72,8 @@ The following are the parameters that can be passed to the Salesforce connector 
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `SObjectName` | The name of a valid Salesforce object to operate on, for example *Account* | `String` | Yes |
-| `SObjectId`| The ID of the object to retrieve | `String` | Yes |
+| `SObjectName` | The name of a valid Salesforce object to operate on, for example *Account* | String | Yes |
+| `SObjectId`| The ID of the object to retrieve | String | Yes |
 
 ## Update an object instance
 The `UPDATE` action is used to update an existing object instance in Salesforce.
@@ -88,9 +88,9 @@ The following are the parameters that can be passed to the Salesforce connector 
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `SObjectName` | The name of a valid Salesforce object to operate on, for example *Account* | `String` | Yes |
-| `SObjectId`| The ID of the object to update | `String` | Yes |
-| `salesforcePayload`| The payload to send to Salesforce as a JSON map. See [Salesforce API documentation](https://developer.salesforce.com/docs/api-explorer/sobject/Account) for valid fields | `JSON object` | Yes |
+| `SObjectName` | The name of a valid Salesforce object to operate on, for example *Account* | String | Yes |
+| `SObjectId`| The ID of the object to update | String | Yes |
+| `salesforcePayload`| The payload to send to Salesforce as a JSON map. See [Salesforce API documentation](https://developer.salesforce.com/docs/api-explorer/sobject/Account) for valid fields | JSON object | Yes |
 
 ## Delete an object instance
 The `DELETE` action is used to delete an existing object instance in Salesforce.
@@ -105,8 +105,8 @@ The following are the parameters that can be passed to the Salesforce connector 
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `SObjectName` | The name of a valid Salesforce object to operate on, for example *Account* | `String` | Yes |
-| `SObjectId`| The ID of the object to delete | `String` | Yes |
+| `SObjectName` | The name of a valid Salesforce object to operate on, for example *Account* | String | Yes |
+| `SObjectId`| The ID of the object to delete | String | Yes |
 
 ## Query an object instance
 The `QUERY` action is used to query existing object instances in Salesforce.
@@ -117,11 +117,11 @@ The `implementation` value of the query action in a service task would be simila
 <bpmn2:serviceTask id="ServiceTask_5lhj3ty" implementation="salesforceConnector.QUERY" />
 ```
 
-The following are the parameters that can be passed to the Salesforce connector as input parameters using the `QUERY` action:
+The following is the parameter that can be passed to the Salesforce connector as an input parameter using the `QUERY` action:
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `salesforceQuery`| A valid query against Salesforce | `String` | Yes |
+| `salesforceQuery`| A valid query against Salesforce | String | Yes |
 
 ## Submit an object instance for approval
 The `approval_submit` action is used to submit an existing object instance for approval in Salesforce.
@@ -132,11 +132,11 @@ The `implementation` value of the submission action in a service task would be s
 <bpmn2:serviceTask id="ServiceTask_5lhj3ty" implementation="salesforceConnector.approval_submit" />
 ```
 
-The following are the parameters that can be passed to the Salesforce connector as input parameters using the `approval_submit` action:
+The following is the parameter that can be passed to the Salesforce connector as an input parameter using the `approval_submit` action:
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `salesforcePayload`| The submission payload to send to Salesforce as a JSON map. See [Salesforce API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_process_approvals_submit.htm) for valid fields | `JSON object` | Yes |
+| `salesforcePayload`| The submission payload to send to Salesforce as a JSON map. See [Salesforce API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_process_approvals_submit.htm) for valid fields | JSON object | Yes |
 
 ## Query approval processes
 The `approval_list` action is used to query the current approval processes in Salesforce.
@@ -158,11 +158,11 @@ The `implementation` value of the approval action in a service task would be sim
 <bpmn2:serviceTask id="ServiceTask_5lhj3ty" implementation="salesforceConnector.approval_approve" />
 ```
 
-The following are the parameters that can be passed to the Salesforce connector as input parameters using the `approval_approve` action:
+The following is the parameter that can be passed to the Salesforce connector as an input parameter using the `approval_approve` action:
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `salesforcePayload`| The approval payload to send to Salesforce as a JSON map. See [Salesforce API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_process_approvals_approve.htm) for valid fields | `JSON object` | Yes |
+| `salesforcePayload`| The approval payload to send to Salesforce as a JSON map. See [Salesforce API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_process_approvals_approve.htm) for valid fields | JSON object | Yes |
 
 ## Reject an object instance submitted for approval
 The `approval_reject` action is used to reject an existing object instance that has been submitted for approval in Salesforce.
@@ -173,11 +173,11 @@ The `implementation` value of the rejection action in a service task would be si
 <bpmn2:serviceTask id="ServiceTask_5lhj3ty" implementation="salesforceConnector.approval_reject" />
 ```
 
-The following are the parameters that can be passed to the Salesforce connector as input parameters using the `approval_reject` action:
+The following is the parameter that can be passed to the Salesforce connector as an input parameter using the `approval_reject` action:
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `salesforcePayload`| The rejection payload to send to Salesforce as a JSON map. See [Salesforce API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_process_approvals_reject.htm) for valid fields | `JSON object` | Yes |
+| `salesforcePayload`| The rejection payload to send to Salesforce as a JSON map. See [Salesforce API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_process_approvals_reject.htm) for valid fields | JSON object | Yes |
 
 ## Create a custom object definition
 The `custom_object_create` action is used to create a custom object definition using the Salesforce SOAP metadata API.
@@ -188,8 +188,8 @@ The `implementation` value of the custom object action in a service task would b
 <bpmn2:serviceTask id="ServiceTask_5lhj3ty" implementation="salesforceConnector.custom_object_create" />
 ```
 
-The following are the parameters that can be passed to the Salesforce connector as input parameters using the `custom_object_create` action:
+The following is the parameter that can be passed to the Salesforce connector as an input parameter using the `custom_object_create` action:
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `salesforcePayload`| The custom metadata creation payload to send to Salesforce as a JSON map. See [Salesforce API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_createMetadata.htm) for valid fields | `JSON object` | Yes |
+| `salesforcePayload`| The custom metadata creation payload to send to Salesforce as a JSON map. See [Salesforce API documentation](https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/meta_createMetadata.htm) for valid fields | JSON object | Yes |

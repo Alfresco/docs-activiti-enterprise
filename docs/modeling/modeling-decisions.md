@@ -7,33 +7,23 @@ Decision tables are used to manage business decisions within process workflows. 
 
 Decision tables take at least one input and have at least one output. The inputs are evaluated against a set of rules defined by the modeler and then produce the relevant output(s) that match those rules to the process. 
 
+## Naming  
+Decision table names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. 
+
+The following are examples of valid decision table names: 
+
+```
+ice-cream-decision-table
+dt4
+decision-table-omega
+```
+
 ## Using decision tables
 Decision tables can be selected from the palette when designing a process. Once they have been dragged into the process definition, a dropdown list of decision tables available to the current project is displayed. 
 
-Decision tables are handled as [service tasks](../modeling/modeling-processes/processes-bpmn/bpmn-service.md) by Activiti Enterprise and will always have the `implementation` value of `dmn-connector.EXECTUTE_TABLE`. The `name` of the decision table that is associated to the service task is stored in the [`<process-name>-extensions.json` file](../modeling/modeling-projects.md#files) as the `value` under the input `_activiti_dmn_table_`.
+Decision tables are used in a process definition by using a [business rule task](../modeling/modeling-processes/processes-bpmn/bpmn-business.md).
 
-The following is an example of the XML for a decision table within a process definition:
-
-```xml
-<bpmn2:serviceTask id="ServiceTask_0gzhx4b" implementation="dmn-connector.EXECUTE_TABLE" />
-```
-
-The following is an example of the extensions JSON of a process containing a decision table:
-
-```json
-"mappings": {
-   "ServiceTask_0v4ptl3": {
-      "inputs": {
-         "_activiti_dmn_table_": {
-            "type": "static_value",
-            "value": "Ice_cream"
-         }
-       }
-    }
-}
-```
-
-[Process variables](../modeling/modeling-processes/README.md#process-variables) are used to pass values into inputs and receive the value for outputs from a decision table. The mapping between process variables and inputs and outputs can be set explicitly, otherwise the matching will be attempted based on identical names. If an output from a decision table does not match an existing process variable then a new one will be created using the output `name`. 
+[Process variables](../modeling/modeling-processes/README.md#process-variables) are used to pass values into inputs and receive the value for outputs from a decision table. Specific process variables can be mapped to the inputs and outputs of a decision table, or all process variables can be passed. If all process variables are passed to a decision table then inputs will attempt to be matched against process variables using their names and outputs will either update a matching process variable or create a new one.  
 
 ## Designing decision tables
 The following is a decision table that selects the best flavor of ice cream to eat based on which day of the week it is and what the temperature is. This example will be used to assist in explaining the different elements that make up a decision table.

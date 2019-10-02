@@ -20,16 +20,19 @@
                     title: 'BPMN elements'
                     children: 
                         - bpmn-start.md: 'Start events'
-                        - bpmn-end.md: 'End events'
-                        - bpmn-user.md: 'User tasks'
-                        - bpmn-service.md: 'Service tasks'
-                        - bpmn-timer.md: 'Timer events'
-                        - bpmn-gateways.md: 'Gateways'
                         - bpmn-boundary.md: 'Boundary events'
+                        - bpmn-error.md: 'Error events'
+                        - bpmn-message.md: 'Message events'
+                        - bpmn-timer.md: 'Timer events'
                         - bpmn-signal.md: 'Signal events'
-                        - bpmn-sequence.md: 'Sequence flows'
+                        - bpmn-gateways.md: 'Gateways'
+                        - bpmn-business.md: 'Business rule tasks'
+                        - bpmn-call.md: 'Call activities'
+                        - bpmn-service.md: 'Service tasks'
                         - bpmn-sub.md: 'Sub-processes'
-                        - bpmn-call.md: 'Call activity'
+                        - bpmn-user.md: 'User tasks'
+                        - bpmn-end.md: 'End events'
+                        - bpmn-sequence.md: 'Sequence flows'
         - modeling-forms:
             title: 'Forms'
             children: 
@@ -41,14 +44,14 @@
                 - connectors-ootb:
                     title: 'Out of the box connectors'
                     children:
+                        - connectors-camel.md: 'Camel connector'
+                        - connectors-dbp.md: 'DBP connector'
                         - connectors-email.md: 'Email connector'
+                        - connectors-lambda.md: 'Lambda connector'
+                        - connectors-rest.md: 'REST connector'
+                        - connectors-salesforce.md: 'Salesforce connector'
                         - connectors-slack.md: 'Slack connector'
                         - connectors-twilio.md: 'Twilio connector'
-                        - connectors-rest.md: 'REST connector'
-                        - connectors-camel.md: 'Camel connector'
-                        - connectors-salesforce.md: 'Salesforce connector'
-                        - connectors-lambda.md: 'Lambda connector'
-                        - connectors-dbp.md: 'DBP connector'
         - modeling-decisions.md: 'Decision tables'
         - modeling-ui.md: 'User interfaces'
 - administrator:
@@ -57,6 +60,7 @@
         - admin-deploy:
             title: 'Deploying projects and monitoring applications'
             children:
+                - deploy-helm.md: 'Deploying with Helm'
                 - deploy-infrastructure.md: 'Customizing application infrastructure'
         - admin-monitoring:
             title: 'Monitoring tasks and processes'

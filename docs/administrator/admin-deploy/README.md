@@ -3,7 +3,9 @@ Title: Project deployment
 --- 
 
 # Project deployment
-Project deployment uses the [deployment service](../../architecture/arch-platform.md#deployment-service). There are two options for deploying a released project:
+Project deployment can use the [deployment service](../../architecture/arch-platform.md#deployment-service) or a Helm Chart. There are three options for deploying a released project:
+
+* [Deploy exclusively using Helm](../admin-deploy/deploy-helm.md).
 
 * Create a [deployment descriptor](#deployment-descriptors) for a released project that can be download as a Helm chart and then subsequently deployed via Helm.
 
@@ -14,6 +16,17 @@ Project deployment uses the [deployment service](../../architecture/arch-platfor
 **Important**: A project is only available to create a descriptor for, or to deploy, once it has been [released](../../modeling/modeling-projects.md#releasing).
 
 Project deployment options in the UI or by REST API call require the *APS_DEVOPS* role. 
+
+## Naming  
+Application and deployment descriptor names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. 
+
+The following are examples of valid application and deployment descriptor names: 
+
+```
+hr-application-1
+application3
+application-alpha-omega
+```
 
 ## Deployment descriptors
 Creating a deployment descriptor uses the API to create a descriptor for a released project that can be download as a Helm chart and then subsequently deployed via Helm. It is possible to:
@@ -86,7 +99,53 @@ The contents of `requirements.yaml` is dynamically updated with the necessary ch
 
 The contents of `values.yaml` is also dynamically updated depending on the contents of the project and the configurations made during the deployment descriptor creation such as the  settings for external PostgreSQL instances. 
 
-**Important**: Before deploying the Helm chart, a [client needs to be created](https://www.keycloak.org/docs/6.0/server_admin/#oidc-clients) in the Identity Service for the application using the same name as the deployment descriptor. The client level roles required are *APS_USER* and *APS_ADMIN* with the relevant users or groups assigned to each. 
+### Deploying a deployment descriptor via Helm
+To deploy a deployment descriptor using Helm an Identity Service client first needs to be created before deploying the Helm Chart. 
+
+1. Create a file called `application.json` that contains the following lines and place it in the route of the Helm chart project: 
+
+	```json
+	{
+    "name": "app_client_name",
+    "security": [
+    {
+      "role": "APS_USER",
+      "groups": [
+        "insert_user_group"
+      ],
+      "users": [
+        "insert_user"
+      ]
+    },
+    {
+      "role": "APS_ADMIN",
+      "groups": [],
+      "users": [
+        "insert_admin"
+      ]
+    }
+  	]
+	}
+	```
+
+2. Update the `application.json` with the names of the users or groups that will have regular access and administrator to the application. 
+
+3. Update the `application.json` with a relevant name for the client. This name will need to match the name of the Helm chart when it is deployed. 
+
+4. Run the following command to create the Identity Service image replacing the `KEYCLOAK_AUTHSERVERURL` with that of the Identity Service URL of the Activiti Enterprise deployment:  
+
+	```docker
+	docker run -it --rm \ 	--env KEYCLOAK_AUTHSERVERURL=https://identity.***/auth \  	--env ACT_KEYCLOAK_CLIENT_APP=admin-cli \  	--env ACT_KEYCLOAK_CLIENT_USER=client \  	--env ACT_KEYCLOAK_CLIENT_PASSWORD=client \  	--volume "$PWD":/tmp/app \  	quay.io/alfresco/alfresco-deployment-cli:master /tmp/app/application.json
+	```
+
+5. Deploy using a command similar to the following: 
+
+	```
+	helm upgrade name ./helm/alfresco-process-application --install --set global.gateway.domain=domain.com --namespace=namespace
+	```
+	* `name` needs to match the name used in the `application.json`
+	* `domain.com` is the domain name to use. 
+	* `namespace` is the namespace to deploy to.
 
 ## Deploying a released project
 A project can deployed directly from a released project or from a [deployment descriptor](#deployment-descriptors). Using the deployment service to deploy a released project creates its services and user interfaces into a new namespace. There is a 1:1 relationship between applications and namespaces.

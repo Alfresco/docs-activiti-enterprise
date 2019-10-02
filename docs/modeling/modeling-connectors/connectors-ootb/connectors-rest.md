@@ -27,13 +27,13 @@ The following are the parameters that can be passed to the REST connector as inp
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `restUrl` | URL of the REST endpoint including the protocol and path | `String` | Yes |
-| `restUrlParams` | URL parameters to append to the URL | `Map <String, String>` | No |
-| `restUrlEncoded` | Whether the URL should be encoded or not | `Boolean` | No |
-| `requestPayload` | The HTTP body to be sent | `JSON object` | No |
-| `requestHeaders` | A map of the request header names and values. Values can be fixed, variables or form fields | `Map <String,String>` | No |
-| `circuitBreaker` | Any value entered will enable the circuit breaker | `Boolean` | No |
-| `timeout` | The request timeout value in milliseconds | `Integer` | No |
+| `restUrl` | URL of the REST endpoint including the protocol and path | String | Yes |
+| `restUrlParams` | URL parameters to append to the URL | Map <String, String> | No |
+| `restUrlEncoded` | Whether the URL should be encoded or not | Boolean | No |
+| `requestPayload` | The HTTP body to be sent | JSON object | No |
+| `requestHeaders` | A map of the request header names and values. Values can be fixed, variables or form fields | Map <String,String> | No |
+| `circuitBreaker` | Any value entered will enable the circuit breaker | Boolean | No |
+| `timeout` | The request timeout value in milliseconds | Integer | No |
 
 **Note**: The parameters can accept variables as part of their values in the format `${variable}`. The variable names can be viewed and their values set using [connector variables](#connector-variables). For example: if the connector variable `REST_HOST` is set to `localhost` and the input parameter `restURL` is set to `http://{$host}/service` the REST service will resolve this to `http://localhost/service`.
 
@@ -42,9 +42,9 @@ The following are the parameters that are returned to the process by the REST co
 
 | Parameter | Description | Type |
 | --------  | ----------- | ---- |
-| `restResult` | The response sent back to the process from the REST service | `JSON object` |
-| `restStatus` | The HTTP response status code if the request was performed | `Integer` | 
-| `restError` | If an error was encountered it will be described in this parameter | `String` |
+| `restResult` | The response sent back to the process from the REST service | JSON object |
+| `restStatus` | The HTTP response status code if the request was performed | Integer | 
+| `restError` | If an error was encountered it will be described in this parameter | String |
 
 **Note**: The execution of the REST connector is always successful. Any errors will be returned in the `restError` parameter.
 

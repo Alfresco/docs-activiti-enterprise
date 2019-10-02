@@ -17,6 +17,17 @@ Connectors conceptually contain two parts:
 
 * A [connector definition](#connector-definitions) that describes the actions a connector can make and the parameters that need to be passed to the connector image. The connector definition is used to attach a connector action to a service task within a process definition. 
 
+## Naming  
+Connector names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. 
+
+The following are examples of valid connector names: 
+
+```
+rest-connector
+connector-request-2
+two-hundred-and-sixty-four
+```
+
 ## Connector images
 To execute logic outside of the runtime bundle (i.e. a process), a connector is deployed as a separate image but as part of the same deployment. The communication between the runtime bundle and connector is accomplished via specially named channels with messages managed by a message broker (Rabbit MQ by default). 
 

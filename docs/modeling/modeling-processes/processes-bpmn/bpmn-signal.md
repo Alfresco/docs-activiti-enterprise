@@ -9,12 +9,18 @@ The `id` of a signal will match against the `signalRef` of a catching or throwin
 
 Signal events are graphically represented by a triangle icon inside different shapes that differentiate between the event types. A solid triangle represents a throwing event, whilst a hollow triangle represents a catching event.
 
+The XML representation of a signal is the following:
+
+```xml
+<bpmn2:signal id="Signal_10meg5t" name="notification" />
+```
+
 The following are signal events:
 
 * [Signal intermediate throw events](#signal-intermediate-throw-events)
 * [Signal intermediate catch events](#signal-intermediate-catch-events)
-* Also see [signal start events](../processes-bpmn/bpmn-start.md#signal-start-events)
-* Also see [signal boundary events](../processes-bpmn/bpmn-boundary.md#signal-boundary-events)
+* [Signal start events](../processes-bpmn/bpmn-start.md#signal-start-events)
+* [Signal boundary events](../processes-bpmn/bpmn-boundary.md#signal-boundary-events)
 
 ## Signal intermediate throw events
 Signal intermediate throwing events are events that emit a signal when they are reached in the process flow. The signal that is emitted is then caught by any catching signal events with a name matching the signal that was thrown. 
