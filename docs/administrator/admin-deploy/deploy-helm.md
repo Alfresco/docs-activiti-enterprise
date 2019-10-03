@@ -144,7 +144,7 @@ A Keycloak client needs to be created in the Identity Service as the application
   	--env ACT_KEYCLOAK_CLIENT_USER=client \
   	--env ACT_KEYCLOAK_CLIENT_PASSWORD=client \
   	--volume "$PWD":/tmp/app \
-  	quay.io/alfresco/alfresco-deployment-cli:master /tmp/app/application.json
+  	quay.io/alfresco/alfresco-deployment-cli /tmp/app/application.json
 	```
 
 ## Deploy using Helm
