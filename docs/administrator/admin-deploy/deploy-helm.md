@@ -102,8 +102,8 @@ The Helm chart values require updating to point to the correct custom images and
 	| Form service | `FORMCONFIGURATION_DIRECTORYPATH` | 
 	| DMN service | `ACTIVITI_CLOUD_DMN_DMNFILES` |
 
-## Configure a client 
-A client needs to be created in the Identity Service as the application is deployed.  
+## Create a Keycloak client in the Identity Service 
+A Keycloak client needs to be created in the Identity Service as the application is deployed.  
 
 1. Create a file called `application.json` that contains the following lines and place it in the route of the Helm chart project: 
 
@@ -150,7 +150,7 @@ A client needs to be created in the Identity Service as the application is deplo
 ## Deploy using Helm
 Once everything has been configured, the following command can be run to deploy the application with a few variables set:
 
-* `name` needs to match the name used in the [`application.json`](#configure-a-client)
+* `name` needs to match the name used in the [`application.json`](#create-a-keycloak-client-in-the-identity-service)
 * `domain.com` is the domain name to use. 
 * `namespace` is the one [created for the application](#create-a-namespace).
 
