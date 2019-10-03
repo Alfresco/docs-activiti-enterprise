@@ -56,7 +56,9 @@ The application services that utilize definition files can be replaced with cust
 5. Create and push the runtime bundle image using the following command: 
 
 	```bash
-	export DOCKER_IMAGE_TAG=<branch>	./build.sh	./push.sh
+	export DOCKER_IMAGE_TAG=<branch>
+	./build.sh
+	./push.sh
 	```
 
 ## Set Helm chart values
@@ -87,7 +89,9 @@ The Helm chart values require updating to point to the correct custom images and
 	3. Add the location of the XML and JSON files that were set when the custom images were created. The following is an example for the runtime bundle: 
 
 		```yaml
-		-  extraEnv: |    		- name: SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX      	      value: "file:/process-definitions/"
+		-  extraEnv: |
+    		- name: SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX
+      	      value: "file:/process-definitions/"
 		```
 
 	**Note** The environment variables are different for each service:
@@ -98,8 +102,8 @@ The Helm chart values require updating to point to the correct custom images and
 	| Form service | `FORMCONFIGURATION_DIRECTORYPATH` | 
 	| DMN service | `ACTIVITI_CLOUD_DMN_DMNFILES` |
 
-## Configure the Identity Service 
-A client for the Identity Service needs to be created as the application is deployed.  
+## Configure a client 
+A client needs to be created in the Identity Service as the application is deployed.  
 
 1. Create a file called `application.json` that contains the following lines and place it in the route of the Helm chart project: 
 
@@ -131,16 +135,22 @@ A client for the Identity Service needs to be created as the application is depl
 
 3. Update the `application.json` with a relevant name for the client. This name will need to match the name of the Helm chart when it is deployed. 
 
-4. Run the following command to create the Identity Service image replacing the `KEYCLOAK_AUTHSERVERURL` with that of the Identity Service URL of the Activiti Enterprise deployment:  
+4. Run the following command to create the Keycloak image replacing the `KEYCLOAK_AUTHSERVERURL` with that of the Identity Service URL of the Activiti Enterprise deployment:  
 
 	```docker
-	docker run -it --rm \ 	--env KEYCLOAK_AUTHSERVERURL=https://identity.***/auth \  	--env ACT_KEYCLOAK_CLIENT_APP=admin-cli \  	--env ACT_KEYCLOAK_CLIENT_USER=client \  	--env ACT_KEYCLOAK_CLIENT_PASSWORD=client \  	--volume "$PWD":/tmp/app \  	quay.io/alfresco/alfresco-deployment-cli:master /tmp/app/application.json
+	docker run -it --rm \
+ 	--env KEYCLOAK_AUTHSERVERURL=https://identity.***/auth \
+  	--env ACT_KEYCLOAK_CLIENT_APP=admin-cli \
+  	--env ACT_KEYCLOAK_CLIENT_USER=client \
+  	--env ACT_KEYCLOAK_CLIENT_PASSWORD=client \
+  	--volume "$PWD":/tmp/app \
+  	quay.io/alfresco/alfresco-deployment-cli:master /tmp/app/application.json
 	```
 
 ## Deploy using Helm
 Once everything has been configured, the following command can be run to deploy the application with a few variables set:
 
-* `name` needs to match the name used in the [`application.json`](#configure-the-identity-service)
+* `name` needs to match the name used in the [`application.json`](#configure-a-client)
 * `domain.com` is the domain name to use. 
 * `namespace` is the one [created for the application](#create-a-namespace).
 
