@@ -5,74 +5,74 @@
 - architecture:
     title: 'Architecture'
     children:
-        - arch-platform.md: 'Platform services'
-        - arch-application.md: 'Application services'
-        - arch-ui.md: 'User interfaces' 
+        - platform.md: 'Platform services'
+        - application.md: 'Application services'
+        - ui.md: 'User interfaces' 
 - deployment: 'Deployment'
 - modeling: 
     title: 'Alfresco Modeling Application'
     children: 
-        - modeling-projects.md: 'Projects'
-        - modeling-processes:
+        - projects.md: 'Projects'
+        - processes:
             title: 'Processes'
             children:
-                - processes-bpmn:
+                - bpmn:
                     title: 'BPMN elements'
                     children: 
-                        - bpmn-start.md: 'Start events'
-                        - bpmn-boundary.md: 'Boundary events'
-                        - bpmn-error.md: 'Error events'
-                        - bpmn-message.md: 'Message events'
-                        - bpmn-timer.md: 'Timer events'
-                        - bpmn-signal.md: 'Signal events'
-                        - bpmn-gateways.md: 'Gateways'
-                        - bpmn-business.md: 'Business rule tasks'
-                        - bpmn-call.md: 'Call activities'
-                        - bpmn-service.md: 'Service tasks'
-                        - bpmn-sub.md: 'Sub-processes'
-                        - bpmn-user.md: 'User tasks'
-                        - bpmn-end.md: 'End events'
-                        - bpmn-sequence.md: 'Sequence flows'
-        - modeling-forms:
+                        - start.md: 'Start events'
+                        - boundary.md: 'Boundary events'
+                        - error.md: 'Error events'
+                        - message.md: 'Message events'
+                        - timer.md: 'Timer events'
+                        - signal.md: 'Signal events'
+                        - gateways.md: 'Gateways'
+                        - business.md: 'Business rule tasks'
+                        - call.md: 'Call activities'
+                        - service.md: 'Service tasks'
+                        - sub.md: 'Sub-processes'
+                        - user.md: 'User tasks'
+                        - end.md: 'End events'
+                        - sequence.md: 'Sequence flows'
+        - forms:
             title: 'Forms'
             children: 
-                - forms-fields.md: 'Form fields'
-        - modeling-connectors:
+                - fields.md: 'Form fields'
+        - connectors:
             title: 'Connectors'
             children:
-                - connectors-create.md: 'Creating a connector'
-                - connectors-ootb:
+                - create.md: 'Creating a connector'
+                - ootb:
                     title: 'Out of the box connectors'
                     children:
-                        - connectors-camel.md: 'Camel connector'
-                        - connectors-dbp.md: 'DBP connector'
-                        - connectors-email.md: 'Email connector'
-                        - connectors-lambda.md: 'Lambda connector'
-                        - connectors-rest.md: 'REST connector'
-                        - connectors-salesforce.md: 'Salesforce connector'
-                        - connectors-slack.md: 'Slack connector'
-                        - connectors-twilio.md: 'Twilio connector'
-        - modeling-decisions.md: 'Decision tables'
-        - modeling-ui.md: 'User interfaces'
+                        - camel.md: 'Camel connector'
+                        - dbp.md: 'DBP connector'
+                        - email.md: 'Email connector'
+                        - lambda.md: 'Lambda connector'
+                        - rest.md: 'REST connector'
+                        - salesforce.md: 'Salesforce connector'
+                        - slack.md: 'Slack connector'
+                        - twilio.md: 'Twilio connector'
+        - decisions.md: 'Decision tables'
+        - ui.md: 'User interfaces'
 - administrator:
     title: 'Alfresco Administrator Application'
     children:
-        - admin-deploy:
+        - deploy:
             title: 'Deploying projects and monitoring applications'
             children:
-                - deploy-helm.md: 'Deploying with Helm'
-                - deploy-infrastructure.md: 'Customizing application infrastructure'
-        - admin-monitoring:
+                - helm.md: 'Deploying with Helm'
+                - infrastructure.md: 'Customizing application infrastructure'
+        - monitoring:
             title: 'Monitoring tasks and processes'
             children:
-                - monitoring-storage.md: 'Application storage'
-        - admin-identity:
+                - storage.md: 'Application storage'
+        - identity:
             title: 'Identity management'
             children:
-                - identity-service.md: 'Identity Service'
+                - service.md: 'Identity Service'
 - workspace:
     title: 'Alfresco Process Workspace'
     children:
-        - workspace-processes.md: 'Processes'
-        - workspace-tasks.md: 'Tasks'
+        - processes.md: 'Processes'
+        - tasks.md: 'Tasks'
 - apis: 'APIs'
