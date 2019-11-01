@@ -11,6 +11,8 @@ To deploy an instance of the Process Workspace with an application, a [user inte
 
 The URL to access it will be in the format: `gateway.{domain-name}/{application-name}/{ui-name}`. 
 
+To access the Process Workspace users require the `ACTIVITI_USER` role and to have been given user access to the application. 
+
 ## About
 The about page can be accessed via the UI or at the URL: `gateway.{domain-name}/{application-name}/{ui-name}/about` and shows the packages and package versions used in the application. 
 
