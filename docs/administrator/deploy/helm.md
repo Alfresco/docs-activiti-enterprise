@@ -102,51 +102,54 @@ The Helm chart values require updating to point to the correct custom images and
 	| Form service | `FORMCONFIGURATION_DIRECTORYPATH` | 
 	| DMN service | `ACTIVITI_CLOUD_DMN_DMNFILES` |
 
-## Create a Keycloak client in the Identity Service 
-A Keycloak client needs to be created in the Identity Service as the application is deployed.  
+## Configure a client in the Identity Service 
+A client needs to be created in the Identity Service as the application is deployed. Clients can also be updated or deleted by following the same process. 
 
-1. Create a file called `application.json` that contains the following lines and place it in the route of the Helm chart project: 
+1. Create a file called `application.json` that contains the following information and place it in the route of the Helm chart project: 
+
+	* Update the users and groups for each role. At least one user or group needs to be assigned to each [role](../identity/README.md). 
+	* Update the `name` of the client. The name specified in the `application.json` will need to match the name of the Helm chart when it is deployed.
 
 	```json
 	{
-    "name": "app_client_name",
+    "name": "{application-client-name}",
     "security": [
     {
-      "role": "APS_USER",
+      "role": "ACTIVITI_USER",
       "groups": [
-        "insert_user_group"
+        "{group-name}"
       ],
       "users": [
-        "insert_user"
+        "{user-name}"
       ]
     },
     {
-      "role": "APS_ADMIN",
+      "role": "ACTIVITI_ADMIN",
       "groups": [],
       "users": [
-        "insert_admin"
+        "{admin-name}"
       ]
     }
   	]
 	}
 	```
 
-2. Update the `application.json` with the names of the users or groups that will have regular access and administrator to the application. 
+2. Run the following command to create, update or delete the image:
 
-3. Update the `application.json` with a relevant name for the client. This name will need to match the name of the Helm chart when it is deployed. 
-
-4. Run the following command to create the Keycloak image replacing the `KEYCLOAK_AUTHSERVERURL` with that of the Identity Service URL of the Activiti Enterprise deployment:  
+	* Update `{identity-service-url}` with the URL of the Identity Service in the Activiti Enterprise deployment.
+	* Update `{action}` with the action to take on the client. The possible options are `create`, `update` and `delete`. The default is `create`. 
 
 	```docker
 	docker run -it --rm \
- 	--env KEYCLOAK_AUTHSERVERURL=https://identity.***/auth \
+ 	--env KEYCLOAK_AUTHSERVERURL={identity-service-url} \
   	--env ACT_KEYCLOAK_CLIENT_APP=admin-cli \
   	--env ACT_KEYCLOAK_CLIENT_USER=client \
   	--env ACT_KEYCLOAK_CLIENT_PASSWORD=client \
+  	--env ACTIVITI_KEYCLOAK_CLI_COMMAND={action}
   	--volume "$PWD":/tmp/app \
   	quay.io/alfresco/alfresco-deployment-cli /tmp/app/application.json
 	```
-
+	
 ## Deploy using Helm
 Once everything has been configured, the following command can be run to deploy the application with a few variables set:
 
