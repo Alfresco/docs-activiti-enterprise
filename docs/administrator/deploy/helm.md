@@ -94,13 +94,21 @@ The Helm chart values require updating to point to the correct custom images and
       	      value: "file:/process-definitions/"
 		```
 
-	**Note** The environment variables are different for each service:
+		**Note** The environment variables are different for each service:
 	
-	| Service | Environment variable | 
-	| ------- | -------------------- |
-	| Runtime bundle |  `SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX` |
-	| Form service | `FORMCONFIGURATION_DIRECTORYPATH` | 
-	| DMN service | `ACTIVITI_CLOUD_DMN_DMNFILES` |
+		| Service | Environment variable | 
+		| ------- | -------------------- |
+		| Runtime bundle |  `SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX` |
+		| Form service | `FORMCONFIGURATION_FORMSDEFINITIONSDIRECTORYPATH` | 
+		| DMN service | `DMNCONFIGURATION_TABLESDEFINITIONSDIRECTORYPATH` |
+	
+	4. Set the location of the [project manifest](../../modeling/projects.md#files) for each service using the environment variable `PROJECT_MANIFEST_FILE_PATH`, for example: 
+
+		```yaml
+		-  extraEnv: |
+    		- name: PROJECT_MANIFEST_FILE_PATH
+      	   	   value: "file:project/project.json/"
+		```
 
 ## Configure a client in the Identity Service 
 A client needs to be created in the Identity Service as the application is deployed. Clients can also be updated or deleted by following the same process. 
