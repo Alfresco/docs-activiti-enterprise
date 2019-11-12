@@ -49,6 +49,24 @@ The XML representation of an error is:
 <bpmn2:error id="Error_3vbkafg" name="payment-failed-error" errorCode="404" />
 ```
 
+## Message end events
+Message end events complete the process flow and send a message event. 
+
+When used in the Modeling Application, a previously created `Message` can be selected from the dropdown in its properties, or a new one created using the `+` symbol.
+
+See [message events](../bpmn/message.md) for more information about messages and how they can be generated.
+
+Message end events are graphically represented by a single thick circle with a solid envelope icon inside. 
+
+The XML representation of a message end event is: 
+
+```xml
+<bpmn2:endEvent id="EndEvent_1">
+	<bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+	<bpmn2:messageEventDefinition messageRef="Message_45sdihj" />
+</bpmn2:endEvent>
+```
+
 ## Terminate end events
 Terminate end events cause the current process scope to be immediately ended, including any parallel process flows. The scope is determined by the location of the terminate end event. If the terminate end event is in a [sub-process](../bpmn/sub.md) or [call activity](../bpmn/call.md), only the sub-process or call activity instance will be ended, not the parent or originating process instance. In the case of a multi-instance sub-process or call activity only a single instance will be ended. 
 
