@@ -44,6 +44,7 @@
                 - ootb:
                     title: 'Out of the box connectors'
                     children:
+                        - aspose.md: 'Aspose connector'                        
                         - camel.md: 'Camel connector'
                         - dbp.md: 'DBP connector'
                         - email.md: 'Email connector'

@@ -5,6 +5,7 @@ Title: OOTB connectors
 # OOTB connectors
 Out of the box (OOTB) connectors are a set of pre-defined connectors that have been developed and are available to insert into service tasks within the Modeling Application. The available connectors are: 
 
+* An [Aspose connector](../ootb/aspose.md) to generate files from data and variables using Aspose templates.
 * A [Camel connector](../ootb/camel.md) to invoke Camel routes from a process.
 * A [DBP connector](../ootb/dbp.md) to create, update and delete content in an instance of Alfresco Content Services (ACS) as part of a process.
 * An [email connector](../ootb/email.md) to automatically send emails as part of a process.
