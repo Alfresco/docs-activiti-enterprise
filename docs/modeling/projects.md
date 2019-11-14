@@ -47,6 +47,9 @@ The following is an example of an exploded zip file of a project called *holiday
 	/decision-tables/
 		auto-approve.json
 		auto-approve.xml
+	/files/
+		approval-policy.bin
+		approval-policy-extensions.json	
 	/forms/
 		approval-form.json
 	/ui/
@@ -70,3 +73,5 @@ File definitions are created and stored for each element of a project:
 * `<decision-table-name>.json` is the format that decision table UIDs are stored in. 
 * `<process-name>-extensions.json` is the format that stores the links between process elements. For example it maps the `implementation` value of service tasks with the relevant connector actions and equivalent process variables. 
 * `<appname>.json` is the format that stores the name and version number of a project.
+* `<file-name>.bin` is the binary format that uploaded files are stored as.
+* `<file-name>-extensions.json` is the format that stores the metadata for the associated uploaded file. 
