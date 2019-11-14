@@ -1,0 +1,24 @@
+---
+Title: Files
+---
+
+# Files
+Files can be uploaded and used within a project. They are stored in a persistent volume that is mounted at deployment time.
+
+There are two [associated files](../modeling/projects.md#files) that refer to a file definition. The first is the file itself stored as binary and the other contains the metadata for the file in JSON format.
+
+The JSON definition of a file metadata is:
+
+```json
+{
+    "createdAt": "2019-11-12T20:11:26.826Z",
+    "name": "approval-policy-final.docx",
+    "uri": "file:/policy.bin",
+    "content": {
+        "sizeInBytes": 86075,
+        "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    }
+}
+```
+
+Once a file has been defined in the Modeling Application it can be created as a [process variable](../modeling/processes/README.md#process-variables) from a dropdown selection and used within a process definition.  

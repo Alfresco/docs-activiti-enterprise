@@ -54,6 +54,7 @@
                         - twilio.md: 'Twilio connector'
         - decisions.md: 'Decision tables'
         - ui.md: 'User interfaces'
+        - files.md: 'Files'
 - administrator:
     title: 'Alfresco Administrator Application'
     children:
