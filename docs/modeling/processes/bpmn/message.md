@@ -69,17 +69,19 @@ The following is an example of a message payload for a [message end event](../bp
 ```
 
 ### Correlation keys
-Message throwing events can optionally contain a correlation key. Correlation keys contain an expression that will be evaluated when the process flow reaches the message throwing event. If the result evaluates true, then the message is sent and if it evaluates to false then it is not sent. 
+Message events can optionally contain a correlation key. If a correlation key is present then when a message is thrown it uses the `activiti:correlationKey` value and the `messageRef` of the throwing event to match against the same two properties for a catching event. If only one property is matched then the message will not be caught. 
 
-The expression must be written using Java Unified Expression Language (JUEL). 
-
-In the following example, the message payload will be sent if `intVar` is equal to 5:
+Using a [process variable](../README.md#process-variables) for the correlation key in a throwing event and a static value for its corresponding catching event allows for the message to only be caught in specific circumstances.
+ 
+In the following example, the message will only be caught if a catching event has a `messageRef` of `Message_1hxecs2` and an `activiti:correlationKey` that matches the value of `userId`:
 
 ```xml
 <bpmn2:endEvent id="EndEvent_1">
 	<bpmn2:incoming>SequenceFlow_8</bpmn2:incoming>
-	<bpmn2:messageEventDefinition messageRef="Message_1hxecs2" activiti:correlationKey="${{intVar} == 5}" />
+	<bpmn2:messageEventDefinition messageRef="Message_1hxecs2" activiti:correlationKey="${userId}" />
 ```
+
+**Note**: Message start events cannot contain a correlation key unless they are used in a [sub process](../bpmn/sub.md). 
 
 ## Message intermediate catch events
 Message intermediate catching events cause the process flow to wait until the message named in the `messageRef` property is received before it proceeds. 
