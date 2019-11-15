@@ -69,10 +69,12 @@ Process variables can be passed between certain BPMN elements as `inputs` and `o
 
 The BPMN elements that pass process variables between them and a process are:
 
-* In [user tasks](../modeling-processes/processes-bpmn/bpmn-user.md) to pass values between process variables and [form fields](../modeling-forms/forms-fields.md) or [form variables](../modeling-forms/README.md#form-variables).
-* As part of [call activities](../modeling-processes/process-bpmn/bpmn-call.md) to pass process variables between the originating and called process.
-* For [decision tables](../modelding-decisions.md) to pass the input value(s) in and store the output(s) in the process.
-* To pass input parameters to [connectors](../modeling-connectors/README.md) and receive an output back to the process. 
+* In [user tasks](../processes/bpmn/user.md) to pass values between process variables and [form fields](../forms/fields.md) or [form variables](../forms/README.md#form-variables).
+* As part of [call activities](../processes/bpmn/call.md) to pass process variables between the originating and called process.
+* As part of a message payload in [message events](../processes/bpmn/message.md).
+* For [decision tables](../decisions.md) to pass the input value(s) in and store the output(s) in the process.
+* To pass input parameters to [connectors](../connectors/README.md) and receive an output back to the process.
+* To use a [file](../files.md) within a process.  
 
 There are three options for how to map process variables: 
 
