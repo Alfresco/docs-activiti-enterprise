@@ -21,4 +21,4 @@ The JSON definition of a file metadata is:
 }
 ```
 
-Once a file has been defined in the Modeling Application it can be created as a [process variable](../modeling/processes/README.md#process-variables) from a dropdown selection and used within a process definition.  
+Once a file has been defined in the Modeling Application it can be created as a [process variable](../modeling/processes/README.md#process-variables) and used within a process definition. Choose the process variable type of `file` and select the relevant file from the dropdown. 
