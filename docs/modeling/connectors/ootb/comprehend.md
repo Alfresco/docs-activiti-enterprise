@@ -31,8 +31,8 @@ The following are the parameters that can be passed to the Comprehend connector 
 | `uri` | The URI of the file to use | String | `*` |
 | `files` | A [file](../../modeling/files.md) uploaded in a process and set as a process variable | File | `*` |
 | `text` | The text to be analyzed | String | `*` |
-| `maxEntities` | The maximum number of entities returned by the service | Integer | No |
-| `confidenceLevel` | The minimum confidence level to use in the analysis between 0 and 1  | String | No |
+| `maxEntities` | The maximum number of entities returned by the service. The default is 1000 | Integer | No |
+| `confidenceLevel` | The minimum confidence level to use in the analysis between 0 and 1. The default is 0.75  | String | No |
 | `timeout` | The timeout period for calling the Comprehend service in milliseconds | Integer | No | 
 
 `*` Only one of these parameters is required.
