@@ -46,15 +46,19 @@
                     children:
                         - aspose.md: 'Aspose connector'                        
                         - camel.md: 'Camel connector'
+                        - comprehend.md: 'Comprehend connector'
                         - dbp.md: 'DBP connector'
                         - email.md: 'Email connector'
                         - lambda.md: 'Lambda connector'
+                        - rekognition.md: 'Rekognition connector'
                         - rest.md: 'REST connector'
                         - salesforce.md: 'Salesforce connector'
                         - slack.md: 'Slack connector'
+                        - textract.md: 'Textract connector'
                         - twilio.md: 'Twilio connector'
         - decisions.md: 'Decision tables'
         - ui.md: 'User interfaces'
+        - files.md: 'Files'
 - administrator:
     title: 'Alfresco Administrator Application'
     children:

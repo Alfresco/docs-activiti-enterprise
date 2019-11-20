@@ -41,6 +41,8 @@ The default behaviour when a form that is part of a [user task](../processes/bpm
 ### Form variables
 Form variables can be used to influence [visibility conditions](../forms/fields.md#visibility-conditions) of form fields. Form variables can also be displayed to form fillers by using a [display value](../forms/fields.md#display-value-fields) field. 
 
+Form variable names can only contain alphanumeric characters and underscores and must begin with a letter. 
+
 Form variables can be updated with a default value from a [process variable](../processes/README.md#process-variables) by mapping between them in the process definition. 
 
 A form definition without any fields selected will display an **Edit Form Variables** button in the properties panel. Form variables can be configured using the inbuilt GUI or the JSON editor provided with it.
