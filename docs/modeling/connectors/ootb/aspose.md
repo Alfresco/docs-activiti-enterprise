@@ -49,7 +49,7 @@ The following are the parameters that can be passed to the Aspose connector as i
 | --------  | ----------- | ---- | --------- |
 | `nodeId` | The node ID of the template to use from Alfresco Content Services | String | `*` |
 | `uri` | The URI of the template to use | String | `*` |
-| `files` | A [file](../../modeling/files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector | File | `*` |
+| `files` | A [file](../../modeling/files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector to use as the template | File | `*` |
 | `metadata` | The metadata to use in the template. If no value for `metadata` is passed then the inbound variable map will be used in the template | JSON | No |
 | `outputFormat` | Format to save the output document in. Values are `DOCX` or `PDF` | String | Yes |
 | `outputFileName` | The name of the generated file | String | No |
