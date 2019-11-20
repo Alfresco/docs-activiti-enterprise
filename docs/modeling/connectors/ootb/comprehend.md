@@ -29,7 +29,7 @@ The following are the parameters that can be passed to the Comprehend connector 
 | --------- | ----------- | ---- | --------- | 
 | `nodeId` | The node ID of the file to use from Alfresco Content Services | String | `*` |
 | `uri` | The URI of the file to use | String | `*` |
-| `files` | A [file](../../modeling/files.md) uploaded in a process and set as a process variable | File | `*` |
+| `files` | A [file](../../modeling/files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector | File | `*` |
 | `text` | The text to be analyzed | String | `*` |
 | `maxEntities` | The maximum number of entities returned by the service. The default is 1000 | Integer | No |
 | `confidenceLevel` | The minimum confidence level to use in the analysis between 0 and 1. The default is 0.75  | String | No |

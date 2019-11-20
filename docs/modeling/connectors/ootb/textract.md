@@ -17,13 +17,13 @@ The Amazon Textract APIs called are the [Detect Document Text API](https://docs.
 The Textract connector requires an AWS account to access Amazon features. It also requires an [Identity and Access Management (IAM)](https://aws.amazon.com/iam/) user to have the `textract:DetectDocumentText` and `textract:AnalyzeDocument` permissions. 
 
 ## Input parameters
-The following are the parameters that can be passed to the Textract connector as input parameters using the `GENERATE` action:
+The following are the parameters that can be passed to the Textract connector as input parameters using the `EXTRACT` action:
 
 | Parameter | Description | Type | Required? |
 | --------- | ----------- | ---- | --------- | 
 | `nodeId` | The node ID of the image to use from Alfresco Content Services | String | `*` |
 | `uri` | The URI of the image to use | String | `*` |
-| `files` | An image [file](../../modeling/files.md) uploaded in a process and set as a process variable | File | `*` |
+| `files` | A [file](../../modeling/files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector | File | `*` |
 | `outputFormat` | Sets the output format to `JSON` or `txt`. The default is `JSON` | String | No |
 | `confidenceLevel` | The minimum confidence level to use for a label. The default is 0.75 | String | No |
 | `timeout` | The timeout period for calling the Textract service in milliseconds | Integer | No | 
