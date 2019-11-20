@@ -31,7 +31,7 @@ The following are the parameters that can be passed to the Textract connector as
 `*` Only one of these parameters is required.
 
 ## Output parameters
-The following are the parameters that are returned to the process by the Textract connector as output parameters using the `GENERATE` action:
+The following are the parameters that are returned to the process by the Textract connector as output parameters using the `EXTRACT` action:
 
 | Parameter | Description | Type |
 | --------  | ----------- | ---- |
