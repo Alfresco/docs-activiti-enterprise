@@ -3,11 +3,15 @@ Title: Aspose connector
 ---
 
 # Aspose connector
-The Aspose connector is used to generate `docx` and `pdf` files using an Aspose template and metadata map. The generated document is saved to the Alfresco Content Services repository folder that corresponds to the process instance ID that called the connector. 
+The Aspose connector is used to generate `docx` and `pdf` files using an Aspose template and metadata map. The generated document is saved to the Alfresco Content Services repository folder that corresponds to the process instance ID that called the connector in the following format:
 
-The Aspose connector is graphically represented by the Aspose logo next to a document under the OOTB Connectors menu whilst modeling a process. 
+```bash
+<application-name> Site / Document Library / <process-instance-id> / <service-task-id> / <generated-document>
+``` 
 
 **Important**: The Aspose connector requires a licensed version of Alfresco Content Services (ACS) deployed to interact with.
+
+The Aspose connector is graphically represented by the Aspose logo next to a document under the OOTB Connectors menu whilst modeling a process. 
 
 The `implementation` value of the Aspose connector in a service task would be similar to the following:
 
@@ -46,7 +50,7 @@ The following are the parameters that can be passed to the Aspose connector as i
 | `nodeId` | The node ID of the template to use from Alfresco Content Services | String | `*` |
 | `uri` | The URI of the template to use | String | `*` |
 | `files` | A template [file](../../modeling/files.md) uploaded in a process and set as a process variable | File | `*` |
-| `metadata` | The metadata to use in the template | JSON | No |
+| `metadata` | The metadata to use in the template. If no value for `metadata` is passed then the inbound variable map will be used in the template | JSON | No |
 | `outputFormat` | Format to save the output document in. Values are `DOCX` or `PDF` | String | Yes |
 | `outputFileName` | The name of the generated file | String | No |
 | `parentFolder` | The node ID of the folder to store the generated document in. If this value is set, the generated document will be output here and not to the default process instance folder for the process instance | String | No |
