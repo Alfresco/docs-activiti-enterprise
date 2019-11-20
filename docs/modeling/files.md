@@ -3,7 +3,7 @@ Title: Files
 ---
 
 # Files
-Files can be uploaded and used within a project. They are stored in a persistent volume that is mounted at deployment time.
+Files can be uploaded and used within a project. They are stored in the modeling database whilst a project is created. Once an application is deployed, a persistent volume is created and mounted and the files are copied to this volume so they are accessible by all services.
 
 There are two [associated files](../modeling/projects.md#files) that refer to a file definition. The first is the file itself stored as binary and the other contains the metadata for the file in JSON format.
 
@@ -21,4 +21,4 @@ The JSON definition of a file metadata is:
 }
 ```
 
-Once a file has been defined in the Modeling Application it can be created as a [process variable](../modeling/processes/README.md#process-variables) from a dropdown selection and used within a process definition.  
+Once a file has been defined in the Modeling Application it can be created as a [process variable](../modeling/processes/README.md#process-variables) from a dropdown selection and used within a process definition.
