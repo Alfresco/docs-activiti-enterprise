@@ -46,6 +46,7 @@
                     children:
                         - camel.md: 'Camel connector'
                         - dbp.md: 'DBP connector'
+                        - docusign.md: 'Docusign connector'
                         - email.md: 'Email connector'
                         - lambda.md: 'Lambda connector'
                         - rest.md: 'REST connector'
