@@ -36,6 +36,8 @@ Process variables are used to store values and pass them between its BPMN elemen
 
 A process definition without any BPMN element selected will display an **Edit Process Variables** button in the properties panel. Process variables can be configured using the inbuilt GUI or the JSON editor provided with it. The **required** status for a process variable indicates that the process variable needs a value when a process instance is started.
 
+Process variable names can only contain alphanumeric characters and underscores and must begin with a letter. 
+
 Process variables are stored in the `properties` of the `<process-name>-extensions.json` file with unique IDs and can also be viewed through the UI in the **Extensions Editor**: 
 
 ```json

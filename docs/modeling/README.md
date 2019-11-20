@@ -20,6 +20,8 @@ The Alfresco Modeling Application is used to create and update the components th
 
 * [User interfaces](../modeling/interfaces.md) are for associating user interfaces with an applications. 
 
+* [Files](../modeling/files.md) can be uploaded and used within a project. 
+
 ## Modeling
 All components of an application can be designed using a Graphical User Interface (GUI) or an XML or JSON editor. Users require the `ACTIVITI_MODELER` role in order to create projects within the Modeling Application. 
 
