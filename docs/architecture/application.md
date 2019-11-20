@@ -19,7 +19,7 @@ By default, the data from the Runtime Bundle is stored in a Postgres database th
 The REST APIs that the runtime bundle exposes deal with processes and tasks and are specific to each application. 
 
 ## Query service
-The Query Service is used for querying process data without accessing a [runtime bundle](#runtime-bundle) directly. It stores events routed via Spring Cloud Streams (through the [Rabbit MQ](#rabbit-mq) binder) into its own data store for simple, read-only process and task querying. The Query Service performs some data transformation, whilst the [audit service](#audit-service) does not. 
+The Query Service is used for querying process data without accessing a [runtime bundle](#runtime-bundle) directly. It  consumes the events produced by the runtime bundle and routed via Spring Cloud Streams (through the [Rabbit MQ](#rabbit-mq) binder). It stores them into its own database for simple, read-only process and task querying. The Query Service performs some data aggregation, whilst the [audit service](#audit-service) does not.
 
 By default, the data is stored in a Postgres database that is shared within an application namespace between the aAudit Service, Query Service, Notification Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster. 
 

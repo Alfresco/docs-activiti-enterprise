@@ -15,7 +15,7 @@ Project deployment can use the [deployment service](../../architecture/platform.
 
 **Important**: A project is only available to create a descriptor for, or to deploy, once it has been [released](../../modeling/projects.md#releasing).
 
-Project deployment options in the UI or by REST API call require the *APS_DEVOPS* role. 
+Project deployment options in the UI or by REST API call require the `ACTIVITI_DEVOPS` role. 
 
 ## Naming  
 Application and deployment descriptor names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. 
@@ -42,20 +42,26 @@ To create a deployment descriptor in the UI:
 
 	1. Choose a name for the application. 
 	2. Select which version of the released project to use.
-	2. Select the users and/or groups that will have administrator access to the application.
-	3. Select the users and/or groups that will have access to the application. 
-	4. Configure the details for any connectors defined in the process definitions:
+	3. Select the users and/or groups that will have administrator access to the application.
+
+		**Note**: Users require the [`ACTIVITI_ADMIN` role](../identity/README.md#roles) in order to be assigned as an administrator to an application.
+	
+	4. Select the users and/or groups that will have access to the application. 
+
+		**Note**: Users require the [`ACTIVITI_USER` role](../identity/README.md#roles) in order to be assigned as a user to an application. 
+	
+	5. Configure the details for any connectors defined in the process definitions:
 
 		* If you created the connector yourself, this will be the name of the connector and the URL of the image you published.
 		* If this is an OOTB connector then the name and image are configured automatically. 
 
-	5. Set the connector variables in JSON format. For example, if using the [email connector](../../modeling/connectors/ootb/email.md) you can set the variables `EMAIL_HOST` and `EMAIL_PORT` with the following: 
+	6. Set the connector variables in JSON format. For example, if using the [email connector](../../modeling/connectors/ootb/email.md) you can set the variables `EMAIL_HOST` and `EMAIL_PORT` with the following: 
 
 		```json
 		{"EMAIL_HOST":"https://mysmtp.com","EMAIL_PORT":"8050"}
 		```
 		
-	6. (Optional) [Customize any application infrastructure](../deploy/infrastructure.md) on the **Infrastructure** tab before deploying.
+	7. (Optional) [Customize any application infrastructure](../deploy/infrastructure.md) on the **Infrastructure** tab before deploying.
 
 		**Note**: This includes using custom Docker images and setting custom variables to set external PostgreSQL instances. 
 	 
@@ -160,20 +166,27 @@ To deploy a project from a released project in the UI:
 
 	1. Choose a name for the application. 
 	2. Select which version of the released project to deploy.
-	2. Select the users and/or groups that will have administrator access to the application.
-	3. Select the users and/or groups that will have access to the application. 
-	4. Configure the details for any connectors defined in the process definitions:
+	3. Select the users and/or groups that will have administrator access to the application.
+	
+			**Note**: Users require the [`ACTIVITI_ADMIN` role](../identity/README.md#roles) in order to be assigned as an administrator to an application.
+	
+	4. Select the users and/or groups that will have access to the application. 
+
+		**Note**: Users require the [`ACTIVITI_USER` role](../identity/README.md#roles) in order to be assigned as a user to an application. 
+		
+	5. Select the users and/or groups that will have access to the application. 
+	6. Configure the details for any connectors defined in the process definitions:
 
 		* If you created the connector yourself, this will be the name of the connector and the URL of the image you published.
 		* If this is an OOTB connector then the name and image are configured automatically. 
 
-	5. Set the connector variables in JSON format. For example, if using the [email connector](../../modeling/connectors/ootb/email.md) you can set the variables `EMAIL_HOST` and `EMAIL_PORT` with the following: 
+	7. Set the connector variables in JSON format. For example, if using the [email connector](../../modeling/connectors/ootb/email.md) you can set the variables `EMAIL_HOST` and `EMAIL_PORT` with the following: 
 
 		```json
 		{"EMAIL_HOST":"https://mysmtp.com","EMAIL_PORT":"8050"}
 		```
 		
-	6. (Optional) [Customize any application infrastructure](../deploy/infrastructure.md) on the **Infrastructure** tab before deploying.
+	8. (Optional) [Customize any application infrastructure](../deploy/infrastructure.md) on the **Infrastructure** tab before deploying.
 
 		**Note**: This includes using custom Docker images and setting custom variables to set external PostgreSQL instances. 
 	 

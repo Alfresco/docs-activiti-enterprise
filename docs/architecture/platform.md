@@ -30,11 +30,11 @@ Once a payload has been submitted to the deployment service through the API or u
 * The first thing is validation to ensure the payload contains no errors and that there are no conflicts with any other application names already deployed into the cluster. 
 * Once validation has passed a series of data enrichment is applied to the payload specifying default values. 
 * After data enrichment is complete the payload is saved to the deployment service database as a descriptor. By default this is a PostgreSQL database instance called **aps2-postgresql-ads**.
-* An image is then built using the Docker Java client for the runtime bundle and the form service and DMN service (if those features were present in the project) and they are pushed to the internal Docker registry. The images for the [other services in an application](../architecture/application.md) are re-used for every deployment so already exist in the registry.
+* Base images already exist in the Docker registry for the all [application services](../architecture/application.md) and are re-used at deployment time. For the runtime bundle, form service and DMN service, a base image is used that references a persistent volume that contains the static [project definition files](../modeling/projects.md#files). The persistent volume is created and mounted in the new namespace 
 
 	**Note**: At this point a deployment descriptor can be downloaded.
 
-* The final stage to deploy uses the Kubernetes API to deploy the images into their own namespace.
+* The final stage to deploy uses the Kubernetes API to deploy the images into their own namespace. This also includes a persistent volume that is mounted in the new namespace.
 
 	**Note**: It is still possible to deploy a deployment descriptor using the deployment service as well as download it and deploy it manually via Helm. 
 

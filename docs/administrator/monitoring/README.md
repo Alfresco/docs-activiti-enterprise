@@ -9,7 +9,7 @@ The functions available in the **Process Admin** section of the Administrator Ap
 * [Monitor tasks](#monitoring-tasks) in the **Tasks** section. 
 * View [audit events](#audit) in the **Audit** section.
 
-To access these functions users require the *APS_ADMIN* role. 
+To access these functions users require the `ACTIVITI_ADMIN` role and to have been given administrator access to the application. 
 
 **Note**: In progress tasks and processes can be [stored as nodes in Alfresco Content Services](../monitoring/storage.md).
 

@@ -25,11 +25,11 @@ The following is an example deployment payload specifying these variables:
   "releaseId": "29925e2b-ef26-49df-9156-ea3a2a910c42",
   "security": [
     {
-      "role": "APS_ADMIN",
+      "role": "ACTIVITI_ADMIN",
       "users": ["..."]
     },
     {
-      "role": "APS_USER",
+      "role": "ACTIVITI_USER",
       "users": ["..."]
     }
   ],
@@ -60,17 +60,17 @@ The following is an example deployment payload where the query service is set to
   "releaseId": "29925e2b-ef26-49df-9156-ea3a2a910c42",
   "security": [
     {
-      "role": "APS_ADMIN",
+      "role": "ACTIVITI_ADMIN",
       "users": ["..."]
     },
     {
-      "role": "APS_USER",
+      "role": "ACTIVITI_USER",
       "users": ["..."]
     }
   ],
   "variables": {
 	  "query-service": {
-		  "SPRING_DATASOURCE_URL":"jdbc:postgresql://aaedb.cpcs2n7mznht.us-east-1.rds.amazonaws.com:5432/apsdb",
+		  "SPRING_DATASOURCE_URL":"jdbc:postgresql://aaedb.cpcs2n7mznht.us-east-1.rds.amazonaws.com:5432/aaedb",
 		  "SPRING_DATASOURCE_USERNAME": "aae",
 		  "SPRING_DATASOURCE_PASSWORD": "password",
 		  "SPRING_JPA_DATABASE_PLATFORM":"org.hibernate.dialect.PostgreSQLDialect",
