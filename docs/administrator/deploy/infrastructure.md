@@ -6,6 +6,7 @@ Title: Customizing application infrastructure
 Certain aspects of the infrastructure can be configured on an application by application basis. The infrastructure can be customized using the deployment service API or through the Administrator Application UI when deploying an application. The following are the areas that can be customized: 
 
 * [Configuring external Postgres instances](#configuring-external-postgres-instances)
+* [Configuring an event gateway](#configuring-an-event-gateway)
 * [Deploying an application with custom images](#deploying-an-application-with-custom-images)
 
 ## Configuring external Postgres instances
@@ -83,6 +84,42 @@ The following is an example deployment payload where the query service is set to
 In the Administrator Application, this would look similar to the following:
 
 ![Example external Postgres deployment variables for the query service](../../images/deploy-postgres-query.png)
+
+## Configuring an event gateway 
+An external event gateway can be added to an application at deployment that routes integration and runtime events to an external service. The services that events can be sent to are:
+
+* [Elasticsearch](#elasticsearch)
+* [Kafka](#kafka)
+
+Runtime events are events that are emitted by the [runtime bundle](../../architecture/application.md#runtime-bundle). 
+
+Integration events are events that are emitted by [connectors](../../modeling/connectors/README.md). For example, if using the [email connector](../../modeling/connectors/ootb/email.md), the event gateway will listen to events in the queue named `emailConnector.SEND`. 
+
+### Elasticsearch
+The following are the key value pairs that can be set when using [Elasticsearch](https://www.elastic.co/):
+
+| Environment variable | Description | 
+| -------------------- | ----------- | 
+| `ES_HOST` | The Elasticsearch host to use |
+| `ES_PORT` | The port to use for the Elasticsearch instance |
+| `ES_SCHEME` | The protocol to use to communicate with Elasticsearch |
+| `ES_INTEGRATION_INDEX` | The name of the index for integration events. The default is `integration` |
+| `ES_RUNTIME_INDEX` | The name of the index for runtime events. The default is `cloudruntime` |
+| `ES_PATH` | The path to Elasticsearch on the server running it. If Elasticsearch is installed at the route this setting does not need to be set |
+| `GATEWAY_RUNTIME_EVENT_TYPES_SUPPORTED` | A comma separated list of runtime events to capture in Elasticsearch. `*` is supported as a wildcard, for example `PROCESS_*`. The default value is `*` |
+
+### Kafka
+The following are the key value pairs that can be set when using [Kafka](https://kafka.apache.org/):
+
+| Environment variable | Description | 
+| -------------------- | ----------- | 
+| `GATEWAY_KAFKA_BINDER_BROKERS` | The location of the Kafka instance to send events to | 
+| `GATEWAY_KAFKA_BINDER_BROKERS_PORTS` | The port to use for the Kafka instance |
+| `GATEWAY_KAFKA_BINDER_REPLICATION_FACTOR` | The number of replications to create |
+| `GATEWAY_KAFKA_BINDER_AUTO_CREATE_TOPICS` | Sets whether topics are created automatically or not |
+| `GATEWAY_INTEGRATION_PRODUCER_DEST` | The producer destination for integration events |
+| `GATEWAY_RUNTIME_PRODUCER_DEST` | The producer destination for runtime events | 
+| `GATEWAY_RUNTIME_EVENT_TYPES_SUPPORTED` | A comma separated list of runtime events to capture in Kafka. `*` is supported as a wildcard, for example `PROCESS_*`. The default value is `*` |
 
 ## Deploying an application with custom images
 The application services that utilize definition files can be replaced with custom Docker images. Example projects are provided for the runtime bundle, form service and DMN service so that definition XML and JSON files can be placed in the images:

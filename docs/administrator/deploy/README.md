@@ -63,7 +63,7 @@ To create a deployment descriptor in the UI:
 		
 	7. (Optional) [Customize any application infrastructure](../deploy/infrastructure.md) on the **Infrastructure** tab before deploying.
 
-		**Note**: This includes using custom Docker images and setting custom variables to set external PostgreSQL instances. 
+		**Note**: This includes using custom Docker images, setting custom variables to set external PostgreSQL instances and configuring an event gateway. 
 	 
 3. **Create** the descriptor. 
 
@@ -188,7 +188,7 @@ To deploy a project from a released project in the UI:
 		
 	8. (Optional) [Customize any application infrastructure](../deploy/infrastructure.md) on the **Infrastructure** tab before deploying.
 
-		**Note**: This includes using custom Docker images and setting custom variables to set external PostgreSQL instances. 
+		**Note**: This includes using custom Docker images, setting custom variables to set external PostgreSQL instances and configuring an event gateway.  
 	 
 3. **Deploy** the application. 
 
