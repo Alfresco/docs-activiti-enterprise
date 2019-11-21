@@ -86,7 +86,7 @@ In the Administrator Application, this would look similar to the following:
 ![Example external Postgres deployment variables for the query service](../../images/deploy-postgres-query.png)
 
 ## Configuring an event gateway 
-An external event gateway can be added to an application at deployment that routes integration and runtime events to an external service. The services that events can be sent to are:
+An external event gateway can be added to an application at deployment time that routes integration and runtime events to an external service. The services that events can be sent to are:
 
 * [Elasticsearch](#elasticsearch)
 * [Kafka](#kafka)
