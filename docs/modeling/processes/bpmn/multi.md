@@ -22,7 +22,10 @@ For sequential multi-instance elements:
 For parallel multi-instance elements:
 
 ```xml
+<bpmn2:multiInstanceLoopCharacteristics  isSequential="false" />
+or
 <bpmn2:multiInstanceLoopCharacteristics />
+
 ```
 
 The following BPMN elements can have multiple instances:
@@ -87,7 +90,6 @@ In the following example, the completion condition will be met when 60% of insta
 	<bpmn2:completionCondition>${nrOfCompletedInstances/nrOfInstances >= 0.6 }</bpmn2:completionCondition>
 </bpmn2:multiInstanceLoopCharacteristics>
 ```
-
 
 
 
