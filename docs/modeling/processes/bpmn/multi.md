@@ -69,19 +69,31 @@ The XML representation of cardinality if the following:
 ```
 
 ## Collection
-A collection can be used to set the number of instances to be executed. A collection can optionally be used with an element variable that is created as a process instance.
+A collection can be used to set the number of instances to be executed by referencing a list of items. 
 
-In the following example, three instances will be created with one assigned to each of the users listed in the process variable `userList`. To assign this to the three users in question the `assignee` field of a user task would need to be set to `${users.username}`:
+An element variable can optionally be used with a collection. An element variable is used to create a variable for each instance of the multi-instance element and each variable created by the element variable is assigned one value from the collection.
+
+The following XML is an example of a [user task](../bpmn/user.md) using a collection:
 
 ```xml
-<bpmn2:multiInstanceLoopCharacteristics isSequential="true" activiti:collection="${userList.users}" activiti:elementVariable="users"></bpmn2:multiInstanceLoopCharacteristics>
+<bpmn2:userTask id="UserTask_1n1uk4a" activiti:assignee="{users}">
+	<bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
+	<bpmn2:multiInstanceLoopCharacteristics activiti:collection="${userList.users}" activiti:elementVariable="users">
+	</bpmn2:multiInstanceLoopCharacteristics>
+</bpmn2:userTask>
 ```
 
-The `activiti:collection` in this example refers to a process variable called `userList`:
+The `activiti:collection` references a process variable called `userList` that contains the following JSON:
 
 ```json
-{"users":[{"username":"hruser"},{"username":"superadminuser"},{"username":"foodmanager"}]}
+{"userList":["user1", "user2", "user3"]}
 ```
+
+In the example:
+
+* Three user tasks will be created because there are three items in the process variable that `activiti:collection` uses.
+* A variable will be created for each instance called `users` with the values `user1`, `user2` and `user3` because the `activiti:elementVariable` is set to `"users"`. 
+* A user tasks will be assigned to each of the users because the `activiti:assignee` is set to `{users}` which is the name of the variable created in each instance by the element variable.
 
 ## Completion condition 
 A completion condition can be optionally included for multi-instances. When the completion condition evaluates to `true`, all remaining instances are cancelled and the multi-instance activity ends.
