@@ -6,7 +6,7 @@ Title: Customizing application infrastructure
 Certain aspects of the infrastructure can be configured on an application by application basis. The infrastructure can be customized using the deployment service API or through the Administrator Application UI when deploying an application. The following are the areas that can be customized: 
 
 * [Configuring external Postgres instances](#configuring-external-postgres-instances)
-* [Configuring an event gateway](#configuring-an-event-gateway)
+* [Configuring an event bridge](#configuring-an-event-bridge)
 * [Deploying an application with custom images](#deploying-an-application-with-custom-images)
 
 ## Configuring external Postgres instances
@@ -85,15 +85,15 @@ In the Administrator Application, this would look similar to the following:
 
 ![Example external Postgres deployment variables for the query service](../../images/deploy-postgres-query.png)
 
-## Configuring an event gateway 
-An external event gateway can be added to an application at deployment time that routes integration and runtime events to an external service. The services that events can be sent to are:
+## Configuring an event bridge 
+An external event bridge can be added to an application at deployment time that routes integration and runtime events to an external service. The services that events can be sent to are:
 
 * [Elasticsearch](#elasticsearch)
 * [Kafka](#kafka)
 
 Runtime events are events that are emitted by the [runtime bundle](../../architecture/application.md#runtime-bundle). 
 
-Integration events are events that are emitted by [connectors](../../modeling/connectors/README.md). For example, if using the [email connector](../../modeling/connectors/ootb/email.md), the event gateway will listen to events in the queue named `emailConnector.SEND`. 
+Integration events are events that are emitted by [connectors](../../modeling/connectors/README.md). For example, if using the [email connector](../../modeling/connectors/ootb/email.md), the event bridge will listen to events in the queue named `emailConnector.SEND`. 
 
 ### Elasticsearch
 The following are the key value pairs that can be set when using [Elasticsearch](https://www.elastic.co/):
