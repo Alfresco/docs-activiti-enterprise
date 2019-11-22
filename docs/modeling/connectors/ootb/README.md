@@ -8,6 +8,7 @@ Out of the box (OOTB) connectors are a set of pre-defined connectors that have b
 * An [Aspose connector](../ootb/aspose.md) to generate files from data and variables using Aspose templates.
 * A [Camel connector](../connectors-ootb/connectors-camel.md) to invoke Camel routes from a process.
 * A [Comprehend connector](../connectors-ootb/connectors-comprehend.md) using Amazon's Comprehend service to extract insights and relationships from text.
+* A [Docusign connector](../ootb/docusign.md) to send a document to an email address so that it can be signed and stored in Alfresco Content Services.
 * A [DBP connector](../connectors-ootb/connectors-dbp.md) to create, update and delete content in an instance of Alfresco Content Services (ACS) as part of a process.
 * An [email connector](../connectors-ootb/connectors-email.md) to automatically send emails as part of a process.
 * A [Lambda connector](../connectors-ootb/connectors-lambda.md) to invoke AWS Lambda functions from a process.
