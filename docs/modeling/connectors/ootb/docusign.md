@@ -41,6 +41,7 @@ The following are the properties that need to be set for the Docusign connector:
 | `DOCUSIGN_AUTH_SERVER` | The URL of the Docusign authorization server | 
 | `DOCUSIGN_JWT_LIFETIME` | The expiration time of the JWT expressed in seconds | 
 | `DOCUSIGN_RSA_KEY` | The private RSA key for the Docusign application | 
+| `ALFRESCO_CONTENT_REPO_BASE_URL` | The base URL of the Content Services deployment |
 
 ## Input parameters 
 The following are the parameters that can be passed to the Docusign connector as input parameters using the `SIGNDOCUMENT` action:

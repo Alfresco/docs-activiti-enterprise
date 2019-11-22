@@ -64,3 +64,12 @@ The following is the parameter that is returned to the process by the Aspose con
 | --------  | ----------- | ---- |
 | `docgen.result` | The generated document | File | 
 | `docgen.error` | A list of errors if any are caught by the connector | String |
+
+## Connector variables
+Environment variables that are specific to a connector need to be specified during deployment. They are entered as connector variables and used as environment variables for the connector when it is deployed. 
+
+The following are the properties that need to be set for the Aspose connector: 
+
+| Variable | Description | Required? |
+| -------- | ----------- | --------- |
+| `ALFRESCO_CONTENT_REPO_BASE_URL` | The base URL of the Content Services deployment |
