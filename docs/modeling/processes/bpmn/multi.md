@@ -23,7 +23,9 @@ For parallel multi-instance elements:
 
 ```xml
 <bpmn2:multiInstanceLoopCharacteristics  isSequential="false" />
+```
 or
+```xml
 <bpmn2:multiInstanceLoopCharacteristics />
 
 ```
