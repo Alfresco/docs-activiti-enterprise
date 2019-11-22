@@ -24,7 +24,9 @@ For parallel multi-instance elements:
 ```xml
 <bpmn2:multiInstanceLoopCharacteristics  isSequential="false" />
 ```
+
 or
+
 ```xml
 <bpmn2:multiInstanceLoopCharacteristics />
 
@@ -32,11 +34,11 @@ or
 
 The following BPMN elements can have multiple instances:
 
-* [User tasks]()
-* [Service tasks]()
-* [Business rule tasks]()
-* [Call activities]()
-* [Embedded sub-processes]()
+* [User tasks](../bpmn/user.md)
+* [Service tasks](../bpmn/service.md)
+* [Business rule tasks](../bpmn/business.md)
+* [Call activities](../bpmn/call.md)
+* [Embedded sub-processes](../bpmn/sub.md#expanded-and-collapsed-sub-processes)
 
 ## Variables 
 Each multi-instance execution contains the following three variables: 
@@ -47,7 +49,7 @@ Each multi-instance execution contains the following three variables:
 | `nrOfActiveInstances` | The number of currently active instances. For sequential multi-instances the value will always be 1 |
 | `nrOfCompletedInstances` | The number of instances that have already been completed | 
 
-**Note**: These variables can be used in multi-instance expressions without having to be declared as [process variables]().
+**Note**: These variables can be used in multi-instance expressions without having to be declared as [process variables](../../processes/README.md#process-variables).
 
 Each instance in the multi-instance execution also has an instance-local variable that is not visible to other instances, nor to the process instance:
 
@@ -56,7 +58,7 @@ Each instance in the multi-instance execution also has an instance-local variabl
 | `loopCounter` | The index in the for-each loop of that particular instance |
 
 ## Cardinality
-The number of instances to be executed can be set by the cardinality of the multi-instance item. This can be set as a static value, a [process variable]() or calculated as an expression. 
+The number of instances to be executed can be set by the cardinality of the multi-instance item. This can be set as a static value, a [process variable](../../processes/README.md#process-variables) or calculated as an expression. 
 
 The XML representation of cardinality if the following: 
 
@@ -92,9 +94,3 @@ In the following example, the completion condition will be met when 60% of insta
 	<bpmn2:completionCondition>${nrOfCompletedInstances/nrOfInstances >= 0.6 }</bpmn2:completionCondition>
 </bpmn2:multiInstanceLoopCharacteristics>
 ```
-
-
-
-
-
-
