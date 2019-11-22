@@ -107,6 +107,7 @@ The following are the key value pairs that can be set when using [Elasticsearch]
 | `ES_RUNTIME_INDEX` | The name of the index for runtime events. The default is `cloudruntime` |
 | `ES_PATH` | The path to Elasticsearch on the server running it. If Elasticsearch is installed at the route this setting does not need to be set |
 | `GATEWAY_RUNTIME_EVENT_TYPES_SUPPORTED` | A comma separated list of runtime events to capture in Elasticsearch. `*` is supported as a wildcard, for example `PROCESS_*`. The default value is `*` |
+| `GATEWAY_INTEGRATION_CONSUMER_DEST` | A comma separated list of integration events to capture in Elasticsearch using connector queues. Connector queues use the `implementation` value of a connector. For example if an email connector and a Textract connector are used then this value should be set to `emailConnector.SEND, textractConnector.EXTRACT` |
 
 ### Kafka
 The following are the key value pairs that can be set when using [Kafka](https://kafka.apache.org/):
@@ -120,6 +121,7 @@ The following are the key value pairs that can be set when using [Kafka](https:/
 | `GATEWAY_INTEGRATION_PRODUCER_DEST` | The producer destination for integration events |
 | `GATEWAY_RUNTIME_PRODUCER_DEST` | The producer destination for runtime events | 
 | `GATEWAY_RUNTIME_EVENT_TYPES_SUPPORTED` | A comma separated list of runtime events to capture in Kafka. `*` is supported as a wildcard, for example `PROCESS_*`. The default value is `*` |
+| `GATEWAY_INTEGRATION_CONSUMER_DEST` | A comma separated list of integration events to capture in Kafka using connector queues. Connector queues use the `implementation` value of a connector. For example if an email connector and a Textract connector are used then this value should be set to `emailConnector.SEND, textractConnector.EXTRACT` |
 
 ## Deploying an application with custom images
 The application services that utilize definition files can be replaced with custom Docker images. Example projects are provided for the runtime bundle, form service and DMN service so that definition XML and JSON files can be placed in the images:
