@@ -38,8 +38,8 @@ An example of the `metadata` [input parameter](#input-parameters) is the followi
 The Aspose template itself uses the following format to import values from the `metadata` JSON into a document:
 
 ```
-Current season: {{timeOfYear.season}}
-Flavor of the month: {{iceCream.flavor}}
+Current season: <<[timeOfYear.get("season")]>>
+Flavor of the month: <<[iceCream.get("flavor")]>>
 ```
 
 ## Input parameters 
