@@ -32,6 +32,7 @@
                         - sub.md: 'Sub-processes'
                         - user.md: 'User tasks'
                         - end.md: 'End events'
+                        - multi.md: 'Multi-instances'
                         - sequence.md: 'Sequence flows'
         - forms:
             title: 'Forms'

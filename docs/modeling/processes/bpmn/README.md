@@ -42,5 +42,6 @@ The BPMN elements available in Alfresco Activiti Enterprise are:
 	-   [End events](../bpmn/end.md#end-events)
 	-   [Error end events](../bpmn/end.md#error-end-events)
 	-   [Message end events](../bpmn/end.md#message-end-events)
-	-   [Terminate end events](../bpmn/end.md#terminate-end-events)   
+	-   [Terminate end events](../bpmn/end.md#terminate-end-events) 
+-   [Multi-instances](../bpmn/multi.md)  
 -   [Sequence flows](../bpmn/sequence.md)
