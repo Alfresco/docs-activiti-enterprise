@@ -14,7 +14,7 @@ A default realm of **alfresco** is already setup with the installation of Alfres
 ## Improving API call performance 
 It is possible to improve the performance of API calls to the runtime bundle, query service and audit service by including a user's group membership in the JSON Web Token (JWT). 
 
-**Note**: If any users are members of an excessive number of groups, performance will be degraded and it is advisable to not pass group membership with the JWT.
+**Note**: Adding group membership to the JWT increases its size. It is advisable to add group membership only when there are not an excessive number of groups per user, otherwise the performance will be degraded rather than improved.
 
 To include a list of user groups in the JWT that a user belongs to, make the following change to the client within the Identity Service:
 
