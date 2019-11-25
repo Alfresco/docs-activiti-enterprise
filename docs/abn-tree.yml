@@ -12,6 +12,7 @@
 - deployment: 'Deployment'
     title: 'Deployment'
     children:
+        - realm.md: 'Realm'
         - upgrade.md: 'Upgrading'
 - modeling: 
     title: 'Alfresco Modeling Application'
