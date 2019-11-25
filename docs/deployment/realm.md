@@ -1,13 +1,8 @@
-# To-do
-* Check modeling service account usage 
-* Check if what said about the clients is true
-
-
 ---
-Title: Activiti Enterprise realm
+Title: Realm
 ---
 
-# Activiti Enterprise realm 
+# Realm 
 A realm file is a JSON format file that describes the security metadata for clients, users, groups and roles. 
 
 The realm for Activiti Enterprise can be customized with the exception of the following items:
@@ -38,9 +33,8 @@ The following is the `ACTIVITI_ADMIN` role from the realm file:
 ```
 
 ## Users
-There are two service accounts and one user in the Activiti Enterprise realm that are used for communication between services:
+There is one service account and one user in the Activiti Enterprise realm that are used for communication between services:
 
-* The `modeling-service` 
 * The `storage-service` is used for storing task and process data in Alfresco Content Services. It is used by the [process storage service](../architecture/application.md#process-storage-service). 
 * The user `client` is called by the [runtime bundle](../architecture/application.md#runtime-bundle) to query user and group permissions to complete jobs such as assigning tasks. 
 

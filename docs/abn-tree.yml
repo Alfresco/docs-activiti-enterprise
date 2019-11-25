@@ -11,7 +11,7 @@
 - deployment: 'Deployment'
     title: 'Deployment'
     children:
-        - realm.md: 'Activiti Enterprise realm'
+        - realm.md: 'Realm'
 - modeling: 
     title: 'Alfresco Modeling Application'
     children: 
