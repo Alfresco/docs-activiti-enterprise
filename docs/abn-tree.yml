@@ -9,6 +9,9 @@
         - application.md: 'Application services'
         - ui.md: 'User interfaces' 
 - deployment: 'Deployment'
+    title: 'Deployment'
+    children:
+        - realm.md: 'Activiti Enterprise realm'
 - modeling: 
     title: 'Alfresco Modeling Application'
     children: 
