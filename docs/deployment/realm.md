@@ -60,9 +60,11 @@ The following is the `activiti` client from the realm file:
 	      "clientId": "activiti",
 	      "enabled": true,
 	      "publicClient": true,
-	      "redirectUris": {{ index .Values "alfresco-infrastructure" "alfresco-identity-service" "realm" "alfresco" "client" "redirectUris" | default tuple | toJson }},
-	      "webOrigins": {{ index .Values "alfresco-infrastructure" "alfresco-identity-service" "realm" "alfresco" "client" "webOrigins" | default tuple | toJson }},
+	      "redirectUris": "*",
+	      "webOrigins": "*",
 	      "directAccessGrantsEnabled": true,
 	      "implicitFlowEnabled": true
 	    },
 ```
+
+**Note**: `redirectUris` and `webOrigins` can be updated to list only valid URLs rather than using a wildcard `*`. 
