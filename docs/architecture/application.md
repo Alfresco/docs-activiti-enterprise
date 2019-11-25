@@ -12,7 +12,7 @@ A runtime bundle represents a stateless instance of the process engine that exec
 
 Runtime Bundles expose a synchronous REST API and an asynchronous message-based API. Each Runtime Bundle contains a single application and each application is deployed to its own Namespace. 
 
-Runtime Bundles emit and consume events that occur within processes via Spring Cloud Streams.
+Runtime Bundles emit and consume events that occur within processes via Spring Cloud Streams. A description of [engine events](events.md) and their classes is available.
 
 By default, the data from the Runtime Bundle is stored in a Postgres database that is shared within an application namespace between the Audit Service, Query Service, Notification Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster. 
 

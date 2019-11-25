@@ -49,3 +49,4 @@ The following are the properties that need to be set for the Textract connector:
 | `AWS_SECRET_KEY` | The secret key to be used to authenticate against AWS | Yes |
 | `AWS_REGION` | The region of AWS to use the Textract service in | Yes | 
 | `AWS_S3_BUCKET` | The name of the S3 bucket to use | Yes |
+| `ALFRESCO_CONTENT_REPO_BASE_URL` | The base URL of the Content Services deployment |
