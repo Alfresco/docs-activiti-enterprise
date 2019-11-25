@@ -7,6 +7,7 @@
     children:
         - platform.md: 'Platform services'
         - application.md: 'Application services'
+        - events.md: 'Engine events'
         - ui.md: 'User interfaces' 
 - deployment: 'Deployment'
     title: 'Deployment'
