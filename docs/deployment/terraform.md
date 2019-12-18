@@ -82,12 +82,12 @@ The Rancher on Amazon EKS deployment assumes that you have the following:
 7. Use the following command to populate the variables `kubernetes_api_server` and `kubernetes_token` in the `terraform.tfvars` file:
 
 	```bash
- echo "kubernetes_api_server = \"$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')\"" >> terraform.tfvars
- NAMESPACE=kube-system
- SERVICEACCOUNT=default
- kubectl create serviceaccount -n kube-system ${SERVICEACCOUNT}
- kubectl create clusterrolebinding ${SERVICEACCOUNT}-admin-binding --clusterrole cluster-admin --serviceaccount=${NAMESPACE}:${SERVICEACCOUNT}
- echo "kubernetes_token = \"$(kubectl -n ${NAMESPACE} get secret $(kubectl -n ${NAMESPACE} get serviceaccount ${SERVICEACCOUNT} -o jsonpath='{.secrets[0].name}') -o jsonpath='{.data.token}' | base64 --decode)\"" >> terraform.tfvars
+ 	echo "kubernetes_api_server = \"$(kubectl config view --minify -o 	jsonpath='{.clusters[0].cluster.server}')\"" >> terraform.tfvars
+ 	NAMESPACE=kube-system
+ 	SERVICEACCOUNT=default
+ 	kubectl create serviceaccount -n kube-system ${SERVICEACCOUNT}
+ 	kubectl create clusterrolebinding ${SERVICEACCOUNT}-admin-binding --clusterrole cluster-	admin --serviceaccount=${NAMESPACE}:${SERVICEACCOUNT}
+ 	echo "kubernetes_token = \"$(kubectl -n ${NAMESPACE} get secret $(kubectl -n ${NAMESPACE} 	get serviceaccount ${SERVICEACCOUNT} -o jsonpath='{.secrets[0].name}') -o 	jsonpath='{.data.token}' | base64 --decode)\"" >> terraform.tfvars
 	```
 
 8. Use the following command to populate the `my_ip_address` variable in the `terraform.tfvars` file and restrict SSH access to the Kubernetes nodes:
@@ -169,12 +169,12 @@ The Amazon EKS deployment assumes that you have the following:
 7. Use the following command to populate the variables `kubernetes_api_server` and `kubernetes_token` in the `terraform.tfvars` file:
 
 	```bash
- echo "kubernetes_api_server = \"$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')\"" >> terraform.tfvars
- NAMESPACE=kube-system
- SERVICEACCOUNT=default
- kubectl create serviceaccount -n kube-system ${SERVICEACCOUNT}
- kubectl create clusterrolebinding ${SERVICEACCOUNT}-admin-binding --clusterrole cluster-admin --serviceaccount=${NAMESPACE}:${SERVICEACCOUNT}
- echo "kubernetes_token = \"$(kubectl -n ${NAMESPACE} get secret $(kubectl -n ${NAMESPACE} get serviceaccount ${SERVICEACCOUNT} -o jsonpath='{.secrets[0].name}') -o jsonpath='{.data.token}' | base64 --decode)\"" >> terraform.tfvars
+ 	echo "kubernetes_api_server = \"$(kubectl config view --minify -o 	jsonpath='{.clusters[0].cluster.server}')\"" >> terraform.tfvars
+ 	NAMESPACE=kube-system
+ 	SERVICEACCOUNT=default
+ 	kubectl create serviceaccount -n kube-system ${SERVICEACCOUNT}
+ 	kubectl create clusterrolebinding ${SERVICEACCOUNT}-admin-binding --clusterrole cluster-	admin --serviceaccount=${NAMESPACE}:${SERVICEACCOUNT}
+ 	echo "kubernetes_token = \"$(kubectl -n ${NAMESPACE} get secret $(kubectl -n ${NAMESPACE} 	get serviceaccount ${SERVICEACCOUNT} -o jsonpath='{.secrets[0].name}') -o 	jsonpath='{.data.token}' | base64 --decode)\"" >> terraform.tfvars
 	```
 	
 8. Use the following command to populate the `my_ip_address` variable in the `terraform.tfvars` file and restrict SSH access to the Kubernetes nodes:
