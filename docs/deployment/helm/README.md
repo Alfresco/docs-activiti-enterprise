@@ -16,10 +16,19 @@ A Helm deployment assumes that you have the following:
 * An ingress bound to an external DNS address.  
 
 ## Deployment steps
+Activiti Enterprise deployment can be split into four areas: 
 
-1. Clone [this repository](https://git.alfresco.com/process-services-public/alfresco-process-infrastructure-deployment/) and make it your working directory.  
+1. Preparing the cluster:
+	* [Set up Quay.io credentials](#set-up-quay-io-credentials)
+	* [Apply a license file to the cluster](#apply-a-license-to-the-cluster)
+2. [Set variables for the deployment](#set-the-variables-for-the-deployment)
+3. Configure any optional customizations:
+	* [Include Alfresco Content Services (ACS)](#optional-include-alfresco-content-services-acs)
+	* [Use external databases](#optional-use-external-databases)
+	* [Use a custom realm file](#optional-use-a-custom-realm-file)
+4. [Deploy to the cluster](#deploy-to-the-cluster) 
 
-### Quay.io credentials 
+### Set up Quay.io credentials 
 The resources for an Alfresco Activiti Enterprise deployment are stored in [Quay.io](https://quay.io/). These are password protected images and require a Kubernetes secret to be set up to access them:
 
 **Note**: Quay.io credentials can be obtained by logging a ticket with [Alfresco support](https://support.alfresco.com).
@@ -74,16 +83,18 @@ kubectl create secret generic licenseaps --from-file=./activiti.lic
 
 **Note**: ensure that the Kubernetes secret is added to the correct namespace for your deployment.
 
-### Set the variables for the deployment 
+### Set variables for the deployment 
 
-1. Set the release name and the chart name:
+1. Clone [this repository](https://git.alfresco.com/process-services-public/alfresco-process-infrastructure-deployment/) and make it your working directory.
+
+2. Set the release name and the chart name:
 
 	```bash
 	RELEASE_NAME=infrastructure
 	CHART_NAME=alfresco-process-infrastructure
 	```
 
-2. The `HELM_OPTS` variable is used throughout the deployment to include optional customizations to the chart before deploying it. 
+3. The `HELM_OPTS` variable is used throughout the deployment to include optional customizations to the chart before deploying it. 
 
 	Declare `HELM_OPTS` and set the mandatory variables `{HTTP}` and `{DOMAIN}`: 
 	* `{HTTP}` must be set as either `http` or `https` for the deployment.
@@ -95,7 +106,7 @@ kubectl create secret generic licenseaps --from-file=./activiti.lic
   		--set global.gateway.domain=${DOMAIN}"
 	```
 	
-3. Configure the `secrets.yaml` so that the deployment service can access the Docker registry and Quay for images to create applications: 
+4. Configure the `secrets.yaml` so that the deployment service can access the Docker registry and Quay for images to create applications: 
 
 	1. Edit `secrets.yaml` with the relevant credentials.
 
@@ -136,9 +147,9 @@ Update the following section in the `values.yaml` to pull in a custom file:
 
 ```yaml
 keycloak:
-	service:
-	port: 80
-		extraArgs: "-Dkeycloak.import=/realm/alfresco-aps-realm.json"
+ service:
+ port: 80
+  extraArgs: "-Dkeycloak.import=/realm/alfresco-aps-realm.json"
 ```
 
 If the name of the default realm, client and resource are updated from `alfresco` and `activiti`, set the following in `HELM_OPTS`:
@@ -157,5 +168,5 @@ Use the following command from the root of repository to deploy into your cluste
 helm repo update
 helm dependency update helm/${CHART_NAME}
 helm upgrade --install \
-  ${HELM_OPTS} ${RELEASE_NAME} helm/${CHART_NAME}
+${HELM_OPTS} ${RELEASE_NAME} helm/${CHART_NAME}
 ```
