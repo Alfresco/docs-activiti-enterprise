@@ -19,7 +19,7 @@ A Helm deployment assumes that you have the following:
 Activiti Enterprise deployment can be split into four areas: 
 
 1. Preparing the cluster:
-	* [Set up Quay.io credentials](#set-up-quay-io-credentials)
+	* [Set up Quay.io credentials](#set-up-quayio-credentials)
 	* [Apply a license file to the cluster](#apply-a-license-to-the-cluster)
 2. [Set variables for the deployment](#set-the-variables-for-the-deployment)
 3. Configure any optional customizations:
