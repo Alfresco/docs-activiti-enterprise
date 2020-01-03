@@ -194,6 +194,8 @@ To deploy a project from a released project in the UI:
 
 Once an application has been deployed, its status can be [monitored](#monitoring-applications) in the **Application Instances** section. After the deployment process has finished, the [application-level APIs](../../apis/README.md) can be accessed.
 
+Applications can also be [upgraded](../deploy/upgrade.md) to new versions if the project definition has changed and a new project version has been released.
+
 ## Monitoring applications
 The **Application Instances** section is for monitoring the status of deployed applications. 
 

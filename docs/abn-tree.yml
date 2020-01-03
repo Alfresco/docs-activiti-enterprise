@@ -74,6 +74,7 @@
             children:
                 - helm.md: 'Deploying with Helm'
                 - infrastructure.md: 'Customizing application infrastructure'
+                - upgrade.md: 'Upgrading applications'
         - monitoring:
             title: 'Monitoring tasks and processes'
             children:
