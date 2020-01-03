@@ -19,9 +19,7 @@ decision-table-omega
 ```
 
 ## Using decision tables
-Decision tables can be selected from the palette when designing a process. Once they have been dragged into the process definition, a dropdown list of decision tables available to the current project is displayed. 
-
-Decision tables are used in a process definition by using a [business rule task](../modeling/processes/bpmn/business.md).
+Decision tables can be added to a process definition by creating a [business rule task](../modeling/processes/bpmn/business.md) and selecting the `name` of a decision table created in the project from the dropdown.
 
 [Process variables](../modeling/processes/variables.md) are used to pass values into inputs and receive the value for outputs from a decision table. Specific process variables can be mapped to the inputs and outputs of a decision table, or all process variables can be passed. If all process variables are passed to a decision table then inputs will attempt to be matched against process variables using their names and outputs will either update a matching process variable or create a new one.  
 
