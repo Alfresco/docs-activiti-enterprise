@@ -34,11 +34,12 @@ or
 
 The following BPMN elements can have multiple instances:
 
-* [User tasks](../bpmn/user.md)
-* [Service tasks](../bpmn/service.md)
 * [Business rule tasks](../bpmn/business.md)
 * [Call activities](../bpmn/call.md)
 * [Embedded sub-processes](../bpmn/sub.md#expanded-and-collapsed-sub-processes)
+* [Script tasks](../bpmn/script.md)
+* [Service tasks](../bpmn/service.md)
+* [User tasks](../bpmn/user.md)
 
 ## Variables 
 Each multi-instance execution contains the following three variables: 
