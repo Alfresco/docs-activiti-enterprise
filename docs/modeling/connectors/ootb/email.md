@@ -24,6 +24,9 @@ The following are the parameters that can be passed to the email connector as in
 | `text` | A plain text email body | String | No |
 | `html` | An HTML email body | String | No |
 | `charset` | Define the *charset* of the email | String | No | 
+| `nodeId` | The node ID of the file to attach to the email | String | No |
+| `uri` | The URI of the file to attach to the email | String | No |
+| `files` | A [file](../../modeling/files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector to attach to the email | File | No |
 
 ## Output parameter
 The following is the parameter that is returned to the process by the email connector as an output parameter using the `SEND` action:
