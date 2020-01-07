@@ -3,7 +3,7 @@ Title: Helm deployment
 ---
 
 # Deploying with Helm
-To deploy an application using Helm rather than the deployment service [use this Helm chart](https://git.alfresco.com/process-services-public/alfresco-process-application-deployment/).  
+To deploy an application using Helm rather than the deployment service [use this Helm chart](https://github.com/Alfresco/alfresco-process-application-deployment).  
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ The Helm chart values require updating to point to the correct custom images and
 1. Clone the Helm chart: 
 
 	```bash
-	git clone https://git.alfresco.com/process-services-public/alfresco-process-application-deployment/
+	git clone https://github.com/Alfresco/alfresco-process-application-deployment
 	```
 	
 2. Update the `values.yaml` file in `/helm/alfresco-process-application/` replacing the values with those relevant to the application deployment: 
