@@ -50,7 +50,7 @@ The following are the parameters that can be passed to the Docusign connector as
 | --------  | ----------- | ---- | --------- |
 | `nodeId` | The node ID of the file to sign from Alfresco Content Services | String | `*` |
 | `uri` | The URI of the file to sign | String | `*` |
-| `files` | A [file](../../modeling/files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector to sign | File | `*` |
+| `files` | A [file](../../files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector to sign | File | `*` |
 | `recipientEmail` | The email address to send the file to for signing | String | Yes |
 | `recipientName` | The name of the email recipient | String | No |
 | `emailSubject` | The subject line of the email | String | No | 

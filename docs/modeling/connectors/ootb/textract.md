@@ -23,7 +23,7 @@ The following are the parameters that can be passed to the Textract connector as
 | --------- | ----------- | ---- | --------- | 
 | `nodeId` | The node ID of the image to use from Alfresco Content Services | String | `*` |
 | `uri` | The URI of the image to use | String | `*` |
-| `files` | A [file](../../modeling/files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector | File | `*` |
+| `files` | A [file](../../files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector | File | `*` |
 | `outputFormat` | Sets the output format to `JSON` or `txt`. The default is `JSON` | String | No |
 | `confidenceLevel` | The minimum confidence level to use for a label. The default is 0.75 | String | No |
 | `timeout` | The timeout period for calling the Textract service in milliseconds | Integer | No | 
