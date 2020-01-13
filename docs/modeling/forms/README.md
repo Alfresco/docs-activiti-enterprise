@@ -39,13 +39,30 @@ Form values can receive a default value from a [process variable](../processes/v
 The default behaviour when a form that is part of a [user task](../processes/bpmn/user.md) is submitted, is to create all of the values that have been entered into the form fields as process variables within the parent process. This behaviour is defined by [the type of mapping defined in the process](../processes/variables.md). If all fields are passed without defining any mapping then process variables are created using the `id` of the form fields. If a process variable already exists with the same `name` as the form field `id` then the value of the original process variable will be overwritten. 
 
 ### Form variables
-Form variables can be used to influence [visibility conditions](../forms/fields.md#visibility-conditions) of form fields. Form variables can also be displayed to form fillers by using a [display value](../forms/fields.md#display-value-fields) field. 
+Form variables can be used to pass and receive values from [process variables](../processes/variables.md). They can be used to set the [visibility conditions](../forms/fields.md#visibility-conditions) of form fields and to [display values](../forms/fields.md#display-value-fields) to form fillers.
 
-Form variable names can only contain alphanumeric characters and underscores and must begin with a letter. 
+A form without any BPMN element selected will display an **Edit Form Variables** button in the properties panel. Form variables can be configured using the inbuilt GUI or the JSON editor provided with it.
 
-Form variables can be updated with a default value from a [process variable](../processes/variables.md) by mapping between them in the process definition. 
+Each form variable has four properties:  
 
-A form definition without any fields selected will display an **Edit Form Variables** button in the properties panel. Form variables can be configured using the inbuilt GUI or the JSON editor provided with it.
+| Property | Description | Example | 
+| -------- | ----------- | ------- | 
+| `name` | A unique name that can contain alphanumeric characters and underscores but must begin with a letter | `var_3` |
+| `type` | A data type selected from a dropdown. See the following table for a list of data types | `String` |
+| `required` | Sets whether the form variable must contain a value when a task is started | `false` | 
+| `value` | An optional default value for the form variable | `ice-cream` |
+
+The following are the data types that form variables can be set as:
+
+| Type | Description | Example | 
+| ---- | ----------- | ------- |
+| String | A sequence of characters | `#Mint-Ice-Cream-4!`
+| Integer | A positive whole number | `642` |
+| Boolean | A value of either `true` or `false` | `true` |
+| Date | A specific date in the format `YYYY-MM-DD` | `2020-04-22` | 
+| Datetime | A specific date and time in the format `YYYY-MM-DD HH:mm:ss` | `2020-09-10 22:30:00`
+| File | A [file](../modeling/files.md) uploaded into a process definition or as part of a process instance or task | 
+| JSON | A JSON object | `{"flavor" : "caramel"}` | 
 
 ### Forms in standalone tasks
 Forms can be attached to standalone tasks that are not associated with a process. When designing a form in the UI there is a checkbox called **Visible in standalone task** for deciding whether a form can be used as part of a standalone task. This sets the property `standAlone` to `true` in the form definition if it can be used in a standalone task. The default value is `true` and this will be used if the property is not set in the form definition.  
