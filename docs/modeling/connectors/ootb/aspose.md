@@ -20,7 +20,7 @@ The `implementation` value of the Aspose connector in a service task would be si
 ```
 
 ## Template configuration
-The Aspose connector uses a [process variable](../../processes/README.md#process-variables) of type JSON to insert values into a pre-configured template. The [input parameter](#input-parameters) that contains the information is called `metadata`.
+The Aspose connector uses a [process variable](../../processes/variables.md) of type JSON to insert values into a pre-configured template. The [input parameter](#input-parameters) that contains the information is called `metadata`.
 
 An example of the `metadata` [input parameter](#input-parameters) is the following: 
 
