@@ -105,7 +105,7 @@ There are three options for passing and updating values to and from process vari
 **Note**: The default behaviour is to send all variables.
 
 ### Send all variables
-Sending all variables passes all variables to and from the BPMN element with explicitly mapping between the process variables and element variables. 
+Sending all variables passes all variables to and from the BPMN element without explicitly mapping between the process variables and element variables. 
 
 When sending all variables mapping will be attempted using the `name` of process variables and the variable names in the BPMN element. If the names are identical then the values will be updated between the variables. 
 
