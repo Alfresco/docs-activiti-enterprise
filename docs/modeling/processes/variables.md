@@ -142,7 +142,7 @@ The following is an example of mapping variables for a service task:
 ### Send no variables
 Sending no variables will not pass any variables between a process instance and its BPMN elements.
 
-If no variables are sent for a BPMN element then the `id` of that element will be present in the `mappings` section of the `<process-name>-extensions.json` or **Extensions Editor** with blank `inputs` and `outputs`.
+If no variables are sent for a BPMN element then the `id` of that element will be present in the `mappings` section of the `<process-name>-extensions.json` or **Extensions Editor** with empty `inputs` and `outputs`.
 
 The following is an example of sending no variables for a user task:
 
