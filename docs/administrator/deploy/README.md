@@ -49,7 +49,9 @@ To create a deployment descriptor in the UI:
 	4. Select the users and/or groups that will have access to the application. 
 
 		**Note**: Users require the [`ACTIVITI_USER` role](../identity/README.md#roles) in order to be assigned as a user to an application. 
-	
+		
+		**Note**: Users and groups that are set as assignees or candidates of a [user task](../../modeling/processes/bpmn/user.md) are automatically added as users and cannot be removed.	
+		
 	5. Configure the details for any connectors defined in the process definitions:
 
 		* If you created the connector yourself, this will be the name of the connector and the URL of the image you published.
@@ -168,11 +170,13 @@ To deploy a project from a released project in the UI:
 	2. Select which version of the released project to deploy.
 	3. Select the users and/or groups that will have administrator access to the application.
 	
-			**Note**: Users require the [`ACTIVITI_ADMIN` role](../identity/README.md#roles) in order to be assigned as an administrator to an application.
+		**Note**: Users require the [`ACTIVITI_ADMIN` role](../identity/README.md#roles) in order to be assigned as an administrator to an application.
 	
 	4. Select the users and/or groups that will have access to the application. 
 
 		**Note**: Users require the [`ACTIVITI_USER` role](../identity/README.md#roles) in order to be assigned as a user to an application. 
+		
+		**Note**: Users and groups that are set as assignees or candidates of a [user task](../../modeling/processes/bpmn/user.md) are automatically added as users and cannot be removed.	
 		
 	5. Select the users and/or groups that will have access to the application. 
 	6. Configure the details for any connectors defined in the process definitions:
