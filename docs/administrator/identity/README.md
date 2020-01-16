@@ -14,9 +14,9 @@ The following roles are available with a default installation:
 
 | Role | Description |
 | ---- | ----------- |
-| `ACTIVITI_ADMIN` | Provides access to the [Administrator Application](../README.md). Users require this role to be given administrator access to an application.  |
-| `ACTIVITI_DEVOPS` | Provides access to the [Administrator Application](../README.md). Users with this role will be able to see the **DevOps** functions meaning they can deploy projects, create deployment descriptors and monitor applications |
-| `ACTIVITI_IDENTITY` | Provides access to the [Administrator Application](../README.md). Users with this role will be able to see the **Identity** functions meaning they can manage users, groups and roles |
+| `ACTIVITI_ADMIN` | Provides access to the Administrator Application. Users with this role will be able to see the [**Process Admin**](../monitoring/README.md) functions for applications that they have been given [administrator access](#permissions) to. |
+| `ACTIVITI_DEVOPS` | Provides access to the Administrator Application. Users with this role will be able to see the [**DevOps**](../deploy) functions meaning they can deploy projects, create deployment descriptors and monitor applications |
+| `ACTIVITI_IDENTITY` | Provides access to the Administrator Application. Users with this role will be able to see the **Identity** functions meaning they can manage users, groups and roles |
 | `ACTIVITI_MODELER` | Provides access to the [Modeling Application](../../modeling/README.md). Users with this role will be able to model and release projects |
 | `ACTIVITI_USER` | Users require this role to be given user access to an application | 
 
