@@ -109,6 +109,8 @@ Sending all variables passes all variables to and from the BPMN element without 
 
 When sending all variables mapping will be attempted using the `name` of process variables and the variable names in the BPMN element. If the names are identical then the values will be updated between the variables. 
 
+For example, sending the process variables `flavor` and `cost` to a user task will create task variables called `flavor` and `cost`. If a form field called `flavor` exists in the user task then it will be updated with the value of `flavor` from the process variable. 
+
 If all variables are sent for a BPMN element then the `id` of that element will not appear in the `mappings` section of the `<process-name>-extensions.json` or **Extensions Editor**. 
 
 ### Map variables
