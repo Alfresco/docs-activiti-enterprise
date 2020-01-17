@@ -85,7 +85,7 @@ kubectl create secret generic licenseaps --from-file=./activiti.lic
 
 ### Set variables for the deployment 
 
-1. Clone [this repository](https://git.alfresco.com/process-services-public/alfresco-process-infrastructure-deployment/) and make it your working directory.
+1. Clone [this repository](https://github.com/Alfresco/alfresco-process-infrastructure-deployment) and make it your working directory.
 
 2. Set the release name and the chart name:
 
