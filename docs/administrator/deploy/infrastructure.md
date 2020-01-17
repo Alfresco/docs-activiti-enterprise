@@ -126,16 +126,16 @@ The following are the key value pairs that can be set when using [Kafka](https:/
 ## Deploying an application with custom images
 The application services that utilize definition files can be replaced with custom Docker images. Example projects are provided for the runtime bundle, form service and DMN service so that definition XML and JSON files can be placed in the images:
 
-* [Runtime bundle](https://git.alfresco.com/process-services-public/alfresco-example-process-runtime-bundle-service/)
-* [Form service](https://git.alfresco.com/process-services-public/alfresco-example-forms-service)
-* [DMN service](https://git.alfresco.com/process-services-public/alfresco-example-dmn-service)
+* [Runtime bundle](https://github.com/Alfresco/example-process-application/tree/master/example-process-runtime-bundle-service)
+* [Form service](https://github.com/Alfresco/example-process-application/tree/master/example-form-service)
+* [DMN service](https://github.com/Alfresco/example-process-application/tree/master/example-dmn-runtime-service)
 
 **Note**: The layout of each project is almost identical. The runtime bundle project will be used as an example.
 
 1. Clone the example runtime bundle repository:
 
 	```
-	git clone https://git.alfresco.com/process-services-public/alfresco-example-process-runtime-bundle-service.git
+	git clone https://github.com/Alfresco/example-process-application.git
 	```
 
 2. Clear out the example files in the `/processes/` folder and insert the XML process definitions and JSON process extension files for the new application in their place. 
