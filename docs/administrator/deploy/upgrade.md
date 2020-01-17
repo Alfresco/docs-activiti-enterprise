@@ -7,7 +7,7 @@ Upgrading an application allows for a new version of a released project to be de
 
 Some considerations for upgrading applications to be aware of are that:
 
-* An application can only be upgraded to a released project version that is higher than the one currently deployed.  
+* An application can be upgraded to a released project version that is lower than the one currently deployed, however the application version will still increment.   
 * Applications can only be upgraded through the deployment service. This means that if an application was deployed via Helm it cannot be upgraded. 
 * It is not possible to change an application name when upgrading an application. 
 * It is not possible to use a different Docker image for any service when upgrading an application except for its connectors.
@@ -21,7 +21,9 @@ The version of an application is incremental and independent of the released pro
 | 1 | 1 | 
 | 2 | 2 | 
 | 4 | 3 | 
-| 10 | 4 | 
+| 5 | 4 | 
+| 3 | 5 |
+| 10 | 6 | 
 
 ## Upgrade steps 
 Use the following steps to upgrade an application in the Administrator Application: 
