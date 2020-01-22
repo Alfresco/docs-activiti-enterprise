@@ -36,7 +36,7 @@ To use your connector within a process, sign into the Alfresco Modeling Applicat
 
 	**Note**: if you view the XML editor you will see that the value of the `implementation` 	property is `<connector-name>.<action-name>` for the associated service task.
 
-2. Assign the input and output parameters for the connector to [process variables](../processes/README.md#process-variables) within the process definition. If the names are identical this matching is done automatically. 
+2. Assign the input and output parameters for the connector to [process variables](../processes/variables.md) within the process definition. If the names are identical this matching is done automatically. 
 
 	**Note**: the mappings between process variables and connector actions can be viewed in 	the [`<application-name>-extensions.json` file](../projects.md#files) located in the processes folder of your 	project.
 

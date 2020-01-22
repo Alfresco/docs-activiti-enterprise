@@ -46,7 +46,7 @@ Within each action of a connector definition input and output parameters need to
 *  Input parameters are those that are sent from the process to the connector
 *  Output parameters are those that are sent from the connector to the process 
 
-Input and output parameters are paired to [process variables](../../modeling/processes/README.md#process-variables) within a process definition to pass values for each parameter back and forth and optionally reuse those values later on in a process. Alternatively, the input parameters can be entered as values directly into a service task. 
+Input and output parameters are paired to [process variables](../../modeling/processes/variables.md) within a process definition to pass values for each parameter back and forth and optionally reuse those values later on in a process. Alternatively, the input parameters can be entered as values directly into a service task. 
 
 Once a connector definition has been created, they are attached using the `implementation` value of a [service task](../../modeling/processes/bpmn/service.md) within a process definition using the format `<connector-name>.<action-name>`. Each service task can only execute a single connector action. The following is an example of the XML for a service task of a Slack connector executing the send message action: 
 

@@ -5,7 +5,7 @@ Title: Sub-processes
 # Sub-processes 
 A sub-process is an element that contains other BPMN elements that define an additional process within the parent process. 
 
-**Note**: When a sub-process is executed as part of a process instance, it does not receive a new `processInstanceId`. The elements within the sub-process will be executed under the ID of the parent process. [Process variables](../README.md#process-variables) are also shared between a sub-process and its parent with no additional mapping required. 
+**Note**: When a sub-process is executed as part of a process instance, it does not receive a new `processInstanceId`. The elements within the sub-process will be executed under the ID of the parent process. [Process variables](../variables.md) are also shared between a sub-process and its parent with no additional mapping required. 
 
 The following are sub-processes: 
 
