@@ -34,7 +34,7 @@ Message payloads are created with message throw events and contain one or more p
 * Integer
 * Date
 * Boolean
-* [Process variable](../README.md#process-variables)
+* [Process variable](../variables.md)
 
 The receiving message catch event is then used to map the received values in the payload to process variables in its own scope. 
 
@@ -71,7 +71,7 @@ The following is an example of a message payload for a [message end event](../bp
 ### Correlation keys
 Message events can optionally contain a correlation key. If a correlation key is present then when a message is thrown it uses the `activiti:correlationKey` value and the `messageRef` of the throwing event to match against the same two properties for a catching event. If only one property is matched then the message will not be caught. 
 
-Using a [process variable](../README.md#process-variables) for the correlation key in a throwing event and a static value for its corresponding catching event allows for the message to only be caught in specific circumstances.
+Using a [process variable](../variables.md) for the correlation key in a throwing event and a static value for its corresponding catching event allows for the message to only be caught in specific circumstances.
  
 In the following example, the message will only be caught if a catching event has a `messageRef` of `Message_1hxecs2` and an `activiti:correlationKey` that matches the value of `userId`:
 

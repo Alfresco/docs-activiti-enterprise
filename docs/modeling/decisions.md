@@ -23,7 +23,7 @@ Decision tables can be selected from the palette when designing a process. Once 
 
 Decision tables are used in a process definition by using a [business rule task](../modeling/processes/bpmn/business.md).
 
-[Process variables](../modeling/processes/README.md#process-variables) are used to pass values into inputs and receive the value for outputs from a decision table. Specific process variables can be mapped to the inputs and outputs of a decision table, or all process variables can be passed. If all process variables are passed to a decision table then inputs will attempt to be matched against process variables using their names and outputs will either update a matching process variable or create a new one.  
+[Process variables](../modeling/processes/variables.md) are used to pass values into inputs and receive the value for outputs from a decision table. Specific process variables can be mapped to the inputs and outputs of a decision table, or all process variables can be passed. If all process variables are passed to a decision table then inputs will attempt to be matched against process variables using their names and outputs will either update a matching process variable or create a new one.  
 
 ## Designing decision tables
 The following is a decision table that selects the best flavor of ice cream to eat based on which day of the week it is and what the temperature is. This example will be used to assist in explaining the different elements that make up a decision table.
@@ -40,7 +40,7 @@ The following is the XML for the general properties of the ice cream decision ta
 ```
 
 ### Inputs
-Inputs are the fields a decision table evaluates against. In the ice cream decision table the inputs are `dayOfWeek` and `temperature` of data types `string` and `integer` respectively. [Process variables](../modeling/processes/README.md#process-variables) are used to pass the value of an input into the decision table to be evaluated. Inputs also contain a label which are `Day of the week` and `Temperature (Celsius)` in the example.
+Inputs are the fields a decision table evaluates against. In the ice cream decision table the inputs are `dayOfWeek` and `temperature` of data types `string` and `integer` respectively. [Process variables](../modeling/processes/variables.md) are used to pass the value of an input into the decision table to be evaluated. Inputs also contain a label which are `Day of the week` and `Temperature (Celsius)` in the example.
 
 The following is the XML for input variable `dayOfWeek`:
 
@@ -70,7 +70,7 @@ The following is the XML for the input entry of row 1:
 Input entries use the FEEL (Friendly Enough Expression Language) language.
 
 ### Outputs
-Outputs are the result(s) that a decision table comes to after evaluating the inputs. Output columns have a `name` and a `label`. Output values can be passed back to the process using [Process variables](../modeling/processes/README.md#process-variables). In the ice cream decision table the output `name` is `flavor` and it is of data type `string`. 
+Outputs are the result(s) that a decision table comes to after evaluating the inputs. Output columns have a `name` and a `label`. Output values can be passed back to the process using [Process variables](../modeling/processes/variables.md). In the ice cream decision table the output `name` is `flavor` and it is of data type `string`. 
 
 The following is the XML for the output from the ice cream decision table
 
