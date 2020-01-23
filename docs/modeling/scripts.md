@@ -26,7 +26,7 @@ c-script-beta
 ```
 
 ## Using scripts
-Scripts can be added to a process definition by creating a [script task](../modeling/processes/bpmn/script.md) and selecting the `name` of a script created in the project from the dropdown.
+Scripts can be added to a process definition by creating a [script task](../modeling/processes/bpmn/script.md) and selecting the `name` of a script created in the project in the **Script name** property. 
 
 ## Designing scripts 
 
