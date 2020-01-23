@@ -5,38 +5,58 @@ Title: User tasks
 # User tasks
 User tasks represent a stage in the process where human action is required.
 
-Human action is handled by a task being assigned to specific users or groups. The task that is assigned is modeled using a [form](../../forms/README.md). Once a task is completed, the process flow continues on to the next element in the process. 
+Human action is handled by a task being assigned to specific users or groups. The task that is assigned can be modeled using a [form](../../forms/README.md). Once a task is completed, the process flow continues on to the next element in the process. 
 
-## Properties
-The properties that can be set for a user task are the following: 
+User tasks are displayed as a single thin, rounded rectangle with a user icon inside. 
 
-#### ID
-The unique identifier for the user task. This is system generated and cannot be altered.
+## XML
+The XML for a user task is similar to the following:
 
-| Property | Example | Required | 
-| -------- | ------- | -------- | 
-| ID | `UserTask_0gpdh83` | Yes |
+```xml
+<bpmn2:userTask id="UserTask_0gpdh83" name="Order" activiti:formKey="form-38098a3e-bff1-46cb-ba0f-0c94fdb287ed" activiti:assignee="${userDetails.username}" activiti:dueDate="2020-01-01T01:00:00" activiti:priority="2">
+	<bpmn2:documentation>A form to choose the flavor of ice cream.</bpmn2:documentation>
+	<bpmn2:incoming>SequenceFlow_02eaofe</bpmn2:incoming>
+	<bpmn2:outgoing>SequenceFlow_14ma5mo</bpmn2:outgoing>
+</bpmn2:userTask>
+``` 
 
-#### Name
-The name of the user task. This will appear in the XML definition and be visible in the process diagram. 
+## Properties 
 
-| Property | Example | Required | 
-| -------- | ------- | -------- | 
-| Name | `Flavor order` | No |
+### Basic properties
+The basic properties for a user task are: 
 
-#### Documentation
-A free text description of what the user task does.
+| Property | Description | Example | Required | 
+| -------- | ----------- | ------- | -------- | 
+| `id` | The unique identifier for the user task. This is system generated and cannot be altered | UserTask_0gpdh83 | Yes |
+| `name` | The name of the user task. This will display on the user task in the process diagram | Flavor order | No |
+| `documentation` | A free text description of what the user task does | A form to choose the flavor of ice cream.  | No |
 
-| Property | Example | Required | 
-| -------- | ------- | -------- | 
-| Documentation | `A form to choose the flavor of ice cream.`  | No |
+The ID and name of a user task are set as XML attributes of the `userTask`. Documentation is a sub-element of `userTask`, for example: 
 
-#### Assignment
-The users or groups that are able to complete the task. A single user can be set as the `activiti:assignee` or candidates can be used. Candidates are a list of users or groups that may [claim a task](../../../workspace/tasks.md#claiming-a-task). Candidate users are stored in the `activiti:candidateUsers` property and candidate groups in `activiti:candidateGroups`.
+```xml
+<bpmn2:userTask id="UserTask_0gpdh83" name="Order">
+	<bpmn2:documentation>A form to choose the flavor of ice cream.</bpmn2:documentation>
+</bpmn2:userTask>
+```
+
+### Assignment
+The users or groups that are able to complete a task. A single user can be assigned or candidates can be set. Candidates are a list of users or groups that may [claim a task](../../../workspace/tasks.md#claiming-a-task) at runtime. A single user or candidates must be set for a user task.  
+
+A single assignee is set in the XML attribute `activiti:assignee` of the `userTask`, for example: 
+
+```xml
+<bpmn2:userTask activiti:assignee="hruser"> 
+```
+
+Candidates are set in the XML attribute `activiti:candidateGroups` of the `userTask`, for example:
+
+```xml
+<bpmn2:userTask activiti:candidateGroups="hrgroup,${groupDetails.groupNames}">
+```
 
 Users and groups can be set from three different sources: 
 
-* **Static** values are a free text field that has no validation against users in the [Identity Service](../../../administrator/identity/service.md). The text entered will require an exact match to a `username` in the Identity Service to be assigned.   
+* **Static** values are a free text field that has no validation against users in the [Identity Service](../../../administrator/identity/service.md). The text entered will require an exact match to a `username` in the Identity Service for the user task to be correctly assigned at runtime.   
 
 * **Identity** allows for users and groups to be searched in the [Identity Service](../../../administrator/identity/service.md) and selected for the assignment.
 
@@ -44,62 +64,71 @@ Users and groups can be set from three different sources:
 
 **Note**: Users and groups that are selected as assignees or candidates in a user task are automatically added as [users](../../../administrator/identity/README.md#permissions) when deploying an application if they are set using the static or identity options. Setting an assignee or candidate using the expression source will require the potential users or groups to be manually assigned users when deploying an application. 
 
-#### Due date 
-An optional due date and time for a user task in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. A date picker can be used to choose the time and date.
+### Due date 
+An optional date and time for a user task to be completed by in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. A date picker can be used to choose the time and date.
 
-Checking the **Use process variable** box for due date allows for a [process variable](../variables.md) to be passed to generate the date. The process variable must be of type `datetime`. 
+Checking the **Use process variable** box for due date allows a [process variable](../variables.md) to be used to generate the date. The process variable must be of type `datetime`. 
 
-| Property | Example | Required | 
-| -------- | ------- | -------- | 
-| Due date | `2020-01-01T10:00:00`  | No |
+The due date is set as an XML attribute of the `userTask`, for example:
 
-#### Multi-instance type
+```xml
+<bpmn2:userTask activiti:dueDate="2020-01-01T01:00:00">
+```
+
+### Multi-instance type
 The type of [multi-instance](../bpmn/multi.md) execution for the user task. The default value is `None`. 
 
-`Sequential` executions only ever have a single instance of that user task running at any one time. The next instance will only start after the previous one has been completed. 
+`Sequential` multi-instance executions only ever have a single instance of that user task running at any one time. The next instance will only start after the previous one has been completed. 
 
-`Parallel` executions start multiple instances of a user task at once, meaning they are all active and can all be worked on at the same time. 
+`Parallel` multi-instances executions start multiple instances of a user task at once, meaning they are all active and can all be worked on at the same time. 
 
-| Property | Example | Required | 
-| -------- | ------- | -------- | 
-| Multi-instance type | `None`  | No |
+### Priority
+A optional priority for the user task between 0 and 4. The priority property is to aid end-users in their task management.  
 
-#### Priority
-A comparative priority for the user task between zero and four. The priority property is to aid end-users in their task management.  
+Priority is set as an XML attribute of the `userTask`, for example: 
 
-| Property | Example | Required | 
-| -------- | ------- | -------- | 
-| Priority | `2`  | No |
+```xml
+<bpmn2:userTask activiti:priority="2">
+```
 
-#### Form selector
-The [form](../../forms/README.md) to present to the user completing the task. The form must exist within the same project as the process definition to be selected. 
+### Form selector
+An optional [form](../../forms/README.md) to present to a user completing the task. The form must exist within the same project as the process definition to be selected. 
 
 A new form can be created using the **Create Form** symbol and a previously selected form can be edited using the **Open Form** symbol. 
 
-Adding a form to a process will add the property `activiti:formKey` to the user task XML. The value of the `formKey` is the `id` of the selected form. 
+A form is set as an XML attribute of the `userTask` where the `activiti:formKey` is the `id` of the form, for example:
 
-| Property | Example | Required | 
-| -------- | ------- | -------- | 
-| Form selector | `flavor-choice`  | No |
+```xml
+<bpmn2:userTask activiti:formKey="form-38098a3e-bff1-46cb-ba0f-0c94fdb287ed">
+```
 
-#### Mapping type
-Mapping type sets whether [process variables](../README.md#process-variables) are sent to a user task as task variables and whether the form fields and task variables from a user task are sent back to a process as process variables once a task has been completed. 
+### Mapping type
+Mapping type sets whether [process variables](../README.md#process-variables) are sent to a user task as task variables and whether the form fields and task variables from a user task are sent back to a process as process variables once a task has been completed. Mapping type is only visible if a form has been selected. The default value is `Send all variables`. 
+
 
 If variables are sent to and from a user task explicit mapping can be configured between process variables and task variables and form fields using the **Input mapping** and **Output mapping** fields. If no explicit mapping is set, implicit mapping will be used by attempting to match `name` fields. Only exact matches will map. 
 
 Mappings are stored in the `<process-name>-extensions.json` file and can be viewed in the **Extensions Editor**. 
 
-Mapping type is only visible if a form has been selected. The default value is `Send all variables`. 
+An example JSON extensions file for a user task is:
 
-## Process diagram
-User tasks are graphically represented by a single thin, rounded rectangle with a user icon inside. 
-
-The XML representation of a user task is: 
-
-```xml
-<bpmn2:userTask id="UserTask_0gpdh83" name="Order" activiti:formKey="form-38098a3e-bff1-46cb-ba0f-0c94fdb287ed" activiti:assignee="hruser" activiti:dueDate="2020-01-01T01:00:00+aa" activiti:priority="2">
-	<bpmn2:documentation>A form to choose the flavor of ice cream.</bpmn2:documentation>
-	<bpmn2:incoming>SequenceFlow_02eaofe</bpmn2:incoming>
-	<bpmn2:outgoing>SequenceFlow_14ma5mo</bpmn2:outgoing>
-</bpmn2:userTask>
+```json
+"mappings": {
+	"UserTask_0gpdh83": {
+		"inputs": {
+			"Text0mvlww": {
+				"type": "variable",
+				"value": "order_number"
+				}
+            },
+        }
+    },
+"properties": {
+	"f4839a26-65f5-425d-b913-688d5328fd22": {
+  		"id": "f4839a26-65f5-425d-b913-688d5328fd22",
+		"name": "order_number",
+		"type": "string",
+		"required": true
+        }
+    }
 ```
