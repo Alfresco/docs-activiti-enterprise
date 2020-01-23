@@ -33,7 +33,7 @@ OOTB connectors can be selected directly from the palette rather than by selecti
 
 	**Note**: Details of the actions are described for each OOTB connector in their respective 	pages.
 
-4. Assign the input and output parameters for the connector to [process variables](../../processes/README.md#process-variables) within the process definition. If the names are identical this matching is done automatically.
+4. Assign the input and output parameters for the connector to [process variables](../../processes/variables.md) within the process definition. If the names are identical this matching is done automatically.
 5. Name the service task and complete your process definition model. 
 6. Save the process definition. 
 

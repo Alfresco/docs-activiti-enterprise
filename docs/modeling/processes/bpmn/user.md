@@ -7,8 +7,6 @@ User tasks represent a stage in the process where human action is required.
 
 Human action is handled by a task being assigned to specific users or groups. The task that is assigned can be modeled using a [form](../../forms/README.md). Once a task is completed, the process flow continues on to the next element in the process. 
 
-User tasks are displayed as a single thin, rounded rectangle with a user icon inside. 
-
 ## XML
 The XML for a user task is similar to the following:
 
@@ -105,12 +103,11 @@ A form is set as an XML attribute of the `userTask` where the `activiti:formKey`
 ### Mapping type
 Mapping type sets whether [process variables](../README.md#process-variables) are sent to a user task as task variables and whether the form fields and task variables from a user task are sent back to a process as process variables once a task has been completed. Mapping type is only visible if a form has been selected. The default value is `Send all variables`. 
 
-
 If variables are sent to and from a user task explicit mapping can be configured between process variables and task variables and form fields using the **Input mapping** and **Output mapping** fields. If no explicit mapping is set, implicit mapping will be used by attempting to match `name` fields. Only exact matches will map. 
 
 Mappings are stored in the `<process-name>-extensions.json` file and can be viewed in the **Extensions Editor**. 
 
-An example JSON extensions file for a user task is:
+An example JSON extensions file for a user task with explicit mapping is similar to the following:
 
 ```json
 "mappings": {
