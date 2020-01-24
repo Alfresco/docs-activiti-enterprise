@@ -25,6 +25,7 @@
         - processes:
             title: 'Processes'
             children:
+                - variables.md: 'Process variables'
                 - bpmn:
                     title: 'BPMN elements'
                     children: 

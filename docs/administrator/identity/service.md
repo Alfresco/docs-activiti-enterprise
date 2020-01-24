@@ -23,6 +23,7 @@ To include a list of user groups in the JWT that a user belongs to, make the fol
 3. Select the client to update and navigate to the **Mappers** tab. 
 4. Create a new protocol mapper and set the following at a minimum:
 	* The **Mapper Type** to **Group Membership**
+	* Set **Token Claim Name** to `groups`.
 	* Set **Full group path** off.
 	* Set **Add to ID token** on.
 	* Set **Add to access token** on. 
