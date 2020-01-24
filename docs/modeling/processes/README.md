@@ -62,11 +62,56 @@ There are three views of a process definition:
 
 The descriptions of **Extension Editor** properties are:
 
-| Property | Description | Example | 
-| -------- | ----------- | ------- | 
-| `constants` | Constants store values that will not change for the duration of a process definition such as mapping connectors and decision tables to the correct service tasks |
-| `mappings` | Mappings store the mapping of variables between BPMN elements such process variables and user tasks  | |
-| `properties` | Properties store the process variables for a process definition | | 
+| Property | Description |
+| -------- | ----------- |
+| `constants` | Constants store values that will not change for the duration of a process definition such as mapping connectors and decision tables to the correct service tasks | 
+| `mappings` | Mappings store the mapping of variables between BPMN elements such process variables and user tasks  |
+| `properties` | Properties store the process variables for a process definition |
+
+An example **Extensions Editor** and `<process-definition-name>-extensions.json` file is:
+
+```json
+{
+"process": "Process_1w18m9x": {
+    "constants": {
+        "Task_10kub5t": {
+            "_activiti_dmn_table_": {
+                "value": "dec"
+            }
+        }
+    },
+    "mappings": {
+        "Task_19lk7bt": {
+            "inputs": {
+                "Text0mvlww": {
+                    "type": "variable",
+                    "value": "var_1"
+                },
+                "variables.task_var": {
+                    "type": "variable",
+                    "value": "var_2"
+                }
+            }
+        }
+    },
+    "properties": {
+        "383ffc09-ec7a-4765-a40c-bb84ad06b479": {
+            "id": "383ffc09-ec7a-4765-a40c-bb84ad06b479",
+            "name": "var_1",
+            "type": "string",
+            "required": false
+        },
+        "72c4a262-5db9-4283-8c76-710450ac5e1d": {
+            "id": "72c4a262-5db9-4283-8c76-710450ac5e1d",
+            "name": "var_2",
+            "type": "string",
+            "required": false,
+            "value": "hello"
+        }
+    }
+  }
+}
+```
 
 The actions that can be run against a process definition are: 
 
