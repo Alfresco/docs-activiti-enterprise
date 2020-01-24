@@ -10,4 +10,5 @@ There are four options for deploying Activiti Enterprise. All deployment options
 	* [Deployment on Amazon EKS](../deployment/terraform.md#deployment-on-amazon-eks)
 	* [Deployment into an existing Kubernetes cluster](../deployment/terraform.md#deployment-into-an-existing-kubernetes-cluster)
 	
-* [Using Helm charts]()
+* [Using Helm charts](../deployment/helm/README.md)
+

@@ -26,7 +26,7 @@ The Rancher on Amazon EKS deployment assumes that you have the following:
 
 ### Deployment steps
 
-1. Clone [this repository](https://git.alfresco.com/process-services-public/alfresco-process-terraform) and make the `rancher-eks` folder your working directory.  
+1. Clone [this repository](https://github.com/Alfresco/terraform-alfresco-process) and make the `rancher-eks` folder your working directory.  
 
 2. Initialize Terraform using the following command if you have not already done so whilst verifying the Terraform plugin: 
 
@@ -117,7 +117,7 @@ The Amazon EKS deployment assumes that you have the following:
 
 ### Deployment steps
 
-1. Clone [this repository](https://git.alfresco.com/process-services-public/alfresco-process-terraform) and make the `eks` folder your working directory.  
+1. Clone [this repository](https://github.com/Alfresco/terraform-alfresco-process) and make the `eks` folder your working directory.  
 
 2. Initialize Terraform using the following command if you have not already done so whilst verifying the Terraform plugin: 
 
@@ -215,7 +215,7 @@ The generic Kubernetes cluster deployment assumes that you have the following:
 ### Deployment steps
 The following steps describe a deployment into an existing, generic Kubernetes cluster.
 
-1. Clone [this repository](https://git.alfresco.com/process-services-public/alfresco-process-terraform) and make it your working directory.  
+1. Clone [this repository](https://github.com/Alfresco/terraform-alfresco-process) and make it your working directory.  
 
 2. Initialize Terraform using the following command if you have not already done so whilst verifying the Terraform plugin: 
 

@@ -12,8 +12,11 @@
 - deployment:
     title: 'Deployment'
     children:
+        - helm:
+            title: 'Deploying with Helm'
+            children:
+                - realm.md: 'Realm file'
         - terraform.md: 'Deploying with Terraform'
-        - realm.md: 'Realm'
         - upgrade.md: 'Upgrading'
 - modeling: 
     title: 'Alfresco Modeling Application'
