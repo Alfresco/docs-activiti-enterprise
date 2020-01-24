@@ -7,25 +7,12 @@ Scripts are used to execute a script as part of a process. Process variables can
 
 Scripts can be added to a process definition by using a [script task](../modeling/processes/bpmn/script.md).
 
-The languages a script can be written in are the following:
+The properties of a script are:
 
-* C
-* Java
-* Javascript
-* Python
-* R
-* Ruby
-
-## Naming  
-Script names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. 
-
-The following are examples of valid script names: 
-
-```
-ruby-script
-java4
-c-script-beta
-```
+| Property | Description | Example | Required |
+| -------- | ----------- | ------- | -------- |
+| `Name` | The name of the script. Script names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. | order-script | Yes |
+| `Language` | The development language the script is written in | Javascript | Yes | 
 
 ## Modeling scripts
 
