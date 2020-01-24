@@ -67,6 +67,7 @@ The descriptions of **Extension Editor** properties are:
 | `constants` | Constants store values that will not change for the duration of a process definition such as mapping connectors and decision tables to the correct service tasks | 
 | `mappings` | Mappings store the mapping of variables between BPMN elements such process variables and user tasks  |
 | `properties` | Properties store the process variables for a process definition |
+| `assignments` | Assignments store the type of assignments for [user tasks](../processes/bomn/user.md) |
 
 An example **Extensions Editor** and `<process-definition-name>-extensions.json` file is:
 
@@ -109,7 +110,14 @@ An example **Extensions Editor** and `<process-definition-name>-extensions.json`
             "value": "hello"
         }
     }
-  }
+  },
+  	"assignments": {
+        "UserTask_12yzfe4": {
+            "type": "expression",
+            "assignment": "assignee",
+            "id": "UserTask_12yzfe4"
+        }
+	}
 }
 ```
 
