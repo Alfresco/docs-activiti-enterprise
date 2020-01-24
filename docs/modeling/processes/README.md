@@ -32,7 +32,7 @@ The properties for a process are:
 | -------- | ----------- | ------- | -------- | 
 | `ID` | The unique identifier for a process. This is system generated and cannot be altered. | Process_1w18m9x | Yes |
 | `Process definition name` | The name of the process definition that the process is part of | request-and-order-process | Yes |
-| `Process name` | The name of the process. Process definition names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically | request-process
+| `Process name` | The name of the process. Process names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically | request-process
 | `Documentation` | A free text description of what the process does | A process to request and approve stock orders | No |
 | `Executable` | If set as `false` then the process will be deployed at runtime but it will not be possible to instantiate any process instances for it. The default value is `true`. | false | Yes |
 
@@ -121,18 +121,19 @@ An example **Extensions Editor** and `<process-definition-name>-extensions.json`
 }
 ```
 
+## Messages
+[Messages](../processes/bpmn/message.md) can be managed at the process definition level using the **Edit Messages** button. Messages are used to send payloads between throwing and catching message events and can be sent between different processes within the same process definition.  
+
+## Process variables
+[Process variables](../processes/variables.md) are used to store values and pass them between BPMN elements throughout a process instance. The scope of process variables is restricted to the process they are created in and not the process definition.  
+
+## Actions
 The actions that can be run against a process definition are: 
 
 | Action | Description | 
 | ------ | ----------- | 
 | `Download diagram` | Download the process diagram in `svg` format |
 | `Download process` | Download the `<process-definition-name>.bpmn20.xml` and `<process-definition-name>-extensions.json` files for the process definition |
-| `Validate` | Run validation against the process definition. Any errors will be returned in a pop-up window. | 
+| `Validate` | Run validation against the process definition. Any errors can be seen in the log history at the bottom of the Modeling Application | 
 | `Save` | Save any changes made to the process definition | 
 | `Delete` | Delete the process definition | 
-
-## Messages
-[Messages](../processes/bpmn/message.md) can be managed at the process definition level using the **Edit Messages** button. Messages are used to send payloads between throwing and catching message events and can be sent between different processes within the same process definition.  
-
-## Process variables
-[Process variables](../processes/variables.md) are used to store values and pass them between BPMN elements throughout a process instance. The scope of process variables is restricted to the process they are created in and not the process definition.  
