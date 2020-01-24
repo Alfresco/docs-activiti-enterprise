@@ -7,6 +7,8 @@ User tasks represent a stage in the process where human action is required.
 
 Human action is handled by a task being assigned to specific users or groups. The task that is assigned can be modeled using a [form](../../forms/README.md). Once a task is completed, the process flow continues on to the next element in the process. 
 
+User tasks are displayed as a single thin, rounded rectangle with a user icon inside.
+
 ## XML
 The XML for a user task is similar to the following:
 
