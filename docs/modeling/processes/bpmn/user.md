@@ -60,6 +60,8 @@ Users and groups can be set from three different sources:
 
 * **Expression** allows for an expression using variables to be used to select users and groups for the assignment. Expressions can be a simple process variable such as `${userToAssign}` or an expression such as `${userDetails.username}` that uses a process variable of type JSON. A JSON editor is provided for creating expressions for assignment.
 
+The assignments for user tasks are stored in the [`assignments` property](../README.md) of the **Extensions Editor** and `<process-definition-name>-extensions.json`. 
+
 **Note**: Users and groups that are selected as assignees or candidates in a user task are automatically added as [users](../../../administrator/identity/README.md#permissions) when deploying an application if they are set using the static or identity options. Setting an assignee or candidate using the expression source will require the potential users or groups to be manually assigned users when deploying an application. 
 
 ### Due date 
