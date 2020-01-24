@@ -3,7 +3,9 @@ Title: Scripts
 ---
 
 # Scripts 
-Scripts are used to execute a specific script outside of a process. Process variables can be passed to the script and the results of a script can be sent back to a process instance as process variables.
+Scripts are used to execute a script as part of a process. Process variables can be passed to the script and the results of a script can be sent back to a process instance as process variables.
+
+Scripts can be added to a process definition by using a [script task](../modeling/processes/bpmn/script.md).
 
 The languages a script can be written in are the following:
 
@@ -25,8 +27,8 @@ java4
 c-script-beta
 ```
 
-## Using scripts
-Scripts can be added to a process definition by creating a [script task](../modeling/processes/bpmn/script.md) and selecting the `name` of a script created in the project in the **Script name** property. 
+## Modeling scripts
 
-## Designing scripts 
+
+
 
