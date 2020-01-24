@@ -12,6 +12,7 @@
 - deployment:
     title: 'Deployment'
     children:
+        - terraform.md: 'Deploying with Terraform'
         - realm.md: 'Realm'
         - upgrade.md: 'Upgrading'
 - modeling: 
