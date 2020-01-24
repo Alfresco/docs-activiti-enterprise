@@ -78,7 +78,6 @@ The actions that can be run against a process definition are:
 | `Save` | Save any changes made to the process definition | 
 | `Delete` | Delete the process definition | 
 
-
 ## Messages
 [Messages](../processes/bpmn/message.md) can be managed at the process definition level using the **Edit Messages** button. Messages are used to send payloads between throwing and catching message events and can be sent between different processes within the same process definition.  
 

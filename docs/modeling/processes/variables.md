@@ -1,8 +1,8 @@
 # Process variables
-Process variables are used to store values and pass them between BPMN elements throughout a process instance.  
+Process variables are used to store values and pass them between BPMN elements throughout a process instance. The scope of process variables is restricted to a process and not a process definition which is important to consider when modeling with [pools](../processes/bpmn/pools.md) in a process definition.
 
 ## Creating process variables
-A process definition without any BPMN element selected will display an **Edit Process Variables** button in the properties panel. Process variables can be configured using the inbuilt GUI or the JSON editor provided with it. 
+A process definition without any BPMN element selected will display an **Edit Process Variables** button in the properties panel. If using [pools](../processes/bpmn/pools.md) then the **Edit Process Variables** button will only appear when a single process is selected. Process variables can be configured using the inbuilt GUI or the JSON editor provided with it. 
 
 Each process variable has four properties:  
 
@@ -27,9 +27,9 @@ The following are the data types that process variables can be set as:
 | File | A [file](../modeling/files.md) uploaded into a process definition or as part of a process instance or task | 
 | JSON | A JSON object | `{"flavor" : "caramel"}` | 
 
-Process variables are stored in the `properties` of the [`<process-name>-extensions.json`](../modeling/projects.md#files) file with unique IDs and can also be viewed through the UI in the **Extensions Editor**: 
+Process variables are stored in the `properties` of the `<process-definition-name>-extensions.json` file underneath the process ID that they relate to. Each variable has a unique ID and can also be viewed through the UI in the **Extensions Editor**. 
 
-The following is an example of an `<process-name>-extensions.json` file or extensions editor:
+The following is an example of a `<process-definition-name>-extensions.json` file or extensions editor:
 
 ```json
 {
@@ -59,7 +59,7 @@ The following is an example of an `<process-name>-extensions.json` file or exten
 
 Process variables can also be declared when starting a process instance. 
 
-The following is an example payload for `POST /v1/process-instances` in the runtime bundle:
+The following is an example payload for `POST rb/v1/process-instances` in the runtime bundle:
 
 ```json
 {
@@ -92,7 +92,7 @@ The following are examples of passing process variables in a process:
 * For [decision tables](../decisions.md) to pass the input values into the table and to store the output values in a process.
 * To use a [file](../files.md) within a process. 
 
-Process variables are mapped in a process definition to the BPMN element that is being passed them using the **Mapping type** field in the UI. Inputs and outputs are then set for each variable. The `inputs` and `outputs`  are stored in the `mappings` section of the `<process-name>-extensions.json` and can also be viewed in the **Extensions Editor** of a process definition. 
+Process variables are mapped in a process to the BPMN element that is being passed them using the **Mapping type** field in the UI. Inputs and outputs are then set for each variable. The `inputs` and `outputs`  are stored in the `mappings` section of the `<process-definition-name>-extensions.json` and can also be viewed in the **Extensions Editor** of a process definition. 
 
 **Note**: Static values can be entered instead of process variables when mapping to BPMN element variables. 
 
@@ -111,12 +111,12 @@ When sending all variables mapping will be attempted using the `name` of process
 
 For example, sending the process variables `flavor` and `cost` to a user task will create task variables called `flavor` and `cost`. If a form field called `flavor` exists in the user task then it will be updated with the value of `flavor` from the process variable. 
 
-If all variables are sent for a BPMN element then the `id` of that element will not appear in the `mappings` section of the `<process-name>-extensions.json` or **Extensions Editor**. 
+If all variables are sent for a BPMN element then the `id` of that element will not appear in the `mappings` section of the `<process-definition-name>-extensions.json` or **Extensions Editor**. 
 
 ### Map variables
 Mapping variables is to explicitly map individual process variables to variables in the BPMN element. To map variables, select the option **Send all variables** and set the input and output mappings. 
 
-If mapping variables the `id` of the BPMN element will appear in the `mappings` section of the `<process-name>-extensions.json` or **Extensions Editor** with the `inputs` and `outputs` populated with the `name` or `id` of the BPMN element variable.
+If mapping variables the `id` of the BPMN element will appear in the `mappings` section of the `<process-definition-name>-extensions.json` or **Extensions Editor** with the `inputs` and `outputs` populated with the `name` or `id` of the BPMN element variable.
 
 The following is an example of mapping variables for a service task: 
 
@@ -144,7 +144,7 @@ The following is an example of mapping variables for a service task:
 ### Send no variables
 Sending no variables will not pass any variables between a process instance and its BPMN elements.
 
-If no variables are sent for a BPMN element then the `id` of that element will be present in the `mappings` section of the `<process-name>-extensions.json` or **Extensions Editor** with empty `inputs` and `outputs`.
+If no variables are sent for a BPMN element then the `id` of that element will be present in the `mappings` section of the `<process-definition-name>-extensions.json` or **Extensions Editor** with empty `inputs` and `outputs`.
 
 The following is an example of sending no variables for a user task:
 
