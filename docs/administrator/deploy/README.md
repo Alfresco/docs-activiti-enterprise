@@ -93,7 +93,7 @@ Exporting a deployment descriptor will download a `helm.zip` file that contains 
 		values.yaml
 ```
 
-The `Chart.yaml` contains the location of the parent [Helm chart used](https://git.alfresco.com/process-services-public/alfresco-process-application-deployment).
+The `Chart.yaml` contains the location of the parent [Helm chart used](https://github.com/Alfresco/alfresco-process-application-deployment).
 
 The contents of `requirements.yaml` is dynamically updated with the necessary chart dependencies depending on the contents of the project. For example, if the Process Workspace is not defined as a user interface in the project, then the following will not appear in the file: 
 
@@ -225,7 +225,3 @@ Applications in the process of being deployed or that have errored during deploy
 Links are provided for the gateway of each application as well as the URL of its [Process Workspace](../../workspace/README.md) and Content Application if the [UIs](../../modeling/interfaces.md) were configured in the application. 
 
 An application that has been successfully deployed will use the application name for [API queries](../../apis/README.md). 
-
- 
-
-
