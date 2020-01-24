@@ -12,7 +12,7 @@ A Helm deployment assumes that you have the following:
 * A valid license for Activiti Enterprise.
 * A Kubernetes cluster.
 * A Docker registry for the [deployment service](../architecture/platform.md#deployment-service).
-* Helm installed in the cluster. 
+* Helm *version 2.14.3* installed in the cluster. 
 * An ingress bound to an external DNS address.  
 
 ## Deployment steps
@@ -33,41 +33,16 @@ The resources for an Alfresco Activiti Enterprise deployment are stored in [Quay
 
 **Note**: Quay.io credentials can be obtained by logging a ticket with [Alfresco support](https://support.alfresco.com).
 
-1. Sign into Quay.io with your credentials using the following command: 
-	
-	```bash
-	docker login quay.io
-	```
+Generate a Kubernetes secret in the target namespace using your Quay.io credentials using the following command:
 
-2. Generate a base64 value for your dockercfg using one of the following commands:
-
-	```bash
-	# Linux
-	cat ~/.docker/config.json | base64
-	```
-	
-	```bash
-	# Windows
-	base64 -w 0 ~/.docker/config.json
-	```
-
-3. Create a file called `secrets.yaml` and add the following content to it, using your base64 string from the previous step as the `.dockerconfigjson` value: 
-
-	```yaml
-	apiVersion: v1
-	kind: Secret
-	metadata:
-  	 name: quay-registry-secret
-	type: kubernetes.io/dockerconfigjson
-	data:
- 	 .dockerconfigjson: <your-base64-string>
-	```
-
-4. Upload your `secrets.yaml` file to the namespace you are deploying into using the following command: 
-
-	```bash
-	kubectl create -f <file-location>/secrets.yaml --namespace=$DESIREDNAMESPACE
-	```
+```bash
+kubectl create secret \
+  docker-registry quay-registry-secret \
+  	--docker-server=quay.io \
+   	--docker-username="${DOCKER_REGISTRY_USERNAME}" \
+  	--docker-password="${DOCKER_REGISTRY_PASSWORD}" \
+   	--docker-email="none"
+```
 
 ### Apply a license to the cluster
 A license file needs to be applied to use Alfresco Activiti Enterprise. It is created as a secret in Kubernetes and then referenced by the individual services. 
