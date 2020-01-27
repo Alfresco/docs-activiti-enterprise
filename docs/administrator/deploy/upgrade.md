@@ -8,7 +8,8 @@ Upgrading an application allows for a new version of a released project to be de
 Some considerations for upgrading applications to be aware of are that:
 
 * An application can be upgraded to a released project version that is lower than the one currently deployed, however the application version will still increment.   
-* Applications can only be upgraded through the deployment service. This means that if an application was deployed via Helm it cannot be upgraded. 
+* Applications can only be upgraded through the deployment service. This means that if an application was deployed via Helm it cannot be upgraded.
+* [UIs](../../modeling/interfaces.md) will be added and removed between versions based on whether they exist in the project. If only the `type` is changed and the `name` remains the same then the `type` will not be updated between versions. 
 * It is not possible to change an application name when upgrading an application. 
 * It is not possible to use a different Docker image for any service when upgrading an application except for its connectors.
 * It is not possible to edit or add any variables to services when upgrading an application, except for its connectors. 
