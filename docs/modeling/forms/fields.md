@@ -13,6 +13,7 @@ The general properties that are shared between all types of form fields are the 
 | `Label` | The name of the field that will appear on the rendered form | 
 | `ID` | The unique ID of the field | 
 | `Required?` | Checking this box makes a field mandatory |
+| `Read-only` | Sets whether the field can be filled in by a user or not | 
 | `Colspan` | The number of columns a field spans | 
 | `Placeholder` | The default value of the field |
 
@@ -42,11 +43,13 @@ The form field types available to use in Activiti Enterprise are the following:
 | [Display text](#display-text-fields) | Display text fields allow the form designer to display a line of fixed text to the form filler |
 | [Display value](#display-value-fields) | Display value fields allow the form designer to display a value previously entered in the form |
 | [Dropdown](#dropdown-fields) | Dropdown fields allow the form designer to define a set of options a form filler must choose from a a dropdown menu|
+| [Group](#group-fields) | Group fields allow the form filler to select groups that have access to the application | 
 | [Header](#headers) | Header fields are subtitle fields that can be used as section containers |
 | [Hyperlink](#hyperlink-fields) | Hyperlink fields allow the form designer to expose a link that form fillers can click on |
 | [Multiline text](#multiline-text-fields) | Multiline text fields are for entering `string` data across multiple lines |
 | [Number](#number-fields) | Number fields are for entering `integer` data |
 | [Outcome](#outcomes) | Outcomes can be added as options at the bottom of a form that a form filler needs to click on to complete the form |
+| [People](#people-fields) | People fields allow the form filler to select users that have access to the application | 
 | [Radio buttons](#radio-buttons) | Radio button fields allow the form designer to define a set of options a form filler must choose from a set of radio buttons |
 | [Text](#text-fields) | Text fields are for entering `string` data in a single line |
 
@@ -94,12 +97,12 @@ The advanced properties for a date field are the following:
 ### Display text fields
 Display text fields allow the form designer to display a line of fixed text to the form filler. This text is uneditable by the filler themselves. The `Text to display` property is used to enter the text.
 
-Display text fields not have the `Placeholder` and `Required?` fields, nor do they have an advanced properties tab.
+Display text fields not have the `Read-only`, `Placeholder` and `Required?` fields, nor do they have an advanced properties tab.
 
 ### Display value fields
 Display value fields allow the form designer to display a value previously entered in the form. The `variables` property is used to select a [form variable](../forms/README.md#form-variables) to display.
 
-Display value fields not have the `Placeholder` and `Required?` fields, nor do they have an advanced properties tab. 
+Display value fields not have the `Read-only`, `Placeholder` and `Required?` fields, nor do they have an advanced properties tab. 
 
 ### Dropdown fields
 Dropdown fields allow the form designer to define a set of options a form filler must choose from a list. This list can be a manually entered set of options or it can read from a REST service. 
@@ -115,10 +118,21 @@ The advanced properties for a REST dropdown field are the following:
 | `ID property` | The ID of the REST service |
 | `Label property` | The name of the REST service |
 
+### Group fields
+Group fields allow form fillers to select a single or multiple groups from the list of groups available in the application. 
+
+Group fields do not have a `Placeholder` property. 
+
+The advanced properties for a group field are the following: 
+
+| Property | Description |
+| -------- | ----------- |
+| `Mode` | Sets whether only a single, or multiple groups can be selected | 
+ 
 ### Headers
 Header fields are subtitle fields that can be used as section containers on a tab. They cannot be filled in by a form filler as they only display a subtitle. 
 
-Header fields have a `Number of columns` property rather than the `Colspan` property and they do not have the `Placeholder` and `Required?` properties.
+Header fields have a `Number of columns` property rather than the `Colspan` property and they do not have the `Read-only`, `Placeholder` and `Required?` properties.
 
 The advanced properties for a header field are the following:
 
@@ -129,6 +143,8 @@ The advanced properties for a header field are the following:
 
 ### Hyperlink fields
 Hyperlink fields allow the form designer to expose a link that form fillers can click on whilst they are filling out a form.
+
+Hyperlink fields do not have the `Read-only` and `Placeholder` properties.
 
 The advanced properties for a hyperlink field are the following:
 
@@ -160,6 +176,17 @@ The advanced properties for a number field are the following:
 
 ### Outcomes
 Outcomes can be added as options at the bottom of a form that a form filler needs to click on to complete the form, such as *Agree* or *Disagree*. 
+
+### People fields
+People fields allow form fillers to select a single or multiple users from the list of users that have access to the application. 
+
+People fields do not have a `Placeholder` property. 
+
+The advanced properties for a people field are the following: 
+
+| Property | Description |
+| -------- | ----------- |
+| `Mode` | Sets whether only a single, or multiple users can be selected | 
 
 ### Radio buttons
 Radio button fields allow the form designer to define a set of options a form filler must choose from. This list can be a manually entered set of options or it can read from a REST service.
