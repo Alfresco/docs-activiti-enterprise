@@ -5,6 +5,8 @@ Title: Scripts
 # Scripts 
 Scripts are used to execute a script as part of a process. Process variables can be passed to the script and the results of a script can be sent back to a process instance as process variables.
 
+Scripts are executed outside of the [runtime bundle]() by the [script service]() with the results being returned to the process after execution. Script design uses the functionality of  [Monaco](https://github.com/Microsoft/monaco-editor) and the [Graal javascript engine](https://github.com/graalvm/graaljs) for execution. 
+
 Scripts can be added to a process definition by using a [script task](../modeling/processes/bpmn/script.md).
 
 The properties of a script are:
@@ -15,6 +17,13 @@ The properties of a script are:
 | `Language` | The development language the script is written in | Javascript | Yes | 
 
 ## Modeling scripts
+
+### Script variables
+
+### Process commands
+
+### Content APIs
+
 
 
 
