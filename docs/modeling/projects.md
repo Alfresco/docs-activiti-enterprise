@@ -17,8 +17,13 @@ two-hundred-and-twenty-one
 ```
 
 ## Collaborators
-Users can only view the projects they have created by default. The **Collaborators** option allows user access to be managed for individual projects. 
+By default users can only view the projects they have created. The **Collaborators** option allows user access to be managed for individual projects. 
 
+To add a collaborator to a project:
+
+1. Check that the user has the [`ACTIVITI_MODELER` role](../administrator/identity/README.md).
+2. Select the **Collaborators** option against the project.
+3. Search for the user and click **Add**.
 
 ## Versioning and releasing
 Projects are version controlled through a release function. The version will not be incremented until it has been [released](#releasing-a-project). A new project will begin at version 0 and increments by one every time it is released. 
