@@ -83,6 +83,19 @@ In the following example, the message will only be caught if a catching event ha
 
 **Note**: Message start events cannot contain a correlation key unless they are used in a [sub process](../bpmn/sub.md). 
 
+### Message flows
+When messages are used between two different [pools](../bpmn/pools.md) the sequence flow that connects them is a dotted line and is called a `messageFlow`. The message flow is part of the `collaboration` element created by introducing a pool. Message flows reference the throwing message event as the `sourceRef` and the catching message event as the `targetRef`.
+
+The following is an example of a message flow:
+
+```xml
+<bpmn2:collaboration id="Collaboration_0kgbwi1">
+	<bpmn2:participant id="Participant_1i6u1my" processRef="Process_1d9yxsm" />
+	<bpmn2:participant id="Participant_10umhbc" processRef="Process_1piiyp4" />
+	<bpmn2:messageFlow id="MessageFlow_0vh4zdb" sourceRef="Event_00acemq" targetRef="Event_13u5jtf" />
+</bpmn2:collaboration>
+```
+
 ## Message intermediate catch events
 Message intermediate catching events cause the process flow to wait until the message named in the `messageRef` property is received before it proceeds. 
 
