@@ -16,6 +16,10 @@ project4
 two-hundred-and-twenty-one
 ```
 
+## Collaborators
+Users can only view the projects they have created by default. The **Collaborators** option allows user access to be managed for individual projects. 
+
+
 ## Versioning and releasing
 Projects are version controlled through a release function. The version will not be incremented until it has been [released](#releasing-a-project). A new project will begin at version 0 and increments by one every time it is released. 
 
@@ -65,13 +69,13 @@ The following is an example of an exploded zip file of a project called *holiday
 ### Files
 File definitions are created and stored for each element of a project:
 
-* `<process-name>.bpmn20.xml` is the format that process definitions are stored in.
+* `<process-definition-name>.bpmn20.xml` is the format that process definitions are stored in.
 * `<connector-name>.json` is the format that connector definitions are stored in. 
 * `<form-name>.json` is the format that form definitions are stored in. 
 * `<ui-name>.json` is the format that UI definitions are stored in for content or process. 
 * `<decision-table-name>.xml` is the format that decision table definitions are stored in.
 * `<decision-table-name>-extensions.json` is the format that decision table UIDs are stored in. 
-* `<process-name>-extensions.json` is the format that stores the links between process elements. For example it maps the `implementation` value of service tasks with the relevant connector actions and equivalent process variables. 
+* `<process-definition-name>-extensions.json` is the format that stores the links between process elements. For example it maps the `implementation` value of service tasks with the relevant connector actions and equivalent process variables. 
 * `<file-name>.bin` is the binary format that uploaded files are stored as.
 * `<file-name>-extensions.json` is the format that stores the metadata for the associated uploaded file. 
 * `<project-name>.json` is the project manifest that stores the name and version of a project.
