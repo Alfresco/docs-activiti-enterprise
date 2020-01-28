@@ -86,7 +86,7 @@ The following is an example payload for `POST /v1/process-instances` in the runt
 ```
 
 ## Mapping variables
-Process variables in a process can be mapped to and from variables in BPMN elements such as [task variables](), [script variables]() and [decision table values](). Input mapping is used to set the process variable sent from the process to the BPMN element and output mapping is used to set the target process variable to receive the results from the BPMN element after it has been executed.
+Process variables in a process can be mapped to and from variables in BPMN elements such as [task variables](../forms/README.md#form-variables), [script variables](../scripts.md#script-variables) and [decision table values](../decisions.md). Input mapping is used to set the process variable sent from the process to the BPMN element and output mapping is used to set the target process variable to receive the results from the BPMN element after it has been executed.
 
 The mapping of variables is stored in the `<process-definition-name>-extensions.json` file and can also be viewed in the **Extensions Editor** in the `mappings` section.
 
