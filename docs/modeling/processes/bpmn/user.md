@@ -51,7 +51,7 @@ A single assignee is set in the XML attribute `activiti:assignee` of the `userTa
 Candidates are set in the XML attribute `activiti:candidateGroups` of the `userTask`, for example:
 
 ```xml
-<bpmn2:userTask activiti:candidateGroups="hrgroup,${groupDetails.groupNames}">
+<bpmn2:userTask activiti:candidateGroups="${groupDetails.groupNames}">
 ```
 
 Users and groups can be set from three different sources: 
@@ -60,7 +60,7 @@ Users and groups can be set from three different sources:
 
 * **Identity** allows for users and groups to be searched in the [Identity Service](../../../administrator/identity/service.md) and selected for the assignment.
 
-* **Expression** allows for an expression using variables to be used to select users and groups for the assignment. Expressions can be a simple process variable such as `${userToAssign}` or an expression such as `${userDetails.username}` that uses a process variable of type JSON. A JSON editor is provided for creating expressions for assignment.
+* **Expression** allows for an expression using [process variables](../variables.md) to be used to select users and groups for the assignment. Expressions can be a simple process variable such as `${userToAssign}` or an expression such as `${userDetails.username}` that uses a process variable of type JSON. A JSON editor is provided for creating expressions for assignment, however the editor will only be displayed if there are process variables in the process.
 
 The assignments for user tasks are stored in the [`assignments` property](../README.md) of the **Extensions Editor** and `<process-definition-name>-extensions.json`. 
 
