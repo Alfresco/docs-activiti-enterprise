@@ -71,6 +71,7 @@
         - decisions.md: 'Decision tables'
         - ui.md: 'User interfaces'
         - files.md: 'Files'
+        - triggers.md: 'Triggers'
 - administrator:
     title: 'Alfresco Administrator Application'
     children:
