@@ -2,8 +2,8 @@
 Title: Connectors
 ---
 
-# Connectors 
-Connectors are used to model interactions between external systems and a process. 
+# Connectors
+Connectors are used to handle interactions between external systems and a process. 
 
 Connectors execute their logic outside of the [runtime bundle](../../architecture/application.md#runtime-bundle) with values being passed between a connector and a process as inputs and outputs. [Service tasks](../processes/bpmn/service.md) are used in a process definition to implement connectors.
 
@@ -13,12 +13,52 @@ Examples of what connectors can be used for include:
 * interacting with an installation of Slack to post messages
 * calling a custom REST API and passing the response back to a process 
 
+
+
+
+### Connector logic
+**See here for a description of connector logic / architecture**
+
+### Create your own connector
+
+* Is this just for actions, or can you define your own;
+* Events
+
+### Modeling a connector 
+
+* Definition
+	* Actions (note that this is implementation value) 
+		* A table for the things to fill in for actions  
+	* Events (triggers) 	
+* Image
+* Variables 
+
+
 The basic properties 
 
 | Property | Description | Example | 
 | -------- | ----------- | ------- | 
 | `Name` | | |
 | `Description` | | | 
+
+### OOTB connectors
+
+
+
+
+
+
+
+
+## Modeling connectors
+
+
+
+
+
+
+
+
 
 
 
