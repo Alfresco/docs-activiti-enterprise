@@ -1,3 +1,7 @@
+---
+Title: Process variables
+---
+
 # Process variables
 Process variables are used to store values and pass them between BPMN elements throughout a process instance.  
 
@@ -27,9 +31,9 @@ The following are the data types that process variables can be set as:
 | File | A [file](../modeling/files.md) uploaded into a process definition or as part of a process instance or task | 
 | JSON | A JSON object | `{"flavor" : "caramel"}` | 
 
-Process variables are stored in the `properties` of the [`<process-name>-extensions.json`](../modeling/projects.md#files) file with unique IDs and can also be viewed through the UI in the **Extensions Editor**: 
+Process variables are stored in the `properties` of the [`<process--definition-name>-extensions.json`](../modeling/projects.md#files) file with unique IDs and can also be viewed through the UI in the **Extensions Editor**: 
 
-The following is an example of an `<process-name>-extensions.json` file or extensions editor:
+The following is an example of an `<process-definition-name>-extensions.json` file or extensions editor:
 
 ```json
 {
@@ -81,21 +85,60 @@ The following is an example payload for `POST /v1/process-instances` in the runt
 }
 ```
 
-## Mapping process variables
-Process variables can be mapped to and from variables in a BPMN element so that their values can be reused and updated throughout a process instance. 
+## Mapping variables
+Process variables in a process can be mapped to and from parameters in BPMN elements such as [task variables](../forms/README.md#form-variables), [script variables](../scripts.md#script-variables) and [decision table values](../decisions.md). Input mapping is used to set the process variable sent from the process to the BPMN element and output mapping is used to set the target process variable to receive the results from the BPMN element after it has been executed.
 
-The following are examples of passing process variables in a process:
+The mapping of variables is stored in the `<process-definition-name>-extensions.json` file and can also be viewed in the **Extensions Editor** in the `mappings` section.
 
-* In [user tasks](../processes/bpmn/user.md) to pass values between process variables and [form fields](../forms/fields.md) or [form variables](../forms/README.md#form-variables).
-* As part of [call activities](../processes/bpmn/call.md) to pass process variables between the originating and called process.
-* To pass input parameters to [connectors](../connectors/README.md) and receive the output parameters back to a process.
-* For [decision tables](../decisions.md) to pass the input values into the table and to store the output values in a process.
-* To use a [file](../files.md) within a process. 
+Mapping requires two sets of configuration:
 
-Process variables are mapped in a process definition to the BPMN element that is being passed them using the **Mapping type** field in the UI. Inputs and outputs are then set for each variable. The `inputs` and `outputs`  are stored in the `mappings` section of the `<process-name>-extensions.json` and can also be viewed in the **Extensions Editor** of a process definition. 
+* [Variable mapping](#variable-mapping)
+* [Mapping type](#mapping-type)
 
-**Note**: Static values can be entered instead of process variables when mapping to BPMN element variables. 
+### Variable mapping
+The variable mapping is used to configure the type of mapping used between a process and its BPMN elements. There are three types of mapping that can be used: 
 
+* **Process Variables** are just regular process variables that must match the type of the source or target parameter. For example an input parameter of type `string` cannot map to a process variable of type `file`.
+
+* **Expressions**: Expressions can be entered using a JSON editor to create more complex mappings such as mapping JSON process variables to input and output parameters. For example, using `${temperature.celsius}` will use the value for the object `celsius`. 
+
+	In the following example this would result in the value *16*:
+
+	```json
+	{
+  	"day": "Monday",
+  	"temperature": {
+    	"celsius": 16,
+    	"fahrenheit": 66
+  		}
+	}
+	```
+
+* Static **Values** can be entered rather than using process variables. 
+
+Static values and expressions are stored as values in the `mappings` section of the `<process-definition-name>-extensions.json` and process variables are stored as variables. For example: 
+
+```json
+"Task_1f1wpht": {
+	"inputs": {
+		"flavor": {
+			"type": "variable",
+			"value": "choice"
+			},
+		"price": {
+			"type": "value",
+			"value": "${lookUp.price}"
+			},
+		"Limit": {
+			"type": "value",
+			"value": 200
+			}
+		}
+	}
+},
+```
+
+### Mapping type
 There are three options for passing and updating values to and from process variables throughout a process instance: 
 
 * [Send all variables](#send-all-variables)
@@ -104,19 +147,19 @@ There are three options for passing and updating values to and from process vari
 
 **Note**: The default behaviour is to send all variables.
 
-### Send all variables
+#### Send all variables
 Sending all variables passes all variables to and from the BPMN element without explicitly mapping between the process variables and element variables. To send all variables, select the option **Send all variables** and do not set and input and output mappings. 
 
 When sending all variables mapping will be attempted using the `name` of process variables and the variable names in the BPMN element. If the names are identical then the values will be updated between the variables. 
 
 For example, sending the process variables `flavor` and `cost` to a user task will create task variables called `flavor` and `cost`. If a form field called `flavor` exists in the user task then it will be updated with the value of `flavor` from the process variable. 
 
-If all variables are sent for a BPMN element then the `id` of that element will not appear in the `mappings` section of the `<process-name>-extensions.json` or **Extensions Editor**. 
+If all variables are sent for a BPMN element then the `id` of that element will not appear in the `mappings` section of the `<process-definition-name>-extensions.json` or **Extensions Editor**. 
 
-### Map variables
+#### Map variables
 Mapping variables is to explicitly map individual process variables to variables in the BPMN element. To map variables, select the option **Send all variables** and set the input and output mappings. 
 
-If mapping variables the `id` of the BPMN element will appear in the `mappings` section of the `<process-name>-extensions.json` or **Extensions Editor** with the `inputs` and `outputs` populated with the `name` or `id` of the BPMN element variable.
+If mapping variables the `id` of the BPMN element will appear in the `mappings` section of the `<process-definition-name>-extensions.json` or **Extensions Editor** with the `inputs` and `outputs` populated with the `name` or `id` of the BPMN element variable.
 
 The following is an example of mapping variables for a service task: 
 
@@ -126,8 +169,8 @@ The following is an example of mapping variables for a service task:
         "ServiceTask_0dfu5w2": {
             "inputs": {
                 "nodeId": {
-                    "type": "variable",
-                    "value": "string1"
+                    "type": "value",
+                    "value": "${content.nodeId}"
                 }
             },
             "outputs": {
@@ -141,10 +184,10 @@ The following is an example of mapping variables for a service task:
 }
 ```
 
-### Send no variables
+#### Send no variables
 Sending no variables will not pass any variables between a process instance and its BPMN elements.
 
-If no variables are sent for a BPMN element then the `id` of that element will be present in the `mappings` section of the `<process-name>-extensions.json` or **Extensions Editor** with empty `inputs` and `outputs`.
+If no variables are sent for a BPMN element then the `id` of that element will be present in the `mappings` section of the `<process-definition-name>-extensions.json` or **Extensions Editor** with empty `inputs` and `outputs`.
 
 The following is an example of sending no variables for a user task:
 
