@@ -86,17 +86,17 @@ The following is an example payload for `POST /v1/process-instances` in the runt
 ```
 
 ## Mapping variables
-Process variables in a process can be mapped to and from variables in BPMN elements such as [task variables](../forms/README.md#form-variables), [script variables](../scripts.md#script-variables) and [decision table values](../decisions.md). Input mapping is used to set the process variable sent from the process to the BPMN element and output mapping is used to set the target process variable to receive the results from the BPMN element after it has been executed.
+Process variables in a process can be mapped to and from parameters in BPMN elements such as [task variables](../forms/README.md#form-variables), [script variables](../scripts.md#script-variables) and [decision table values](../decisions.md). Input mapping is used to set the process variable sent from the process to the BPMN element and output mapping is used to set the target process variable to receive the results from the BPMN element after it has been executed.
 
 The mapping of variables is stored in the `<process-definition-name>-extensions.json` file and can also be viewed in the **Extensions Editor** in the `mappings` section.
 
-Mapping variables requires configuring two fields:
+Mapping requires two sets of configuration:
 
-* [Variable type](#variable-type)
+* [Variable mapping](#variable-mapping)
 * [Mapping type](#mapping-type)
 
-### Variable type
-The variable type is used to configure the specific process variables used as inputs and outputs for mapping. There are three types of variable that can be used: 
+### Variable mapping
+The variable mapping is used to configure the type of mapping used between a process and its BPMN elements. There are three types of mapping that can be used: 
 
 * **Process Variables** are just regular process variables that must match the type of the source or target parameter. For example an input parameter of type `string` cannot map to a process variable of type `file`.
 
