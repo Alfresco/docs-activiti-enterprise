@@ -59,6 +59,8 @@ The following is an example of an exploded zip file of a project called *holiday
 		approve.bpmn.xml
 		request-extensions.json
 		request.bpmn20.xml
+	/triggers/
+		approval-email.json
 	holiday.json
 ```
 
@@ -74,4 +76,5 @@ File definitions are created and stored for each element of a project:
 * `<process-name>-extensions.json` is the format that stores the links between process elements. For example it maps the `implementation` value of service tasks with the relevant connector actions and equivalent process variables. 
 * `<file-name>.bin` is the binary format that uploaded files are stored as.
 * `<file-name>-extensions.json` is the format that stores the metadata for the associated uploaded file. 
+* `<trigger-name>.json` is the format that triggers are stored in. 
 * `<project-name>.json` is the project manifest that stores the name and version of a project.
