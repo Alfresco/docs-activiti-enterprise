@@ -124,8 +124,8 @@ In the following example, the user task will run 4 times sequentially and the va
 </bpmn2:userTask>
 ```
 
-The process variable `choices` will contain JSON similar to the following:
+The process variable `choices` will contain an array of results similar to the following:
 
 ```json
-{"choices":["chocolate", "mint", "strawberry"]}
+["chocolate", "mint", "strawberry"]
 ```
