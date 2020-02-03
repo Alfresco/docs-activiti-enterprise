@@ -17,7 +17,7 @@ two-hundred-and-twenty-one
 ```
 
 ## Collaborators
-By default users can only view the projects they have created. The **Collaborators** option allows user access to be managed for individual projects. 
+By default users can only view the projects they have created. The **Collaborators** option allows user access to be managed for individual projects. A collaborator can do anything the creator can do except for deleting the project.
 
 To add a collaborator to a project:
 
