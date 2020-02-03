@@ -28,7 +28,10 @@ The following are the properties that need to be set for the Slack connector:
 | `TWILIO_ACCOUNT` | Your account name obtained from Twilio |
 | `TWILIO_TOKEN` | A token for your account obtained from Twilio |
 
-## Input parameters
+## Actions
+The Twilio connector contains an action called `send_sms` that sends an SMS message using an external Twilio service. 
+
+### Input parameters
 The following are the parameters that can be passed to the Twilio connector as input parameters using the `send_sms` action:
 
 | Parameter | Description | Type | Required? |
@@ -39,7 +42,7 @@ The following are the parameters that can be passed to the Twilio connector as i
 
 **Note**: Freemarker templates are supported in `smsBody`. 
 
-## Output parameters
+### Output parameters
 The following are the parameters that are returned to the process by the Twilio connector as output parameters using the `send_sms` action:
 
 **Note**: The execution of the Twilio connector is always successful. Any errors will be returned in the `twilioError` parameter. The parameter will be null if there were no errors.
@@ -50,4 +53,22 @@ The following are the parameters that are returned to the process by the Twilio 
 | `twilioError` | A list of errors if any are caught by the connector | String |
 
 
+## Events
+The Twilio connector contains an event called `SMS_RECEIVED` that can be used by a [trigger](../../modeling/triggers.md) to configure an action when an SMS message meeting a specific pattern is found.
 
+### Input parameters
+
+| Parameter | Description | Type | Required? |
+| --------  | ----------- | ---- | --------- |
+| `pattern` | A regular expression to match messages and select which are published as events | String | Yes | 
+| `echo` | The message sent to the user if a message is matched | String | No | 
+| `echoError` | The message sent to the user if an error occurs publishing the event | 
+
+### Output parameters
+
+| Parameter | Description | Type | Required? |
+| --------  | ----------- | ---- | --------- |
+| `matchGroups` |  | Array | No |
+| `originalMessage` | The original message that was sent | String | No |
+| `to` | The recipient of the matched message | String | No |
+| `from` | The sender of the matched message | String | No |

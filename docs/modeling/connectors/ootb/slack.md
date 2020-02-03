@@ -57,7 +57,15 @@ The following are the properties that need to be set for the Slack connector:
 | `SLACK_XOXB` | The Slack bot user token obtained from [configuring](#slack-configuration) Slack beginning *xoxb-* |
 | `SLACK_XOXP` | The Slack bot admin user token obtained from [configuring](#slack-configuration) Slack beginning *xoxp-* |
 
-## Send message
+
+
+## Actions
+The Slack connector contains two actions: 
+
+* [`SEND_MESSAGE`](#send-a-message) that can send a message to a specific Slack channel.
+* [`CREATE_CHANNEL`](#create-a-channel) that can create a Slack channel and invite members to join it.
+
+### Send message
 The `SEND_MESSAGE` action is used to send messages to either a Slack channel or a specific user. 
 
 The `implementation` value of the send message action in a service task would be similar to the following:
@@ -66,7 +74,7 @@ The `implementation` value of the send message action in a service task would be
 <bpmn2:serviceTask id="ServiceTask_3xcd7zp" implementation="slackConnector.SEND_MESSAGE" />
 ```
 
-### Input parameters
+#### Input parameters
 The following are the parameters that can be passed to the Slack connector as input parameters using the `SEND_MESSAGE` action:
 
 | Parameter | Description | Type | Required? |
@@ -78,7 +86,7 @@ The following are the parameters that can be passed to the Slack connector as in
 | `channelName` | The name of the channel to send the message to | String | * One of these fields is required |
 | `requestResponse` | <ul><li> Set to `no` a response will be sent back to the process immediately after a message is sent </li> <li> Set to `any` a response will be sent back to the process only after a reply is received in the same channel </li> <li> Set to `thread` a response will be sent back to the process only after a reply is received in a thread </li></ul> | String | No |
 
-### Output parameters
+#### Output parameters
 The following are the parameters that are returned to the process by the Slack connector as output parameters using the `SEND_MESSAGE` action:
 
 | Parameter | Description | Type |
@@ -86,7 +94,7 @@ The following are the parameters that are returned to the process by the Slack c
 | `message` | If the input parameter `requestResponse` was set to `any` or `thread` then the content of the reply will be sent in this parameter | String |
 | `slackError` | If an error was encountered it will be described in this parameter | String | 
 
-## Create channel
+### Create channel
 The `CREATE_CHANNEL` action is used to create a new Slack channel. 
 
 The `implementation` value of the create channel action in a service task would be similar to the following:
@@ -95,7 +103,7 @@ The `implementation` value of the create channel action in a service task would 
 <bpmn2:serviceTask id="ServiceTask_7lhj7xq" implementation="slackConnector.CREATE_CHANNEL" />
 ```
 
-### Input parameters
+#### Input parameters
 The following are the parameters that can be passed to the Slack connector as input parameters using the `CREATE_CHANNEL` action:
 
 | Parameter | Description | Type | Required? |
@@ -104,7 +112,7 @@ The following are the parameters that can be passed to the Slack connector as in
 | `channelType` | Set whether the channel is `public` or `private` | String | Yes |
 | `members` | A list of members that will be invited to join the new channel in the format: `["USER1","USER2","USER3"]` | String | Yes |
 
-### Output parameters
+#### Output parameters
 The following are the parameters that are returned to the process by the Slack connector as output parameters using the `CREATE_CHANNEL` action:
 
 | Parameter | Description | Type |
@@ -155,3 +163,24 @@ An example of a successful `slackResult` is the following:
   }
 }
 ```
+
+## Events
+The Slack connector contains an event called `MESSAGE_RECEIVED` that can be used by a [trigger](../../modeling/triggers.md) to configure an action when a message meeting a specific pattern is found from a list of Slack channel types.
+
+### Input parameters
+
+| Parameter | Description | Type | Required? |
+| --------  | ----------- | ---- | --------- |
+| `pattern` | A regular expression to match messages and select which are published as events | String | Yes | 
+| `echo` | The message sent to the user if a message is matched | String | No | 
+| `echoError` | The message sent to the user if an error occurs publishing the event | 
+| `channelTypes` | A list of channel types through which the message can be received, for example `public`, `mention`, `direct-message` | Array | No
+
+### Output parameters
+
+| Parameter | Description | Type | Required? |
+| --------  | ----------- | ---- | --------- |
+| `matchGroups` |  | Array | No |
+| `originalMessage` | The original message that was sent | String | No |
+| `slackChannelId` | The Slack channel ID of where the message was sent | String | No |
+| `slackUserId` | The Slack user ID of the user that sent the mesesage | String | No |
