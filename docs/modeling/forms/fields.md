@@ -13,7 +13,7 @@ The general properties that are shared between all types of form fields are the 
 | `Label` | The name of the field that will appear on the rendered form | 
 | `ID` | The unique ID of the field | 
 | `Required?` | Checking this box makes a field mandatory |
-| `Read-only` | Sets whether the field can be filled in by a user or not | 
+| `Read-only` | Sets whether the field can be filled in by a form filler or not | 
 | `Colspan` | The number of columns a field spans | 
 | `Placeholder` | The default value of the field |
 
