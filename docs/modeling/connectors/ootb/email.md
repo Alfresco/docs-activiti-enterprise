@@ -31,7 +31,7 @@ The following are the parameters that can be passed to the email connector as in
 | `uri` | The URI of the file to attach to the email | String | No |
 | `files` | A [file](../../files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector to attach to the email | File | No |
 
-### Output parameter
+### Output parameters
 The following is the parameter that is returned to the process by the email connector as an output parameter using the `SEND` action:
 
 **Note**: The execution of the email connector is always successful. Any errors will be returned in the `email.error` parameter. The parameter will be null if there were no errors.
