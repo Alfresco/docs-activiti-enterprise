@@ -80,11 +80,16 @@ variables.totalCost = costOfItem * numberOfOrders;
 
 The value of the script variable `totalCost` can finally be sent back to the process by [mapping it to a process variable](../modeling/processes/variables.md).
 
-### Process commands
-Process commands can be used within a script to action [runtime bundle](../architecture/application.md#runtime-bundle) commands such as starting another process instance using a [process definition ID](../modeling/processes/README.md), for example:
+### Process runtime
+Payloads can be created for the [runtime bundle](../architecture/application.md#runtime-bundle) and then sent to a channel. For example to create a process instance using a [process definition ID](../modeling/processes/README.md) and setting starting variables:
 
 ```javascript
-let startProcessInstanceCmd = processPayloadBuilder.start().withProcessDefinitionKey("model-1bs32339-2wc2-4af2-9496-e9a031f12145").build();
+let startProcessInstanceCmd = processPayloadBuilder.start()
+.withProcessDefinitionKey("model-1bs32339-2wc2-4af2-9496-e9a031f12145")
+.withVariable("orderNumber": variables.orderNumber)
+.withVariable("quantity": variables.quantity)
+.build();
+commandProducer.send(startProcessInstanceCmd);
 ```
 
 ### Content APIs
