@@ -5,7 +5,7 @@ Title: Scripts
 # Scripts 
 Scripts are used to execute a script as part of a process. Process variables can be passed to the script and the results of a script can be sent back to a process instance as process variables.
 
-Scripts are executed outside of the [runtime bundle]() by the [script service]() with the results being returned to the process after execution. Script design uses the functionality of  [Monaco](https://github.com/Microsoft/monaco-editor) and the [Graal javascript engine](https://github.com/graalvm/graaljs) for execution. 
+Scripts are executed outside of the [runtime bundle](../architecture/application.md#runtime-bundle) by the [script runtime service](../architecture/application.md#script-runtime-service) with the results being returned to the process after execution. Script design uses the functionality of  [Monaco](https://github.com/Microsoft/monaco-editor) and the [Graal javascript engine](https://github.com/graalvm/graaljs) for execution. 
 
 Scripts can be added to a process definition by using a [script task](../modeling/processes/bpmn/script.md).
 
@@ -140,4 +140,8 @@ let siteMembershipBodyRejection = siteMembershipBody.rejection();
 let siteMembershipBodyRequestUpdate = siteMembershipBody.requestUpdate();
 ```
 
+## Simulation
+Once a script has been modeled it can be tested using the [script service](../architecture/platform.md#script-service).
+
+In the UI click the **Simulate** button after entering the values for each script variable. The results will be populated in the outputs section. 
 

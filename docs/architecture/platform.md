@@ -45,3 +45,9 @@ An instance of [Alfresco Content Services (ACS)](https://docs.alfresco.com/6.1/r
 Alfresco Activiti Enterprise uses the [Identity Service](https://docs.alfresco.com/identity/concepts/identity-overview.html) for authentication and user and role management throughout the product. Authentication can be [configured](http://docs.alfresco.com/identity/concepts/identity-configure.html) to external identity provider instances such as LDAP and SAML. 
 
 The [Alfresco Administrator Application](../administrator/identity/README.md) allows administrators to manage common user-related functions without needing to access the Identity Service. 
+
+## DMN Service
+The DMN Service is used to simulate the [DMN Runtime Service](../architecture/application.md#dmn-runtime-service) in an application without it being deployed. This allows [decision tables](../modeling/decisions.md) to be simulated during the modeling experience to test the functionality using different inputs.
+
+## Script Service
+The Script Service is used to simulate the [Script Runtime Service](../architecture/application.md#script-runtime-service) in an application without it being deployed. This allows [scripts](../modeling/scripts.md) to be simulated during the modeling experience to test the functionality.
