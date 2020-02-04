@@ -122,9 +122,6 @@ The following are the key value pairs that can be set when using [Kafka](https:/
 | `GATEWAY_RUNTIME_PRODUCER_DEST` | The producer destination for runtime events | 
 | `GATEWAY_RUNTIME_EVENT_TYPES_SUPPORTED` | A comma separated list of runtime events to capture in Kafka. `*` is supported as a wildcard, for example `PROCESS_*`. The default value is `*` |
 | `GATEWAY_INTEGRATION_CONSUMER_DEST` | A comma separated list of integration events to capture in Kafka using connector queues. Connector queues use the `implementation` value of a connector. For example if an email connector and a Textract connector are used then this value should be set to `emailConnector.SEND, textractConnector.EXTRACT` |
-| `GATEWAY_KAFKA_BINDER_SECURITY_PROTOCOL` | |
-| `GATEWAY_KAFKA_BINDER_SECURITY_SASL_MECHANISM` | | 
-| `GATEWAY_KAFKA_BINDER_SECURITY_SASL_JAAS_CONFIG` | | 
 
 ## Deploying an application with custom images
 The application services that utilize definition files can be replaced with custom Docker images. Example projects are provided for the runtime bundle, form service and DMN service so that definition XML and JSON files can be placed in the images:
