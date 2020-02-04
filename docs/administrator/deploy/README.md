@@ -42,11 +42,11 @@ To create a deployment descriptor in the UI:
 
 	1. Choose a name for the application. 
 	2. Select which version of the released project to use.
-	3. Select the users and/or groups that will have administrator access to the application.
+	3. Select the users and/or groups that will have [administrator access](../identity/README.md#permissions) to the application.
 
 		**Note**: Users require the [`ACTIVITI_ADMIN` role](../identity/README.md#roles) in order to be assigned as an administrator to an application.
 	
-	4. Select the users and/or groups that will have access to the application. 
+	4. Select the users and/or groups that will have [user access](../identity/README.md#permissions) to the application. 
 
 		**Note**: Users require the [`ACTIVITI_USER` role](../identity/README.md#roles) in order to be assigned as a user to an application. 
 		
@@ -168,11 +168,11 @@ To deploy a project from a released project in the UI:
 
 	1. Choose a name for the application. 
 	2. Select which version of the released project to deploy.
-	3. Select the users and/or groups that will have administrator access to the application.
+	3. Select the users and/or groups that will have [administrator access](../identity/README.md#permissions) to the application.
 	
 		**Note**: Users require the [`ACTIVITI_ADMIN` role](../identity/README.md#roles) in order to be assigned as an administrator to an application.
 	
-	4. Select the users and/or groups that will have access to the application. 
+	4. Select the users and/or groups that will have [user access](../identity/README.md#permissions) to the application. 
 
 		**Note**: Users require the [`ACTIVITI_USER` role](../identity/README.md#roles) in order to be assigned as a user to an application. 
 		
