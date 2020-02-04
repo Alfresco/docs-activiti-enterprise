@@ -7,7 +7,7 @@ Service tasks are used to insert [connectors](../../connectors/README.md) into a
 
 Service tasks are graphically represented by a single, thin rounded rectangle with a cog icon inside. 
 
-**Note**: Service tasks do not emit a `TASK_CREATED` [engine event](../../../architecture/events.md). The `INTEGRATION_REQUESTED` event should be monitored to report or track service tasks.
+**Note**: Service tasks do not emit the `TASK_CREATED` and `TASK_COMPLETED` [engine events](../../../architecture/events.md). The `INTEGRATION_REQUESTED` and `INTEGRATION_RESULT_RECEIVED` events should be monitored to report or track service tasks.
 
 ## XML
 The XML for a service task is similar to the following:
