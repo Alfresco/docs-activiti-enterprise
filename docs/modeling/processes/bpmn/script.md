@@ -45,7 +45,7 @@ The type of [multi-instance](../bpmn/multi.md) execution for the script task. Th
 ### Script name
 The [script](../../scripts.md) to execute. The script must exist within the same project as the process definition to be selected. 
 
-Script tasks are handled as [service tasks](../bpmn/service.md) by Activiti Enterprise and will always have the `implementation` value of `script.EXECUTE`. The mapping between a script and its script task is stored in the `constants` of the **Extensions Editor** or `<process-definition-name>-extensions.json>` file, for example:
+Script tasks are handled as [service tasks](../bpmn/service.md) by Activiti Enterprise and will always have the `implementation` value of `script.EXECUTE`. The mapping between a script and its script task is stored in the `constants` of the **Extensions Editor** or `<process-definition-name>-extensions.json>` file using the script `name`, for example:
 
 ```json
     "constants": {
