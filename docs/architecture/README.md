@@ -7,8 +7,6 @@ The following diagram describes the architecture of Alfresco Activiti Enterprise
 
 ![Architectural Diagram](../images/arch-diagram.png)
 
-
-
 ## Services
 Alfresco Activiti Enterprise is comprised of microservices and components. These services can be considered platform level services or application level services. 
 
