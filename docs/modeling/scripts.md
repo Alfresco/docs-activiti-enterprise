@@ -85,10 +85,10 @@ Payloads can be created for the [runtime bundle](../architecture/application.md#
 
 ```javascript
 let startProcessInstanceCmd = processPayloadBuilder.start()
-.withProcessDefinitionKey("model-1bs32339-2wc2-4af2-9496-e9a031f12145")
-.withVariable("orderNumber": variables.orderNumber)
-.withVariable("quantity": variables.quantity)
-.build();
+	.withProcessDefinitionKey("model-1bs32339-2wc2-4af2-9496-e9a031f12145")
+	.withVariable("orderNumber": variables.orderNumber)
+	.withVariable("quantity": variables.quantity)
+	.build();
 commandProducer.send(startProcessInstanceCmd);
 ```
 
