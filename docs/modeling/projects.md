@@ -28,7 +28,7 @@ To add a collaborator to a project:
 ## Validation
 Validation is run when any model is saved in the Modeling Application. The **Validate** option is available to all model types and can be run on demand. The project level validation will be run against all models in the project. 
 
-Any validation errors in a model will be 
+Any validation errors in a model will be displayed in the log at the bottom of the screen.
 
 ## Versioning and releasing
 Projects are version controlled through a release function. The version will not be incremented until it has been [released](#releasing-a-project). A new project will begin at version 0 and increments by one every time it is released. 
