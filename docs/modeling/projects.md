@@ -52,7 +52,7 @@ Released projects are the only projects that can be deployed and the only ones t
 ### Folder structure
 A folder is created for each project in the Modeling Application that contains a set structure for each element type. When you download a project, the extracted zip file will be in the same structure for every project.  
 
-The following is an example of an exploded zip file of a project called *holiday* that contains a connector, a decision table, a UI, a form and two process definitions:
+The following is an example of an exploded zip file of a project called *holiday* that contains a connector, a decision table, a UI, a form, a file, a script and two process definitions:
 
 ```
 /holiday/
@@ -66,26 +66,32 @@ The following is an example of an exploded zip file of a project called *holiday
 		approval-policy-extensions.json	
 	/forms/
 		approval-form.json
-	/ui/
-		process.json
 	/processes/
 		approve-extensions.json
 		approve.bpmn.xml
 		request-extensions.json
 		request.bpmn20.xml
+	/scripts/
+		update-calendar.bin
+		update-calendar-extensions.json
+	/ui/
+		process.json
 	holiday.json
+
 ```
 
 ### Files
 File definitions are created and stored for each element of a project:
 
-* `<process-definition-name>.bpmn20.xml` is the format that process definitions are stored in.
-* `<connector-name>.json` is the format that connector definitions are stored in. 
-* `<form-name>.json` is the format that form definitions are stored in. 
-* `<ui-name>.json` is the format that UI definitions are stored in for content or process. 
+* `<connector-name>.json` is the format that connector definitions are stored in.  
 * `<decision-table-name>.xml` is the format that decision table definitions are stored in.
 * `<decision-table-name>-extensions.json` is the format that decision table UIDs are stored in. 
-* `<process-definition-name>-extensions.json` is the format that stores the links between process elements. For example it maps the `implementation` value of service tasks with the relevant connector actions and equivalent process variables. 
 * `<file-name>.bin` is the binary format that uploaded files are stored as.
 * `<file-name>-extensions.json` is the format that stores the metadata for the associated uploaded file. 
+* `<form-name>.json` is the format that form definitions are stored in. 
+* `<process-definition-name>.bpmn20.xml` is the format that process definitions are stored in.
+* `<process-definition-name>-extensions.json` is the format that stores the properties for BPMN elements that are outside the scope of the BPMN standard.
+* `<script-name>.bin` is the binary format that scripts are stored as.
+* `<script-name>-extensions.json` is the format that stores the metadata and variables for a script.
+* `<ui-name>.json` is the format that UI definitions are stored in for content or process.
 * `<project-name>.json` is the project manifest that stores the name and version of a project.
