@@ -38,6 +38,7 @@
                         - gateways.md: 'Gateways'
                         - business.md: 'Business rule tasks'
                         - call.md: 'Call activities'
+                        - script.md: 'Script tasks'
                         - service.md: 'Service tasks'
                         - sub.md: 'Sub-processes'
                         - user.md: 'User tasks'
@@ -71,6 +72,7 @@
         - decisions.md: 'Decision tables'
         - ui.md: 'User interfaces'
         - files.md: 'Files'
+        - scripts.md: 'Scripts'
         - triggers.md: 'Triggers'
 - administrator:
     title: 'Alfresco Administrator Application'

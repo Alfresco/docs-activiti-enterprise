@@ -34,6 +34,7 @@ The BPMN elements available in Alfresco Activiti Enterprise are:
 -   [Business rule tasks](../bpmn/business.md)
 -   [Call activities](../bpmn/call.md)
 -   [Service tasks](../bpmn/service.md)
+-   [Script tasks](../bpmn/script.md)
 -   [Sub-processes](../bpmn/sub.md)
 	-	 [Expanded and collapsed sub-processes](../bpmn/sub.md##expanded-and-collapsed-sub-processes)
 	-	 [Event sub-processes](../bpmn/sub.md#event-sub-processes)   

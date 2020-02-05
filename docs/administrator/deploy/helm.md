@@ -38,6 +38,7 @@ The application services that utilize definition files can be replaced with cust
 * [Runtime bundle](https://github.com/Alfresco/example-process-application/tree/master/example-process-runtime-bundle-service)
 * [Form service](https://github.com/Alfresco/example-process-application/tree/master/example-form-service)
 * [DMN service](https://github.com/Alfresco/example-process-application/tree/master/example-dmn-runtime-service)
+* [Script service](https://github.com/Alfresco/example-process-application/tree/master/example-script-runtime-service)
 
 **Note**: The layout of each project is almost identical. The runtime bundle project will be used as an example.
 
@@ -101,6 +102,7 @@ The Helm chart values require updating to point to the correct custom images and
 		| Runtime bundle |  `SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX` |
 		| Form service | `FORMCONFIGURATION_FORMSDEFINITIONSDIRECTORYPATH` | 
 		| DMN service | `DMNCONFIGURATION_TABLESDEFINITIONSDIRECTORYPATH` |
+		| Script service | `SCRIPTCONFIGURATION_SCRIPTSDEFINITIONSDIRECTORYPATH` |
 	
 	4. Set the location of the [project manifest](../../modeling/projects.md#files) for each service using the environment variable `PROJECT_MANIFEST_FILE_PATH`, for example: 
 

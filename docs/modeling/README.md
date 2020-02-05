@@ -22,6 +22,8 @@ The Alfresco Modeling Application is used to create and update the components th
 
 * [Files](../modeling/files.md) can be uploaded and used within a project. 
 
+* [Scripts](../modeling/scripts.md) can be created and implemented in a process definition to execute at runtime. 
+
 * [Triggers](../modeling/triggers.md) are used to listen for an event and then execute an action when the event criteria are met.
 
 ## Modeling

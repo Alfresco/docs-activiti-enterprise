@@ -34,11 +34,12 @@ or
 
 The following BPMN elements can have multiple instances:
 
-* [User tasks](../bpmn/user.md)
-* [Service tasks](../bpmn/service.md)
 * [Business rule tasks](../bpmn/business.md)
 * [Call activities](../bpmn/call.md)
 * [Embedded sub-processes](../bpmn/sub.md#expanded-and-collapsed-sub-processes)
+* [Script tasks](../bpmn/script.md)
+* [Service tasks](../bpmn/service.md)
+* [User tasks](../bpmn/user.md)
 
 ## Variables 
 Each multi-instance execution contains the following three variables: 
@@ -124,8 +125,8 @@ In the following example, the user task will run 4 times sequentially and the va
 </bpmn2:userTask>
 ```
 
-The process variable `choices` will contain JSON similar to the following:
+The process variable `choices` will contain a list of results similar to the following:
 
 ```json
-{"choices":["chocolate", "mint", "strawberry"]}
+["chocolate", "mint", "strawberry"]
 ```
