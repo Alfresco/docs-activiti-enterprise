@@ -169,18 +169,22 @@ The Slack connector contains an event called `MESSAGE_RECEIVED` that can be used
 
 ### Input parameters
 
-| Parameter | Description | Type | Required? |
-| --------  | ----------- | ---- | --------- |
-| `pattern` | A regular expression to match messages and select which are published as events | String | Yes | 
-| `echo` | The message sent to the user if a message is matched | String | No | 
-| `echoError` | The message sent to the user if an error occurs publishing the event | 
-| `channelTypes` | A list of channel types through which the message can be received, for example `public`, `mention`, `direct-message` | Array | No
+| Parameter | Description | Example | Required? |
+| --------  | ----------- | ------- | --------- |
+| `pattern` | A regular expression that selects which messages are published as events. Java catching group syntax can be used to create groups from the pattern as variables  | Order Number `(?<orderNumber>.+)` | Yes | 
+| `echo` | The message sent to the channel if a message is matched | Your reference number is `${orderNumber}` | No | 
+| `echoError` | The message sent to the channel if an error occurs publishing the event | There was a problem publishing that event. | No | 
+| `channelTypes` | A list of channel types through which the message can be received | public | No |
+
+**Note**: Any groups created in a `pattern` can be referenced in `echo` and `echoError` using the syntax `${groupName}`.
 
 ### Output parameters
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `matchGroups` |  | Array | No |
+| `matchGroups` | Any matching groups found using the regular expression in `pattern` | JSON | No |
 | `originalMessage` | The original message that was sent | String | No |
 | `slackChannelId` | The Slack channel ID of where the message was sent | String | No |
 | `slackUserId` | The Slack user ID of the user that sent the mesesage | String | No |
+
+**Note**: Groups found in `matchGroups` can be used to map to process variables in a [trigger](../../../modeling/triggers.md) by referencing the variable in a JSON field, for example using `${matchGroups.orderNumber}`

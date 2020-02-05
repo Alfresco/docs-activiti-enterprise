@@ -58,17 +58,21 @@ The Twilio connector contains an event called `SMS_RECEIVED` that can be used by
 
 ### Input parameters
 
-| Parameter | Description | Type | Required? |
-| --------  | ----------- | ---- | --------- |
-| `pattern` | A regular expression to match messages and select which are published as events | String | Yes | 
-| `echo` | The message sent to the user if a message is matched | String | No | 
-| `echoError` | The message sent to the user if an error occurs publishing the event | 
+| Parameter | Description | Example | Required? |
+| --------  | ----------- | ------- | --------- |
+| `pattern` | A regular expression that selects which messages are published as events. Java catching group syntax can be used to create groups from the pattern as variables  | Order Number `(?<orderNumber>.+)` | Yes | 
+| `echo` | The message sent to the original sender if a message is matched | Your reference number is `${orderNumber}` | No | 
+| `echoError` | The message sent to the user if an error occurs publishing the event | There was a problem publishing that event. | No | 
+
+**Note**: Any groups created in a `pattern` can be referenced in `echo` and `echoError` using the syntax `${groupName}`
 
 ### Output parameters
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `matchGroups` |  | Array | No |
+| `matchGroups` | Any matching groups found using the regular expression in `pattern` | JSON | No |
 | `originalMessage` | The original message that was sent | String | No |
 | `to` | The recipient of the matched message | String | No |
 | `from` | The sender of the matched message | String | No |
+
+**Note**: Groups found in `matchGroups` can be used to map to process variables in a [trigger](../../../modeling/triggers.md) by referencing the variable in a JSON field, for example using `${matchGroups.orderNumber}`
