@@ -44,6 +44,7 @@
                         - user.md: 'User tasks'
                         - end.md: 'End events'
                         - multi.md: 'Multi-instances'
+                        - pools.md: 'Pools and lanes'
                         - sequence.md: 'Sequence flows'
         - forms:
             title: 'Forms'

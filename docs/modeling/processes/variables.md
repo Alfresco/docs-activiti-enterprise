@@ -3,10 +3,10 @@ Title: Process variables
 ---
 
 # Process variables
-Process variables are used to store values and pass them between BPMN elements throughout a process instance.  
+Process variables are used to store values and pass them between BPMN elements throughout a process instance. The scope of process variables is restricted to a process and not a process definition which is important to consider when modeling with [pools](../processes/bpmn/pools.md) in a process definition.
 
 ## Creating process variables
-A process definition without any BPMN element selected will display an **Edit Process Variables** button in the properties panel. Process variables can be configured using the inbuilt GUI or the JSON editor provided with it. 
+A process definition without any BPMN element selected will display an **Edit Process Variables** button in the properties panel. If using [pools](../processes/bpmn/pools.md) then the **Edit Process Variables** button will only appear when a single process is selected. Process variables can be configured using the inbuilt GUI or the JSON editor provided with it. 
 
 Each process variable has four properties:  
 
@@ -63,7 +63,7 @@ The following is an example of an `<process-definition-name>-extensions.json` fi
 
 Process variables can also be declared when starting a process instance. 
 
-The following is an example payload for `POST /v1/process-instances` in the runtime bundle:
+The following is an example payload for `POST rb/v1/process-instances` in the runtime bundle:
 
 ```json
 {
