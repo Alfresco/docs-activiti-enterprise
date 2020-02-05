@@ -76,7 +76,7 @@ File definitions are created and stored for each element of a project:
 * `<file-name>-extensions.json` is the format that stores the metadata for the associated uploaded file. 
 * `<form-name>.json` is the format that form definitions are stored in. 
 * `<process-name>.bpmn20.xml` is the format that process definitions are stored in.
-* `<process-name>-extensions.json` is the format that stores the links between process elements. For example it maps the `implementation` value of service tasks with the relevant connector actions and equivalent process variables. 
+* `<process-name>-extensions.json` is the format that stores the properties for BPMN elements that are outside the scope of the BPMN standard.
 * `<script-name>.bin` is the binary format that scripts are stored as.
 * `<script-name>-extensions.json` is the format that stores the metadata and variables for a script.
 * `<ui-name>.json` is the format that UI definitions are stored in for content or process.

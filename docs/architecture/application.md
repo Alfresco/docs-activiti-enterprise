@@ -74,4 +74,4 @@ The Preference Service is a key value store that retains user-based preferences.
 Connectors are used to execute logic outside of processes and the [runtime bundle](#runtime-bundle). Connectors are attached to a [service task](../modeling/processes/bpmn/service.md) within a process definition. When the process flow reaches the service task, the values are sent from the process instance to a connector using Spring Cloud Streams via [Rabbit MQ](#rabbit-mq) to be used as part of the logic. The results are sent back to the process instance after the connector has finished and the process flow continues.
 
 ## Script Runtime Service
-The Script Runtime Service contains the backend functionality required to execute [scripts]() within an application. Scripts are executed outside of the runtime bundle with the results being passed back using Rabbit MQ.
+The Script Runtime Service contains the backend functionality required to execute [scripts](../modeling/scripts.md) within an application. Scripts are executed outside of the runtime bundle with the results being passed back using Rabbit MQ.

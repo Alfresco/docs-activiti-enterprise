@@ -36,28 +36,27 @@ The following are the data types that script variables can be set as:
 | File | A [file](../modeling/files.md) uploaded into a process definition or as part of a process instance or task | 
 | JSON | A JSON object | `{"flavor" : "caramel"}` | 
 
-Script variables are stored in the `variables` of the `<script-name>-extensions.json` and can also be viewed through the UI in the **Extensions Editor**.
+Script variables are stored in the `variables` of the `<script-name>-extensions.json` and can also be viewed through the UI in the **Metadata**.
 
-The following is an example of a `<script-name>-extensions.json` file or extensions editor with three script variables:
+The following is an example of a `<script-name>-extensions.json` file or metadata with three script variables:
 
 ```json
 "variables": [
 	{
 	"id": "4d32427e-23c2-4e49-8ecf-77ce0bd4e575",
 	"name": "cost",
-	"type": "string",
-	"value": "10.00"
+	"type": "integer",
+	"value": 10
 	},
 	{
 	"id": "cc31fe8b-db7c-4055-94d8-7ad5f15ef263",
 	"name": "orders",
-	"type": "integer",
+	"type": "integer"
 	},
 	{
 	"id": "004826f3-d2f9-4fff-a905-17e2c4dd38e0",
 	"name": "totalCost",
-	"type": "string",
-	"value": ""
+	"type": "integer"
 	}
 ]
 ```
