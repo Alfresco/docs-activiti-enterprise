@@ -42,11 +42,11 @@ To create a deployment descriptor in the UI:
 
 	1. Choose a name for the application. 
 	2. Select which version of the released project to use.
-	3. Select the users and/or groups that will have administrator access to the application.
+	3. Select the users and/or groups that will have [administrator access](../identity/README.md#permissions) to the application.
 
 		**Note**: Users require the [`ACTIVITI_ADMIN` role](../identity/README.md#roles) in order to be assigned as an administrator to an application.
 	
-	4. Select the users and/or groups that will have access to the application. 
+	4. Select the users and/or groups that will have [user access](../identity/README.md#permissions) to the application. 
 
 		**Note**: Users require the [`ACTIVITI_USER` role](../identity/README.md#roles) in order to be assigned as a user to an application. 
 		
@@ -93,7 +93,7 @@ Exporting a deployment descriptor will download a `helm.zip` file that contains 
 		values.yaml
 ```
 
-The `Chart.yaml` contains the location of the parent [Helm chart used](https://git.alfresco.com/process-services-public/alfresco-process-application-deployment).
+The `Chart.yaml` contains the location of the parent [Helm chart used](https://github.com/Alfresco/alfresco-process-application-deployment).
 
 The contents of `requirements.yaml` is dynamically updated with the necessary chart dependencies depending on the contents of the project. For example, if the Process Workspace is not defined as a user interface in the project, then the following will not appear in the file: 
 
@@ -168,11 +168,11 @@ To deploy a project from a released project in the UI:
 
 	1. Choose a name for the application. 
 	2. Select which version of the released project to deploy.
-	3. Select the users and/or groups that will have administrator access to the application.
+	3. Select the users and/or groups that will have [administrator access](../identity/README.md#permissions) to the application.
 	
 		**Note**: Users require the [`ACTIVITI_ADMIN` role](../identity/README.md#roles) in order to be assigned as an administrator to an application.
 	
-	4. Select the users and/or groups that will have access to the application. 
+	4. Select the users and/or groups that will have [user access](../identity/README.md#permissions) to the application. 
 
 		**Note**: Users require the [`ACTIVITI_USER` role](../identity/README.md#roles) in order to be assigned as a user to an application. 
 		
@@ -197,6 +197,8 @@ To deploy a project from a released project in the UI:
 3. **Deploy** the application. 
 
 Once an application has been deployed, its status can be [monitored](#monitoring-applications) in the **Application Instances** section. After the deployment process has finished, the [application-level APIs](../../apis/README.md) can be accessed.
+
+Applications can also be [upgraded](../deploy/upgrade.md) to new versions if the project definition has changed and a new project version has been released.
 
 ## Monitoring applications
 The **Application Instances** section is for monitoring the status of deployed applications. 
@@ -225,7 +227,3 @@ Applications in the process of being deployed or that have errored during deploy
 Links are provided for the gateway of each application as well as the URL of its [Process Workspace](../../workspace/README.md) and Content Application if the [UIs](../../modeling/interfaces.md) were configured in the application. 
 
 An application that has been successfully deployed will use the application name for [API queries](../../apis/README.md). 
-
- 
-
-

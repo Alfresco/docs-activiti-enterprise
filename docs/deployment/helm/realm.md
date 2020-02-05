@@ -1,8 +1,8 @@
 ---
-Title: Realm
+Title: Realm file
 ---
 
-# Realm 
+# Realm file
 A realm file is a JSON format file that describes the security metadata for clients, users, groups and roles. 
 
 The realm for Activiti Enterprise can be customized with the exception of the following items:

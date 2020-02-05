@@ -14,11 +14,11 @@ The following roles are available with a default installation:
 
 | Role | Description |
 | ---- | ----------- |
-| `ACTIVITI_ADMIN` | Provides access to the [Administrator Application](../README.md). Users require this role to be given administrator access to an application. If a user has administrator access to an application they will be able to see the **Process Admin** functions meaning they can monitor process instances and tasks and view the audit log |
-| `ACTIVITI_DEVOPS` | Provides access to the [Administrator Application](../README.md). Users with this role will be able to see the **DevOps** functions meaning they can deploy projects, create deployment descriptors and monitor applications |
-| `ACTIVITI_IDENTITY` | Provides access to the [Administrator Application](../README.md). Users with this role will be able to see the **Identity** functions meaning they can manage users, groups and roles |
+| `ACTIVITI_ADMIN` | Provides access to the Administrator Application. Users with this role will be able to see the [**Process Admin**](../monitoring/README.md) functions for applications that they have been given [administrator access](#permissions) to. |
+| `ACTIVITI_DEVOPS` | Provides access to the Administrator Application. Users with this role will be able to see the [**DevOps**](../deploy) functions meaning they can deploy projects, create deployment descriptors and monitor applications |
+| `ACTIVITI_IDENTITY` | Provides access to the Administrator Application. Users with this role will be able to see the **Identity** functions meaning they can manage users, groups and roles |
 | `ACTIVITI_MODELER` | Provides access to the [Modeling Application](../../modeling/README.md). Users with this role will be able to model and release projects |
-| `ACTIVITI_USER` | Users require this role to be given user access to an application. If a user has user access to an application they will be able to start processes and tasks and access the [Process Workspace](../../workspace/README.md) for that application if it is deployed.  | 
+| `ACTIVITI_USER` | Users require this role to be given user access to an application | 
 
 ## Users
 The users section displays the current list of users in the system. New users can be added in this section. 
@@ -41,6 +41,14 @@ The following are the default users:
 
 ## Groups
 The groups sections displays the current groups available to assign users to and allows them to be deleted or have their name changed. It is also possible to create a new group.
+
+## Permissions
+Permissions refer to the different levels of access that users can be assigned to an application during and after deployment. 
+
+| Permission | Description | 
+| ---------- | ----------- | 
+| User | User access to an application provides a user the ability to start process instances and tasks and access the [Process Workspace](../../workspace/README.md) for that application. A user can also cancel a process instance if they were the original process initiator. | 
+| Administrator | Administrator access to an application provides a user the ability to [monitor all process instances and tasks](../monitoring/README.md) in an application and view the [audit log](../monitoring/README.md#audit) for it | 
 
 ## Identity Service
 Whilst the majority of user management can be handled within the Administrator Application, it may be necessary to access the [Identity Service](../identity/service.md) administration console directly for some tasks. 
