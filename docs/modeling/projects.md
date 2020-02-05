@@ -16,6 +16,20 @@ project4
 two-hundred-and-twenty-one
 ```
 
+## Collaborators
+By default users can only view the projects they have created. The **Collaborators** option allows user access to be managed for individual projects. A collaborator can do anything the creator can do except for deleting the project.
+
+To add a collaborator to a project:
+
+1. Check that the user has the [`ACTIVITI_MODELER` role](../administrator/identity/README.md).
+2. Select the **Collaborators** option against the project.
+3. Search for the user and click **Add**.
+
+## Validation
+Validation is run when any model is saved in the Modeling Application. The **Validate** option is available to all model types and can be run on demand. The project level validation will be run against all models in the project. 
+
+Any validation errors in a model will be displayed in the log at the bottom of the screen.
+
 ## Versioning and releasing
 Projects are version controlled through a release function. The version will not be incremented until it has been [released](#releasing-a-project). A new project will begin at version 0 and increments by one every time it is released. 
 
@@ -75,8 +89,8 @@ File definitions are created and stored for each element of a project:
 * `<file-name>.bin` is the binary format that uploaded files are stored as.
 * `<file-name>-extensions.json` is the format that stores the metadata for the associated uploaded file. 
 * `<form-name>.json` is the format that form definitions are stored in. 
-* `<process-name>.bpmn20.xml` is the format that process definitions are stored in.
-* `<process-name>-extensions.json` is the format that stores the properties for BPMN elements that are outside the scope of the BPMN standard.
+* `<process-definition-name>.bpmn20.xml` is the format that process definitions are stored in.
+* `<process-definition-name>-extensions.json` is the format that stores the properties for BPMN elements that are outside the scope of the BPMN standard.
 * `<script-name>.bin` is the binary format that scripts are stored as.
 * `<script-name>-extensions.json` is the format that stores the metadata and variables for a script.
 * `<ui-name>.json` is the format that UI definitions are stored in for content or process.
