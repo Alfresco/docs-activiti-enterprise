@@ -122,7 +122,7 @@ The following are the key value pairs that can be set when using [Kafka](https:/
 | `GATEWAY_RUNTIME_PRODUCER_DEST` | The producer destination for runtime events | 
 | `GATEWAY_RUNTIME_EVENT_TYPES_SUPPORTED` | A comma separated list of runtime events to capture in Kafka. `*` is supported as a wildcard, for example `PROCESS_*`. The default value is `*` |
 | `GATEWAY_INTEGRATION_CONSUMER_DEST` | A comma separated list of integration events to capture in Kafka using connector queues. Connector queues use the `implementation` value of a connector. For example if an email connector and a Textract connector are used then this value should be set to `emailConnector.SEND, textractConnector.EXTRACT` |
-| `SPRING_CLOUD_STREAM_KAFKA_BINDER_CONFIGURATION_SECURITY_PROTOCOL` | |
+| `SPRING_CLOUD_STREAM_KAFKA_BINDER_CONFIGURATION_SECURITY_PROTOCOL` | Sets the security protocol to introduce between clients and the brooker, for example `SASL_PLAINTEXT` |
 | `SPRING_CLOUD_STREAM_KAFKA_BINDER_CONFIGURATION_SASL_MECHANISM` | | 
 | `SPRING_CLOUD_STREAM_KAFKA_BINDER_CONFIGURATION_SASL_JAAS_CONFIG` | | 
 
