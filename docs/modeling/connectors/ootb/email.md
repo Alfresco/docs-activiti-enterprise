@@ -41,25 +41,29 @@ The following is the parameter that is returned to the process by the email conn
 | `email.error` | A list of errors if any are caught by the connector | String |
 
 ## Events
-The email connector contains an event called `EMAIL_RECEIVED` that can be used by a [trigger](../../triggers.md) to configure an action when an email meeting a specific pattern is found.   
+The email connector contains an event called `EMAIL_RECEIVED` that can be used by a [trigger](../../triggers.md) to configure an action when an email subject line meets a specific pattern.   
 
 ### Input parameters
 
-| Parameter | Description | Type | Required? |
-| --------  | ----------- | ---- | --------- |
-| `pattern` | A regular expression to match emails and select which are published as events | String | Yes | 
-| `echo` | The message sent to the user if a message is matched | String | No | 
-| `echoError` | The message sent to the user if an error occurs publishing the event | 
+| Parameter | Description | Example | Required? |
+| --------  | ----------- | ------- | --------- |
+| `pattern` | A regular expression that selects which emails are published as events. The syntax `(?<variable>)` can be used to create  | `Order Number (?<orderNumber>.+)` | Yes | 
+| `echo` | The message sent to the original sender if a message is matched | `Your reference number is ${orderNumber}` | No | 
+| `echoError` | The message sent to the user if an error occurs publishing the event | There was a problem publishing that event. | No | 
+
+**Note**: Match groups created in a `pattern` can be referenced in `echo` and `echoError` using the syntax `${matchGroup}`.
 
 ### Output parameters
 
 | Parameter | Description | Type | Required? |
 | --------  | ----------- | ---- | --------- |
-| `matchGroups` |  | Array | No |
+| `matchGroups` | Any match groups created in the regular expression `pattern` will be returned as a JSON map  | JSON | No |
 | `emailSubject` | The subject of the matched email | String | No |
 | `emailTo` | The recipient of the matched email | String | No |
 | `emailFrom` | The sender of the matched email | String | No |
 | `emailBody` | The message body of the matched email | String | No |
+
+**Note**: The match groups can be used to map to process variables in a [trigger](../../../modeling/triggers.md) by referencing the variable in a JSON field, for example using `${matchGroups.orderNumber}`
 
 ## Connector variables
 Environment variables that are specific to a connector need to be specified during deployment. They are entered as connector variables and used as environment variables for the connector when it is deployed. 
