@@ -12,7 +12,11 @@
 - deployment:
     title: 'Deployment'
     children:
-        - realm.md: 'Realm'
+        - helm:
+            title: 'Deploying with Helm'
+            children:
+                - realm.md: 'Realm file'
+        - terraform.md: 'Deploying with Terraform'
         - upgrade.md: 'Upgrading'
 - modeling: 
     title: 'Alfresco Modeling Application'
@@ -21,6 +25,7 @@
         - processes:
             title: 'Processes'
             children:
+                - variables.md: 'Process variables'
                 - bpmn:
                     title: 'BPMN elements'
                     children: 
@@ -33,11 +38,13 @@
                         - gateways.md: 'Gateways'
                         - business.md: 'Business rule tasks'
                         - call.md: 'Call activities'
+                        - script.md: 'Script tasks'
                         - service.md: 'Service tasks'
                         - sub.md: 'Sub-processes'
                         - user.md: 'User tasks'
                         - end.md: 'End events'
                         - multi.md: 'Multi-instances'
+                        - pools.md: 'Pools and lanes'
                         - sequence.md: 'Sequence flows'
         - forms:
             title: 'Forms'
@@ -66,6 +73,9 @@
         - decisions.md: 'Decision tables'
         - ui.md: 'User interfaces'
         - files.md: 'Files'
+        - scripts.md: 'Scripts'
+        - triggers.md: 'Triggers'
+        - content.md: 'Content models'
 - administrator:
     title: 'Alfresco Administrator Application'
     children:
@@ -74,6 +84,7 @@
             children:
                 - helm.md: 'Deploying with Helm'
                 - infrastructure.md: 'Customizing application infrastructure'
+                - upgrade.md: 'Upgrading applications'
         - monitoring:
             title: 'Monitoring tasks and processes'
             children:

@@ -34,7 +34,7 @@ Message payloads are created with message throw events and contain one or more p
 * Integer
 * Date
 * Boolean
-* [Process variable](../README.md#process-variables)
+* [Process variable](../variables.md)
 
 The receiving message catch event is then used to map the received values in the payload to process variables in its own scope. 
 
@@ -71,7 +71,7 @@ The following is an example of a message payload for a [message end event](../bp
 ### Correlation keys
 Message events can optionally contain a correlation key. If a correlation key is present then when a message is thrown it uses the `activiti:correlationKey` value and the `messageRef` of the throwing event to match against the same two properties for a catching event. If only one property is matched then the message will not be caught. 
 
-Using a [process variable](../README.md#process-variables) for the correlation key in a throwing event and a static value for its corresponding catching event allows for the message to only be caught in specific circumstances.
+Using a [process variable](../variables.md) for the correlation key in a throwing event and a static value for its corresponding catching event allows for the message to only be caught in specific circumstances.
  
 In the following example, the message will only be caught if a catching event has a `messageRef` of `Message_1hxecs2` and an `activiti:correlationKey` that matches the value of `userId`:
 
@@ -82,6 +82,19 @@ In the following example, the message will only be caught if a catching event ha
 ```
 
 **Note**: Message start events cannot contain a correlation key unless they are used in a [sub process](../bpmn/sub.md). 
+
+### Message flows
+When messages are used between two different [pools](../bpmn/pools.md) the sequence flow that connects them is a dotted line and is called a `messageFlow`. The message flow is part of the `collaboration` element created by introducing a pool. Message flows reference the throwing message event as the `sourceRef` and the catching message event as the `targetRef`.
+
+The following is an example of a message flow:
+
+```xml
+<bpmn2:collaboration id="Collaboration_0kgbwi1">
+	<bpmn2:participant id="Participant_1i6u1my" processRef="Process_1d9yxsm" />
+	<bpmn2:participant id="Participant_10umhbc" processRef="Process_1piiyp4" />
+	<bpmn2:messageFlow id="MessageFlow_0vh4zdb" sourceRef="Event_00acemq" targetRef="Event_13u5jtf" />
+</bpmn2:collaboration>
+```
 
 ## Message intermediate catch events
 Message intermediate catching events cause the process flow to wait until the message named in the `messageRef` property is received before it proceeds. 

@@ -14,13 +14,13 @@ All Activiti Enterprise databases use [Liquibase](http://www.liquibase.org/) to 
 
 The changelogs for each release are found in the `/config/<service-name>/liquibase/changelog` folder of each repository for H2 and Postgres databases: 
 
-* [Modeling service](https://git.alfresco.com/process-services/alfresco-modeling-service/tree/develop/src/main/resources/config/modeling/liquibase/changelog)
+* [Modeling service](https://github.com/Alfresco/alfresco-modeling-service/tree/develop/src/main/resources/config/modeling/liquibase/changelog)
  
-* [Deployment service](https://git.alfresco.com/process-services/alfresco-deployment-service/tree/develop/src/main/resources/config/deployment/liquibase/changelog) 
+* [Deployment service](https://github.com/Alfresco/alfresco-deployment-servicetree/develop/src/main/resources/config/deployment/liquibase/changelog) 
 
 * [Audit service](https://github.com/Activiti/activiti-cloud-audit-service/blob/develop/activiti-cloud-starter-audit/src/main/resources/config/audit/liquibase/changelog/)
  
-* [Form service](https://git.alfresco.com/process-services/alfresco-form-service/tree/develop/src/main/resources/config/form/liquibase/changelog)
+* [Form service](https://github.com/Alfresco/alfresco-form-service/tree/develop/src/main/resources/config/form/liquibase/changelog)
 
 * [Query service](https://github.com/Activiti/activiti-cloud-query-service/blob/develop/activiti-cloud-starter-query/src/main/resources/config/query/liquibase/changelog/)
 

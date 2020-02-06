@@ -34,11 +34,12 @@ or
 
 The following BPMN elements can have multiple instances:
 
-* [User tasks](../bpmn/user.md)
-* [Service tasks](../bpmn/service.md)
 * [Business rule tasks](../bpmn/business.md)
 * [Call activities](../bpmn/call.md)
 * [Embedded sub-processes](../bpmn/sub.md#expanded-and-collapsed-sub-processes)
+* [Script tasks](../bpmn/script.md)
+* [Service tasks](../bpmn/service.md)
+* [User tasks](../bpmn/user.md)
 
 ## Variables 
 Each multi-instance execution contains the following three variables: 
@@ -49,7 +50,7 @@ Each multi-instance execution contains the following three variables:
 | `nrOfActiveInstances` | The number of currently active instances. For sequential multi-instances the value will always be 1 |
 | `nrOfCompletedInstances` | The number of instances that have already been completed | 
 
-**Note**: These variables can be used in multi-instance expressions without having to be declared as [process variables](../../processes/README.md#process-variables).
+**Note**: These variables can be used in multi-instance expressions without having to be declared as [process variables](../../processes/variables.md).
 
 Each instance in the multi-instance execution also has an instance-local variable that is not visible to other instances, nor to the process instance:
 
@@ -58,7 +59,7 @@ Each instance in the multi-instance execution also has an instance-local variabl
 | `loopCounter` | The index in the for-each loop of that particular instance |
 
 ## Cardinality
-The number of instances to be executed can be set by the cardinality of the multi-instance item. This can be set as a static value, a [process variable](../../processes/README.md#process-variables) or calculated as an expression. 
+The number of instances to be executed can be set by the cardinality of the multi-instance item. This can be set as a static value, a [process variable](../../processes/variables.md) or calculated as an expression. 
 
 The XML representation of cardinality if the following: 
 
@@ -105,4 +106,27 @@ In the following example, the completion condition will be met when 60% of insta
 	<bpmn2:loopCardinality>10</bpmn2:loopCardinality>
 	<bpmn2:completionCondition>${nrOfCompletedInstances/nrOfInstances >= 0.6 }</bpmn2:completionCondition>
 </bpmn2:multiInstanceLoopCharacteristics>
+```
+
+## Results
+A result collection can be set to aggregate the results from instances into a variable. The result collection is created as a process variable after instance execution has finished. 
+
+The result element variable is used to select the field or variable from the BPMN element to aggregate into the result collection. 
+
+In the following example, the user task will run 4 times sequentially and the values of `flavor` from the form will be stored as a JSON object in the variable `choices`: 
+
+```xml
+<bpmn2:userTask id="UserTask_1n1uk4a" activiti:assignee="{users}">
+	<bpmn2:multiInstanceLoopCharacteristics isSequential="true">
+		<bpmn2:loopCardinality>4</bpmn2:loopCardinality>
+		<bpmn2:loopDataOutputRef>choices</bpmn2:loopDataOutputRef>
+		<bpmn2:outputDataItem name="flavor" />
+	</bpmn2:multiInstanceLoopCharacteristics>
+</bpmn2:userTask>
+```
+
+The process variable `choices` will contain a list of results similar to the following:
+
+```json
+["chocolate", "mint", "strawberry"]
 ```

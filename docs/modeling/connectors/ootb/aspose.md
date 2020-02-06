@@ -20,7 +20,7 @@ The `implementation` value of the Aspose connector in a service task would be si
 ```
 
 ## Template configuration
-The Aspose connector uses a [process variable](../../processes/README.md#process-variables) of type JSON to insert values into a pre-configured template. The [input parameter](#input-parameters) that contains the information is called `metadata`.
+The Aspose connector uses a [process variable](../../processes/variables.md) of type JSON to insert values into a pre-configured template. The [input parameter](#input-parameters) that contains the information is called `metadata`.
 
 An example of the `metadata` [input parameter](#input-parameters) is the following: 
 
@@ -49,7 +49,7 @@ The following are the parameters that can be passed to the Aspose connector as i
 | --------  | ----------- | ---- | --------- |
 | `nodeId` | The node ID of the template to use from Alfresco Content Services | String | `*` |
 | `uri` | The URI of the template to use | String | `*` |
-| `files` | A [file](../../modeling/files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector to use as the template | File | `*` |
+| `files` | A [file](../../files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector to use as the template | File | `*` |
 | `metadata` | The metadata to use in the template. If no value for `metadata` is passed then the inbound variable map will be used in the template | JSON | No |
 | `outputFormat` | Format to save the output document in. Values are `DOCX` or `PDF` | String | Yes |
 | `outputFileName` | The name of the generated file | String | No |

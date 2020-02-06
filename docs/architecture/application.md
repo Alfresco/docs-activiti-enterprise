@@ -47,8 +47,8 @@ The following is a high level diagram of the process storage service:
 
 ![Process Storage Service diagram](../images/arch-storage.png)
 
-## DMN Service
-The DMN Service contains the backend functionality required for [decision tables](../modeling/decisions.md) to function within an application. 
+## DMN Runtime Service
+The DMN Runtime Service contains the backend functionality required for [decision tables](../modeling/decisions.md) to function within an application. 
 
 ## Rabbit MQ
 [Rabbit MQ](https://www.rabbitmq.com/) is the default message broker deployed with Activiti Enterprise that routes the events emitted by the runtime bundle asynchronously to other relevant microservices such as the audit and query services. 
@@ -72,3 +72,6 @@ The Preference Service is a key value store that retains user-based preferences.
 
 ## Connectors
 Connectors are used to execute logic outside of processes and the [runtime bundle](#runtime-bundle). Connectors are attached to a [service task](../modeling/processes/bpmn/service.md) within a process definition. When the process flow reaches the service task, the values are sent from the process instance to a connector using Spring Cloud Streams via [Rabbit MQ](#rabbit-mq) to be used as part of the logic. The results are sent back to the process instance after the connector has finished and the process flow continues.
+
+## Script Runtime Service
+The Script Runtime Service contains the backend functionality required to execute [scripts](../modeling/scripts.md) within an application. Scripts are executed outside of the runtime bundle with the results being passed back using Rabbit MQ.

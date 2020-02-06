@@ -3,7 +3,7 @@ Title: Helm deployment
 ---
 
 # Deploying with Helm
-To deploy an application using Helm rather than the deployment service [use this Helm chart](https://git.alfresco.com/process-services-public/alfresco-process-application-deployment/).  
+To deploy an application using Helm rather than the deployment service [use this Helm chart](https://github.com/Alfresco/alfresco-process-application-deployment).  
 
 ## Prerequisites
 
@@ -35,16 +35,17 @@ An application requires a Kubernetes namespace that contains a Quay secret to pu
 ## (Optional) Create custom images 
 The application services that utilize definition files can be replaced with custom Docker images. Example projects are provided for the runtime bundle, form service and DMN service so that definition XML and JSON files can be placed in the images:
 
-* [Runtime bundle](https://git.alfresco.com/process-services-public/alfresco-example-process-runtime-bundle-service/)
-* [Form service](https://git.alfresco.com/process-services-public/alfresco-example-forms-service)
-* [DMN service](https://git.alfresco.com/process-services-public/alfresco-example-dmn-service)
+* [Runtime bundle](https://github.com/Alfresco/example-process-application/tree/master/example-process-runtime-bundle-service)
+* [Form service](https://github.com/Alfresco/example-process-application/tree/master/example-form-service)
+* [DMN service](https://github.com/Alfresco/example-process-application/tree/master/example-dmn-runtime-service)
+* [Script service](https://github.com/Alfresco/example-process-application/tree/master/example-script-runtime-service)
 
 **Note**: The layout of each project is almost identical. The runtime bundle project will be used as an example.
 
 1. Clone the example runtime bundle repository:
 
 	```
-	git clone https://git.alfresco.com/process-services-public/alfresco-example-process-runtime-bundle-service.git
+	git clone https://github.com/Alfresco/example-process-application.git
 	```
 
 2. Clear out the example files in the `/processes/` folder and insert the XML process definitions and JSON process extension files for the new application in their place. 
@@ -67,7 +68,7 @@ The Helm chart values require updating to point to the correct custom images and
 1. Clone the Helm chart: 
 
 	```bash
-	git clone https://git.alfresco.com/process-services-public/alfresco-process-application-deployment/
+	git clone https://github.com/Alfresco/alfresco-process-application-deployment
 	```
 	
 2. Update the `values.yaml` file in `/helm/alfresco-process-application/` replacing the values with those relevant to the application deployment: 
@@ -101,6 +102,7 @@ The Helm chart values require updating to point to the correct custom images and
 		| Runtime bundle |  `SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX` |
 		| Form service | `FORMCONFIGURATION_FORMSDEFINITIONSDIRECTORYPATH` | 
 		| DMN service | `DMNCONFIGURATION_TABLESDEFINITIONSDIRECTORYPATH` |
+		| Script service | `SCRIPTCONFIGURATION_SCRIPTSDEFINITIONSDIRECTORYPATH` |
 	
 	4. Set the location of the [project manifest](../../modeling/projects.md#files) for each service using the environment variable `PROJECT_MANIFEST_FILE_PATH`, for example: 
 

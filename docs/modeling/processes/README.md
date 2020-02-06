@@ -3,141 +3,137 @@ Title: Processes
 ---
 
 # Processes
-Processes are the components that are built to represent a business processes. A process definition is the XML that can be thought of as a template for a process. A process instance is a specific, running instance of a process definition. There will be many process instances for each process definition. 
+Processes are the collection of components that are built to represent business processes using [BPMN 2.0 format](https://www.omg.org/spec/BPMN/2.0/).
 
-Each process definition represents a business process and is built using BPMN elements. These BPMN elements incorporate the other components that you can create in the Modeling Application  such as [forms](../forms/README.md), [connectors](../connectors/README.md) and [decision tables](../decisions.md). 
+## Process definitions
+A process definition can be thought of as a template for a modeled process. Process definitions are stored in a `.bpmn20.xml` file and have an associated JSON file containing extensions to the process definition. 
 
-## Naming  
-Process names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. 
+Process definitions are designed using [BPMN elements](../processes/bpmn/README.md) which can reference other modeled components such as [forms](../forms/README.md), [connectors](../connectors/README.md) and [decision tables](../decisions.md). 
 
-The following are examples of valid process names: 
+The properties for a process definition are:
 
+| Property | Description | Example | Required | 
+| -------- | ----------- | ------- | -------- | 
+| `ID` | The unique identifier for a process definition. Also referred to as a process definition ID and used to start a process instance by referencing the process definition to use. This is system generated and cannot be altered. | model-1bf32338-2bc2-4af2-9496-e9a031e22142 | Yes |
+| `Name` | The name of the process definition. Process definition names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. | request-and-order-process | Yes |
+
+The ID and name of a process definition are set as XML attributes of the `definitions` element, for example:
+
+```xml
+<bpmn2:definitions id="model-1bf32338-2bc2-4af2-9496-e9a031e22142" name="request-and-order-process">
 ```
-process-beta
-project10
-one-hundred-and-thirty-two
+
+## Processes
+Each process has its own ID and name even if there is only a single process within the definition. Process definitions can contain multiple processes when using the BPMN element [pools](../processes/bpmn/pools.md). 
+
+The properties for a process are: 
+
+| Property | Description | Example | Required | 
+| -------- | ----------- | ------- | -------- | 
+| `ID` | The unique identifier for a process. This is system generated and cannot be altered. | Process_1w18m9x | Yes |
+| `Process definition name` | The name of the process definition that the process is part of | request-and-order-process | Yes |
+| `Process name` | The name of the process. Process names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically | request-process
+| `Documentation` | A free text description of what the process does | A process to request and approve stock orders | No |
+| `Executable` | If set as `false` then the process will be deployed at runtime but it will not be possible to instantiate any process instances for it. The default value is `true`. | false | Yes |
+
+The ID, name and executable status of a process are set as XML attributes of the `process` element. Documentation is a sub-element of `process`, for example:
+
+```xml
+<bpmn2:process id="Process_1w18m9x" name="request-process" isExecutable="false">
 ```
 
-## Using processes
-Once a project has been deployed, process instances can be started in several ways such as calling a start form from Process Workspace, manually starting a process instance or through an API. 
+## Process instances
+Process instances are specific running instances of processes that are read from a process definition. Different processes instantiated from the same process definition will still will still receive unique process instance IDs. 
 
-## Designing processes
-Processes are designed using a drag-and-drop UI or using the in-built XML editor. It is also possible to upload an existing process definition using the upload function.
+There can be any number of process instances running using the same process definition in an N:1 relationship.
 
-The processes area of the Modeling Application also has a **Process extensions** section in addition to the drag-and-drop UI and XML editor. This section displays the additional mappings outside of a process definition XML file for specific BPMN elements. Examples include process variables and the input and output parameter mapping for service tasks containing a connectors and decision tables. 
+Process instances can be instantiated in many ways such as through the [Process Workspace UI](../../workspace/processes.md#starting-a-process-instance), using the `POST /rb/v1/process-instances` API or using a [trigger](../triggers.md).
 
-**Note**: The process extensions are exported in addition to a process definition XML. They are in the format: `<process-name>-extensions.json`.
+## Modeling processes
+Process definitions are modeled with [BPMN elements](../processes/bpmn/README.md) and must contain a start event and an end event whilst conforming to the rules particular to each element.
 
-### BPMN elements
-Processes are built using a combination of BPMN elements. Each process must contain a start event and an end event as well as conforming to certain rules particular to each element. As long as [each BPMN element](../processes/bpmn/README.md) is used correctly there are numerous ways a business process can be modeled.
+There are three views of a process definition:
 
-### Process variables
-Process variables are used to store values and pass them between its BPMN elements. Default values can be set for each process variable in a process definition and this value can be used or updated throughout the flow of a process instance.  
+* The **Diagram Editor** GUI to drag-and-drop BPMN elements into a process diagram. BPMN elements can be freely moved and edited and sequence flows created between them.
 
-A process definition without any BPMN element selected will display an **Edit Process Variables** button in the properties panel. Process variables can be configured using the inbuilt GUI or the JSON editor provided with it. The **required** status for a process variable indicates that the process variable needs a value when a process instance is started.
+* The **XML Editor** reflecting any changes made in the **Diagram Editor** and displaying the XML definition for a process. The contents of the **XML Editor** can be downloaded as `.bpmn20.xml` files.
 
-Process variable names can only contain alphanumeric characters and underscores and must begin with a letter. 
+* The **Extensions Editor** is a JSON editor that stores the extensions for process definitions. These are stored as `constants`, `mappings` and `properties` for each process in the definition. The **Extensions Editor** is automatically populated by actions undertaken in the **Diagram Editor** such as creating [process variables](../processes/variables.md). 
 
-Process variables are stored in the `properties` of the `<process-name>-extensions.json` file with unique IDs and can also be viewed through the UI in the **Extensions Editor**: 
+The descriptions of **Extension Editor** properties are:
+
+| Property | Description |
+| -------- | ----------- |
+| `constants` | Constants store values that will not change for the duration of a process definition such as mapping connectors and decision tables to the correct service tasks | 
+| `mappings` | Mappings store the mapping of variables between BPMN elements such process variables and user tasks  |
+| `properties` | Properties store the process variables for a process definition |
+| `assignments` | Assignments store the type of assignments for [user tasks](../processes/bomn/user.md) |
+
+An example **Extensions Editor** and `<process-definition-name>-extensions.json` file is:
 
 ```json
 {
-    "id": "process-5d0ecfa7-d262-4480-a00b-74734c857f4d",
-    "properties": {
-        "17aa41f7-9a0c-49c0-805b-045243f8a7e5": {
-            "id": "17aa41f7-9a0c-49c0-805b-045243f8a7e5",
-            "name": "firstName",
-            "type": "string",
-            "required": false,
-        },
-        "2147a4c2-aaf7-44df-a886-d85a7f186445": {
-            "id": "2147a4c2-aaf7-44df-a886-d85a7f186445",
-            "name": "age",
-            "type": "integer",
-            "required": true,
-            "value": 25
-        },
-        "887fc645-66ec-4561-8490-e7cc3c8bf0ae": {
-            "id": "887fc645-66ec-4561-8490-e7cc3c8bf0ae",
-            "name": "accepted",
-            "type": "boolean",
-            "required": false
+"process": "Process_1w18m9x": {
+    "constants": {
+        "Task_10kub5t": {
+            "_activiti_dmn_table_": {
+                "value": "dec"
+            }
         }
     },
-}
-```
-
-Process variables can be passed between certain BPMN elements as `inputs` and `outputs` as defined in the `mappings` section of the `<process-name>-extensions.json` using the `id` of the BPMN element. 
-
-The BPMN elements that pass process variables between them and a process are:
-
-* In [user tasks](../processes/bpmn/user.md) to pass values between process variables and [form fields](../forms/fields.md) or [form variables](../forms/README.md#form-variables).
-* As part of [call activities](../processes/bpmn/call.md) to pass process variables between the originating and called process.
-* As part of a message payload in [message events](../processes/bpmn/message.md).
-* For [decision tables](../decisions.md) to pass the input value(s) in and store the output(s) in the process.
-* To pass input parameters to [connectors](../connectors/README.md) and receive an output back to the process.
-* To use a [file](../files.md) within a process.  
-
-There are three options for how to map process variables: 
-
-* [Pass all process variables without any mapping](#pass-all-process-variables).
-* [Pass no process variables](#pass-no-process-variables). 
-* [Map process variables to variables in BPMN elements](#map-process-variables).
-
-**Note**: The default behaviour is to pass all process variables.
-
-#### Pass all process variables
-To pass all process variables make sure that the `id` of a BPMN element is not present in the `mappings` section of the process extensions. This will pass all process variables as inputs to the BPMN element and receive all outputs back as process variables. 
-
-The following is an example of passing all process variables without any mapping for all BPMN elements in a process:
-
-```json
-{
-    "mappings": {}
-}
-```
-
-**Note**: It is possible to pass all variables without any mapping to one BPMN element and map specific variables to a different BPMN element in the same process. 
-
-#### Pass no process variables
-To pass no process variables at all to a BPMN element make sure that the `id` of a BPMN element is present in the `mappings` section, but the `inputs` and `outputs` are blank in the process extensions.
-
-The following is an example of passing no process variables to `UserTask_1`:
-
-```json
-{
     "mappings": {
-        "UserTask_1": {
-            "inputs": {},
-            "outputs": {}
-        }
-    }
-}
-```
-
-#### Map process variables
-To map process variables to specific inputs and outputs the `mappings` section needs to be completely filled in for a BPMN element. 
-
-The following is an example of where process variable inputs and outputs have been mapped for `ServiceTask_2`: 
-
-```json
-{
-    "mappings": {
-        "ServiceTask_2": {
+        "Task_19lk7bt": {
             "inputs": {
-                "nodeId": {
+                "Text0mvlww": {
                     "type": "variable",
-                    "value": "string1"
-                }
-            },
-            "outputs": {
-                "num1": {
+                    "value": "var_1"
+                },
+                "variables.task_var": {
                     "type": "variable",
-                    "value": "alfrescoRequestResponseCode"
+                    "value": "var_2"
                 }
             }
         }
+    },
+    "properties": {
+        "383ffc09-ec7a-4765-a40c-bb84ad06b479": {
+            "id": "383ffc09-ec7a-4765-a40c-bb84ad06b479",
+            "name": "var_1",
+            "type": "string",
+            "required": false
+        },
+        "72c4a262-5db9-4283-8c76-710450ac5e1d": {
+            "id": "72c4a262-5db9-4283-8c76-710450ac5e1d",
+            "name": "var_2",
+            "type": "string",
+            "required": false,
+            "value": "hello"
+        }
     }
+  },
+  	"assignments": {
+        "UserTask_12yzfe4": {
+            "type": "expression",
+            "assignment": "assignee",
+            "id": "UserTask_12yzfe4"
+        }
+	}
 }
 ```
 
+## Messages
+[Messages](../processes/bpmn/message.md) can be managed at the process definition level using the **Edit Messages** button. Messages are used to send payloads between throwing and catching message events and can be sent between different processes within the same process definition.  
+
+## Process variables
+[Process variables](../processes/variables.md) are used to store values and pass them between BPMN elements throughout a process instance. The scope of process variables is restricted to the process they are created in and not the process definition.  
+
+## Actions
+The actions that can be run against a process definition are: 
+
+| Action | Description | 
+| ------ | ----------- | 
+| `Download diagram` | Download the process diagram in `svg` format |
+| `Download process` | Download the `<process-definition-name>.bpmn20.xml` and `<process-definition-name>-extensions.json` files for the process definition |
+| `Validate` | Run validation against the process definition. Any errors can be seen in the log history at the bottom of the Modeling Application | 
+| `Save` | Save any changes made to the process definition | 
+| `Delete` | Delete the process definition | 

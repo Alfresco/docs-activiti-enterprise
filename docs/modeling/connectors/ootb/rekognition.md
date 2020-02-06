@@ -25,7 +25,7 @@ The following are the parameters that can be passed to the Rekognition connector
 | --------- | ----------- | ---- | --------- | 
 | `nodeId` | The node ID of the image to use from Alfresco Content Services | String | `*` |
 | `uri` | The URI of the image to use | String | `*` |
-| `files` | A [file](../../modeling/files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector | File | `*` |
+| `files` | A [file](../../files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector | File | `*` |
 | `maxLabels` | The maximum number of labels returned by the service. The default value is 10 | Integer | No |
 | `confidenceLevel` | The minimum confidence level to use for a label. The default is 0.75 | String | No |
 | `timeout` | The timeout period for calling the Rekognition service in milliseconds | Integer | No | 
