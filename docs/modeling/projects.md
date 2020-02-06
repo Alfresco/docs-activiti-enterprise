@@ -74,6 +74,8 @@ The following is an example of an exploded zip file of a project called *holiday
 	/scripts/
 		update-calendar.bin
 		update-calendar-extensions.json
+  /triggers/
+		approval-email.json
 	/ui/
 		process.json
 	holiday.json
@@ -93,5 +95,6 @@ File definitions are created and stored for each element of a project:
 * `<process-definition-name>-extensions.json` is the format that stores the properties for BPMN elements that are outside the scope of the BPMN standard.
 * `<script-name>.bin` is the binary format that scripts are stored as.
 * `<script-name>-extensions.json` is the format that stores the metadata and variables for a script.
+* `<trigger-name>.json` is the format that triggers are stored in. 
 * `<ui-name>.json` is the format that UI definitions are stored in for content or process.
 * `<project-name>.json` is the project manifest that stores the name and version of a project.
