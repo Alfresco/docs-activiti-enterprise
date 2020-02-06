@@ -59,7 +59,7 @@ The properties for input and output parameters are:
 | -------- | ----------- | ------- | --------- |
 | `Name` | The name of the parameter | userId | Yes |
 | `Description` | A free text description of the parameter | The ID of a Slack user | No | 
-| `Type` | The data type of the parameter | Array | Yes | 
+| `Type` | The data type of the parameter | String | Yes | 
 | `Required` | Set whether the parameter requires a value when being used | true | No | 
 
 Actions are stored in the `actions` section of the connector JSON, for example in an excerpt of the [Slack connector](../connectors/ootb/slack.md) `SEND_MESSAGE` event:
@@ -103,7 +103,7 @@ The basic properties for events are:
 | `Name` | The name of the event | EMAIL_RECEIVED |
 | `Description` | A free text description of what the event does | An event that is dispatched when an email is received. | 
 
-Events contain input and output parameters that define the properties used by a trigger. Input parameters are used to set the criteria for event publishing and any notification of matches. Output parameters are variables that can be used by [trigger actions](../triggers.md#actions).  
+Events contain input and output parameters that define the properties used by a trigger. Input parameters are used to set the criteria for event publishing and any notification of matches. Output parameters are variables that can be used in the payload of [trigger actions](../triggers.md#actions).  
 
 The properties for input and output parameters are:
 
@@ -136,7 +136,7 @@ Events are stored in the `events` section of the connector JSON, for example in 
                     "id": "fa6b0f2a-ca79-476b-ba4e-f0f082eff47c",
                     "name": "matchGroups",
                     "description": "Matching groups between pattern and message. They can be used in variables and the echo messages.",
-                    "type": "array"
+                    "type": "json"
                 },
 ...
             ]

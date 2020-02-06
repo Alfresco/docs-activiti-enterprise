@@ -29,10 +29,8 @@ The properties for trigger events are:
 
 | Property | Description | Example | 
 | -------- | ----------- | ------- | 
-| `Connector` | The [connector](../modeling/connectors/README.md) instance to use for an event | email-connector-1 | 
-| `Event` | The [connector event](../modeling/connectors/README.md#events) to use for this trigger | EMAIL_RECEIVED | 
+| `source` | A combination of the source of the event, the name of the source and event name  to monitor in the format `<source-type>.<source-name>.<event-name>` | connector.my-email.EMAIL_RECEIVED | 
 | `Input values` | The inputs for the trigger event. The properties are set in the [connector event](../modeling/connectors/README.md#events) definition | | 
-| `source` | The event source is automatically set and is the channel that the event is sent to | connector.email-connector-1.EMAIL_RECEIVED | 
 
 Events are stored as a `source` containing the connector and event to use and a set of `inputs` containing the values for the trigger event, for example using the `EMAIL_RECEIVED` event for the [email connector](../modeling/connectors/ootb/email.md):
 
@@ -50,7 +48,7 @@ Events are stored as a `source` containing the connector and event to use and a 
 The [email connector](../modeling/connectors/ootb/email.md), [Slack connector](../modeling/connectors/ootb/slack.md) and [Twilio connector](../modeling/connectors/ootb/twilio.md) have events defined that can be used for triggers.
 
 ### Actions
-Actions are the trigger payload that is created and sent when an event is created. The actions that can be configured are:
+Actions are the trigger payload that is created and sent when an event is created. The payload for an action can include the output parameters configured for an event. The actions that can be configured are:
 
 * [Start a process](#start-a-process)
 * [Send a signal](#send-a-signal)
@@ -106,7 +104,7 @@ Actions are stored as a `payload`, for example using the send a signal action fo
 			"recipient": "${emailTo}",
 			"subject": "${emailSubject}"
 		},
-		"name": "Signal_0n91cib",
+		"name": "Signal_0n91cib"
 
 	}
 }
