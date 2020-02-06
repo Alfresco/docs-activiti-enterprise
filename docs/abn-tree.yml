@@ -74,6 +74,7 @@
         - ui.md: 'User interfaces'
         - files.md: 'Files'
         - scripts.md: 'Scripts'
+        - triggers.md: 'Triggers'
 - administrator:
     title: 'Alfresco Administrator Application'
     children:
