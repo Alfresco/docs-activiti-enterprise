@@ -70,17 +70,8 @@ The following is an example payload for `POST rb/v1/process-instances` in the ru
   "payloadType": "StartProcessPayload",
   "processDefinitionId": "3bce2a6b-20f3-11ea-9182-eafde8758223",
   "variables": {
-  {	
-  	"name": "area_code",
-    "type": "integer",
-    "value": 472,
-    "required": true
-   },
-  {	
-  	"name": "district",
-    "type": "string",
-    "value": "North",
-    "required": false
+    "area_code": 472,
+    "district" : "North"
    }
 }
 ```
