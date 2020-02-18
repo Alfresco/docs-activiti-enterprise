@@ -170,7 +170,7 @@ The following is an example of setting the runtime bundle path in the `extraEnv`
 	- value: "file:/process-definitions/"
 ```
 
-The location of the [project manifest](../../modeling/projects.md#files) also needs to be set for each service using the environment variable `PROJECT_MANIFEST_FILE_PATH`, for example: 
+The location of the [project manifest](../../modeling/projects.md#files) also needs to be set for the runtime bundle using the environment variable `PROJECT_MANIFEST_FILE_PATH`, for example: 
 
 ```yaml
 -  extraEnv: |
