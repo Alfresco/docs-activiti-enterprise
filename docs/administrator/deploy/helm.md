@@ -104,7 +104,7 @@ The Helm chart values require updating to point to the correct custom images and
 		| DMN service | `DMNCONFIGURATION_TABLESDEFINITIONSDIRECTORYPATH` |
 		| Script service | `SCRIPTCONFIGURATION_SCRIPTSDEFINITIONSDIRECTORYPATH` |
 	
-	4. Set the location of the [project manifest](../../modeling/projects.md#files) for each service using the environment variable `PROJECT_MANIFEST_FILE_PATH`, for example: 
+	4. Set the location of the [project manifest](../../modeling/projects.md#files) for the runtime bundle using the environment variable `PROJECT_MANIFEST_FILE_PATH`, for example: 
 
 		```yaml
 		-  extraEnv: |
