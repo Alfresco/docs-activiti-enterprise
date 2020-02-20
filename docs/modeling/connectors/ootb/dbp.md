@@ -206,10 +206,10 @@ The following is the parameter that is returned to the process by the DBP connec
 | --------- | ----------- | ---- | ------- |
 | `alfrescoRequestResponseCode` |  The HTTP response status code for the request | Integer | `200` |
 
-## Connector variables
-Environment variables that are specific to a connector need to be specified during deployment. They are entered as connector variables and used as environment variables for the connector when it is deployed. 
+## Configuration parameters
+Values for configuration parameters that are specific to a connector instance can be set in the modeling application or during application deployment.
 
-The following are the properties that need to be set for the DBP connector: 
+The following are the configuration parameters that need to be set for the DBP connector: 
 
 **Note**: The value `$DNSNAME` needs to be updated for your deployment. All other values are static.  
 

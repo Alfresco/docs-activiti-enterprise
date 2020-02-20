@@ -65,15 +65,15 @@ The email connector contains an event called `EMAIL_RECEIVED` that can be used b
 
 **Note**: Groups found in `matchGroups` can be used to map to process variables in a [trigger](../../../modeling/triggers.md) by referencing the variable in a JSON field, for example using `${matchGroups.orderNumber}`
 
-## Connector variables
-Environment variables that are specific to a connector need to be specified during deployment. They are entered as connector variables and used as environment variables for the connector when it is deployed. 
+## Configuration parameters
+Values for configuration parameters that are specific to a connector instance can be set in the modeling application or during application deployment.
 
-For the email connector the connector variables are the details for the SMTP host. The email connector uses the `org.springframework.mail` package for managing communication to the email server. This allows `spring.mail.properties*` to be set to configure the desired email server. 
+The email connector uses the `org.springframework.mail` package for managing communication to the email server. This allows `spring.mail.properties*` to be set to configure the desired email server. 
 
-The following are the properties that need to be set for a secure (TLS) connection:
+The following are the configuration parameters that need to be set for the email connector:
 
-| Variable | Description |
-| -------- | ----------- |
+| Parameter | Description |
+| --------- | ----------- |
 | `EMAIL_HOST` | The host address of the SMTP server |
 | `EMAIL_PORT` | The port the SMTP server is running on |
 | `EMAIL_USERNAME` | The username the connector will use to contact the SMTP server |

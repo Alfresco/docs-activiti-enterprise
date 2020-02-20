@@ -16,15 +16,15 @@ An account ID and token are required by the connector to access Twilio. These ar
 
 The values are provided are provided by Twilio when an account is created. They can also be located in the [Twilio setup page](https://www.twilio.com/console/project/settings).
 
-The account ID and authorization token will need to be set as [connector variables](#connector-variables) when deploying the Twilio connector.
+The account ID and authorization token will need to be set as [configuration parameters](#configuration-parameters) when deploying the Twilio connector.
 
-## Connector variables
-Environment variables that are specific to a connector need to be specified during deployment. They are entered as connector variables and used as environment variables for the connector when it is deployed. 
+## Configuration parameters
+Values for configuration parameters that are specific to a connector instance can be set in the modeling application or during application deployment.
 
-The following are the properties that need to be set for the Slack connector: 
+The following are the configuration parameters that need to be set for the Twilio connector: 
 
-| Variable | Description |
-| -------- | ----------- |
+| Parameter | Description |
+| --------- | ----------- |
 | `TWILIO_ACCOUNT` | Your account name obtained from Twilio |
 | `TWILIO_TOKEN` | A token for your account obtained from Twilio |
 
