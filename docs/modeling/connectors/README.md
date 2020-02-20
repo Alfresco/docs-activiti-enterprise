@@ -34,7 +34,7 @@ The basic properties for connector definitions are:
 | `Name` | The name of the connector. Connector names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. | email-connector-1 |
 | `Description` | A free text description of what the connector does | A connector to send emails throughout a process definition. | 
 
-Connector definitions can contain [actions](#actions) and [events](#events).
+Connector definitions can contain [actions](#actions), [events](#events) and [configuration parameters](#configuration-parameters).
 
 #### Actions
 Actions are the operations a connector can take. Connector definitions can have multiple actions, however only one action can be executed by each [service task](../processes/bpmn/service.md). Connector actions are attached to service tasks using the `implementation` attribute with a value in the format `<connector-name>.<action-name>`, for example:
@@ -144,16 +144,41 @@ Events are stored in the `events` section of the connector JSON, for example in 
     },
 ```
 
+#### Configuration parameters
+Configuration parameters are the environment variables specific to each connector instance that are used at deployment time. They set values such as the SMTP host and port the [email connector](../connectors/ootb/email.md) will use. 
+
+**Note** Additional configuration parameters can be specified at deployment time and existing parameters set during the modeling experience can be overridden. 
+
+The basic properties for configuration parameters are: 
+
+| Property | Description | Example | 
+| -------- | ----------- | ------- | 
+| `Name` | The name of the parameter | SLACK_XOXB |
+| `Description` | A free text description of what the parameter is for | The Slack bot user token. | 
+| `Value` | An optional default value for the parameter. This can be overridden at deployment time. | xoxb- | 
+| `Required` | Set whether the parameter requires a value when being used | true | 
+
+Configuration parameters are stored in the `config` section of the connector JSON, for example in an excerpt of the [Slack connector](../connectors/ootb/slack.md): 
+
+```json
+    "config": [
+        {
+            "name": "SLACK_XOXB",
+            "description": "Slack bot user token",
+            "value": "",
+            "required": true
+            
+        },
+        {
+            "name": "SLACK_XOXP",
+            "description": "Slack admin user token",
+            "value": "",
+            "required": true
+        }
+    ],
+```
+
 ### Connector images
 Connectors are deployed as separate Docker images with an application. The communication between the connector and the runtime bundle uses the [message broker](../../architecture/application.md#rabbit-mq), by default Rabbit MQ.
 
 The images for the out of the box connectors supplied with Activiti Enterprise are pulled from [Quay.io](https://quay.io). Custom connectors can be hosted on another Docker registry as long as a secret is created in the Activiti Enterprise infrastructure namespace. Alternatively custom images can be hosted on a publicly hosted container repository such as [Docker Hub](https://hub.docker.com/).
-
-#### Connector variables
-When [deploying an application](../../administrator/deploy/README.md) that contains a connector there is the option to specify environment variables for each connector in JSON format. 
-
-The following is an example of setting the connector variables for the [email connector](../connectors/ootb/email.md):
-
-```json
-{"EMAIL_HOST":"https://mysmtp.com","EMAIL_PORT":"8050", "EMAIL_USERNAME":"email-user", "EMAIL_PASSWORD":"email-user-password"}
-```
