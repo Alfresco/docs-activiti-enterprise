@@ -39,8 +39,7 @@ The following is an example deployment payload specifying these variables:
         "url":"jdbc:postgresql://aaedb.cpcs2n7mznht.us-east-1.rds.amazonaws.com:5432/aaedb",
         "username": "aae",
         "password": "password",
-        "jpaDatabasePlatform":"org.hibernate.dialect.PostgreSQLDialect",
-        "ddlAuto": "update"
+        "jpaDatabasePlatform":"org.hibernate.dialect.PostgreSQLDialect"
       }
   }
 }
@@ -74,8 +73,7 @@ The following is an example deployment payload where the query service is set to
 		  "SPRING_DATASOURCE_URL":"jdbc:postgresql://aaedb.cpcs2n7mznht.us-east-1.rds.amazonaws.com:5432/aaedb",
 		  "SPRING_DATASOURCE_USERNAME": "aae",
 		  "SPRING_DATASOURCE_PASSWORD": "password",
-		  "SPRING_JPA_DATABASE_PLATFORM":"org.hibernate.dialect.PostgreSQLDialect",
-		  "SPRING_JPA_HIBERNATE_DDL_AUTO": "update"
+		  "SPRING_JPA_DATABASE_PLATFORM":"org.hibernate.dialect.PostgreSQLDialect"
 	  }
   }
 }
