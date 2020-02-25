@@ -107,10 +107,37 @@ The Helm chart values require updating to point to the correct custom images and
 	4. Set the location of the [project manifest](../../modeling/projects.md#files) for the runtime bundle using the environment variable `PROJECT_MANIFEST_FILE_PATH`, for example: 
 
 		```yaml
-		-  extraEnv: |
-    		- name: PROJECT_MANIFEST_FILE_PATH
-      	   	   value: "file:project/project.json/"
+		extraEnv: |
+    	  - name: PROJECT_MANIFEST_FILE_PATH
+      	    value: "file:project/project.json/"
 		```
+	
+	5. (Optional) To use an external database instance:	
+		1. Set the default Postgres database image to `enabled: false`: 
+		
+			```yaml
+			postgres:
+  			  enabled: false
+  			  resources:
+    		    requests:
+			    cpu: 350m
+      		    memory: 512Mi
+  			``` 
+  			
+  		2. Specify the details of the external database instance for each service using `extraEnv`, for example: 
+  			
+  			```yaml
+  			extraEnv: |
+			  - name: SPRING_DATASOURCE_URL
+  	  		    value: "jdbc:postgresql://aaedb.cpcs2n7mznht.us-east-1.rds.amazonaws.com:5432/aaedb"
+			  - name: SPRING_DATASOURCE_USERNAME
+  	  		    value: "aae"
+			  - name: SPRING_DATASOURCE_PASSWORD
+  	  		    value: "password"
+			  - name: SPRING_JPA_DATABASE_PLATFORM
+  	  		    value: "org.hibernate.dialect.PostgreSQLDialect"
+			```
+
 
 ## Configure a client in the Identity Service 
 A client needs to be created in the Identity Service as the application is deployed. Clients can also be updated or deleted by following the same process. 
