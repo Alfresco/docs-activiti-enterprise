@@ -74,8 +74,7 @@ The advanced properties for an attach file field are the following:
 
 | Property | Description |
 | -------- | ----------- |
-| `Allow multiple files to be attached` | Checking this box will allow for more than one file to be uploaded | 
-| `Just link to files, do not copy files to Alfresco Activiti Enterprise` | Checking this box means that the form submission only contains the path to the upload(s) rather than uploading the actual file(s) | 
+| `Allow multiple file attachments` | Checking this box will allow for more than one file to be uploaded | 
 | `File source` | Sets the location for where files can be uploaded from. `Alfresco Content` is from an ACS instance, whilst `Local file` is local to the form filler. |
 
 ### Checkbox fields
