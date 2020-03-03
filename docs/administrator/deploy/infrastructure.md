@@ -10,7 +10,7 @@ Certain aspects of the infrastructure can be configured on an application by app
 * [Deploying an application with custom images](#deploying-an-application-with-custom-images)
 
 ## Configuring external Postgres instances
-By default, data for the audit service, query service, notification service, preference service, form service and runtime bundle is stored in an instance of Postgres deployed into an application namespace. A number of options are available to update the Postgres storage options: 
+By default, data for the query service, preference service, form service and runtime bundle is stored in an instance of Postgres deployed into an application namespace. A number of options are available to update the Postgres storage options: 
 
 * [Use an external Postgres instance for all services](#use-an-external-postgres-instance-for-all-services)
 * [Use separate an external Postgres instance(s) for each service](#use-an-external-postgres-instance(s)-for-each-service)
