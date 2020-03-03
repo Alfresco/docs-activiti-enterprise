@@ -206,17 +206,17 @@ The following is the parameter that is returned to the process by the DBP connec
 | --------- | ----------- | ---- | ------- |
 | `alfrescoRequestResponseCode` |  The HTTP response status code for the request | Integer | `200` |
 
-## Connector variables
-Environment variables that are specific to a connector need to be specified during deployment. They are entered as connector variables and used as environment variables for the connector when it is deployed. 
+## Configuration parameters
+Values for configuration parameters that are specific to a connector instance can be set in the modeling application or during application deployment.
 
-The following are the properties that need to be set for the DBP connector: 
+The following are the configuration parameters that need to be set for the DBP connector: 
 
 **Note**: The value `$DNSNAME` needs to be updated for your deployment. All other values are static.  
 
 **Note**: A service user that is available to the Identity Service and ACS repository should be created and used in place of the default admin for the `ALFRESCO_IDENTITY_SERVICE_USERNAME`. It should be given the appropriate permissions for the actions it will need to perform against ACS following the principal of least privilege.
 
-| Variable | Description | Value | 
-| -------- | ----------- | ------- | 
+| Parameter | Description | Value | 
+| --------- | ----------- | ----- | 
 | `ACT_RABBITMQ_HOST` | The host of Rabbit MQ | `rabbitmq` |
 | `ACT_RABBITMQ_PORT` | The port number Rabbit MQ is running on | `5672` |
 | `MESSAGING_ACTIVEMQ_HOST` | The host of Active MQ | `aps2-infra-activemq-broker.default` |

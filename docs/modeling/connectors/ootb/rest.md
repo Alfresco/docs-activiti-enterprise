@@ -48,13 +48,13 @@ The following are the parameters that are returned to the process by the REST co
 
 **Note**: The execution of the REST connector is always successful. Any errors will be returned in the `restError` parameter.
 
-## Connector variables
-Environment variables that are specific to a connector need to be specified during deployment. They are entered as connector variables and used as environment variables for the connector when it is deployed. 
+## Configuration parameters
+Values for configuration parameters that are specific to a connector instance can be set in the modeling application or during application deployment.
 
-The following are the properties that can to be set for the REST connector: 
+The following are the configuration parameters that need to be set for the REST connector: 
 
-| Variable | Description | Default |
-| -------- | ----------- | ------- |
+| Parameter | Description | Default |
+| --------- | ----------- | ------- |
 | `REST_HOST` | The host address of the REST service that can be used as the variable `${host}` |
 | `REST_HTTP_PORT` | The port used for HTTP calls that can be used as the variable `${rest-http-port}` | 80 |
 | `REST_HTTPS_PORT` | The port used for HTTPS calls that can be used as the variable `${rest-https-port}` | 443 |

@@ -27,13 +27,13 @@ The DocuSign connector uses the DocuSign REST API. An application needs to be se
 2. [Configure an application for JWT authentication](https://developers.docusign.com/esign-rest-api/guides/authentication/oauth2-jsonwebtoken) including the prerequisites required to setup an RSA key. 
 3. [Grant consent to the application](https://developers.docusign.com/esign-rest-api/guides/authentication/obtaining-consent). 
 
-## Connector variables
-Environment variables that are specific to a connector need to be specified during deployment. They are entered as connector variables and used as environment variables for the connector when it is deployed. 
+## Configuration parameters
+Values for configuration parameters that are specific to a connector instance can be set in the modeling application or during application deployment.
 
-The following are the properties that need to be set for the DocuSign connector: 
+The following are the configuration parameters that need to be set for the DocuSign connector: 
 
-| Variable | Description | 
-| -------- | ----------- | 
+| Parameter | Description | 
+| --------- | ----------- | 
 | `DOCUSIGN_APILOCATION` | The URL of the DocuSign REST API to use | 
 | `DOCUSIGN_ACCOUNT_ID` | The DocuSign account that the application is registered to | 
 | `DOCUSIGN_CLIENT_ID` | The application integration key | 

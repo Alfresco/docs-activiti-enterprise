@@ -33,9 +33,9 @@ OOTB connectors can be selected directly from the palette rather than by selecti
 
 	**Note**: Details of the actions are described for each OOTB connector in their respective 	pages.
 
-4. Assign the input and output parameters for the connector to [process variables](../../processes/variables.md) within the process definition. If the names are identical this matching is done automatically.
+4. Assign the input and output parameters for the connector to [process variables](../../processes/variables.md) within the process definition. 
 5. Name the service task and complete your process definition model. 
 6. Save the process definition. 
 
 ## Deploying OOTB connectors
-The location of the images for OOTB connectors are predefined within the Administrator Application. When [deploying an application](../../../administrator/deploy/README.md) select the relevant connector(s) from the dropdown menu and set the connector variables as appropriate for your deployment. Details of the connector variables are described for each OOTB connector in their respective pages.
+The location of the images for OOTB connectors are predefined within the Administrator Application. When [deploying an application](../../../administrator/deploy/README.md) any OOTB connectors are already selected and the default configuration parameters are populated. New configuration parameters can be added or existing ones overridden. 

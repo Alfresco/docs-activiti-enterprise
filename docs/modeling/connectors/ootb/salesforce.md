@@ -18,11 +18,11 @@ The following actions can be executed using the Salesforce connector:
 * [Reject a Salesforce object instance submitted for approval](#reject-an-object-instance-submitted-for-approval)
 * [Create a new custom object in Salesforce](#create-a-custom-object-definition) 
 
-## Connector variables
-The Salesforce connector requires a [developer account](https://developer.salesforce.com/signup) to interact with Activiti Enterprise. The following credentials need to be obtained and set as connector variables when deploying the Salesforce connector:
+## Configuration parameters
+The Salesforce connector requires a [developer account](https://developer.salesforce.com/signup) to interact with Activiti Enterprise. The following credentials need to be obtained and set as configuration parameters in the modeling application or during application deployment:
 
-| Variable | Description | Default | 
-| -------- | ----------- | ------- |
+| Parameter | Description | Default | 
+| --------- | ----------- | ------- |
 | `SALESFORCE_CLIENT_ID` | The ID of your Salesforce account | |
 | `SALESFORCE_CLIENT_SECRET` | The secret associated to your Salesforce account | |
 | `SALESFORCE_USERNAME` | The user that the connector will use to interact with Salesforce | |
