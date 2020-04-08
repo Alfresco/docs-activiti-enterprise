@@ -1,26 +1,171 @@
 ---
-Title: DBP connector
+Title: Content connector
 ---
 
-# DBP connector
-The Digital Business Platform (DBP) Connector links an instance of Alfresco Activiti Enterprise and [Alfresco Content Services (ACS)](http://docs.alfresco.com/6.1/concepts/welcome.html). This enables process instances in Activiti Enterprise to create, update and delete content in ACS. The DBP connector is graphically represented by the Alfresco logo under the OOTB connectors menu whilst modeling a process. 
+# Content connector
+The content connector can be used to execute actions against content in [Alfresco Content Services (ACS)](http://docs.alfresco.com/latest/concepts/welcome.html) as part of a process. The content connector is graphically represented by the Alfresco logo whilst modeling a process.
 
-**Important**: The DBP connector requires a licensed version of Alfresco Content Services (ACS) deployed to interact with.
+**Important**: The content connector requires a licensed version of Alfresco Content Services (ACS) to interact with.
 
-The following actions can be executed using the DBP connector: 
+The content connector does not require any connector variables to be set. It connects to the deployed ACS instance automatically. 
 
-* [Update the properties of a node in ACS](#update-node-properties)
-* [Retrieve the properties of a node from ACS](#retrieve-node-properties)
-* [Move a node to a different location within ACS](#move-a-node)
-* [Delete a node from ACS](#delete-a-node)
-* [Create a folder in ACS](#create-a-folder)
-* [Delete a folder from ACS](#delete-a-folder)
 
-As an example, the `implementation` value of the update node properties action in a service task would be similar to the following:
+The following actions can be executed using the content connector: 
+
+* CREATE_NODE
+* UPDATE_CONTENT
+* MOVE_CONTENT
+* COPY_CONTENT
+* DELETE_CONTENT
+* LOCK_NODE
+* UNLOCK_NODE 
+* SET_PERMISSIONS
+* CREATE_FOLDER
+* SELECT_FOLDER
+* SELECT_FILE
+* SELECT_METADATA
+* UPDATE_METADATA
+* UPDATE_TAG
+
+As an example, the `implementation` value of the copy content action in a service task would be similar to the following:
 
 ```xml
- <bpmn2:serviceTask id="ServiceTask_00b2568" implementation="dbp-connector.updateMetadataTask" />
-```
+ <bpmn2:serviceTask id="ServiceTask_00b2568" implementation="content-connector.COPY_CONTENT" />
+``` 
+ 
+## Common input parameters
+The following input parameters are common between content connector actions: 
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- | 
+| `nodeId` | *Required.\** The node ID of the node to operate on in Alfresco Content Services. | String | dioos2a1-2a22-4f42-820d-c2b628751121 |
+| `files` | *Required.\** A [file](../../files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector to operate on. | File | |
+| `folders` | *Required.\** | | |
+| `locationPath` | *Required.\** The URI of a node to operate on. | String | |
+| `searchQuery` | *Required.\**  | String | |
+| `search_skipCount` | *Optional.* The number of items to exclude before generating a result set from the `searchQuery`. | Integer | 5 |
+| `search_maxItems` | *Optional.* The maximum number of items to include in the result set from the `searchQuery`. | Integer | 1 |
+| `search_rootNodeId` | *Optional.* The node ID to begin the `searchQuery` from. | String | fdcac4a4-1f51-4e02-820d-c2b669647671 |
+| `search_include` | *Optional.* | Array | |
+| `search_orderBy` | *Optional.* | Array | |
+| `search_fields` | *Optional.* | Array | |
+| `search_relativePath` | *Optional.* | String | |
+
+`*` One of these parameters is required to identify the content to operate on. 
+
+
+
+nodeId	no	String	The node id of the node to take account into.
+files	no	File	List of nodeId or uri of the file nodes to take account into.
+folders	no	File	List of nodeId or uri of the folder nodes to take account into.
+locationPath	no	String	The location path of the nodes to take account into.
+searchQuery	no	String	The search query of the nodes to take account into.
+search_skipCount	no	Integer	The number of entities that exist in the collection before those included in this list in the search.
+search_maxItems	no	Integer	The maximum number of items to return in the list in the search.
+search_rootNodeId	no	String	The id of the node to start the search from.
+search_include	no	Array	Returns additional information about the node in the search.
+search_orderBy	no	Array	It controls the order of the entities returned in a list in the search.
+search_fields	no	Array	This parameter restricts the fields returned within a response in the search.
+search_relativePath	no	String	Relative Path for searching.
+
+
+
+## Common output parameters 
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- | 
+| `nodes` | | Array | | 
+| `responses` | | Array | |
+| `content.error` | | String | | 
+
+
+nodes	no	Array	Array of nodes in ACS.
+responses	no	Array	Response for the calls.
+content.error	no	String	Error description when an error occurs in the action.
+
+
+
+## Create content
+
+CREATE_NODE
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+| `name` | *Required.* A name for the file. | String | | 
+| `autorename` | *Optional.* | Boolean | | 
+| `nodeType` | *Optional.* | String | | 
+| `include` | *Optional.* | Array | | 
+| `fields` | *Optional.* | Array | | 
+
+
+## Update content
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+
+## Move content
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+
+## Copy content
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+
+## Delete content
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+
+## Lock content
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+
+## Unlock content
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+
+## Set permissions on content
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+
+## Create a folder
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+
+## Select a folder
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+
+
+## Select a file
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+
+## Select metadata
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+
+## Update metadata
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+
+## Update tags
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+
+
+
 
 ## Update node properties
 The `updateMetadataTask` action is used to update the metadata of a node in ACS. Metadata includes properties such as the title of a document.
