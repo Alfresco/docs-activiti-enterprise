@@ -77,9 +77,9 @@ An element variable can optionally be used with a collection. An element variabl
 The following XML is an example of a [user task](../bpmn/user.md) using a collection:
 
 ```xml
-<bpmn2:userTask id="UserTask_1n1uk4a" activiti:assignee="{users}">
+<bpmn2:userTask id="UserTask_1n1uk4a" activiti:assignee="${user}">
 	<bpmn2:incoming>SequenceFlow_5</bpmn2:incoming>
-	<bpmn2:multiInstanceLoopCharacteristics activiti:collection="${userList.users}" activiti:elementVariable="users">
+	<bpmn2:multiInstanceLoopCharacteristics activiti:collection="${userList.users}" activiti:elementVariable="user">
 	</bpmn2:multiInstanceLoopCharacteristics>
 </bpmn2:userTask>
 ```
@@ -87,7 +87,7 @@ The following XML is an example of a [user task](../bpmn/user.md) using a collec
 The `activiti:collection` references a process variable called `userList` that contains the following JSON:
 
 ```json
-{"userList":["user1", "user2", "user3"]}
+{"users":["user1", "user2", "user3"]}
 ```
 
 In the example:
@@ -116,7 +116,7 @@ The result element variable is used to select the field or variable from the BPM
 In the following example, the user task will run 4 times sequentially and the values of `flavor` from the form will be stored as a JSON object in the variable `choices`: 
 
 ```xml
-<bpmn2:userTask id="UserTask_1n1uk4a" activiti:assignee="{users}">
+<bpmn2:userTask id="UserTask_1n1uk4a" activiti:assignee="${users}">
 	<bpmn2:multiInstanceLoopCharacteristics isSequential="true">
 		<bpmn2:loopCardinality>4</bpmn2:loopCardinality>
 		<bpmn2:loopDataOutputRef>choices</bpmn2:loopDataOutputRef>
