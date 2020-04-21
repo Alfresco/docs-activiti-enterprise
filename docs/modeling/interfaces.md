@@ -6,7 +6,7 @@ Title: Modeling user interfaces
 The user interfaces (UI) section of the Modeling Application allows for user interfaces to be configured and deployed with an application. The user interfaces available are: 
 
 * [Alfresco Process Workspace](../workspace/README.md) to start and action processes and tasks. 
-* [Alfresco Content Application](https://github.com/Alfresco/alfresco-content-app) to view content associated to processes and tasks. 
+* [Alfresco Digital Workspace](https://docs.alfresco.com/adw/concepts/welcome-adw.html) to view content associated to processes and tasks. 
 
 ## Naming  
 UI names must be in lowercase and between 1 and 26 characters in length. Alphanumeric characters and hyphens are allowed, however the name must begin with a letter and end alphanumerically. 
@@ -30,7 +30,7 @@ Use the following steps to create a user interface definition:
 	
 2. Select `process` or `content` for the UI template. 
 
-	**Note**: `process` refers to the Process Workspace and `content` refers to the Content Application. 
+	**Note**: `process` refers to the Process Workspace and `content` refers to the Digital Workspace. 
 
 3. Save your UI definition. 
 
