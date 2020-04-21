@@ -55,39 +55,18 @@ The following input parameters are common between content connector actions:
 
 
 
-nodeId	no	String	The node id of the node to take account into.
-files	no	File	List of nodeId or uri of the file nodes to take account into.
-folders	no	File	List of nodeId or uri of the folder nodes to take account into.
-locationPath	no	String	The location path of the nodes to take account into.
-searchQuery	no	String	The search query of the nodes to take account into.
-search_skipCount	no	Integer	The number of entities that exist in the collection before those included in this list in the search.
-search_maxItems	no	Integer	The maximum number of items to return in the list in the search.
-search_rootNodeId	no	String	The id of the node to start the search from.
-search_include	no	Array	Returns additional information about the node in the search.
-search_orderBy	no	Array	It controls the order of the entities returned in a list in the search.
-search_fields	no	Array	This parameter restricts the fields returned within a response in the search.
-search_relativePath	no	String	Relative Path for searching.
-
-
 
 ## Common output parameters 
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- | 
 | `nodes` | | Array | | 
-| `responses` | | Array | |
+| `responses` | Required | Array | |
 | `content.error` | | String | | 
 
 
-nodes	no	Array	Array of nodes in ACS.
-responses	no	Array	Response for the calls.
-content.error	no	String	Error description when an error occurs in the action.
-
-
-
 ## Create content
-
-CREATE_NODE
+The `CREATE_NODE` action is used to upload files to the Alfresco Content Services repository. 
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
@@ -99,71 +78,151 @@ CREATE_NODE
 
 
 ## Update content
+The `UPDATE_CONTENT` action is used to upload new versions of files to the Alfresco Content Services repository.
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
+| `name` | *Optional.* | String| | 
+| `textSource` | *Optional.* | String | | 
+| `fileSource` | *Optional.* | File | | 
+| `majorVersion` | *Optional.* | Boolean | | 
+| `comment` | *Optional.* | String | | 
+| `include` | *Optional.* | Array | |
+| `fields` | *Optional.* | Array | | 
+
 
 ## Move content
+The `MOVE_CONTENT` action is used to move files or folders to a new location in the Alfresco Content Services repository.
+
+* If you move a folder does it move all the children? 
+
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
+| `nodeIdTarget` | *Required.* | String | |
+| `useFiles` | *Optional.*  | Boolean | |
+| `useFolders`| *Optional.*  | Boolean | | 
+| `include` | *Optional.*  | Array | | 
+| `fields` | *Optional.*  | Array | |
 
 ## Copy content
+The `COPY_CONTENT` action is used to make a copy of files or folders and move the copy to a new location in the Alfresco Content Services repository.
+
+* Folder and children? 
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-
-## Delete content
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-
-## Lock content
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-
-## Unlock content
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-
-## Set permissions on content
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-
-## Create a folder
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-
-## Select a folder
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-
+| `nodeIdTarget` | *Required.* | String | |
+| `useFiles` | *Optional.*  | Boolean | |
+| `useFolders`| *Optional.*  | Boolean | | 
+| `include` | *Optional.*  | Array | | 
+| `fields` | *Optional.*  | Array | |
 
 ## Select a file
 
+SELECT_FILE
+
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
+| `range` | *Required.* | Array | | 
+| `ifModifiedSince` | *Required.* | Date | |
+
+## Delete content
+The `DELETE_CONTENT` action is used to delete files and folders from the Alfresco Content Services repository.
+
+* What happens to children if deleting a folder? 
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+| `permanent` | *Optional.* | Boolean | |
+| `useFiles` | *Optional.*  | Boolean | |
+| `useFolders`| *Optional.*  | Boolean | | 
+
+
+## Lock content
+
+LOCK_NODE
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+| `nodeBodyLock` | *Required.* | | |
+| `useFiles` | *Optional.*  | Boolean | |
+| `useFolders`| *Optional.*  | Boolean | | 
+
+## Unlock content
+
+UNLOCK_NODE
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+| `useFiles` | *Optional.*  | Boolean | |
+| `useFolders`| *Optional.*  | Boolean | |
+
+
+## Set permissions on content
+The `SET_PERMISSIONS` action is used to update the permissions for files or folders in the Alfresco Content Services repository.
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+| `users` | *Required.* | Array | | 
+| `role` | *Required.* | String | |
+| `useFiles` | *Optional.*  | Boolean | |
+| `useFolders`| *Optional.*  | Boolean | | 
+| `include` | *Optional.*  | Array | | 
+| `fields` | *Optional.*  | Array | |
+
+
+## Create a folder
+The `CREATE_FOLDER` action is used to create new folders in the Alfresco Content Services repository.
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+| `folderName` | *Required.* A name for the folder. | String | | 
+| `autorename` | *Optional.* | Boolean | | 
+| `nodeType` | *Optional.* | String | | 
+| `include` | *Optional.* | Array | | 
+| `fields` | *Optional.* | Array | | 
+
+## Select a folder
+
+SELECT_FOLDER
+
+| Parameter | Description | Type | Example |
+| --------- | ----------- | ---- | ------- |
+| `range` | *Required.* | Array | | 
+| `ifModifiedSince` | *Required.* | Date | |
+
 
 ## Select metadata
 
+SELECT_METADATA
+
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
+| `useFiles` | *Optional.*  | Boolean | |
+| `useFolders`| *Optional.*  | Boolean | | 
 
 ## Update metadata
+The `UPDATE_METADATA` action is used to update the metadata for files and folders in the Alfresco Content Services repository.
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
+| `metadata` | *Required,* | | | 
+| `useFiles` | *Optional.*  | Boolean | |
+| `useFolders`| *Optional.*  | Boolean | | 
+| `include` | *Optional.*  | Array | | 
+| `fields` | *Optional.*  | Array | |
 
 ## Update tags
+The `UPDATE_TAG` action is used to update tags for files and folders in the Alfresco Content Services repository.
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-
+| `tag` | *Required.* | Array | |
+| `useFiles` | *Optional.*  | Boolean | |
+| `useFolders`| *Optional.*  | Boolean | | 
+| `include` | *Optional.*  | Array | | 
+| `fields` | *Optional.*  | Array | |
 
 
 
