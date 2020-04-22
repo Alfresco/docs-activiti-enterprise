@@ -139,7 +139,7 @@ There are three options for passing and updating values to and from process vari
 **Note**: The default behaviour is to send all variables.
 
 #### Send all variables
-Sending all variables passes all variables to and from the BPMN element without explicitly mapping between the process variables and element variables. To send all variables, select the option **Send all variables** and do not set and input and output mappings. 
+Sending all variables passes all variables to and from the BPMN element without explicitly mapping between the process variables and element variables. To send all variables, select the option **Send all variables**.
 
 When sending all variables mapping will be attempted using the `name` of process variables and the variable names in the BPMN element. If the names are identical then the values will be updated between the variables. 
 
@@ -148,7 +148,7 @@ For example, sending the process variables `flavor` and `cost` to a user task wi
 If all variables are sent for a BPMN element then the `id` of that element will not appear in the `mappings` section of the `<process-definition-name>-extensions.json` or **Extensions Editor**. 
 
 #### Map variables
-Mapping variables is to explicitly map individual process variables to variables in the BPMN element. To map variables, select the option **Send all variables** and set the input and output mappings. 
+Mapping variables is to explicitly map individual process variables to variables in the BPMN element. To map variables, select the option **Map variables** and set the input and output mappings. 
 
 If mapping variables the `id` of the BPMN element will appear in the `mappings` section of the `<process-definition-name>-extensions.json` or **Extensions Editor** with the `inputs` and `outputs` populated with the `name` or `id` of the BPMN element variable.
 
@@ -176,7 +176,7 @@ The following is an example of mapping variables for a service task:
 ```
 
 #### Send no variables
-Sending no variables will not pass any variables between a process instance and its BPMN elements.
+Sending no variables will not pass any variables between a process instance and its BPMN elements. To send no variables, select the option **Don't send variables**. 
 
 If no variables are sent for a BPMN element then the `id` of that element will be present in the `mappings` section of the `<process-definition-name>-extensions.json` or **Extensions Editor** with empty `inputs` and `outputs`.
 
