@@ -14,21 +14,25 @@ Runtime Bundles expose a synchronous REST API and an asynchronous message-based 
 
 Runtime Bundles emit and consume events that occur within processes via Spring Cloud Streams. A description of [engine events](events.md) and their classes is available.
 
-By default, the data from the Runtime Bundle is stored in a Postgres database that is shared within an application namespace between the Audit Service, Query Service, Notification Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster. 
+By default, the data is stored in a Postgres database that is shared within an application namespace between the Query Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster. 
 
 The REST APIs that the runtime bundle exposes deal with processes and tasks and are specific to each application. 
 
-## Query service
-The Query Service is used for querying process data without accessing a [runtime bundle](#runtime-bundle) directly. It  consumes the events produced by the runtime bundle and routed via Spring Cloud Streams (through the [Rabbit MQ](#rabbit-mq) binder). It stores them in its own database for simple, read-only process and task querying. The Query Service performs some data aggregation, whilst the [audit service](#audit-service) does not.
+## Query Service
+The Query Service is used for querying process data without accessing the [runtime bundle](#runtime-bundle) directly. It consumes the events produced by the runtime bundle that are routed via Spring Cloud Streams through the [Rabbit MQ](#rabbit-mq) binder. 
 
-By default, the data is stored in a Postgres database that is shared within an application namespace between the aAudit Service, Query Service, Notification Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster. 
+The query service contains tables that have had some level of data aggregation performed on them for querying purposes. These tables can also be used to setup [GraphQL](https://graphql.org/learn/) against to query specific events and use web sockets with. 
+
+Another set of tables within the query service store events without any data manipulation and are used as an audit trail for each application. These audit events can be queried without accessing the runtime bundle directly. 
+
+By default, the data is stored in a Postgres database that is shared within an application namespace between the Query Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster. 
 
 The REST APIs that the query service exposes deal with processes and tasks and are specific to each application. 
 
 ## Form Service
 The Form Service contains the backend functionality required for [forms](../modeling/forms/README.md) to function within an application. 
 
-By default, the data is stored in a Postgres database that is shared within an application namespace between the Audit Service, Query Service, Notification Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster.
+By default, the data is stored in a Postgres database that is shared within an application namespace between the Query Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster. 
 
 The REST APIs that the Form service exposes deal with forms and are specific to each application.
 
@@ -55,20 +59,8 @@ The DMN Runtime Service contains the backend functionality required for [decisio
 
 Rabbit MQ is the default implementation, but can be replaced by a different message broker. 
 
-## Notification Service
-The notification service reads from the same data store as the [query service](#query-service). It can be used to setup [GraphQL](https://graphql.org/learn/) to query specific events and can also use web sockets. 
-
-By default, the data is stored in a Postgres database that is shared within an application namespace between the Audit Service, Query Service, Notification Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster.
-
-## Audit Service
-The Audit Service stores events routed via Spring Cloud Streams (through the Rabbit MQ binder) into its own data store, without any data manipulation. This allows for audit events at an application level to be queried (in a read-only fashion) without contacting a [runtime bundle](#runtime-bundle) directly. 
-
-By default, the data is stored in a Postgres database that is shared within an application namespace between the Audit Service, Query Service, Notification Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster.
-
-The REST APIs that the audit service exposes deal with audit events and are specific to each application. 
-
 ## Preference Service
-The Preference Service is a key value store that retains user-based preferences. By default, the data is stored in a Postgres database that is shared within an application namespace between the Audit Service, Query Service, Notification Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster.
+The Preference Service is a key value store that retains user-based preferences. By default, the data is stored in a Postgres database that is shared within an application namespace between the Query Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster. 
 
 ## Connectors
 Connectors are used to execute logic outside of processes and the [runtime bundle](#runtime-bundle). Connectors are attached to a [service task](../modeling/processes/bpmn/service.md) within a process definition. When the process flow reaches the service task, the values are sent from the process instance to a connector using Spring Cloud Streams via [Rabbit MQ](#rabbit-mq) to be used as part of the logic. The results are sent back to the process instance after the connector has finished and the process flow continues.

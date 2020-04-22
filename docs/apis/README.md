@@ -17,10 +17,9 @@ The OpenAPI specifications for application endpoints require the `{application-n
 * Runtime bundle: `gateway.{domain-name}/{application-name}/rb/swagger-ui.html`
 * Form service: `gateway.{domain-name}/{application-name}/form/swagger-ui.html`
 * Query service: `gateway.{domain-name}/{application-name}/query/swagger-ui.html`
-* Audit service: `gateway.{domain-name}/{application-name}/audit/swagger-ui.html`
 
-### Notification service
-The notification services uses [GraphQL](https://graphql.org/learn/) to expand on querying. It reads from the same data store as the query service and can be accessed at the following URL: 
+### GraphQL
+The query service can also use [GraphQL](https://graphql.org/learn/) to expand on querying. It can be accessed at the following URL: 
 
 `gateway.{domain-name}/{application-name}/notifications/graphiql`. 
 
