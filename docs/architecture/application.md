@@ -2,68 +2,58 @@
 Title: Application services
 ---
 
-# Application Services
+# Application services
 Application Services are those that are deployed into a Kubernetes namespace as part of an application. There is a 1:1 relationship between Kubernetes namespaces and applications. Each application that is deployed will contain application level services specific to only that application in its own Kubernetes Namespace. 
 
-The application name therefore forms part of the REST API endpoints. 
+The application name forms part of the REST API endpoints. 
 
-## Runtime Bundle
-A runtime bundle represents a stateless instance of the process engine that executes an immutable set of process definitions. It is important to note that you cannot deploy new process definitions to an existing runtime bundle, nor can you update a process definition within it. Instead, you create a new version of your runtime bundle that contains the updates. 
+## Application runtime bundle
+The application runtime bundle is a service that contains the following: 
 
-Runtime Bundles expose a synchronous REST API and an asynchronous message-based API. Each Runtime Bundle contains a single application and each application is deployed to its own Namespace. 
+![Application runtime bundle diagram](../images/arch-runtime.png)
 
-Runtime Bundles emit and consume events that occur within processes via Spring Cloud Streams. A description of [engine events](events.md) and their classes is available.
+The application runtime bundle stores data in a Postgres database that is shared with the [application query service](#application-query-service), with data separated into separate schemas. A database is deployed into each namespace by default, however an external instance can be used as the target instead.
 
-By default, the data is stored in a Postgres database that is shared within an application namespace between the Query Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster. 
+### Process runtime
+The process runtime is a stateless instance of the process engine that executes an immutable set of process definitions. Each instance of the process engine only contains a single application.
 
-The REST APIs that the runtime bundle exposes deal with processes and tasks and are specific to each application. 
+A synchronous REST API and an asynchronous message-based API are exposed by the process engine and events are emitted and consumed via Spring Cloud Streams. A list of [engine events](events.md) and their classes is available.
 
-## Query Service
-The Query Service is used for querying process data without accessing the [runtime bundle](#runtime-bundle) directly. It consumes the events produced by the runtime bundle that are routed via Spring Cloud Streams through the [Rabbit MQ](#rabbit-mq) binder. 
+### Form runtime
+The form runtime contains the functionality required for [forms](../modeling/forms/README.md) to function within an application.  
 
-The query service contains tables that have had some level of data aggregation performed on them for querying purposes. These tables can also be used to setup [GraphQL](https://graphql.org/learn/) against to query specific events and use web sockets with. 
+### DMN runtime
+The DMN runtime contains the functionality required for [decision tables](../modeling/decisions.md) to function within an application. 
 
-Another set of tables within the query service store events without any data manipulation and are used as an audit trail for each application. These audit events can be queried without accessing the runtime bundle directly. 
+### Script runtime 
+The script runtime contains the functionality required to execute [scripts](../modeling/scripts.md) within an application.
 
-By default, the data is stored in a Postgres database that is shared within an application namespace between the Query Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster. 
+### Preference
+User preferences are retained in a key value store within the application database. 
 
-The REST APIs that the query service exposes deal with processes and tasks and are specific to each application. 
-
-## Form Service
-The Form Service contains the backend functionality required for [forms](../modeling/forms/README.md) to function within an application. 
-
-By default, the data is stored in a Postgres database that is shared within an application namespace between the Query Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster. 
-
-The REST APIs that the Form service exposes deal with forms and are specific to each application.
-
-The following is a high level diagram of the Form service:
-
-![Form service diagram](../images/arch-form.png)
-
-## Process Storage Service
-The Process Storage Service stores process instances and tasks as nodes within an [Alfresco Content Services (ACS)](http://docs.alfresco.com/6.1/concepts/welcome.html) repository. 
+### Process storage
+Process storage optionally stores process instances and tasks as nodes within an [Alfresco Content Services (ACS)](http://docs.alfresco.com/6.2/concepts/welcome.html) repository. 
 
 The user that creates these nodes in ACS is **service-account-storage-service**.  
 
-The REST APIs that the Process Storage Service exposes deal with folders and files and are specific to each application.  
+## Application query service
+The application query service contains the following: 
 
-The following is a high level diagram of the process storage service:
+![Application query service diagram](../images/arch-query.png)
 
-![Process Storage Service diagram](../images/arch-storage.png)
+The application query service stores data in a Postgres database that is shared with the [application runtime bundle](#application-runtime-bundle), with data separated into separate schemas. A database is deployed into each namespace by default, however an external instance can be used as the target instead.
 
-## DMN Runtime Service
-The DMN Runtime Service contains the backend functionality required for [decision tables](../modeling/decisions.md) to function within an application. 
+### Query
+Tables for querying application data are separate to the runtime so that queries can be run without accessing any runtime services. Some data aggregation is performed on the tables to improve querying.
 
-## Rabbit MQ
-[Rabbit MQ](https://www.rabbitmq.com/) is the default message broker deployed with Activiti Enterprise that routes the events emitted by the runtime bundle asynchronously to other relevant microservices such as the audit and query services. 
+### Audit 
+Audit log tables for all application transactions are separate to the runtime so that they can be queried without accessing any runtime services. No data aggregation or manipulation is run against audit logs to enforce an accurate audit trail. 
 
-Rabbit MQ is the default implementation, but can be replaced by a different message broker. 
-
-## Preference Service
-The Preference Service is a key value store that retains user-based preferences. By default, the data is stored in a Postgres database that is shared within an application namespace between the Query Service, Preference Service, Form Service and Runtime Bundle. This can be updated to point to a Postgres data store external to an application’s namespace or even external to the cluster. 
+### Notification 
+The tables used for querying application data are also be used to setup [GraphQL](https://graphql.org/learn/) against in order to query specific events and use web sockets with. 
 
 ## Connectors
-Connectors are used to execute logic outside of processes and the [runtime bundle](#runtime-bundle). Connectors are attached to a [service task](../modeling/processes/bpmn/service.md) within a process definition. When the process flow reaches the service task, the values are sent from the process instance to a connector using Spring Cloud Streams via [Rabbit MQ](#rabbit-mq) to be used as part of the logic. The results are sent back to the process instance after the connector has finished and the process flow continues.
+Connectors are used to execute logic outside of processes and the [application runtime bundle](#application-runtime-bundle). Connectors are attached to a [service task](../modeling/processes/bpmn/service.md) within a process definition. When the process flow reaches the service task, the values are sent from the process instance to a connector using Spring Cloud Streams via [Rabbit MQ](#rabbit-mq) to be used as part of the logic. The results are sent back to the process instance after the connector has finished and the process flow continues.
 
-## Script Runtime Service
-The Script Runtime Service contains the backend functionality required to execute [scripts](../modeling/scripts.md) within an application. Scripts are executed outside of the runtime bundle with the results being passed back using Rabbit MQ.
+## Rabbit MQ
+[Rabbit MQ](https://www.rabbitmq.com/) is the default message broker deployed with Activiti Enterprise that routes the events emitted by the runtime bundle asynchronously to other services.

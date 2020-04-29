@@ -10,7 +10,7 @@ Certain aspects of the infrastructure can be configured on an application by app
 * [Deploying an application with custom images](#deploying-an-application-with-custom-images)
 
 ## Configuring external Postgres instances
-By default, data for the query service, preference service, form service and runtime bundle is stored in an instance of Postgres deployed into an application namespace. A number of options are available to update the Postgres storage options: 
+By default, data for the application runtime bundle and application query service is stored in an instance of Postgres deployed into an application namespace. A number of options are available to update the Postgres storage options: 
 
 * [Use an external Postgres instance for all services](#use-an-external-postgres-instance-for-all-services)
 * [Use separate an external Postgres instance(s) for each service](#use-an-external-postgres-instance(s)-for-each-service)
@@ -51,9 +51,9 @@ In the Administrator Application, this would look similar to the following:
 ![Example external Postgres deployment variables](../../images/deploy-postgres-external.png)
 
 ### Use an external Postgres instance(s) for each service
-An external instance of Postgres can be specified at the specific service level. This means that as few or as many services can use an external instance as required. The external instances can be different for each service. Any service that does not have a Postgres instance specified will use the `postgresql-service` settings as its default. 
+An external instance of Postgres can be specified at the service level. This means that as few or as many services can use an external instance as required. The external instances can be different for each service. Any service that does not have a Postgres instance specified will use the `postgresql-service` settings as its default. 
 
-The following is an example deployment payload where the query service is set to use an external instance of Postgres: 
+The following is an example deployment payload where the application query service is set to use an external instance of Postgres: 
 
 ```json
 {
@@ -91,7 +91,7 @@ An external event bridge can be added to an application at deployment time that 
 * [Elasticsearch](#elasticsearch)
 * [Kafka](#kafka)
 
-Runtime events are events that are emitted by the [runtime bundle](../../architecture/application.md#runtime-bundle). 
+Runtime events are events that are emitted by the [application runtime bundle](../../architecture/application.md#application-runtime-bundle). 
 
 Integration events are events that are emitted by [connectors](../../modeling/connectors/README.md). For example, if using the [email connector](../../modeling/connectors/ootb/email.md), the event bridge will listen to events in the queue named `emailConnector.SEND`. 
 
