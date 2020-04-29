@@ -28,7 +28,7 @@ The basic properties for a user task are:
 | Property | Description | Example | Required | 
 | -------- | ----------- | ------- | -------- | 
 | `id` | The unique identifier for the user task. This is system generated and cannot be altered | UserTask_0gpdh83 | Yes |
-| `name` | The name of the user task. This will display on the user task in the process diagram | Flavor order | No |
+| `name` | The name of the user task. This will display on the user task in the process diagram. The value `${initiator}` can be used to include the name of the user that starts the process instance as part of the task name at runtime | Flavor order | No |
 | `documentation` | A free text description of what the user task does | A form to choose the flavor of ice cream.  | No |
 
 The ID and name of a user task are set as XML attributes of the `userTask`. Documentation is a sub-element of `userTask`, for example: 
@@ -61,6 +61,9 @@ Users and groups can be set from three different sources:
 * **Identity** allows for users and groups to be searched in the [Identity Service](../../../administrator/identity/service.md) and selected for the assignment.
 
 * **Expression** allows for an expression using [process variables](../variables.md) to be used to select users and groups for the assignment. Expressions can be a simple process variable such as `${userToAssign}` or an expression such as `${userDetails.username}` that uses a process variable of type JSON. A JSON editor is provided for creating expressions for assignment, however the editor will only be displayed if there are process variables in the process.
+
+	**Note**: The value `"assignee": "${initiator}"` can be set as an expression without creating a process variable. This will assign the task to the user that started the process instance.  
+
 
 The assignments for user tasks are stored in the [`assignments` property](../README.md) of the **Extensions Editor** and `<process-definition-name>-extensions.json`. 
 
