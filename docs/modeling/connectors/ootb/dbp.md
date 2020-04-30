@@ -40,29 +40,28 @@ The following input parameters are common between content connector actions:
 | --------- | ----------- | ---- | ------- | 
 | `nodeId` | *Required.\** The node ID of the node to operate on in Alfresco Content Services. | String | dioos2a1-2a22-4f42-820d-c2b628751121 |
 | `files` | *Required.\** A [file](../../files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector to operate on. | File | |
-| `folders` | *Required.\** | | |
+| `folders` | *Required.\** A [process variable](../../processes/variables.md) of type folder. | Folder | |
 | `locationPath` | *Required.\** The URI of a node to operate on. | String | |
-| `searchQuery` | *Required.\**  | String | |
+| `searchQuery` | *Required.\** The query to use to find the nodes to operate on. | String | |
 | `search_skipCount` | *Optional.* The number of items to exclude before generating a result set from the `searchQuery`. | Integer | 5 |
 | `search_maxItems` | *Optional.* The maximum number of items to include in the result set from the `searchQuery`. | Integer | 1 |
 | `search_rootNodeId` | *Optional.* The node ID to begin the `searchQuery` from. | String | fdcac4a4-1f51-4e02-820d-c2b669647671 |
-| `search_include` | *Optional.* | Array | |
-| `search_orderBy` | *Optional.* | Array | |
-| `search_fields` | *Optional.* | Array | |
-| `search_relativePath` | *Optional.* | String | |
+| `search_include` | *Optional.* Additional information to return about the node from the `searchQuery`. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions |
+| `search_orderBy` | *Optional.* Orders the list of properties returned by the `searchQuery`. | Array | |
+| `search_fields` | *Optional.* Set the list of properties to be returned about the node in the response of the `searchQuery` | Array | id, name |
 
 `*` One of these parameters is required to identify the content to operate on. 
 
 
-
+--- Is searchQuery setting the language automatically? E.g. CMIS? 
 
 ## Common output parameters 
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- | 
-| `nodes` | | Array | | 
-| `responses` | Required | Array | |
-| `content.error` | | String | | 
+| `nodes` | *Optional.* A list of nodes operated on by the action. | Array | | 
+| `responses` | *Required.* The response from the action. For example the metadata of a node. | JSON | |
+| `content.error` | *Optional.* Any errors returned by the connector in performing the operation. | String | | 
 
 
 ## Create content
@@ -70,11 +69,11 @@ The `CREATE_NODE` action is used to upload files to the Alfresco Content Service
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `name` | *Required.* A name for the file. | String | | 
-| `autorename` | *Optional.* | Boolean | | 
-| `nodeType` | *Optional.* | String | | 
-| `include` | *Optional.* | Array | | 
-| `fields` | *Optional.* | Array | | 
+| `name` | *Required.* A name for the file. | String | January Orders | 
+| `autorename` | *Optional.* If set to `true` then a suffix will be added to the file name if a file with that name already exists.| Boolean | True | 
+| `nodeType` | *Optional.* The node type for the new content. The default value is `cm:content` | String | cm:content | 
+| `include` | *Optional.* Additional information to return about the node. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions | 
+| `fields` | *Optional.* Set the list of properties to be returned about the node. | Array | id, name |
 
 
 ## Update content
@@ -82,28 +81,25 @@ The `UPDATE_CONTENT` action is used to upload new versions of files to the Alfre
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `name` | *Optional.* | String| | 
-| `textSource` | *Optional.* | String | | 
-| `fileSource` | *Optional.* | File | | 
-| `majorVersion` | *Optional.* | Boolean | | 
-| `comment` | *Optional.* | String | | 
-| `include` | *Optional.* | Array | |
-| `fields` | *Optional.* | Array | | 
+| `name` | *Optional.* A name for the file. | String | January Orders | 
+| `textSource` | *Optional.* The source for the update to the file in text format. | String | | 
+| `fileSource` | *Optional.* The source for the update to the file in [file](../../files.md) variable format. | File | | 
+| `majorVersion` | *Optional.* If set to `true` then a major version will be created for the file update. If set to `false` a minor version will be created. | Boolean | False | 
+| `comment` | *Optional.* The version comment to appear in the versioning history. | String | | 
+| `include` | *Optional.* Additional information to return about the node. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions | 
+| `fields` | *Optional.* Set the list of properties to be returned about the node. | Array | id, name |
 
 
 ## Move content
 The `MOVE_CONTENT` action is used to move files or folders to a new location in the Alfresco Content Services repository.
 
-* If you move a folder does it move all the children? 
-
-
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `nodeIdTarget` | *Required.* | String | |
-| `useFiles` | *Optional.*  | Boolean | |
-| `useFolders`| *Optional.*  | Boolean | | 
-| `include` | *Optional.*  | Array | | 
-| `fields` | *Optional.*  | Array | |
+| `nodeIdTarget` | *Required.* The node ID of the location to move the content to. | String | |
+| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | | 
+| `include` | *Optional.* Additional information to return about the node. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions | 
+| `fields` | *Optional.* Set the list of properties to be returned about the node. | Array | id, name |
 
 ## Copy content
 The `COPY_CONTENT` action is used to make a copy of files or folders and move the copy to a new location in the Alfresco Content Services repository.
@@ -112,20 +108,20 @@ The `COPY_CONTENT` action is used to make a copy of files or folders and move th
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `nodeIdTarget` | *Required.* | String | |
-| `useFiles` | *Optional.*  | Boolean | |
-| `useFolders`| *Optional.*  | Boolean | | 
-| `include` | *Optional.*  | Array | | 
-| `fields` | *Optional.*  | Array | |
+| `nodeIdTarget` | *Required.* The node ID of the location to copy the content to. | String | |
+| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | | 
+| `include` | *Optional.* Additional information to return about the node. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions | 
+| `fields` | *Optional.* Set the list of properties to be returned about the node. | Array | id, name |
 
 ## Select a file
+The `SELECT_FILE` action is used to select a file from the Alfresco Content Services repository to be used in the process.
 
-SELECT_FILE
+No additional input parameters are required to select a file. The following output parameter is included that contains the selected file: 
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `range` | *Required.* | Array | | 
-| `ifModifiedSince` | *Required.* | Date | |
+| `files` | *Required.* The files returned as a [file](../../files.md) variable. | File | | 
 
 ## Delete content
 The `DELETE_CONTENT` action is used to delete files and folders from the Alfresco Content Services repository.
@@ -134,43 +130,38 @@ The `DELETE_CONTENT` action is used to delete files and folders from the Alfresc
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `permanent` | *Optional.* | Boolean | |
-| `useFiles` | *Optional.*  | Boolean | |
-| `useFolders`| *Optional.*  | Boolean | | 
-
+| `permanent` | *Optional.* If set to `true` the content will be permanently deleted instead of being moved to the trash can. | Boolean | False |
+| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | | 
 
 ## Lock content
-
-LOCK_NODE
+The `LOCK_NODE` action is used to lock a node in the Alfresco Content Services repository so that it cannot be edited.
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `nodeBodyLock` | *Required.* | | |
-| `useFiles` | *Optional.*  | Boolean | |
-| `useFolders`| *Optional.*  | Boolean | | 
+| `nodeBodyLock` | *Required.* | JSON | |
+| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | | 
 
 ## Unlock content
-
-UNLOCK_NODE
+The `UNLOCK_NODE` action is used to unlock a node in the Alfresco Content Services repository so that it can be edited again.
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `useFiles` | *Optional.*  | Boolean | |
-| `useFolders`| *Optional.*  | Boolean | |
-
+| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | | 
 
 ## Set permissions on content
 The `SET_PERMISSIONS` action is used to update the permissions for files or folders in the Alfresco Content Services repository.
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `users` | *Required.* | Array | | 
-| `role` | *Required.* | String | |
-| `useFiles` | *Optional.*  | Boolean | |
-| `useFolders`| *Optional.*  | Boolean | | 
-| `include` | *Optional.*  | Array | | 
-| `fields` | *Optional.*  | Array | |
-
+| `users` | *Required.* A list of user IDs to update permissions for. | Array | | 
+| `role` | *Required.* The roles to assign to the list of `users`. | String | |
+| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | | 
+| `include` | *Optional.* Additional information to return about the node. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions | 
+| `fields` | *Optional.* Set the list of properties to be returned about the node. | Array | id, name |
 
 ## Create a folder
 The `CREATE_FOLDER` action is used to create new folders in the Alfresco Content Services repository.
@@ -178,19 +169,19 @@ The `CREATE_FOLDER` action is used to create new folders in the Alfresco Content
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
 | `folderName` | *Required.* A name for the folder. | String | | 
-| `autorename` | *Optional.* | Boolean | | 
-| `nodeType` | *Optional.* | String | | 
-| `include` | *Optional.* | Array | | 
-| `fields` | *Optional.* | Array | | 
+| `autorename` | *Optional.* If set to `true` then a suffix will be added to the folder name if a folder with that name already exists.| Boolean | True | 
+| `nodeType` | *Optional.* The node type for the new content. The default value is `cm:file` | String | cm:file | 
+| `include` | *Optional.* Additional information to return about the node. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions | 
+| `fields` | *Optional.* Set the list of properties to be returned about the node. | Array | id, name |
 
 ## Select a folder
+The `SELECT_FOLDER` action is used to select a folder from the Alfresco Content Services repository to be used in the process.
 
-SELECT_FOLDER
+No additional input parameters are required to select a folder. The following output parameter is included that contains the selected folder: 
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `range` | *Required.* | Array | | 
-| `ifModifiedSince` | *Required.* | Date | |
+| `folders` | *Required.* The folder returned as a [process variable](../../processes/variables.md) of type folder. | Folder | | 
 
 
 ## Select metadata
@@ -199,244 +190,28 @@ SELECT_METADATA
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `useFiles` | *Optional.*  | Boolean | |
-| `useFolders`| *Optional.*  | Boolean | | 
+| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | | 
 
 ## Update metadata
 The `UPDATE_METADATA` action is used to update the metadata for files and folders in the Alfresco Content Services repository.
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `metadata` | *Required,* | | | 
-| `useFiles` | *Optional.*  | Boolean | |
-| `useFolders`| *Optional.*  | Boolean | | 
-| `include` | *Optional.*  | Array | | 
-| `fields` | *Optional.*  | Array | |
+| `metadata` | *Required,* The metadata to assign to the node. | | | 
+| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | | 
+| `include` | *Optional.* Additional information to return about the node. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions | 
+| `fields` | *Optional.* Set the list of properties to be returned about the node. | Array | id, name |
 
 ## Update tags
 The `UPDATE_TAG` action is used to update tags for files and folders in the Alfresco Content Services repository.
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `tag` | *Required.* | Array | |
-| `useFiles` | *Optional.*  | Boolean | |
-| `useFolders`| *Optional.*  | Boolean | | 
-| `include` | *Optional.*  | Array | | 
-| `fields` | *Optional.*  | Array | |
+| `tag` | *Required.* A list of tags to update for the node. | Array | |
+| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | | 
+| `include` | *Optional.* Additional information to return about the node. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions | 
+| `fields` | *Optional.* Set the list of properties to be returned about the node. | Array | id, name |
 
-
-
-## Update node properties
-The `updateMetadataTask` action is used to update the metadata of a node in ACS. Metadata includes properties such as the title of a document.
-
-### Input parameters
-The following are the parameters that can be passed to the DBP connector as input parameters using the `updateMetadataTask` action: 
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-| `nodeId` |  The ID of the node to update | String | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
-| `properties` | The values of the properties to update | JSON object | `{"cm:title" : "New titled document"}` |
-
-### Output parameter
-The following is the parameter that is returned to the process by the DBP connector as an output parameter using the `updateMetadataTask` action: 
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | Integer | `200` |
-
-## Retrieve node properties
-The `retrieveMetadataTask` action is used to retrieve the metadata of a node in ACS. Metadata includes properties such as title, lock status and node type. 
-
-### Input parameter
-The following are is the parameter that can be passed to the DBP connector as an input parameter using the `retrieveMetadataTask` action: 
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-| `nodeId` | The ID of the node to retrieve properties from | String | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
-
-### Output parameters
-The following are the parameters that are returned to the process by the DBP connector as output parameters using the `retrieveMetadataTask` action: 
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | Integer | `200` |
-| `alfrescoRetrievedMetadataResponse` | The properties returned by the request | JSON object | *See the following for an example* |
-
-The following is an example of `alfrescoRetrievedMetadataResponse`:
-
-```json
-"alfrescoRetrievedMetadataResponse" : "class Node {
-                                                id: d606c499-0c8a-4ae9-b297-de50e2eed350
-                                                name: test_28e5620b-e1f1-4d7d-b4ba-4ca19f86dd36
-                                                nodeType: cm:content
-                                                isFolder: false
-                                                isFile: true
-                                                isLocked: false
-                                                modifiedAt: 2019-03-05T11:42:06.891Z
-                                                modifiedByUser: class UserInfo {
-                                                    displayName: Administrator
-                                                    id: admin
-                                                }
-                                                createdAt: 2019-03-05T11:42:06.891Z
-                                                createdByUser: class UserInfo {
-                                                    displayName: Administrator
-                                                    id: admin
-                                                }
-                                                parentId: 366379d7-7334-4fdf-a61c-414fa9114c7e
-                                                isLink: null
-                                                isFavorite: null
-                                                content: class ContentInfo {
-                                                    mimeType: application/octet-stream
-                                                    mimeTypeName: Binary File (Octet Stream)
-                                                    sizeInBytes: 0
-                                                    encoding: UTF-8
-                                                }
-                                                aspectNames: [cm:auditable]
-                                                properties: null
-                                                allowableOperations: null
-                                                path: null
-                                                permissions: null
-                                            }"
-```
-
-## Move a node
-The `moveNode` action is used to move a node to a different location in ACS.
-
-### Input parameters
-The following are the parameters that can be passed to the DBP connector as input parameters using the `moveNode` action:
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-| `nodeId` | The ID of the node to move | String | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
-| `targetParentId` | The ID of the new parent node | String | `d606c499-0c8a-4ae9-b297-de50e2eed350` |
-
-### Output parameter
-The following is the parameter that is returned to the process by the DBP connector as an output parameter using the `moveNode` action:
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | Integer | `200` |
-
-## Delete a node
-The `deleteNode` action is used to delete a node from ACS. The node type must be `cm:content`.
-
-**Note**: The node is moved to the trashcan.
-
-### Input parameter
-The following is the parameter that can be passed to the DBP connector as an input parameter using the `deleteNode` action:
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-| `nodeId` | The ID of the node to delete | String | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
-
-### Output parameter
-The following is the parameter that is returned to the process by the DBP connector as an output parameter using the `deleteNode` action:
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | Integer | `200` |
-
-## Create a folder
-The `createFolder` action is used to create a folder in ACS.
-
-### Input parameters
-The following are the parameters that can be passed to the DBP connector as input parameters using the `createFolder` action:
-
-| Parameter | Description | Type | Notes | Example |
-| --------- | ----------- | ---- | ----- | ------- |
-| `folderName` |  The name of the folder to be created | String | | `myNewFolder` |
-| `parentId` |  The node ID of the parent folder | String | Can be specified as a node ID (including already known aliases such as **-my-**) or a site ID (which must contain a document library that will become the parent of the new folder) | `d606c499-0c8a-4ae9-b297-de50e2eed350` |
-| `relativePath` |  The path of the new folder relative to its parent | String | Parameter is optional. If it is not specified then the new folder will be created as a direct child of the parent folder | `/newStructure/levelOne/levelTwo` |
-
-### Output parameters
-The following are the parameters that are returned to the process by the DBP connector as output parameters using the `createFolder` action: 
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | Integer | `200` |
-| `alfrescoCreatedNodeId` | The node ID of the newly created folder | String | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
-| `alfrescoCreatedNodeResponse` | The properties of the newly created folder | JSON object | *See the following for an example* |
-
-The following is an example of `alfrescoCreatedNodeResponse`:
-
-```json
- "alfrescoCreatedNodeResponse": "class Node {
-                                              id: a0d48ea5-6fe7-4c07-b4d2-41a8e73fa93e
-                                              name: testFolder_abd2407c-d059-4451-8482-eb8561cc893e
-                                              nodeType: cm:folder
-                                              isFolder: true
-                                              isFile: false
-                                              isLocked: false
-                                              modifiedAt: 2019-03-08T10:17:09.146Z
-                                              modifiedByUser: class UserInfo {
-                                                  displayName: Administrator
-                                                  id: admin
-                                              }
-                                              createdAt: 2019-03-08T10:17:09.146Z
-                                              createdByUser: class UserInfo {
-                                                  displayName: Administrator
-                                                  id: admin
-                                              }
-                                              parentId: 499e9761-ca7a-4228-825d-35899b5b9984
-                                              isLink: null
-                                              isFavorite: null
-                                              content: null
-                                              aspectNames: [cm:auditable]
-                                              properties: null
-                                              allowableOperations: null
-                                              path: null
-                                              permissions: null"
-                                          }
-```
-
-
-
-## Delete a folder
-The `deleteFolder` action is used to delete a folder in ACS. The node type must be `cm:folder`.
-
-**Note**: The node will be moved to the trashcan.
-
-### Input parameter
-The following is the parameter that can be passed to the DBP connector as an input parameter using the `deleteFolder` action:
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-| `nodeId` | The ID of the node to delete | String | `fdcac4a4-1f51-4e02-820d-c2b669647671` |
-
-### Output parameter
-The following is the parameter that is returned to the process by the DBP connector as an output parameter using the `deleteFolder` action:
-
-| Parameter | Description | Type | Example |
-| --------- | ----------- | ---- | ------- |
-| `alfrescoRequestResponseCode` |  The HTTP response status code for the request | Integer | `200` |
-
-## Configuration parameters
-Values for configuration parameters that are specific to a connector instance can be set in the modeling application or during application deployment.
-
-The following are the configuration parameters that need to be set for the DBP connector: 
-
-**Note**: The value `$DNSNAME` needs to be updated for your deployment. All other values are static.  
-
-**Note**: A service user that is available to the Identity Service and ACS repository should be created and used in place of the default admin for the `ALFRESCO_IDENTITY_SERVICE_USERNAME`. It should be given the appropriate permissions for the actions it will need to perform against ACS following the principal of least privilege.
-
-| Parameter | Description | Value | 
-| --------- | ----------- | ----- | 
-| `ACT_RABBITMQ_HOST` | The host of Rabbit MQ | `rabbitmq` |
-| `ACT_RABBITMQ_PORT` | The port number Rabbit MQ is running on | `5672` |
-| `MESSAGING_ACTIVEMQ_HOST` | The host of Active MQ | `aps2-infra-activemq-broker.default` |
-| `MESSAGING_ACTIVEMQ_PORT` | The port number of Active MQ | `5672` |
-| `MESSAGING_ACTIVEMQ_USERNAME` | The username Active MQ will use | `admin` |
-| `MESSAGING_ACTIVEMQ_PASSWORD` | The password for the Active MQ user | `admin` |
-| `ALFRESCO_CONTENT_REPO_BASE_URL` | The base URL of the ACS repository to link with | `https://gateway.$DNSNAME/alfresco` |
-| `ALFRESCO_IDENTITY_SERVICE_TOKENURL` | The URL for obtaining identity tokens | `https://identity.$DNSNAME/auth/realms/alfresco/protocol/openid-connect/token` |
-| `ACTIVITI_SERVICE_RUNTIME_URL` |The base URL for runtime bundles | `https://gateway.$DNSNAME` |
-| `ACTIVITI_SERVICE_QUERY_URL` | The base URL for the query service | `https://gateway.$DNSNAME` |
-| `ACTIVITI_SERVICE_AUDIT_URL` | The base URL for the audit service | `https://gateway.$DNSNAME` |
-| `ACTIVITI_SERVICE_MODELING_URL` | The base URL for the modeling service | `https://gateway.$DNSNAME` |
-| `ACTIVITI_SERVICE_FORM_URL` | The base URL for the form service | `https://gateway.$DNSNAME` |
-| `ALFRESCO_EVENT_GATEWAY_BASE_URL` | The base URL for the gateway | `https://gateway.$DNSNAME` |
-| `ALFRESCO_CONTENT_REPO_DISCOVERY_PATH` | The base URL for ACS APIs | `/api` |
-| `ALFRESCO_CONTENT_REPO_CORE_PATH` | The base URL for the ACS core API | `/api/-default-/public/alfresco/versions/1` |
-| `ALFRESCO_CONTENT_REPO_AUTHENTICATION_PATH` | The base URL for the ACS authentication API | `/api/-default-/public/authentication/versions/1` |
-| `ALFRESCO_CONTENT_REPO_WORKFLOW_PATH` | The base URL for the ACS workflow API | `/api/-default-/public/workflow/versions/1` |
-| `ALFRESCO_CONTENT_REPO_SEARCH_PATH` | The base URL for the ACS content search API | `/api/-default-/public/search/versions/1` |
