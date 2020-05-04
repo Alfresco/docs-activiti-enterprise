@@ -32,15 +32,8 @@ An application requires a Kubernetes namespace that contains a Quay secret to pu
 		generic licenseaps --from-file activiti.lic
 	```
 
-## (Optional) Create custom images 
-The application services that utilize definition files can be replaced with custom Docker images. Example projects are provided for the runtime bundle, form service and DMN service so that definition XML and JSON files can be placed in the images:
-
-* [Runtime bundle](https://github.com/Alfresco/example-process-application/tree/master/example-process-runtime-bundle-service)
-* [Form service](https://github.com/Alfresco/example-process-application/tree/master/example-form-service)
-* [DMN service](https://github.com/Alfresco/example-process-application/tree/master/example-dmn-runtime-service)
-* [Script service](https://github.com/Alfresco/example-process-application/tree/master/example-script-runtime-service)
-
-**Note**: The layout of each project is almost identical. The runtime bundle project will be used as an example.
+## (Optional) Create custom image 
+The [application runtime bundle](https://github.com/Alfresco/example-process-application/tree/master/example-application-project/project) can be replaced with a custom Docker image. The definition XML and JSON files for processes, forms, DMN and scripts need to be placed in the relevant folders.
 
 1. Clone the example runtime bundle repository:
 
@@ -48,13 +41,13 @@ The application services that utilize definition files can be replaced with cust
 	git clone https://github.com/Alfresco/example-process-application.git
 	```
 
-2. Clear out the example files in the `/processes/` folder and insert the XML process definitions and JSON process extension files for the new application in their place. 
+2. Clear out the example files in the directories under the `/project/` folder and insert the XML process definitions and JSON process extension files for the new application in their place. 
 
 3. Edit the `Dockerfile` and set the location of where the XML and JSON files will be located in the created image. The default is `maven/processes`.
 
 4. Update the value of `{DOCKER_REGISTRY}` in the `env.sh` file to point to the Docker registry of the Kubernetes namespace. 
 
-5. Create and push the runtime bundle image using the following command: 
+5. Create and push the image using the following command: 
 
 	```bash
 	export DOCKER_IMAGE_TAG=<branch>
@@ -63,7 +56,7 @@ The application services that utilize definition files can be replaced with cust
 	```
 
 ## Set Helm chart values
-The Helm chart values require updating to point to the correct custom images and Kubernetes namespace.
+The Helm chart values require updating to point to the correct custom image and Kubernetes namespace.
 
 1. Clone the Helm chart: 
 
@@ -75,41 +68,16 @@ The Helm chart values require updating to point to the correct custom images and
 
 	1. Update the gateway and identity hosts and the domain name of the Kubernetes cluster.
 
-	2. If using any custom images then replace the location of each service with those pushed to the Docker registry. The following is an example of where to update the runtime bundle location: 
+	2. If using a custom image then replace the location of the service with those pushed to the Docker registry. The following is an example of where to update the application runtime bundle location: 
 
 		```yaml
     	runtime-bundle:
   		  enabled: true
   		...
   		image:
-    	  repository: activiti/example-runtime-bundle
+    	  repository: quay.io/alfresco/alfresco-process-runtime-bundle-service
     	  tag: "master"
   		...
-		```
-	
-	3. Add the location of the XML and JSON files that were set when the custom images were created. The following is an example for the runtime bundle: 
-
-		```yaml
-		-  extraEnv: |
-    		- name: SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX
-      	      value: "file:/process-definitions/"
-		```
-
-		**Note** The environment variables are different for each service:
-	
-		| Service | Environment variable | 
-		| ------- | -------------------- |
-		| Runtime bundle |  `SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX` |
-		| Form service | `FORMCONFIGURATION_FORMSDEFINITIONSDIRECTORYPATH` | 
-		| DMN service | `DMNCONFIGURATION_TABLESDEFINITIONSDIRECTORYPATH` |
-		| Script service | `SCRIPTCONFIGURATION_SCRIPTSDEFINITIONSDIRECTORYPATH` |
-	
-	4. Set the location of the [project manifest](../../modeling/projects.md#files) for the runtime bundle using the environment variable `PROJECT_MANIFEST_FILE_PATH`, for example: 
-
-		```yaml
-		-  extraEnv: |
-    		- name: PROJECT_MANIFEST_FILE_PATH
-      	   	   value: "file:project/project.json/"
 		```
 
 ## Configure a client in the Identity Service 
