@@ -215,6 +215,6 @@ Applications that have been successfully deployed can be removed using the **Und
 
 Applications in the process of being deployed or that have errored during deployment can be removed using the **Force Undeploy** action. 
 
-Links are provided for the gateway of each application as well as the URL of its [Process Workspace](../../workspace/README.md) and Content Application if the [UIs](../../modeling/interfaces.md) were configured in the application. 
+Links are provided for the gateway of each application as well as the URL of its [Process Workspace](../../workspace/README.md) and [Digital Workspace](https://docs.alfresco.com/adw/concepts/welcome-adw.html) if the [UIs](../../modeling/interfaces.md) were configured in the application. 
 
 An application that has been successfully deployed will use the application name for [API queries](../../apis/README.md). 

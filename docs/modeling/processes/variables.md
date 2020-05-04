@@ -17,7 +17,7 @@ Each process variable has four properties:
 | `required` | Sets whether the process variable must contain a value when a process instance is started | `false` | 
 | `value` | An optional default value for the process variable | `ice-cream` |
 
-**Note**: There are five process variable names that are created automatically and should not be used as custom process variable names. `initiator` stores the ID of the process initiator and `nrOfInstances`, `nrOfActiveInstances`, `nrOfCompletedInstances` and `loopCounter` are used by [multi-instance elements](../bpmn/multi.md).
+**Note**: There are five process variable names that are created automatically and should not be used as custom process variable names. `initiator` stores the ID of the process initiator and `nrOfInstances`, `nrOfActiveInstances`, `nrOfCompletedInstances` and `loopCounter` are used by [multi-instance elements](../processes/bpmn/multi.md).
 
 The following are the data types that process variables can be set as:
 
@@ -28,10 +28,10 @@ The following are the data types that process variables can be set as:
 | Boolean | A value of either `true` or `false` | `true` |
 | Date | A specific date in the format `YYYY-MM-DD` | `2020-04-22` | 
 | Datetime | A specific date and time in the format `YYYY-MM-DD HH:mm:ss` | `2020-09-10 22:30:00`
-| File | A [file](../modeling/files.md) uploaded into a process definition or as part of a process instance or task | 
+| File | A [file](../files.md) uploaded into a process definition or as part of a process instance or task | 
 | JSON | A JSON object | `{"flavor" : "caramel"}` | 
 
-Process variables are stored in the `properties` of the [`<process--definition-name>-extensions.json`](../modeling/projects.md#files) file with unique IDs and can also be viewed through the UI in the **Extensions Editor**: 
+Process variables are stored in the `properties` of the [`<process--definition-name>-extensions.json`](../projects.md#files) file with unique IDs and can also be viewed through the UI in the **Extensions Editor**: 
 
 The following is an example of an `<process-definition-name>-extensions.json` file or extensions editor:
 
