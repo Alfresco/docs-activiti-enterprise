@@ -94,7 +94,7 @@ kubectl create secret generic licenseaps --from-file=./activiti.lic
 		```
 
 ### (Optional) Include Alfresco Content Services (ACS)
-Alfresco Content Services (ACS) can be deployed with the infrastructure for the [process storage service](../architecture/platform.md#process-storage-service) to use for storing task and process data.
+Alfresco Content Services (ACS) can be deployed with the infrastructure to use for storing task and process data.
 
 Use the following command to include ACS in the deployment: 
 

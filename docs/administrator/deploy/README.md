@@ -112,7 +112,7 @@ To deploy a deployment descriptor using Helm an Identity Service client first ne
     "name": "app_client_name",
     "security": [
     {
-      "role": "APS_USER",
+      "role": "ACTIVITI_USER",
       "groups": [
         "insert_user_group"
       ],
@@ -121,7 +121,7 @@ To deploy a deployment descriptor using Helm an Identity Service client first ne
       ]
     },
     {
-      "role": "APS_ADMIN",
+      "role": "ACTIVITI_ADMIN",
       "groups": [],
       "users": [
         "insert_admin"
