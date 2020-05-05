@@ -27,7 +27,7 @@ The changelogs for each release are found in the `/config/<service-name>/liquiba
 ## Runtime bundle
 The runtime bundle upgrade scripts are created using a custom approach. 
 
-The [upgrade scripts](https://github.com/Activiti/Activiti/tree/develop/activiti-engine/src/main/resources/org/activiti/db/upgrade) are named slightly differently for the runtime bundle, for example:
+The [upgrade scripts](https://github.com/Activiti/Activiti/blob/7.1.0.M6/activiti-core/activiti-engine/src/main/resources/org/activiti/db/upgrade/) are named slightly differently for the runtime bundle, for example:
 
 ```
 activiti.postgres.upgradestep.7.1.0-M5.to.7.1.0-M6.engine.sql
