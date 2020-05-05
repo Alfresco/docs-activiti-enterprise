@@ -63,7 +63,7 @@ The following are the actions that can be configured for triggers:
 * Any [connector](../modeling/connectors/ootb.md) actions
 * [Start a process](#start-a-process)
 * [Send a signal](#send-a-signal)
-* [Send a message](#send-a-message)
+* [Receive a message](#receive-a-message)
 * [Send a start message](#send-a-start-message)
 
 #### Start a process
@@ -122,25 +122,24 @@ Actions are stored as a `payload`, for example using the send a signal action fo
 }
 ```
 
-#### Send a message
-The action to send a message will send a named [message](../modeling/processes/bpmn/message.md) when an event criteria are met. The payload for a send message action is:
+#### Receive a message
+The action to receive a message will send a named [message](../modeling/processes/bpmn/message.md) when an event criteria are met. The payload for a receive message action is:
 
 | Property | Description | Example | Required | 
 | -------- | ----------- | ------- | -------- |
 | `Name` | The name of the message to send. There must be an [intermediate message catching event](../modeling/processes/bpmn/message.md#message-intermediate-catch-events) or [message boundary event](../modeling/processes/bpmn/boundary.md#message-boundary-events) with the same name for the payload to be received. | Message_077epax | Yes | 
 | `correlationKey` | An optional [correlation key](../modeling/processes/bpmn/message.md#correlation-keys) can be provided for matching the message | 014-245 | No | 
-| `businessKey` | An optional business key can be sent with the message to contain custom values. | | No | 
-| `payloadType` | The payload type is set automatically to `MessageEventPayload`. | | Yes |
+| `payloadType` | The payload type is set automatically to `ReceiveMessagePayload`. | | Yes |
 | `variables` | Values from the trigger can be mapped to [process variables](../modeling/processes/variables.md). For a connector this will include the output parameters configured in the [connector event](../modeling/connectors/README.md#events) definition. As a signal can be caught by multiple catching events, the variables must be written in JSON format. | | No | 
 | `Source` | The source is automatically set and is the channel that the action is sent to | command-consumer | 
 
-Actions are stored as a `payload`, for example using the send a message action for the `EMAIL_RECEIVED` event of the [email connector](../modeling/connectors/ootb/email.md):
+Actions are stored as a `payload`, for example using the receive a message action for the `EMAIL_RECEIVED` event of the [email connector](../modeling/connectors/ootb/email.md):
 
 ```json
 "action": {
 	"source": "command-consumer",
 	"payload": {
-		"payloadType": "MessageEventPayload",
+		"payloadType": "ReceiveMessagePayload",
 		"name": "Message_077epax",
 		"correlationKey": "00-1245"
 	}
