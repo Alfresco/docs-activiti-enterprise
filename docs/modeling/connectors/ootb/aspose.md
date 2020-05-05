@@ -53,6 +53,7 @@ The following are the parameters that can be passed to the Aspose connector as i
 | `metadata` | The metadata to use in the template. If no value for `metadata` is passed then the inbound variable map will be used in the template | JSON | No |
 | `outputFormat` | Format to save the output document in. Values are `DOCX` or `PDF` | String | Yes |
 | `outputFileName` | The name of the generated file | String | No |
+| `targetFile` | The node ID of an existing file to overwrite with the generated document. | String | No |
 | `parentFolder` | The node ID of the folder to store the generated document in. If this value is set, the generated document will be output here and not to the default process instance folder for the process instance | String | No |
 
 `*` One of these parameters is required.   
@@ -73,3 +74,4 @@ The following are the configuration parameters that need to be set for the Aspos
 | Parameter | Description | Required? |
 | --------- | ----------- | --------- |
 | `ALFRESCO_CONTENT_REPO_BASE_URL` | The base URL of the Content Services deployment |
+`
