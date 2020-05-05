@@ -30,7 +30,7 @@ The following are the data types that process variables can be set as:
 | Datetime | A specific date and time in the format `YYYY-MM-DD HH:mm:ss` | `2020-09-10 22:30:00`
 | File | A [file](../modeling/files.md) uploaded into a process definition or as part of a process instance or task | 
 | JSON | A JSON object | `{"flavor" : "caramel"}` | 
-| Folder | A folder object described as JSON |  |
+| Folder | A folder object described as JSON | `"name": "mint-folder"` |
 | Array | A comma separated list of entries | `mint, strawberry, vanilla` will format to `["mint","strawberry","vanilla"]` |
 
 Process variables are stored in the `properties` of the [`<process--definition-name>-extensions.json`](../modeling/projects.md#files) file with unique IDs and can also be viewed through the UI in the **Extensions Editor**: 
