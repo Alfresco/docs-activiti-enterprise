@@ -3,7 +3,7 @@ Title: Content connector
 ---
 
 # Content connector
-The content connector can be used to execute actions against content in [Alfresco Content Services (ACS)](http://docs.alfresco.com/latest/concepts/welcome.html) as part of a process. The content connector is graphically represented by the Alfresco logo whilst modeling a process.
+The content connector can be used to execute actions against content in [Alfresco Content Services (ACS)](http://docs.alfresco.com/6.2/concepts/welcome.html) as part of a process. The content connector is graphically represented by the Alfresco logo whilst modeling a process.
 
 **Important**: The content connector requires a licensed version of Alfresco Content Services (ACS) to interact with.
 
@@ -39,7 +39,7 @@ The following input parameters are common between content connector actions:
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- | 
 | `nodeId` | *Required.\** The node ID of the node to operate on in Alfresco Content Services. | String | dioos2a1-2a22-4f42-820d-c2b628751121 |
-| `files` | *Required.\** A [file](../../files.md) uploaded in a process and set as a process variable or uploaded as part of a form or another connector to operate on. | File | |
+| `files` | *Required.\** A [file](../../files.md) uploaded in a project and set as a process variable or uploaded as part of a form or another connector to operate on. | File | |
 | `folders` | *Required.\** A [process variable](../../processes/variables.md) of type folder. | Folder | |
 | `locationPath` | *Required.\** The URI of a node to operate on. | String | alfresco:/bc67b437-f9e6-439c-b88b-6d49efa0f734 |
 | `searchQuery` | *Required.\** The query to use to find the nodes to operate on. | String | |
@@ -57,7 +57,7 @@ The following input parameters are common between content connector actions:
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- | 
 | `nodes` | *Optional.* A list of nodes operated on by the action. | Array | | 
-| `responses` | *Required.* The response from the action. For example the metadata of a node. | JSON | |
+| `responses` | *Required.* An list of HTTP responses from the action. | JSON | |
 | `content.error` | *Optional.* Any errors returned by the connector in performing the operation. | String | | 
 
 
@@ -79,7 +79,7 @@ The `CREATE_FOLDER` action is used to create new folders in the Alfresco Content
 | --------- | ----------- | ---- | ------- |
 | `folderName` | *Required.* A name for the folder. | String | 2020-shipments | 
 | `autorename` | *Optional.* If set to `true` then a suffix will be added to the folder name if a folder with that name already exists.| Boolean | True | 
-| `nodeType` | *Optional.* The node type for the new content. The default value is `cm:file` | String | cm:file | 
+| `nodeType` | *Optional.* The node type for the new content. The default value is `cm:folder` | String | cm:file | 
 | `include` | *Optional.* Additional information to return about the node. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions | 
 | `fields` | *Optional.* Set the list of properties to be returned about the node. | Array | id, name |
 
@@ -130,10 +130,12 @@ The `DELETE_CONTENT` action is used to delete files and folders from the Alfresc
 ### Update content permissions
 The `SET_PERMISSIONS` action is used to update the permissions for files or folders in the Alfresco Content Services repository.
 
+**Note**: Only one role can be assigned at a time. 
+
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
 | `users` | *Required.* A list of users to update permissions for. | Array | hruser, hradmin | 
-| `role` | *Required.* The roles to assign to the list of `users`. | String | Contributor |
+| `role` | *Required.* The role to assign to the list of `users`. | String | Contributor |
 | `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
 | `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | False | 
 | `include` | *Optional.* Additional information to return about the node. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions | 
@@ -144,7 +146,7 @@ The `UPDATE_TAG` action is used to update tags for files and folders in the Alfr
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `tag` | *Required.* A list of tags to update for the node. | Array | 2020, orders, online |
+| `tags` | *Required.* A list of tags to update for the node. | Array | 2020, orders, online |
 | `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
 | `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | | 
 | `include` | *Optional.* Additional information to return about the node. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions | 
@@ -239,22 +241,8 @@ The following events can be configured as event [triggers](../../triggers.md) us
 * [Content moved](#content-moved)
 * [Content deleted](#content-deleted)
 
-### Content created
-This event is fired when a file or folder is created in Alfresco Content Services that matches the input parameters defined in the trigger event.
-
-For a file the event is called `FILE_CREATED`. 
-
-For a folder the event is called `FOLDER_CREATED`.
-
-#### Input parameters
-
-| Parameter | Description | Type | Example |
-| --------  | ----------- | ---- | ------- |
-| `nodeName` | The name of the node that is created. | String | 2020-orders | 
-| `parentFolder` | The node ID of the parent folder. | String | dioos2a1-2a22-4f42-820d-c2b628751121 | 
-| `nodeType` | The content type of the node that is created. | String | cm:file | 
-
-#### Output parameters
+### Common output parameters
+All events share a common set of output parameters:
 
 | Parameter | Description | Type | Example |
 | --------  | ----------- | ---- | ------- |
@@ -267,9 +255,22 @@ For a folder the event is called `FOLDER_CREATED`.
 | `properties` | The properties of the created node. | JSON | |
 | `affectedPropertiesBefore` | The properties of the node before the event. | JSON | | 
 | `affectedPropertiesAfter` | The properties of the node after the event. | JSON | | 
-| `aspects` | The aspects of the created node. | Array | | 
-| `aspectNamesBefore` | A list of the aspect names before the event. | Array | versionable | 
-| `aspectNamesAfter` | A list of the aspect names after the event. | Array | versionable, reviewed | 
+| `aspects` | The list of aspects of the created node that are prefixed. | Array | cm:versionable | 
+| `aspectNamesBefore` | A list of the prefixed aspect names before the event. | Array | cm:versionable | 
+| `aspectNamesAfter` | A list of the prefixed aspect names after the event. | Array | cm:versionable, cm:reviewed | 
+
+### Content created
+This event is fired when a file or folder is created in Alfresco Content Services that matches the input parameters defined in the trigger event.
+
+For a file the event is called `FILE_CREATED`. 
+
+For a folder the event is called `FOLDER_CREATED`.
+
+| Parameter | Description | Type | Example |
+| --------  | ----------- | ---- | ------- |
+| `nodeName` | The name of the node that is created. | String | 2020-orders | 
+| `parentFolder` | The node ID of the parent folder. | String | dioos2a1-2a22-4f42-820d-c2b628751121 | 
+| `nodeType` | The content type of the node that is created. | String | cm:file | 
 
 ### Content updated
 This event is fired when the properties of a file or folder in Alfresco Content Services are updated to match the input parameters defined in the trigger event.
@@ -278,62 +279,24 @@ For a file the event is called `FILE_UPDATED`.
 
 For a folder the event is called `FOLDER_UPDATED`.
 
-#### Input parameters
-
 | Parameter | Description | Type | Example |
 | --------  | ----------- | ---- | ------- |
 | `properties` | The properties that must be matched for the event to be fired. | JSON | | 
 | `parentFolder` | The node ID of the parent folder. | String | dioos2a1-2a22-4f42-820d-c2b628751121 | 
 | `nodeType` | The content type of the node that is updated. | String | cm:file | 
 
-#### Output parameters
-
-| Parameter | Description | Type | Example |
-| --------  | ----------- | ---- | ------- |
-| `type` | The Java class of the resource. | String | |
-| `id` | The node ID of the node that is updated. | String | dioos2a1-2a22-4f42-820d-c2b628751121 | 
-| `nodeType` | The content type that is updated. | String | cm:file | 
-| `isFile` | A flag for whether the node is a file. | Boolean | True | 
-| `isFolder` | A flag for whether the node is a folder. | Boolean | False | 
-| `primaryHierarchy` | An array of parent nodes | Array | ioos2a1-2a22-4f42-820d-c2b628751121, 164e0082-5ac1-4afa-a09b-619a8c79f66f | 
-| `properties` | The properties of the created node. | JSON | |
-| `affectedPropertiesBefore` | The properties of the node before the event. | JSON | | 
-| `affectedPropertiesAfter` | The properties of the node after the event. | JSON | | 
-| `aspects` | The aspects of the updated node. | Array | | 
-| `aspectNamesBefore` | A list of the aspect names before the event. | Array | versionable | 
-| `aspectNamesAfter` | A list of the aspect names after the event. | Array | versionable, reviewed | 
-
-### Contet moved
+### Content moved
 This event is fired when a file or folder is moved to a new location in Alfresco Content Services that matches the input parameters defined in the trigger event.
 
 For a file the event is called `FILE_MOVED`. 
 
 For a folder the event is called `FOLDER_MOVED`.
 
-#### Input parameters
-
 | Parameter | Description | Type | Example |
 | --------  | ----------- | ---- | ------- |
 | `sourceFolder` | The node ID of the folder the node originates from. | String | dioos2a1-2a22-4f42-820d-c2b628751121 | 
 | `targetFolder` | The node ID of the folder the node is moved to for an event to fire. | String | 164e0082-5ac1-4afa-a09b-619a8c79f66f | 
 | `nodeType` | The content type of the node that is moved. | String | cm:file | 
-
-#### Output parameters
-
-| Parameter | Description | Type | Example |
-| --------  | ----------- | ---- | ------- |
-| `type` | The Java class of the resource. | String | |
-| `id` | The node ID of the node that is moved. | String | dioos2a1-2a22-4f42-820d-c2b628751121 | 
-| `nodeType` | The content type that is moved. | String | cm:file | 
-| `isFile` | A flag for whether the node is a file. | Boolean | True | 
-| `isFolder` | A flag for whether the node is a folder. | Boolean | False | 
-| `primaryHierarchy` | An array of parent nodes | Array | ioos2a1-2a22-4f42-820d-c2b628751121, 164e0082-5ac1-4afa-a09b-619a8c79f66f | 
-| `properties` | The properties of the created node. | JSON | |
-| `affectedPropertiesBefore` | The properties of the node before the event. | JSON | | 
-| `affectedPropertiesAfter` | The properties of the node after the event. | JSON | | 
-| `aspects` | The aspects of the moved node. | Array | | 
-| `aspectNamesBefore` | A list of the aspect names before the event. | Array | versionable | 
-| `aspectNamesAfter` | A list of the aspect names after the event. | Array | versionable, reviewed | 
 
 ### Content deleted
 This event is fired when a file or folder is deleted from Alfresco Content Services that matches the input parameters defined in the trigger event.
@@ -342,26 +305,8 @@ For a file the event is called `FILE_DELETED`.
 
 For a folder the event is called `FOLDER_DELETED`.
 
-#### Input parameters
-
 | Parameter | Description | Type | Example |
 | --------  | ----------- | ---- | ------- |
 | `parentFolder` | The node ID of the folder the node is deleted in. | String | dioos2a1-2a22-4f42-820d-c2b628751121 | 
 | `nodeType` | The content type of the node that is deleted. | String | cm:file | 
 
-#### Output parameters
-
-| Parameter | Description | Type | Example |
-| --------  | ----------- | ---- | ------- |
-| `type` | The Java class of the resource. | String | |
-| `id` | The node ID of the node that is deleted. | String | dioos2a1-2a22-4f42-820d-c2b628751121 | 
-| `nodeType` | The content type that is deleted. | String | cm:file | 
-| `isFile` | A flag for whether the node is a file. | Boolean | True | 
-| `isFolder` | A flag for whether the node is a folder. | Boolean | False | 
-| `primaryHierarchy` | An array of parent nodes | Array | ioos2a1-2a22-4f42-820d-c2b628751121, 164e0082-5ac1-4afa-a09b-619a8c79f66f | 
-| `properties` | The properties of the deleted node. | JSON | |
-| `affectedPropertiesBefore` | The properties of the node before the event. | JSON | | 
-| `affectedPropertiesAfter` | The properties of the node after the event. | JSON | | 
-| `aspects` | The aspects of the deleted node. | Array | | 
-| `aspectNamesBefore` | A list of the aspect names before the event. | Array | versionable | 
-| `aspectNamesAfter` | A list of the aspect names after the event. | Array | versionable, reviewed | 
