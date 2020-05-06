@@ -62,6 +62,7 @@ The following are the parameters that can be passed to the DocuSign connector as
 | `timeout` | The time to wait for the document to be signed expressed in seconds | Integer | No | 
 | `parentFolder` | The node ID of the folder to store the signed document in. If this value is set, the generated document will be output here and not to the default process instance folder for the process instance | String | No |
 | `outputFileName` | The name of the signed document | String | No |
+| `targetFile` | The node ID of an existing file to overwrite with the signed document. | String | No |
 | `nodeType` | The node type assigned to the signed document in ACS. The default is `cm:content` | String | No |
 
 `*` One of these parameters is required.   
