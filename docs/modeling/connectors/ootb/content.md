@@ -66,7 +66,7 @@ The `CREATE_NODE` action is used to upload files to the Alfresco Content Service
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `name` | *Required.* A name for the file. | String | January Orders | 
+| `name` | *Required.* A name for the file including an extension. | String | January Orders.docx | 
 | `autorename` | *Optional.* If set to `true` then a suffix will be added to the file name if a file with that name already exists.| Boolean | True | 
 | `nodeType` | *Optional.* The node type for the new content. The default value is `cm:content` | String | cm:content | 
 | `include` | *Optional.* Additional information to return about the node. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions | 
@@ -124,8 +124,8 @@ The `DELETE_CONTENT` action is used to delete files and folders from the Alfresc
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
 | `permanent` | *Optional.* If set to `true` the content will be permanently deleted instead of being moved to the trash can. | Boolean | False |
-| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
-| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | False | 
+| `useFiles` | *Optional.* Set to `true` to only include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to only include folders in the search query. | Boolean | False | 
 
 ### Update content permissions
 The `SET_PERMISSIONS` action is used to update the permissions for files or folders in the Alfresco Content Services repository.
@@ -136,8 +136,8 @@ The `SET_PERMISSIONS` action is used to update the permissions for files or fold
 | --------- | ----------- | ---- | ------- |
 | `users` | *Required.* A list of users to update permissions for. | Array | hruser, hradmin | 
 | `role` | *Required.* The role to assign to the list of `users`. | String | Contributor |
-| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
-| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | False | 
+| `useFiles` | *Optional.* Set to `true` to only include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to only include folders in the search query. | Boolean | False | 
 | `include` | *Optional.* Additional information to return about the node. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions | 
 | `fields` | *Optional.* Set the list of properties to be returned about the node. | Array | id, name |
 
@@ -147,8 +147,8 @@ The `UPDATE_TAG` action is used to update tags for files and folders in the Alfr
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
 | `tags` | *Required.* A list of tags to update for the node. | Array | 2020, orders, online |
-| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
-| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | | 
+| `useFiles` | *Optional.* Set to `true` to only include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to only include folders in the search query. | Boolean | False | 
 | `include` | *Optional.* Additional information to return about the node. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions | 
 | `fields` | *Optional.* Set the list of properties to be returned about the node. | Array | id, name |
 
@@ -158,8 +158,8 @@ The `UPDATE_METADATA` action is used to update the metadata for files and folder
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
 | `metadata` | *Required,* The metadata to assign to the node. | *content-metadata** | | 
-| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
-| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | False | 
+| `useFiles` | *Optional.* Set to `true` to only include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to only include folders in the search query. | Boolean | False | 
 | `include` | *Optional.* Additional information to return about the node. Values include: `properties`, `aspectNames`, `path`, `isLink`, `allowableOperations`, `association`, `isLocked`, `permissions`. | Array | properties, permissions | 
 | `fields` | *Optional.* Set the list of properties to be returned about the node. | Array | id, name |
 
@@ -171,8 +171,8 @@ The `LOCK_NODE` action is used to lock a node in the Alfresco Content Services r
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
 | `nodeBodyLock` | *Required.* | JSON | *Example below.* |
-| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
-| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | False | 
+| `useFiles` | *Optional.* Set to `true` to only include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to only include folders in the search query. | Boolean | False | 
 
 The following is an example of the `nodeBodyLock` syntax:
 
@@ -191,8 +191,8 @@ The `UNLOCK_NODE` action is used to unlock a node in the Alfresco Content Servic
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
-| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | False | 
+| `useFiles` | *Optional.* Set to `true` to only include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to only include folders in the search query. | Boolean | False | 
 
 ### Select a file
 The `SELECT_FILE` action is used to select a file from the Alfresco Content Services repository to be used in the process.
@@ -217,8 +217,8 @@ The `SELECT_METADATA` action is used to select the metadata from a file or folde
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `useFiles` | *Optional.* Set to `true` to include files in the search query.  | Boolean | True |
-| `useFolders`| *Optional.* Set to `true` to include folders in the search query. | Boolean | False | 
+| `useFiles` | *Optional.* Set to `true` to only include files in the search query.  | Boolean | True |
+| `useFolders`| *Optional.* Set to `true` to only include folders in the search query. | Boolean | False | 
 
 The following is an example response of the selected metadata:
 
