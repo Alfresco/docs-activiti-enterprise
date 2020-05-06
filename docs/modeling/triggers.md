@@ -65,6 +65,7 @@ The following are the actions that can be configured for triggers:
 * [Send a signal](#send-a-signal)
 * [Receive a message](#receive-a-message)
 * [Send a start message](#send-a-start-message)
+* [Execute a script](#execute-a-script)
 
 #### Start a process
 The action to start a process will begin a specific process instance when event are met. The payload for the start a process action is:
@@ -172,3 +173,12 @@ Actions are stored as a `payload`, for example using the send a start message ac
 	}
 }
 ```
+
+#### Execute a script
+The action to execute a script will execute a named [script](../modeling/scripts.md) that exists in the same project as the trigger.
+
+| Property | Description | Example | Required | 
+| -------- | ----------- | ------- | -------- |
+| `scriptName` | The name of the script is automatically populated from the selected script. | update-orders-script | Yes | 
+| `scriptId` | The ID of the script is automatically populated from the selected script. | 19ced673-e701-4e6c-ace6-f8aaee5455eb | Yes | 
+| `variables` | Values from the trigger can be mapped to script variables. | | No | 
