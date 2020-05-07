@@ -5,7 +5,7 @@ Title: Connectors
 # Connectors
 Connectors are used to handle interactions between external systems and a process. 
 
-Connectors execute their logic outside of the [runtime bundle](../../architecture/application.md#runtime-bundle) with values being passed between a connector and a process as inputs and outputs. [Service tasks](../processes/bpmn/service.md) are used in a process definition to implement connectors.
+Connectors execute their logic outside of the [application runtime bundle](../../architecture/application.md#application-runtime-bundle) with values being passed between a connector and a process as inputs and outputs. [Service tasks](../processes/bpmn/service.md) are used in a process definition to implement connectors.
 
 Examples of what connectors can be used for include:
 
@@ -179,6 +179,6 @@ Configuration parameters are stored in the `config` section of the connector JSO
 ```
 
 ### Connector images
-Connectors are deployed as separate Docker images with an application. The communication between the connector and the runtime bundle uses the [message broker](../../architecture/application.md#rabbit-mq), by default Rabbit MQ.
+Connectors are deployed as separate Docker images with an application. The communication between the connector and the application runtime bundle uses the [message broker](../../architecture/application.md#rabbit-mq), by default Rabbit MQ.
 
 The images for the out of the box connectors supplied with Activiti Enterprise are pulled from [Quay.io](https://quay.io). Custom connectors can be hosted on another Docker registry as long as a secret is created in the Activiti Enterprise infrastructure namespace. Alternatively custom images can be hosted on a publicly hosted container repository such as [Docker Hub](https://hub.docker.com/).
