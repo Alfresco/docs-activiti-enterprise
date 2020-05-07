@@ -60,7 +60,7 @@
                         - aspose.md: 'Aspose connector'                        
                         - camel.md: 'Camel connector'
                         - comprehend.md: 'Comprehend connector'
-                        - dbp.md: 'DBP connector'
+                        - content.md: 'Content connector'
                         - docusign.md: 'Docusign connector'
                         - email.md: 'Email connector'
                         - lambda.md: 'Lambda connector'

@@ -53,6 +53,7 @@ The following are the parameters that can be passed to the Aspose connector as i
 | `metadata` | The metadata to use in the template. If no value for `metadata` is passed then the inbound variable map will be used in the template | JSON | No |
 | `outputFormat` | Format to save the output document in. Values are `DOCX` or `PDF` | String | Yes |
 | `outputFileName` | The name of the generated file | String | No |
+| `targetFile` | An existing file to overwrite with the generated document | File | No |
 | `parentFolder` | The node ID of the folder to store the generated document in. If this value is set, the generated document will be output here and not to the default process instance folder for the process instance | String | No |
 
 `*` One of these parameters is required.   
@@ -65,11 +66,12 @@ The following is the parameter that is returned to the process by the Aspose con
 | `docgen.result` | The generated document | File | 
 | `docgen.error` | A list of errors if any are caught by the connector | String |
 
-## Connector variables
-Environment variables that are specific to a connector need to be specified during deployment. They are entered as connector variables and used as environment variables for the connector when it is deployed. 
+## Configuration parameters
+Values for configuration parameters that are specific to a connector instance can be set in the modeling application or during application deployment.
 
-The following are the properties that need to be set for the Aspose connector: 
+The following are the configuration parameters that need to be set for the Aspose connector: 
 
-| Variable | Description | Required? |
-| -------- | ----------- | --------- |
+| Parameter | Description | Required? |
+| --------- | ----------- | --------- |
 | `ALFRESCO_CONTENT_REPO_BASE_URL` | The base URL of the Content Services deployment |
+`

@@ -17,7 +17,7 @@ Each process variable has four properties:
 | `required` | Sets whether the process variable must contain a value when a process instance is started | `false` | 
 | `value` | An optional default value for the process variable | `ice-cream` |
 
-**Note**: There are five process variable names that are created automatically and should not be used as custom process variable names. `initiator` stores the ID of the process initiator and `nrOfInstances`, `nrOfActiveInstances`, `nrOfCompletedInstances` and `loopCounter` are used by [multi-instance elements](../bpmn/multi.md).
+**Note**: There are four process variable names that are created automatically and should not be used as custom process variable names. `nrOfInstances`, `nrOfActiveInstances`, `nrOfCompletedInstances` and `loopCounter` are used by [multi-instance elements](../processes/bpmn/multi.md).
 
 The following are the data types that process variables can be set as:
 
@@ -30,6 +30,8 @@ The following are the data types that process variables can be set as:
 | Datetime | A specific date and time in the format `YYYY-MM-DD HH:mm:ss` | `2020-09-10 22:30:00`
 | File | A [file](../files.md) uploaded into a process definition or as part of a process instance or task | 
 | JSON | A JSON object | `{"flavor" : "caramel"}` | 
+| Folder | A folder object described as JSON | `"name": "mint-folder"` |
+| Array | A comma separated list of entries | `mint, strawberry, vanilla` will format to `["mint","strawberry","vanilla"]` |
 
 Process variables are stored in the `properties` of the [`<process--definition-name>-extensions.json`](../projects.md#files) file with unique IDs and can also be viewed through the UI in the **Extensions Editor**: 
 
@@ -69,12 +71,21 @@ The following is an example payload for `POST rb/v1/process-instances` in the ru
 {
   "payloadType": "StartProcessPayload",
   "processDefinitionId": "Process_MAigMN6p:1:bbfdea14-4907-11ea-9908-deb52b497d16",
-  "variables": {
-    "area_code": 472,
-    "district" : "North"
-   }
+		"variables": {
+			"area_code": {
+				"type": "integer",
+				"value": "472"
+    },
+			"district": {
+				"type": "string",
+				"value": "North"
+    },
+			"age" : 50
+  }
 }
 ```
+
+**Note**: Variables can be declared with or without a type and value. If a type is declared then the value should always be the string representation of the value, for example `"472"` for an integer in the example rather than `472`. If a type is not declared then the engine will attempt to guess it, as in the `age` example. 
 
 ## Mapping variables
 Process variables in a process can be mapped to and from parameters in BPMN elements such as [task variables](../forms/README.md#form-variables), [script variables](../scripts.md#script-variables) and [decision table values](../decisions.md). Input mapping is used to set the process variable sent from the process to the BPMN element and output mapping is used to set the target process variable to receive the results from the BPMN element after it has been executed.

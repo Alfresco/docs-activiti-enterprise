@@ -45,19 +45,17 @@ The Slack connector requires a Slack application and a Slack bot in order to fun
 
 	`https://api.slack.com/apps/<app_id>/oauth`
 	
-	The tokens will need to be set as [connector variables](#connector-variables) when 	deploying the Slack connector.
+	The tokens will need to be set as [configuration parameters](#configuration-parameters) for the connector.
 
-## Connector variables
-Environment variables that are specific to a connector need to be specified during deployment. They are entered as connector variables and used as environment variables for the connector when it is deployed. 
+## Configuration parameters
+Values for configuration parameters that are specific to a connector instance can be set in the modeling application or during application deployment.
 
-The following are the properties that need to be set for the Slack connector: 
+The following are the configuration parameters that need to be set for the Slack connector: 
 
-| Variable | Description |
-| -------- | ----------- |
+| Parameter | Description |
+| --------- | ----------- |
 | `SLACK_XOXB` | The Slack bot user token obtained from [configuring](#slack-configuration) Slack beginning *xoxb-* |
 | `SLACK_XOXP` | The Slack bot admin user token obtained from [configuring](#slack-configuration) Slack beginning *xoxp-* |
-
-
 
 ## Actions
 The Slack connector contains two actions: 

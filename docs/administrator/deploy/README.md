@@ -57,12 +57,7 @@ To create a deployment descriptor in the UI:
 		* If you created the connector yourself, this will be the name of the connector and the URL of the image you published.
 		* If this is an OOTB connector then the name and image are configured automatically. 
 
-	6. Set the connector variables in JSON format. For example, if using the [email connector](../../modeling/connectors/ootb/email.md) you can set the variables `EMAIL_HOST` and `EMAIL_PORT` with the following: 
-
-		```json
-		{"EMAIL_HOST":"https://mysmtp.com","EMAIL_PORT":"8050"}
-		```
-		
+	6. Configure any additional configuration parameters or override the existing ones for the connectors that are part of the application.		
 	7. (Optional) [Customize any application infrastructure](../deploy/infrastructure.md) on the **Infrastructure** tab before deploying.
 
 		**Note**: This includes using custom Docker images, setting custom variables to set external PostgreSQL instances and configuring an event bridge. 
@@ -117,7 +112,7 @@ To deploy a deployment descriptor using Helm an Identity Service client first ne
     "name": "app_client_name",
     "security": [
     {
-      "role": "APS_USER",
+      "role": "ACTIVITI_USER",
       "groups": [
         "insert_user_group"
       ],
@@ -126,7 +121,7 @@ To deploy a deployment descriptor using Helm an Identity Service client first ne
       ]
     },
     {
-      "role": "APS_ADMIN",
+      "role": "ACTIVITI_ADMIN",
       "groups": [],
       "users": [
         "insert_admin"
@@ -184,11 +179,7 @@ To deploy a project from a released project in the UI:
 		* If you created the connector yourself, this will be the name of the connector and the URL of the image you published.
 		* If this is an OOTB connector then the name and image are configured automatically. 
 
-	7. Set the connector variables in JSON format. For example, if using the [email connector](../../modeling/connectors/ootb/email.md) you can set the variables `EMAIL_HOST` and `EMAIL_PORT` with the following: 
-
-		```json
-		{"EMAIL_HOST":"https://mysmtp.com","EMAIL_PORT":"8050"}
-		```
+	7. Configure any additional configuration parameters or override the existing ones for the connectors that are part of the application.
 		
 	8. (Optional) [Customize any application infrastructure](../deploy/infrastructure.md) on the **Infrastructure** tab before deploying.
 
@@ -224,6 +215,6 @@ Applications that have been successfully deployed can be removed using the **Und
 
 Applications in the process of being deployed or that have errored during deployment can be removed using the **Force Undeploy** action. 
 
-Links are provided for the gateway of each application as well as the URL of its [Process Workspace](../../workspace/README.md) and Content Application if the [UIs](../../modeling/interfaces.md) were configured in the application. 
+Links are provided for the gateway of each application as well as the URL of its [Process Workspace](../../workspace/README.md) and [Digital Workspace](https://docs.alfresco.com/adw/concepts/welcome-adw.html) if the [UIs](../../modeling/interfaces.md) were configured in the application. 
 
 An application that has been successfully deployed will use the application name for [API queries](../../apis/README.md). 

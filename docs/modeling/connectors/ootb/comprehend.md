@@ -46,13 +46,13 @@ The following are the parameters that are returned to the process by the Compreh
 | `awsResult` | The result of the analysis from the the Comprehend service | JSON |
 | `aisResponse` | The result of the analysis in Alfresco Intelligence Service format| JSON |
 
-## Connector variables
-Environment variables that are specific to a connector need to be specified during deployment. They are entered as connector variables and used as environment variables for the connector when it is deployed. 
+## Configuration parameters
+Values for configuration parameters that are specific to a connector instance can be set in the modeling application or during application deployment.
 
-The following are the properties that need to be set for the Comprehend connector: 
+The following are the configuration parameters that need to be set for the Comprehend connector: 
 
-| Variable | Description | Required? |
-| -------- | ----------- | --------- |
+| Parameter | Description | Required? |
+| --------- | ----------- | --------- |
 | `AWS_ACCESS_KEY_ID` | The access key to be used to authenticate against AWS | Yes |
 | `AWS_SECRET_KEY` | The secret key to be used to authenticate against AWS | Yes |
 | `AWS_REGION` | The region of AWS to use the Comprehend service in | Yes | 

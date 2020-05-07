@@ -10,24 +10,14 @@ To upgrade a database, select the correct tag for the version you are upgrading 
 **Note**: If upgrading through multiple versions, apply the upgrade scripts sequentially.
 
 ## Databases
-All Activiti Enterprise databases use [Liquibase](http://www.liquibase.org/) to create upgrade scripts except for the [runtime bundle](../architecture/application.md#runtime-bundle).
+All Activiti Enterprise databases use [Liquibase](http://www.liquibase.org/) to create upgrade scripts except for the [application runtime bundle](../architecture/application.md#application-runtime-bundle).
 
-The changelogs for each release are found in the `/config/<service-name>/liquibase/changelog` folder of each repository for H2 and Postgres databases: 
-
-* [Modeling service](https://github.com/Alfresco/alfresco-modeling-service/tree/develop/src/main/resources/config/modeling/liquibase/changelog)
- 
-* [Deployment service](https://github.com/Alfresco/alfresco-deployment-servicetree/develop/src/main/resources/config/deployment/liquibase/changelog) 
-
-* [Audit service](https://github.com/Activiti/activiti-cloud-audit-service/blob/develop/activiti-cloud-starter-audit/src/main/resources/config/audit/liquibase/changelog/)
- 
-* [Form service](https://github.com/Alfresco/alfresco-form-service/tree/develop/src/main/resources/config/form/liquibase/changelog)
-
-* [Query service](https://github.com/Activiti/activiti-cloud-query-service/blob/develop/activiti-cloud-starter-query/src/main/resources/config/query/liquibase/changelog/)
+The changelogs for each release are found in the `/config/<service-name>/liquibase/changelog` folder of each repository for H2 and Postgres databases.
 
 ## Runtime bundle
 The runtime bundle upgrade scripts are created using a custom approach. 
 
-The [upgrade scripts](https://github.com/Activiti/Activiti/tree/develop/activiti-engine/src/main/resources/org/activiti/db/upgrade) are named slightly differently for the runtime bundle, for example:
+The [upgrade scripts](https://github.com/Activiti/Activiti/blob/7.1.0.M7/activiti-core/activiti-engine/src/main/resources/org/activiti/db/upgrade/) are named slightly differently for the runtime bundle, for example:
 
 ```
 activiti.postgres.upgradestep.7.1.0-M5.to.7.1.0-M6.engine.sql

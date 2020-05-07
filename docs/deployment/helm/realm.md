@@ -35,8 +35,8 @@ The following is the `ACTIVITI_ADMIN` role from the realm file:
 ## Users
 There is one service account and one user in the Activiti Enterprise realm that are used for communication between services:
 
-* The `storage-service` is used for storing task and process data in Alfresco Content Services. It is used by the [process storage service](../architecture/application.md#process-storage-service). 
-* The user `client` is called by the [runtime bundle](../architecture/application.md#runtime-bundle) to query user and group permissions to complete jobs such as assigning tasks. 
+* The `storage-service` is used for storing task and process data in Alfresco Content Services. It is used by the [application runtime bundle](../architecture/application.md#application-runtime-bundle). 
+* The user `client` is called by the [application runtime bundle](../architecture/application.md#runtime-bundle) to query user and group permissions to complete jobs such as assigning tasks. 
 
 The following is the `storage-service` service account from the realm file:
 
