@@ -12,7 +12,7 @@ You can log into the administration console for the Identity Service by navigati
 A default realm of **alfresco** is already setup with the installation of Alfresco Activiti Enterprise. 
 
 ## Improving API call performance 
-It is possible to improve the performance of API calls to the runtime bundle, query service and audit service by including a user's group membership in the JSON Web Token (JWT). 
+It is possible to improve the performance of API calls to the runtime bundle and query service by including a user's group membership in the JSON Web Token (JWT). 
 
 **Note**: Adding group membership to the JWT increases its size. It is advisable to add group membership only when there are not an excessive number of groups per user, otherwise the performance will be degraded rather than improved.
 

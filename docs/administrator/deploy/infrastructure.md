@@ -10,7 +10,7 @@ Certain aspects of the infrastructure can be configured on an application by app
 * [Deploying an application with custom images](#deploying-an-application-with-custom-images)
 
 ## Configuring external Postgres instances
-By default, data for the audit service, query service, notification service, preference service, form service and runtime bundle is stored in an instance of Postgres deployed into an application namespace. A number of options are available to update the Postgres storage options: 
+By default, data for the application runtime bundle and application query service is stored in an instance of Postgres deployed into an application namespace. A number of options are available to update the Postgres storage options: 
 
 * [Use an external Postgres instance for all services](#use-an-external-postgres-instance-for-all-services)
 * [Use separate an external Postgres instance(s) for each service](#use-an-external-postgres-instance(s)-for-each-service)
@@ -51,9 +51,9 @@ In the Administrator Application, this would look similar to the following:
 ![Example external Postgres deployment variables](../../images/deploy-postgres-external.png)
 
 ### Use an external Postgres instance(s) for each service
-An external instance of Postgres can be specified at the specific service level. This means that as few or as many services can use an external instance as required. The external instances can be different for each service. Any service that does not have a Postgres instance specified will use the `postgresql-service` settings as its default. 
+An external instance of Postgres can be specified at the service level. This means that as few or as many services can use an external instance as required. The external instances can be different for each service. Any service that does not have a Postgres instance specified will use the `postgresql-service` settings as its default. 
 
-The following is an example deployment payload where the query service is set to use an external instance of Postgres: 
+The following is an example deployment payload where the application query service is set to use an external instance of Postgres: 
 
 ```json
 {
@@ -91,7 +91,7 @@ An external event bridge can be added to an application at deployment time that 
 * [Elasticsearch](#elasticsearch)
 * [Kafka](#kafka)
 
-Runtime events are events that are emitted by the [runtime bundle](../../architecture/application.md#runtime-bundle). 
+Runtime events are events that are emitted by the [application runtime bundle](../../architecture/application.md#application-runtime-bundle). 
 
 Integration events are events that are emitted by [connectors](../../modeling/connectors/README.md). For example, if using the [email connector](../../modeling/connectors/ootb/email.md), the event bridge will listen to events in the queue named `emailConnector.SEND`. 
 
@@ -127,14 +127,7 @@ The following are the key value pairs that can be set when using [Kafka](https:/
 | `SPRING_CLOUD_STREAM_KAFKA_BINDER_CONFIGURATION_SASL_JAAS_CONFIG` | The username and password for authentication, for example `org.apache.kafka.common.security.scram.ScramLoginModule required username="USERNAME" password="PASSWORD";` | 
 
 ## Deploying an application with custom images
-The application services that utilize definition files can be replaced with custom Docker images. Example projects are provided for the runtime bundle, form service and DMN service so that definition XML and JSON files can be placed in the images:
-
-* [Runtime bundle](https://github.com/Alfresco/example-process-application/tree/master/example-process-runtime-bundle-service)
-* [Form service](https://github.com/Alfresco/example-process-application/tree/master/example-form-service)
-* [DMN service](https://github.com/Alfresco/example-process-application/tree/master/example-dmn-runtime-service)
-* [Script service](https://github.com/Alfresco/example-process-application/tree/master/example-script-runtime-service)
-
-**Note**: The layout of each project is almost identical. The runtime bundle project will be used as an example.
+The [application runtime bundle](https://github.com/Alfresco/example-process-application/tree/master/example-application-project/project) can be replaced with a custom Docker image. The definition XML and JSON files for processes, forms, DMN and scripts need to be placed in the relevant folders.
 
 1. Clone the example runtime bundle repository:
 
@@ -142,41 +135,16 @@ The application services that utilize definition files can be replaced with cust
 	git clone https://github.com/Alfresco/example-process-application.git
 	```
 
-2. Clear out the example files in the `/processes/` folder and insert the XML process definitions and JSON process extension files for the new application in their place. 
+2. Clear out the example files in the directories under the `/project/` folder and insert the XML process definitions and JSON process extension files for the new application in their place. 
 
-3. Edit the `Dockerfile` and set the location of where the XML and JSON files are located in the created image. The default is `maven/processes`.
+3. Edit the `Dockerfile` and set the location of where the XML and JSON files will be located in the created image. The default is `maven/processes`.
 
 4. Update the value of `{DOCKER_REGISTRY}` in the `env.sh` file to point to the Docker registry of the Kubernetes namespace. 
 
-5. Create and push the runtime bundle image using the following command: 
+5. Create and push the image using the following command: 
 
 	```bash
 	export DOCKER_IMAGE_TAG=<branch>
 	./build.sh
 	./push.sh
 	```
-
-**Important** When deploying an application that contains a custom image, environment variables need to be set that specify where the XML and JSON definitions are located in the Docker image. If [deploying a descriptor via Helm](../deploy/README.md#deploying-a-deployment-descriptor-via-helm) they can be set in the `extraEnv` section for the relevant image in the `values.yaml` file. If [deploying using the deployment service](#deployment-steps) then the variables need to be set as key value pairs for the corresponding images. The following is a table of the environment variables for each service:
-
-| Service | Environment variable | 
-| ------- | -------------------- |
-| Runtime bundle |  `SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX` |
-| Form service | `FORMCONFIGURATION_FORMSDEFINITIONSDIRECTORYPATH` | 
-| DMN service | `DMNCONFIGURATION_TABLESDEFINITIONSDIRECTORYPATH` |
-| Script service | `SCRIPTCONFIGURATION_SCRIPTSDEFINITIONSDIRECTORYPATH` |
-
-The following is an example of setting the runtime bundle path in the `extraEnv` section of a Helm chart:
-
-```yaml
--  extraEnv: |
-	- name: SPRING_ACTIVITI_PROCESSDEFINITIONLOCATIONPREFIX
-	- value: "file:/process-definitions/"
-```
-
-The location of the [project manifest](../../modeling/projects.md#files) also needs to be set for the runtime bundle using the environment variable `PROJECT_MANIFEST_FILE_PATH`, for example: 
-
-```yaml
--  extraEnv: |
-	- name: PROJECT_MANIFEST_FILE_PATH
-	- value: "file:project/project.json/"
-```
