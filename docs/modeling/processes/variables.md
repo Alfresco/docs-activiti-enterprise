@@ -71,12 +71,21 @@ The following is an example payload for `POST rb/v1/process-instances` in the ru
 {
   "payloadType": "StartProcessPayload",
   "processDefinitionId": "Process_MAigMN6p:1:bbfdea14-4907-11ea-9908-deb52b497d16",
-  "variables": {
-    "area_code": 472,
-    "district" : "North"
-   }
+		"variables": {
+			"area_code": {
+				"type": "integer",
+				"value": "472"
+    },
+			"district": {
+				"type": "string",
+				"value": "North"
+    },
+			"age" : 50
+  }
 }
 ```
+
+**Note**: Variables can be declared with or without a type and value. If a type is declared then the value should always be the string representation of the value, for example `"472"` for an integer in the example rather than `472`. If a type is not declared then the engine will attempt to guess it, as in the `age` example. 
 
 ## Mapping variables
 Process variables in a process can be mapped to and from parameters in BPMN elements such as [task variables](../forms/README.md#form-variables), [script variables](../scripts.md#script-variables) and [decision table values](../decisions.md). Input mapping is used to set the process variable sent from the process to the BPMN element and output mapping is used to set the target process variable to receive the results from the BPMN element after it has been executed.
