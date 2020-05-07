@@ -111,32 +111,28 @@ A client needs to be created in the Identity Service as the application is deplo
 
 1. Create a file called `application.json` that contains the following information and place it in the route of the Helm chart project: 
 
-	* Update the users and groups for each role. At least one user or group needs to be assigned to each [role](../identity/README.md). 
-	* Update the `name` of the client. The name specified in the `application.json` will need to match the name of the Helm chart when it is deployed.
+	* The client `name` specified in the file must match the name of the Helm chart when it is deployed. 
+	
+	* The `ACTIVITI_ADMIN` and `ACTIVITI_USER` [roles](../identity/README.md) must contain at least one user or group each. 
 
 	```json
-	{
-    "name": "{application-client-name}",
-    "security": [
-    {
-      "role": "ACTIVITI_USER",
-      "groups": [
-        "{group-name}"
-      ],
-      "users": [
-        "{user-name}"
-      ]
-    },
-    {
-      "role": "ACTIVITI_ADMIN",
-      "groups": [],
-      "users": [
-        "{admin-name}"
-      ]
-    }
-  	]
-	}
+{
+	"name": "orders-application",
+	"security" : [ {
+		"role" : "ACTIVITI_ADMIN",
+		"users" : [ "superadminuser", "hradmin" ],
+		"groups": []
+  		}, 
+  		{
+		"role" : "ACTIVITI_USER",
+		"users" : [ "hruser" ],
+		"groups": []
+  		}
+	]
+}
 	```
+	
+	**Note**: `hruser`, `hradmin` and `superadminuser` are users that exist in the default realm supplied with Activiti Enterprise. If using a custom realm, the users *must* already exist within the realm before moving onto the next step. 
 
 2. Run the following command to create, update or delete the image:
 
