@@ -88,7 +88,7 @@ The `UPDATE_CONTENT` action is used to upload new versions of files to the Alfre
 
 | Parameter | Description | Type | Example |
 | --------- | ----------- | ---- | ------- |
-| `name` | *Optional.* A name for the file. | String | January Orders | 
+| `name` | *Optional.* A name for the file including an extension. | String | January Orders.docx | 
 | `textSource` | *Optional.* The source for the update to the file in text format. | String | | 
 | `fileSource` | *Optional.* The source for the update to the file in [file](../../files.md) variable format. | File | orders-source | 
 | `majorVersion` | *Optional.* If set to `true` then a major version will be created for the file update. If set to `false` a minor version will be created. | Boolean | False | 
@@ -294,7 +294,6 @@ For a folder the event is called `FOLDER_MOVED`.
 
 | Parameter | Description | Type | Example |
 | --------  | ----------- | ---- | ------- |
-| `sourceFolder` | The node ID of the folder the node originates from. | String | dioos2a1-2a22-4f42-820d-c2b628751121 | 
 | `targetFolder` | The node ID of the folder the node is moved to for an event to fire. | String | 164e0082-5ac1-4afa-a09b-619a8c79f66f | 
 | `nodeType` | The content type of the node that is moved. | String | cm:file | 
 
