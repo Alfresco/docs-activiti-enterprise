@@ -181,4 +181,4 @@ The action to execute a script will execute a named [script](../modeling/scripts
 | -------- | ----------- | ------- | -------- |
 | `scriptName` | The name of the script is automatically populated from the selected script. | update-orders-script | Yes | 
 | `scriptId` | The ID of the script is automatically populated from the selected script. | 19ced673-e701-4e6c-ace6-f8aaee5455eb | Yes | 
-| `variables` | Values from the trigger can be mapped to script variables. | | No | 
+| `variables` | Values from the trigger event outputs can be mapped to script variables. | | No | 
