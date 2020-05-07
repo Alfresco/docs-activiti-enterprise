@@ -115,7 +115,7 @@ A client needs to be created in the Identity Service as the application is deplo
 	
 	* The `ACTIVITI_ADMIN` and `ACTIVITI_USER` [roles](../identity/README.md) must contain at least one user or group each. 
 
-	```json
+```json
 {
 	"name": "orders-application",
 	"security" : [ {
@@ -130,9 +130,9 @@ A client needs to be created in the Identity Service as the application is deplo
   		}
 	]
 }
-	```
+```
 	
-	**Note**: `hruser`, `hradmin` and `superadminuser` are users that exist in the default realm supplied with Activiti Enterprise. If using a custom realm, the users *must* already exist within the realm before moving onto the next step. 
+**Note**: `hruser`, `hradmin` and `superadminuser` are users that exist in the default realm supplied with Activiti Enterprise. If using a custom realm, the users *must* already exist within the realm before moving onto the next step. 
 
 2. Run the following command to create, update or delete the image:
 
