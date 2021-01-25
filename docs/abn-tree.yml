@@ -9,6 +9,7 @@
         - application.md: 'Application services'
         - events.md: 'Engine events'
         - ui.md: 'User interfaces' 
+- support: 'Supported Platforms'
 - deployment:
     title: 'Deployment'
     children:
